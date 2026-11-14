@@ -1,8 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import {
-  Mail,
+  ShieldCheck,
+  BookOpen,
+  Globe2,
+  Lock,
   Phone,
+  Mail,
   ChevronUp
 } from 'lucide-react';
 import { COMPANY_INFO } from '../data/siteData';
@@ -39,9 +43,26 @@ const WhatsAppIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
 );
 
 export const Footer: React.FC = () => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Smooth scroll handler to stay exclusively on the Homepage
+  const scrollTo = (id: string) => {
+    if (id === 'top') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    const elem = document.getElementById(id);
+    if (elem) {
+      elem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
+
+  const FOOTER_INDUSTRIES = [
+    'Manufacturing',
+    'Retail & Textile',
+    'Oil & Gas',
+    'Agro Chemical',
+    'Steel & Metallurgy',
+    'Pharma & Life Sciences'
+  ];
 
   return (
     <footer className="relative w-full bg-[#171a21] text-slate-300 font-sans border-t border-slate-800 overflow-hidden">
@@ -62,30 +83,30 @@ export const Footer: React.FC = () => {
       </div>
 
       {/* =========================================================================
-          MAIN 4-COLUMN LAYOUT WITH RICH FRAMER MOTION TEXT ANIMATIONS
-          Column 1: Logo & Company Bio & Socials
-          Column 2: Explore
-          Column 3: Contact (Address, Phone & Email)
-          Column 4: Gallery (6-Image Grid with Rounded Corners + Floating Action)
+          MAIN 4-COLUMN FOOTER LAYOUT (Exact Content + Homepage Smooth Scroll)
       ========================================================================= */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12 lg:pt-20 lg:pb-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
           
-          {/* Column 1: ZisanTech Logo & Bio (Span 4) */}
+          {/* 1. COLUMN 1: LOGO, CREDENTIALS, SAP GOLD PARTNER & BIO (Span 4) */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-4 space-y-5"
+            className="lg:col-span-4 space-y-4"
           >
-            {/* Logo with White Pill Container matching Navbar */}
+            {/* White Card Logo Container */}
             <div className="inline-block">
               <motion.a
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
-                href="/"
-                className="inline-block bg-white px-3.5 py-2 rounded-xl shadow-md group transition-all"
+                href="#top"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollTo('top');
+                }}
+                className="inline-block bg-white px-3.5 py-2 rounded-xl shadow-md group transition-all cursor-pointer"
               >
                 <img
                   src="/zisantech_official_logo.png"
@@ -98,7 +119,7 @@ export const Footer: React.FC = () => {
                 />
               </motion.a>
 
-              {/* Animated Horizontal Accent Line under logo */}
+              {/* Animated Horizontal Accent Line */}
               <motion.div
                 initial={{ width: 0 }}
                 whileInView={{ width: '100%' }}
@@ -108,7 +129,7 @@ export const Footer: React.FC = () => {
               />
             </div>
 
-            {/* Verified ZisanTech Company Bio with Fade-in Animation */}
+            {/* Official Enterprise Description */}
             <motion.p
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -116,15 +137,50 @@ export const Footer: React.FC = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-xs sm:text-sm text-slate-400 leading-relaxed font-normal pr-4"
             >
-              ZisanTech Solutions, a premier enterprise SAP S/4HANA consultancy in New Delhi, offers extensive expertise and innovative technology solutions to unlock your digital business potential.
+              ZisanTech Solutions is an enterprise SAP Consulting and Technology Practice. We drive full-lifecycle SAP S/4HANA Cloud implementations, legacy migrations, custom ERP automation, and career-oriented workforce training programs.
             </motion.p>
 
-            {/* Social Icons matching Reference Design with Hover Animations */}
+            {/* SAP Gold Partner Showcase Badge */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.25 }}
+              className="p-2.5 bg-white rounded-xl shadow-md border border-slate-700/30 flex items-center gap-3 w-fit"
+            >
+              <img
+                src="/sap_gold_partner_perfect.svg"
+                alt="SAP Gold Partner"
+                className="h-7 w-auto object-contain"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.src = '/sap_partner_logo.png';
+                }}
+              />
+              <div className="border-l border-slate-300 pl-3">
+                <div className="text-[11px] font-bold text-slate-900 leading-tight">Certified Partner</div>
+                <div className="text-[10px] text-slate-600 font-medium leading-tight">Enterprise SAP Delivery</div>
+              </div>
+            </motion.div>
+
+            {/* ISO Quality Standards Line */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.3 }}
+              className="flex items-center gap-2 text-xs text-slate-400 pt-1"
+            >
+              <ShieldCheck className="w-4 h-4 text-[#08B9E8] flex-shrink-0" />
+              <span>ISO 9001:2015 &amp; SAP Global Delivery Standards</span>
+            </motion.div>
+
+            {/* Clean Social Media Icons */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.35 }}
               className="pt-2 flex items-center gap-4 text-slate-400"
             >
               {[
@@ -150,19 +206,18 @@ export const Footer: React.FC = () => {
             </motion.div>
           </motion.div>
 
-          {/* Column 2: Explore (Span 2) */}
+          {/* 2. COLUMN 2: QUICK LINKS (Span 3) */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-2 space-y-4"
+            className="lg:col-span-3 space-y-4"
           >
             <div>
               <h4 className="text-base font-bold text-white font-heading tracking-wide">
-                Explore
+                QUICK LINKS
               </h4>
-              {/* Animated Accent Line under heading */}
               <motion.div
                 initial={{ width: 0 }}
                 whileInView={{ width: 48 }}
@@ -172,28 +227,55 @@ export const Footer: React.FC = () => {
               />
             </div>
 
+            {/* Special Blogs Pill Button */}
+            <motion.div
+              initial={{ opacity: 0, x: -10 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3 }}
+              className="pt-1 pb-2"
+            >
+              <a
+                href="#blogs"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollTo('blogs');
+                }}
+                className="inline-flex items-center gap-2 text-sm font-semibold text-[#08B9E8] hover:text-white transition-colors cursor-pointer group"
+              >
+                <BookOpen className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                <span>Blogs &amp; Tech Insights</span>
+                <span className="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-[#087FE5]/20 text-[#08B9E8] border border-[#087FE5]/40 ml-1">
+                  Articles
+                </span>
+              </a>
+            </motion.div>
+
             <ul className="space-y-2.5 text-xs sm:text-sm text-slate-400">
               {[
-                { title: 'About ZisanTech', href: '/about' },
-                { title: 'Services', href: '/services' },
-                { title: 'Training', href: '/training' },
-                { title: 'Industries', href: '/industries' },
-                { title: 'Career', href: '/career' },
-                { title: 'Blogs', href: '/blog' },
-                { title: 'Contact Us', href: '/contact' },
-                { title: 'Sitemap', href: '/services1/SAP SERVICES/1' }
+                { title: 'About ZisanTech', id: 'about' },
+                { title: 'SAP S/4HANA Implementations', id: 'services' },
+                { title: 'SAP Professional Training', id: 'training' },
+                { title: 'Industries We Serve', id: 'industries' },
+                { title: 'Why Choose ZisanTech', id: 'why-choose-zisantech' },
+                { title: 'Contact Support & Enquiries', id: 'contact' }
               ].map((link, idx) => (
                 <motion.li
                   key={link.title}
                   initial={{ opacity: 0, x: -10 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: 0.2 + idx * 0.05 }}
+                  transition={{ duration: 0.3, delay: 0.1 + idx * 0.04 }}
                 >
                   <a
-                    href={link.href}
-                    className="hover:text-white hover:translate-x-1.5 transition-all duration-200 inline-block py-0.5 group cursor-pointer"
+                    href={`#${link.id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollTo(link.id);
+                    }}
+                    className="hover:text-white hover:translate-x-1.5 transition-all duration-200 inline-flex items-center gap-1.5 py-0.5 group cursor-pointer"
                   >
+                    <span className="text-[#087FE5] group-hover:text-[#08B9E8] font-mono">›</span>
                     <span className="group-hover:text-[#08B9E8] transition-colors">
                       {link.title}
                     </span>
@@ -203,19 +285,18 @@ export const Footer: React.FC = () => {
             </ul>
           </motion.div>
 
-          {/* Column 3: Contact (Span 3) - Only Phone & Email as requested */}
+          {/* 3. COLUMN 3: INDUSTRIES (Span 2) */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.6, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-3 space-y-4"
+            className="lg:col-span-2 space-y-4"
           >
             <div>
               <h4 className="text-base font-bold text-white font-heading tracking-wide">
-                Contact
+                INDUSTRIES
               </h4>
-              {/* Animated Accent Line under heading */}
               <motion.div
                 initial={{ width: 0 }}
                 whileInView={{ width: 48 }}
@@ -225,7 +306,55 @@ export const Footer: React.FC = () => {
               />
             </div>
 
-            {/* Address */}
+            <ul className="space-y-2.5 text-xs sm:text-sm text-slate-400">
+              {FOOTER_INDUSTRIES.map((industry, idx) => (
+                <motion.li
+                  key={industry}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: 0.1 + idx * 0.04 }}
+                >
+                  <a
+                    href="#industries"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollTo('industries');
+                    }}
+                    className="hover:text-white hover:translate-x-1.5 transition-all duration-200 inline-flex items-center gap-1.5 py-0.5 group cursor-pointer"
+                  >
+                    <span className="text-[#087FE5] group-hover:text-[#08B9E8] font-mono">›</span>
+                    <span className="group-hover:text-[#08B9E8] transition-colors">
+                      {industry}
+                    </span>
+                  </a>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* 4. COLUMN 4: CORPORATE OFFICE & CONSULTATION (Span 3) */}
+          <motion.div
+            id="contact"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.6, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-3 space-y-4"
+          >
+            <div>
+              <h4 className="text-base font-bold text-white font-heading tracking-wide">
+                CORPORATE OFFICE
+              </h4>
+              <motion.div
+                initial={{ width: 0 }}
+                whileInView={{ width: 48 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="h-[2px] bg-[#087FE5] mt-2.5"
+              />
+            </div>
+
             <motion.p
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -233,12 +362,11 @@ export const Footer: React.FC = () => {
               transition={{ duration: 0.4, delay: 0.3 }}
               className="text-xs sm:text-sm text-slate-400 leading-relaxed"
             >
-              {COMPANY_INFO.address}
+              Commercial Business District, New Delhi, India
             </motion.p>
 
-            {/* Clean Phone, WhatsApp & Email - Only Official ZisanTech Contacts */}
-            <div className="space-y-3 pt-2 text-xs sm:text-sm">
-              {/* Phone */}
+            {/* Direct Official Phone & Email */}
+            <div className="space-y-2 pt-1 text-xs sm:text-sm">
               <motion.a
                 initial={{ opacity: 0, x: -10 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -253,100 +381,56 @@ export const Footer: React.FC = () => {
                 </span>
               </motion.a>
 
-              {/* WhatsApp */}
               <motion.a
                 initial={{ opacity: 0, x: -10 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.35, delay: 0.4 }}
-                href="https://wa.me/918797818499"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2.5 text-slate-300 hover:text-white transition-all duration-200 group cursor-pointer"
-              >
-                <div className="w-4 h-4 flex items-center justify-center text-[#25D366] group-hover:scale-110 transition-transform flex-shrink-0">
-                  <WhatsAppIcon className="w-4 h-4" />
-                </div>
-                <span className="font-semibold text-white tracking-wide group-hover:text-[#25D366] group-hover:translate-x-1 transition-all">
-                  +91 8797818499
-                </span>
-                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
-                  WhatsApp
-                </span>
-              </motion.a>
-
-              {/* Email */}
-              <motion.a
-                initial={{ opacity: 0, x: -10 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.35, delay: 0.45 }}
                 href="mailto:info@zisantech.com"
                 className="flex items-center gap-2.5 text-slate-300 hover:text-white transition-all duration-200 group cursor-pointer"
               >
                 <Mail className="w-4 h-4 text-[#087FE5] group-hover:text-[#08B9E8] group-hover:scale-110 transition-all flex-shrink-0" />
-                <span className="font-medium text-slate-300 group-hover:text-[#08B9E8] group-hover:translate-x-1 transition-transform">
+                <span className="text-slate-300 group-hover:text-[#08B9E8] group-hover:translate-x-1 transition-transform">
                   info@zisantech.com
                 </span>
               </motion.a>
             </div>
+
+            {/* Global Delivery Capabilities Card */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.4 }}
+              className="bg-slate-800/80 backdrop-blur border border-slate-700/80 rounded-xl p-4 space-y-3.5 shadow-lg"
+            >
+              <div className="flex items-center gap-2 text-white text-xs font-bold">
+                <Globe2 className="w-4 h-4 text-[#08B9E8]" />
+                <span>Global Delivery Capabilities</span>
+              </div>
+              <p className="text-[11px] text-slate-400 leading-normal">
+                Delivering verified SAP consulting for India, Middle East, and worldwide clients.
+              </p>
+              <motion.a
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollTo('contact');
+                }}
+                className="block text-center w-full py-2 px-3 bg-gradient-to-r from-[#087FE5] to-[#08B9E8] text-white font-bold text-xs rounded-lg shadow-md hover:shadow-lg transition-all cursor-pointer uppercase tracking-wider"
+              >
+                SCHEDULE CONSULTATION
+              </motion.a>
+            </motion.div>
           </motion.div>
 
-          {/* Column 4: Gallery (Span 3 - 6 Square Thumbnails + WhatsApp Direct Chat) */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.6, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-3 space-y-4 relative"
-          >
-            <div>
-              <h4 className="text-base font-bold text-white font-heading tracking-wide">
-                Gallery
-              </h4>
-              {/* Animated Accent Line under heading */}
-              <motion.div
-                initial={{ width: 0 }}
-                whileInView={{ width: 48 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="h-[2px] bg-[#087FE5] mt-2.5"
-              />
-            </div>
-
-            {/* 6 Square Grid Thumbnails with Staggered Fade & Zoom */}
-            <div className="grid grid-cols-3 gap-2 pt-1 max-w-[260px]">
-              {[
-                { src: '/gallery_thumb1.jpg', alt: 'Cybernetic AI Enterprise Intelligence' },
-                { src: '/gallery_thumb2.jpg', alt: 'Enterprise Semiconductor Processing' },
-                { src: '/gallery_thumb3.jpg', alt: 'SAP Implementation Consultants' },
-                { src: '/gallery_thumb4.jpg', alt: 'Modern Server Cloud Infrastructure' },
-                { src: '/gallery_thumb5.jpg', alt: 'Futuristic Robotic Automation' },
-                { src: '/gallery_thumb6.jpg', alt: 'Executive Technology Operations' }
-              ].map((img, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, scale: 0.85 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.3 + i * 0.06 }}
-                  whileHover={{ scale: 1.08 }}
-                  className="aspect-square rounded-sm overflow-hidden bg-slate-800 border border-slate-700/60 group cursor-pointer shadow-sm hover:border-[#08B9E8]/60 transition-colors"
-                >
-                  <img
-                    src={img.src}
-                    alt={img.alt}
-                    className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-125"
-                  />
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
         </div>
       </div>
 
       {/* =========================================================================
-          BOTTOM COPYRIGHT BAR (Pure ZisanTech Solutions)
+          BOTTOM COPYRIGHT BAR (Pure ZisanTech Solutions, #0f1116)
       ========================================================================= */}
       <div className="relative z-10 border-t border-slate-800 bg-[#0f1116] py-5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
@@ -356,49 +440,62 @@ export const Footer: React.FC = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="flex items-center gap-2 text-center sm:text-left mx-auto sm:mx-0"
+            className="flex flex-col sm:flex-row items-center gap-2 text-center sm:text-left"
           >
-            <span>© 2026 ZisanTech Solutions. All Rights Reserved.</span>
-            <span>|</span>
-            <a href="/payment" className="hover:text-slate-300 transition-colors">
+            <span>© {new Date().getFullYear()} ZisanTech Solutions. All Rights Reserved.</span>
+            <span className="hidden sm:inline">|</span>
+            <span>SAP, SAP S/4HANA, and RISE with SAP are registered trademarks of SAP SE.</span>
+          </motion.div>
+
+          <div className="flex items-center gap-4">
+            <a
+              href="#about"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollTo('about');
+              }}
+              className="hover:text-slate-300 transition-colors cursor-pointer"
+            >
               Privacy Policy
             </a>
             <span>|</span>
-            <a href="/services" className="hover:text-slate-300 transition-colors">
+            <a
+              href="#about"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollTo('about');
+              }}
+              className="hover:text-slate-300 transition-colors cursor-pointer"
+            >
               Terms of Service
             </a>
-          </motion.div>
+            <span>|</span>
+            <a
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollTo('contact');
+              }}
+              className="hover:text-slate-300 transition-colors flex items-center gap-1 cursor-pointer"
+            >
+              <Lock className="w-3 h-3 text-[#08B9E8]" /> Client Portal
+            </a>
 
-          {/* Round Scroll-To-Top Button with Spring Hover */}
-          <motion.button
-            whileHover={{ scale: 1.15, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={scrollToTop}
-            className="w-8 h-8 rounded-full bg-[#087FE5] hover:bg-[#08B9E8] text-white flex items-center justify-center shadow-md transition-all cursor-pointer flex-shrink-0"
-            aria-label="Scroll to top"
-          >
-            <ChevronUp className="w-4 h-4 stroke-[2.5]" />
-          </motion.button>
+            {/* Round Scroll-To-Top Button with Spring Hover */}
+            <motion.button
+              whileHover={{ scale: 1.15, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => scrollTo('top')}
+              className="w-8 h-8 rounded-full bg-[#087FE5] hover:bg-[#08B9E8] text-white flex items-center justify-center shadow-md transition-all cursor-pointer flex-shrink-0 ml-2"
+              aria-label="Scroll to top"
+            >
+              <ChevronUp className="w-4 h-4 stroke-[2.5]" />
+            </motion.button>
+          </div>
+
         </div>
       </div>
 
-      {/* Floating Official Green WhatsApp Button */}
-      <motion.a
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        whileHover={{ scale: 1.08 }}
-        whileTap={{ scale: 0.95 }}
-        href="https://wa.me/918797818499"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-40 inline-flex items-center gap-2.5 bg-[#25D366] hover:bg-[#20ba59] text-white px-4 py-3 rounded-full shadow-2xl shadow-[#25D366]/40 transition-all cursor-pointer group"
-        aria-label="Chat on WhatsApp (+91 8797818499)"
-      >
-        <WhatsAppIcon className="w-5 h-5 text-white flex-shrink-0" />
-        <span className="text-xs font-bold tracking-wide hidden sm:inline">
-          Chat on WhatsApp
-        </span>
-      </motion.a>
     </footer>
   );
 };
