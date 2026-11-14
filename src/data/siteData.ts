@@ -1304,7 +1304,7 @@ export const COMPANY_INFO = {
   studentsTrained: '3,500+',
   supportAvailability: '24/7 Enterprise SLA',
   primaryEmail: 'info@zisantech.com',
-  primaryPhone: '+91 87978 18499',
+  primaryPhone: '+91 8797818499',
   address: 'Commercial Business District, New Delhi, India',
   social: {
     linkedin: 'https://www.linkedin.com/company/zisantech-sapconsulting/',

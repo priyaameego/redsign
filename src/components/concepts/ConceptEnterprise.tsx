@@ -59,6 +59,12 @@ const YouTubeIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
   </svg>
 );
 
+const WhatsAppIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
+  <svg className={className} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M12.031 2C6.511 2 2.023 6.488 2.023 12.008c0 1.761.458 3.479 1.33 4.992L2 22l5.133-1.346c1.465.799 3.111 1.22 4.898 1.22 5.52 0 10.008-4.488 10.008-10.008C22.039 6.488 17.551 2 12.031 2zm5.842 14.225c-.243.684-1.416 1.309-1.956 1.389-.523.078-1.205.111-3.666-.889-2.915-1.185-4.809-4.148-4.954-4.341-.145-.193-1.179-1.571-1.179-2.997 0-1.426.747-2.128 1.012-2.418.265-.29.579-.362.772-.362.193 0 .386.002.555.01.179.008.418-.068.654.498.243.58.828 2.022.901 2.167.072.145.121.314.024.507-.097.193-.145.314-.29.483-.145.169-.304.377-.435.507-.145.145-.296.302-.128.59.169.29.749 1.237 1.607 2.002 1.104.984 2.035 1.29 2.325 1.435.29.145.459.121.628-.073.169-.193.724-.845.917-1.135.193-.29.386-.242.652-.145.265.097 1.688.796 1.978.941.29.145.483.217.555.338.072.121.072.701-.171 1.385z" />
+  </svg>
+);
+
 export const ConceptEnterprise: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -113,14 +119,14 @@ export const ConceptEnterprise: React.FC = () => {
     <div className="bg-white text-slate-800 font-sans selection:bg-[#063B83] selection:text-white overflow-hidden relative">
       
       {/* =========================================================================
-          AUTHENTIC FLOATING SOCIAL BAR (Visible on Left Edge like Reference Screenshots)
+          AUTHENTIC FLOATING SOCIAL BAR (Positioned on Right Edge)
       ========================================================================= */}
-      <div className="fixed left-0 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col items-center bg-white/95 backdrop-blur-md py-4 px-2 rounded-r-2xl shadow-xl border-y border-r border-slate-200 text-slate-600 gap-3">
-        <span className="text-[10px] font-bold tracking-widest text-slate-400 [writing-mode:vertical-lr] rotate-180 uppercase font-mono mb-1">
+      <div className="fixed right-0 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col items-center bg-white/95 backdrop-blur-md py-4 px-2 rounded-l-2xl shadow-xl border-y border-l border-slate-200 text-slate-600 gap-3">
+        <span className="text-[10px] font-bold tracking-widest text-slate-400 [writing-mode:vertical-lr] uppercase font-mono mb-1">
           — FOLLOW US
         </span>
         <a
-          href="https://linkedin.com"
+          href={COMPANY_INFO.social.linkedin}
           target="_blank"
           rel="noopener noreferrer"
           className="p-1.5 rounded-lg text-slate-600 hover:text-[#087FE5] hover:bg-blue-50 transition-colors"
@@ -153,7 +159,7 @@ export const ConceptEnterprise: React.FC = () => {
           className="p-1.5 rounded-lg text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 transition-colors"
           aria-label="WhatsApp"
         >
-          <MessageSquare className="w-4 h-4" />
+          <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
         </a>
       </div>
 
@@ -1554,15 +1560,6 @@ export const ConceptEnterprise: React.FC = () => {
           </div>
         </div>
       </section>
-
-      {/* Floating Action / Chat Button on the Right Edge */}
-      <a
-        href="#contact-cta"
-        className="fixed right-6 bottom-8 z-40 w-14 h-14 rounded-full bg-[#087FE5] hover:bg-[#063B83] text-white flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all group"
-        aria-label="Enquire / Chat"
-      >
-        <MessageSquare className="w-6 h-6 group-hover:scale-110 transition-transform" />
-      </a>
     </div>
   );
 };

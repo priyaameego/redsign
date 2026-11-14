@@ -3,9 +3,7 @@ import { motion } from 'framer-motion';
 import {
   Mail,
   Phone,
-  ChevronUp,
-  MessageSquare,
-  ArrowRight
+  ChevronUp
 } from 'lucide-react';
 import { COMPANY_INFO } from '../data/siteData';
 
@@ -31,6 +29,12 @@ const LinkedInIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
 const InstagramIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
   <svg className={className} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+  </svg>
+);
+
+const WhatsAppIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
+  <svg className={className} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M12.031 2C6.511 2 2.023 6.488 2.023 12.008c0 1.761.458 3.479 1.33 4.992L2 22l5.133-1.346c1.465.799 3.111 1.22 4.898 1.22 5.52 0 10.008-4.488 10.008-10.008C22.039 6.488 17.551 2 12.031 2zm5.842 14.225c-.243.684-1.416 1.309-1.956 1.389-.523.078-1.205.111-3.666-.889-2.915-1.185-4.809-4.148-4.954-4.341-.145-.193-1.179-1.571-1.179-2.997 0-1.426.747-2.128 1.012-2.418.265-.29.579-.362.772-.362.193 0 .386.002.555.01.179.008.418-.068.654.498.243.58.828 2.022.901 2.167.072.145.121.314.024.507-.097.193-.145.314-.29.483-.145.169-.304.377-.435.507-.145.145-.296.302-.128.59.169.29.749 1.237 1.607 2.002 1.104.984 2.035 1.29 2.325 1.435.29.145.459.121.628-.073.169-.193.724-.845.917-1.135.193-.29.386-.242.652-.145.265.097 1.688.796 1.978.941.29.145.483.217.555.338.072.121.072.701-.171 1.385z" />
   </svg>
 );
 
@@ -61,7 +65,7 @@ export const Footer: React.FC = () => {
           MAIN 4-COLUMN LAYOUT WITH RICH FRAMER MOTION TEXT ANIMATIONS
           Column 1: Logo & Company Bio & Socials
           Column 2: Explore
-          Column 3: Contact (Address, Emails, Phones with Clean Icons)
+          Column 3: Contact (Address, Phone & Email)
           Column 4: Gallery (6-Image Grid with Rounded Corners + Floating Action)
       ========================================================================= */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12 lg:pt-20 lg:pb-16">
@@ -124,11 +128,12 @@ export const Footer: React.FC = () => {
               className="pt-2 flex items-center gap-4 text-slate-400"
             >
               {[
+                { icon: <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />, href: "https://wa.me/918797818499", label: "WhatsApp" },
+                { icon: <LinkedInIcon className="w-4 h-4" />, href: COMPANY_INFO.social.linkedin, label: "LinkedIn" },
                 { icon: <TwitterIcon className="w-4 h-4" />, href: "https://twitter.com", label: "Twitter" },
                 { icon: <FacebookIcon className="w-4 h-4" />, href: "https://facebook.com", label: "Facebook" },
-                { icon: <LinkedInIcon className="w-4 h-4" />, href: "https://linkedin.com", label: "LinkedIn" },
                 { icon: <InstagramIcon className="w-4 h-4" />, href: "https://instagram.com", label: "Instagram" }
-              ].map((social, idx) => (
+              ].map((social) => (
                 <motion.a
                   key={social.label}
                   whileHover={{ scale: 1.25, y: -2 }}
@@ -198,7 +203,7 @@ export const Footer: React.FC = () => {
             </ul>
           </motion.div>
 
-          {/* Column 3: Contact (Span 3) */}
+          {/* Column 3: Contact (Span 3) - Only Phone & Email as requested */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -231,36 +236,63 @@ export const Footer: React.FC = () => {
               {COMPANY_INFO.address}
             </motion.p>
 
-            {/* Verified Emails & Phones with Brand Blue Icons & Interactive Hover */}
-            <div className="space-y-2.5 pt-1 text-xs sm:text-sm">
-              {[
-                { type: 'mail', text: 'marketing@zisantech.com', href: 'mailto:marketing@zisantech.com' },
-                { type: 'mail', text: 'sales@zisantech.com', href: 'mailto:sales@zisantech.com' },
-                { type: 'mail', text: COMPANY_INFO.primaryEmail, href: `mailto:${COMPANY_INFO.primaryEmail}` },
-                { type: 'phone', text: COMPANY_INFO.primaryPhone, href: `tel:${COMPANY_INFO.primaryPhone}` },
-                { type: 'phone', text: '+91 87978 18498', href: 'tel:+918797818498' }
-              ].map((contact, idx) => (
-                <motion.a
-                  key={contact.text}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.35, delay: 0.35 + idx * 0.05 }}
-                  href={contact.href}
-                  className="flex items-center gap-2.5 text-slate-400 hover:text-white transition-all duration-200 group cursor-pointer"
-                >
-                  {contact.type === 'mail' ? (
-                    <Mail className="w-4 h-4 text-[#087FE5] group-hover:text-[#08B9E8] group-hover:scale-110 transition-all flex-shrink-0" />
-                  ) : (
-                    <Phone className="w-4 h-4 text-[#087FE5] group-hover:text-[#08B9E8] group-hover:scale-110 transition-all flex-shrink-0" />
-                  )}
-                  <span className="group-hover:translate-x-1 transition-transform">{contact.text}</span>
-                </motion.a>
-              ))}
+            {/* Clean Phone, WhatsApp & Email - Only Official ZisanTech Contacts */}
+            <div className="space-y-3 pt-2 text-xs sm:text-sm">
+              {/* Phone */}
+              <motion.a
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, delay: 0.35 }}
+                href="tel:+918797818499"
+                className="flex items-center gap-2.5 text-slate-300 hover:text-white transition-all duration-200 group cursor-pointer"
+              >
+                <Phone className="w-4 h-4 text-[#087FE5] group-hover:text-[#08B9E8] group-hover:scale-110 transition-all flex-shrink-0" />
+                <span className="font-semibold text-white tracking-wide group-hover:translate-x-1 transition-transform">
+                  +91 8797818499
+                </span>
+              </motion.a>
+
+              {/* WhatsApp */}
+              <motion.a
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, delay: 0.4 }}
+                href="https://wa.me/918797818499"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2.5 text-slate-300 hover:text-white transition-all duration-200 group cursor-pointer"
+              >
+                <div className="w-4 h-4 flex items-center justify-center text-[#25D366] group-hover:scale-110 transition-transform flex-shrink-0">
+                  <WhatsAppIcon className="w-4 h-4" />
+                </div>
+                <span className="font-semibold text-white tracking-wide group-hover:text-[#25D366] group-hover:translate-x-1 transition-all">
+                  +91 8797818499
+                </span>
+                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                  WhatsApp
+                </span>
+              </motion.a>
+
+              {/* Email */}
+              <motion.a
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, delay: 0.45 }}
+                href="mailto:info@zisantech.com"
+                className="flex items-center gap-2.5 text-slate-300 hover:text-white transition-all duration-200 group cursor-pointer"
+              >
+                <Mail className="w-4 h-4 text-[#087FE5] group-hover:text-[#08B9E8] group-hover:scale-110 transition-all flex-shrink-0" />
+                <span className="font-medium text-slate-300 group-hover:text-[#08B9E8] group-hover:translate-x-1 transition-transform">
+                  info@zisantech.com
+                </span>
+              </motion.a>
             </div>
           </motion.div>
 
-          {/* Column 4: Gallery (Span 3 - 6 Square Thumbnails + Floating Action Button) */}
+          {/* Column 4: Gallery (Span 3 - 6 Square Thumbnails + WhatsApp Direct Chat) */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -309,29 +341,12 @@ export const Footer: React.FC = () => {
                 </motion.div>
               ))}
             </div>
-
-            {/* Right Chat Action Badge matching Reference Design with Float Animation */}
-            <div className="absolute -right-2 top-1/2 -translate-y-1/2 hidden sm:block">
-              <motion.a
-                animate={{ y: [0, -5, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-                whileHover={{ scale: 1.15 }}
-                whileTap={{ scale: 0.95 }}
-                href={`https://wa.me/${COMPANY_INFO.primaryPhone.replace(/\D/g, '')}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-12 h-12 rounded-full bg-gradient-to-tr from-[#087FE5] to-[#08B9E8] hover:from-[#08B9E8] hover:to-[#087FE5] text-white flex items-center justify-center shadow-lg shadow-[#087FE5]/40 transition-all cursor-pointer"
-                aria-label="Direct Chat"
-              >
-                <MessageSquare className="w-5 h-5 fill-current" />
-              </motion.a>
-            </div>
           </motion.div>
         </div>
       </div>
 
       {/* =========================================================================
-          BOTTOM COPYRIGHT BAR (Matching Reference Design with Smooth Transitions)
+          BOTTOM COPYRIGHT BAR (Pure ZisanTech Solutions)
       ========================================================================= */}
       <div className="relative z-10 border-t border-slate-800 bg-[#0f1116] py-5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
@@ -366,6 +381,24 @@ export const Footer: React.FC = () => {
           </motion.button>
         </div>
       </div>
+
+      {/* Floating Official Green WhatsApp Button */}
+      <motion.a
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        whileHover={{ scale: 1.08 }}
+        whileTap={{ scale: 0.95 }}
+        href="https://wa.me/918797818499"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-40 inline-flex items-center gap-2.5 bg-[#25D366] hover:bg-[#20ba59] text-white px-4 py-3 rounded-full shadow-2xl shadow-[#25D366]/40 transition-all cursor-pointer group"
+        aria-label="Chat on WhatsApp (+91 8797818499)"
+      >
+        <WhatsAppIcon className="w-5 h-5 text-white flex-shrink-0" />
+        <span className="text-xs font-bold tracking-wide hidden sm:inline">
+          Chat on WhatsApp
+        </span>
+      </motion.a>
     </footer>
   );
 };
