@@ -387,12 +387,12 @@ export const ConceptEnterprise: React.FC = () => {
             {/* Base Image: Team working around table */}
             <div className="relative w-full sm:w-[86%] rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-900 group">
               <img
-                src="/zisantech_collaborative_consulting.jpg"
+                src="/zisantech_target_team_base.jpg"
                 alt="ZisanTech Team Collaboration"
                 className="w-full h-[360px] sm:h-[420px] object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
-                  target.src = '/hero_sap_consulting_1.jpg';
+                  target.src = '/zisantech_collaborative_consulting.jpg';
                 }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#071B49]/50 via-transparent to-transparent pointer-events-none"></div>
@@ -405,9 +405,13 @@ export const ConceptEnterprise: React.FC = () => {
               className="relative sm:absolute sm:right-0 sm:bottom-6 w-full sm:w-[68%] rounded-3xl overflow-hidden shadow-2xl border-4 border-white mt-4 sm:mt-0 z-10 group bg-slate-900"
             >
               <img
-                src="/hero_sap_slide2.jpg"
+                src="/zisantech_target_earth_front.jpg"
                 alt="Digital Enterprise Cloud Mesh"
                 className="w-full h-[230px] sm:h-[260px] object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.src = '/zisantech_enterprise_cloud_mesh.jpg';
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#071B49]/40 via-transparent to-transparent pointer-events-none"></div>
             </motion.div>
@@ -699,13 +703,13 @@ export const ConceptEnterprise: React.FC = () => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-16 space-y-3"
         >
-          <span className="text-xs font-bold uppercase tracking-widest text-[#087FE5] font-mono">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#087FE5]">
             INDUSTRIES WE SERVE
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#071B49] font-heading tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#071B49] font-heading leading-tight tracking-tight">
             Digitize your industry performance with our top SAP ERP Solution
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-3xl mx-auto">
+          <p className="text-sm text-slate-600 leading-relaxed max-w-3xl mx-auto">
             Your industry-specific customized SAP ERP solutions for all business sizes, ensuring statutory compliance. We optimize processes, integrate best practices, and drive operational success.
           </p>
         </motion.div>
@@ -849,10 +853,10 @@ export const ConceptEnterprise: React.FC = () => {
                 <span className="w-2 h-2 rounded-full bg-[#0284C7]"></span>
                 <span>PROVEN ENTERPRISE PRACTICE</span>
               </div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#071B49] font-heading tracking-tight">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#071B49] font-heading leading-tight tracking-tight">
                 Enterprise SAP &amp; IT Services
               </h2>
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+              <p className="text-sm text-slate-600 leading-relaxed">
                 End-to-end consulting, migration, customization, and 24/7 managed support powered by certified SAP architects.
               </p>
             </div>
@@ -999,16 +1003,16 @@ export const ConceptEnterprise: React.FC = () => {
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#E0F2FE] border border-[#BAE6FD] text-[#0369A1] text-xs font-bold tracking-wide">
             <span>CAREER INCUBATION &amp; ENABLEMENT</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#071B49] font-heading tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#071B49] font-heading leading-tight tracking-tight">
             Take Your Careers to New Heights with the Leading ERP Solution Provider
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-sm text-slate-600 leading-relaxed max-w-2xl mx-auto">
             Upskill with real enterprise projects, 24/7 dedicated server sandboxes, and structured curriculum designed by veteran SAP consultants.
           </p>
         </motion.div>
 
         {/* 8 Module Cards in 2 Rows of 4 (Images 1 & 2 Exact Match) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
           {[
             {
               id: 'sap-sd',
@@ -1074,37 +1078,42 @@ export const ConceptEnterprise: React.FC = () => {
               viewport={{ once: true, margin: '-30px' }}
               transition={{ duration: 0.45, delay: idx * 0.05 }}
               whileHover={{ y: -6, scale: 1.015 }}
-              className="bg-white rounded-2xl p-6 sm:p-7 border border-[#e2e8f0] hover:border-[#69b1f0] shadow-sm hover:shadow-xl hover:shadow-sky-500/10 transition-all duration-300 flex flex-col justify-between group cursor-pointer relative overflow-hidden"
+              className="group relative bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl hover:shadow-[#087FE5]/15 border border-slate-200/90 hover:border-[#087FE5] transition-all duration-300 flex flex-col justify-between overflow-hidden cursor-pointer"
             >
-              {/* Soft Watermark Corner Curve (Exact Image 1 Match) */}
-              <div className="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-sky-100/40 pointer-events-none group-hover:scale-125 transition-transform duration-500" />
+              {/* Soft Watermark Corner Curve (Matching zisantech.vercel.app & Screenshot 1) */}
+              <div 
+                className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-[#087FE5]/10 to-transparent rounded-bl-full pointer-events-none group-hover:from-[#087FE5]/25 transition-all duration-500" 
+              />
 
-              <div className="relative z-10">
-                <div className="flex items-center justify-between">
-                  <span className="px-2.5 py-1 rounded bg-[#E0F2FE] text-[#0369A1] group-hover:bg-[#071B49] group-hover:text-white transition-colors text-[10px] font-bold font-mono tracking-wider">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-[11px] font-mono font-bold text-[#063B83] bg-blue-50/90 border border-blue-200/60 px-2.5 py-1 rounded-md shadow-xs group-hover:bg-[#063B83] group-hover:text-white transition-colors">
                     {mod.badge}
                   </span>
-                  <span className="text-[11px] font-medium text-slate-400 font-mono">
+                  <span className="text-[10px] font-bold text-slate-400 font-mono">
                     Live Sandbox
                   </span>
                 </div>
-                <h3 className="text-lg font-bold text-[#071B49] group-hover:text-[#087FE5] transition-colors leading-snug font-heading mt-4">
+
+                <h3 className="text-base font-bold text-[#071B49] group-hover:text-[#087FE5] transition-colors font-heading mb-2">
                   {mod.title}
                 </h3>
-                <p className="text-xs text-slate-600 line-clamp-3 leading-relaxed font-normal mt-2.5">
+
+                <p className="text-xs text-slate-600 line-clamp-3 mb-4 leading-relaxed font-normal">
                   {mod.desc}
                 </p>
               </div>
 
-              <div className="pt-5 mt-4 border-t border-slate-100 flex items-center justify-between text-xs relative z-10">
+              <div className="pt-4 border-t border-slate-100 flex items-center justify-between relative z-10">
                 <a
                   href="#contact"
-                  className="font-bold text-[#087FE5] group-hover:text-[#071B49] flex items-center gap-1 transition-colors cursor-pointer"
+                  className="text-xs font-bold text-[#087FE5] group-hover:text-[#063B83] flex items-center gap-1 group-hover:gap-1.5 transition-all cursor-pointer"
                 >
                   <span>Request Syllabus</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform" />
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </a>
-                <span className="text-slate-500 font-medium text-[11px] font-mono bg-slate-50 border border-slate-100 px-2.5 py-1 rounded">
+
+                <span className="text-[11px] font-semibold text-slate-500 font-mono bg-slate-50 px-2 py-0.5 rounded border border-slate-100">
                   {mod.duration}
                 </span>
               </div>
@@ -1136,10 +1145,10 @@ export const ConceptEnterprise: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="text-center max-w-3xl mx-auto mb-16 space-y-2"
           >
-            <span className="text-xs font-bold uppercase tracking-widest text-[#087FE5] font-mono">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#087FE5]">
               INSIGHTS &amp; PERSPECTIVES
             </span>
-            <h2 className="text-4xl sm:text-5xl font-extrabold text-[#071B49] font-heading tracking-tight mt-1">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#071B49] font-heading leading-tight tracking-tight mt-1">
               Blogs
             </h2>
             <div className="w-12 h-1 bg-[#087FE5] mx-auto mt-2 rounded-full"></div>
@@ -1249,22 +1258,21 @@ export const ConceptEnterprise: React.FC = () => {
       </section>
 
       {/* =========================================================================
-          ENTERPRISE CTA BANNER WITH CONTACT STRIP (Exact Screenshot Match: 2-tone colors)
+          ENTERPRISE CTA BANNER WITH CONTACT STRIP (Exact Match to User Screenshot 1)
       ========================================================================= */}
       <section 
         id="contact-cta" 
-        className="relative z-10 text-white"
-        style={{ borderTop: '1px solid #08173e', borderBottom: '1px solid #050e2b' }}
+        className="relative z-10 text-white border-t border-b border-[#051232]"
       >
         {/* Top Part: Gradient from deep navy blue to dark midnight */}
-        <div className="bg-gradient-to-r from-[#061b48] via-[#05143d] to-[#040b1e] pt-16 pb-12">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+        <div className="bg-gradient-to-r from-[#061b48] via-[#05143d] to-[#040b1e] pt-14 pb-14">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-5">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-white font-heading tracking-tight"
+              className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-white font-heading tracking-tight leading-snug"
             >
               Need Expert SAP ERP Consulting for Your Business?
             </motion.h2>
@@ -1274,7 +1282,7 @@ export const ConceptEnterprise: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed"
+              className="text-xs sm:text-[13.5px] text-slate-300 max-w-xl mx-auto leading-relaxed"
             >
               Speak directly with our senior SAP S/4HANA architects to evaluate your ERP roadmap, cloud migration strategy, and statutory tax integrations.
             </motion.p>
@@ -1284,18 +1292,18 @@ export const ConceptEnterprise: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4"
+              className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-4"
             >
               <a
                 href="#contact"
-                className="w-full sm:w-auto text-center px-8 py-3.5 bg-[#087FE5] hover:bg-[#0663c0] text-white text-xs font-bold uppercase tracking-wider rounded-md transition-all shadow-xl active:scale-95 cursor-pointer"
+                className="w-full sm:w-auto text-center px-7 py-2.5 bg-[#087FE5] hover:bg-[#0663c0] text-white text-[11px] font-bold uppercase tracking-wider rounded-md transition-all shadow-md active:scale-95 cursor-pointer leading-normal"
               >
                 GET A FREE DEMO / CONSULTATION
               </a>
               <a
                 href="tel:+918797818499"
-                style={{ border: '1px solid #37425e', backgroundColor: '#1e2843' }}
-                className="w-full sm:w-auto text-center px-8 py-3.5 hover:bg-[#253254] text-white text-xs font-bold uppercase tracking-wider rounded-md transition-all active:scale-95 cursor-pointer"
+                style={{ border: '1px solid #374262', backgroundColor: '#1d2848' }}
+                className="w-full sm:w-auto text-center px-6 py-2.5 hover:bg-[#253254] text-white text-[11px] font-bold uppercase tracking-wider rounded-md transition-all active:scale-95 cursor-pointer leading-normal"
               >
                 CALL: +91 87978 18499
               </a>
@@ -1303,24 +1311,24 @@ export const ConceptEnterprise: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom Part: Darker midnight navy strip separated by precise border */}
+        {/* Bottom Part: Darker midnight navy strip separated by precise border matching Screenshot 1 (#212c4a) */}
         <div 
-          className="bg-[#04102a] py-8 border-t border-[#051336]"
+          className="bg-[#04102a] py-6 border-t border-[#212c4a]"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-center text-left">
               {/* Phone */}
-              <div className="flex items-center gap-4 group">
-                <div className="w-12 h-12 rounded-xl bg-[#0066CC] text-white flex items-center justify-center flex-shrink-0 shadow-[0_0_24px_rgba(0,102,204,0.65)] group-hover:scale-105 transition-transform">
-                  <Phone className="w-5 h-5" />
+              <div className="flex items-center gap-3.5 group">
+                <div className="w-10 h-10 rounded-xl bg-[#0066CC] text-white flex items-center justify-center flex-shrink-0 shadow-[0_0_20px_rgba(0,102,204,0.6)] group-hover:scale-105 transition-transform">
+                  <Phone className="w-4 h-4" />
                 </div>
                 <div className="space-y-0.5">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block font-mono">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block font-mono">
                     TALK TO AN ENTERPRISE ARCHITECT
                   </span>
                   <a
                     href="tel:+918797818499"
-                    className="text-base font-bold text-white hover:text-[#08B9E8] transition-colors"
+                    className="text-sm font-bold text-white hover:text-[#08B9E8] transition-colors"
                   >
                     +91 87978 18499
                   </a>
@@ -1328,17 +1336,17 @@ export const ConceptEnterprise: React.FC = () => {
               </div>
 
               {/* Email */}
-              <div className="flex items-center gap-4 group">
-                <div className="w-12 h-12 rounded-xl bg-[#0066CC] text-white flex items-center justify-center flex-shrink-0 shadow-[0_0_24px_rgba(0,102,204,0.65)] group-hover:scale-105 transition-transform">
-                  <Mail className="w-5 h-5" />
+              <div className="flex items-center gap-3.5 group">
+                <div className="w-10 h-10 rounded-xl bg-[#0066CC] text-white flex items-center justify-center flex-shrink-0 shadow-[0_0_20px_rgba(0,102,204,0.6)] group-hover:scale-105 transition-transform">
+                  <Mail className="w-4 h-4" />
                 </div>
                 <div className="space-y-0.5">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block font-mono">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block font-mono">
                     OFFICIAL CONSULTING ENQUIRY
                   </span>
                   <a
                     href="mailto:info@zisantech.com"
-                    className="text-base font-bold text-white hover:text-[#08B9E8] transition-colors"
+                    className="text-sm font-bold text-white hover:text-[#08B9E8] transition-colors"
                   >
                     info@zisantech.com
                   </a>
@@ -1346,15 +1354,15 @@ export const ConceptEnterprise: React.FC = () => {
               </div>
 
               {/* Address */}
-              <div className="flex items-center gap-4 group">
-                <div className="w-12 h-12 rounded-xl bg-[#0066CC] text-white flex items-center justify-center flex-shrink-0 shadow-[0_0_24px_rgba(0,102,204,0.65)] group-hover:scale-105 transition-transform">
-                  <MapPin className="w-5 h-5" />
+              <div className="flex items-center gap-3.5 group">
+                <div className="w-10 h-10 rounded-xl bg-[#0066CC] text-white flex items-center justify-center flex-shrink-0 shadow-[0_0_20px_rgba(0,102,204,0.6)] group-hover:scale-105 transition-transform">
+                  <MapPin className="w-4 h-4" />
                 </div>
                 <div className="space-y-0.5">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block font-mono">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block font-mono">
                     HEADQUARTERS &amp; DELIVERY HUB
                   </span>
-                  <span className="text-sm font-semibold text-white block">
+                  <span className="text-xs font-semibold text-white block">
                     Commercial Business District, New Delhi, India
                   </span>
                 </div>
