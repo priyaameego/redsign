@@ -120,48 +120,7 @@ export const ConceptEnterprise: React.FC = () => {
   return (
     <div className="bg-white text-slate-800 font-sans selection:bg-[#063B83] selection:text-white overflow-hidden relative">
       
-      {/* =========================================================================
-          AUTHENTIC FLOATING SOCIAL BAR (Positioned on Right Edge)
-      ========================================================================= */}
-      <div className="fixed right-0 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col items-center bg-white/95 backdrop-blur-md py-4 px-2 rounded-l-2xl shadow-xl border-y border-l border-slate-200 text-slate-600 gap-3">
-        <span className="text-[10px] font-bold tracking-widest text-slate-400 [writing-mode:vertical-lr] uppercase font-mono mb-1">
-          — FOLLOW US
-        </span>
-        <a
-          href={COMPANY_INFO.social.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="p-1.5 rounded-lg text-slate-600 hover:text-[#087FE5] hover:bg-blue-50 transition-colors"
-          aria-label="LinkedIn"
-        >
-          <LinkedInIcon className="w-4 h-4" />
-        </a>
-        <a
-          href="https://instagram.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="p-1.5 rounded-lg text-slate-600 hover:text-[#087FE5] hover:bg-blue-50 transition-colors"
-          aria-label="Instagram"
-        >
-          <InstagramIcon className="w-4 h-4" />
-        </a>
-        <a
-          href="https://youtube.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="p-1.5 rounded-lg text-slate-600 hover:text-[#087FE5] hover:bg-blue-50 transition-colors"
-          aria-label="YouTube"
-        >
-          <YouTubeIcon className="w-4 h-4" />
-        </a>
-        <a
-          href="#contact"
-          className="p-1.5 rounded-lg text-slate-600 hover:text-[#087FE5] hover:bg-blue-50 transition-colors"
-          aria-label="Contact Us"
-        >
-          <MessageSquare className="w-4 h-4 text-slate-600 hover:text-[#087FE5]" />
-        </a>
-      </div>
+
 
       {/* =========================================================================
           1. ZisanTech AUTHENTIC REVOLUTION SLIDER HERO BANNER
