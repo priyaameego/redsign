@@ -7,7 +7,8 @@ import {
   Lock,
   Phone,
   Mail,
-  ChevronUp
+  ChevronUp,
+  MapPin
 } from 'lucide-react';
 import { COMPANY_INFO } from '../data/siteData';
 
@@ -64,6 +65,15 @@ export const Footer: React.FC = () => {
     'Pharma & Life Sciences'
   ];
 
+  const galleryImages = [
+    { src: '/gallery_thumb1.jpg', label: 'Cloud Architecture' },
+    { src: '/gallery_thumb2.jpg', label: 'Circuit & Hardware' },
+    { src: '/gallery_thumb3.jpg', label: 'Consulting Collaboration' },
+    { src: '/gallery_thumb4.jpg', label: 'Enterprise Server Core' },
+    { src: '/gallery_thumb5.jpg', label: 'System Schematics' },
+    { src: '/gallery_thumb6.jpg', label: 'Delivery Center' }
+  ];
+
   return (
     <footer className="relative w-full bg-[#171a21] text-slate-300 font-sans border-t border-slate-800 overflow-hidden">
       
@@ -83,18 +93,85 @@ export const Footer: React.FC = () => {
       </div>
 
       {/* =========================================================================
-          MAIN 4-COLUMN FOOTER LAYOUT (Exact Content + Homepage Smooth Scroll)
+          TOP QUICK CONTACT & CONSULTING STRIP (Exact Screenshot 1 Header Bar)
       ========================================================================= */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12 lg:pt-20 lg:pb-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
+      <div className="relative z-10 border-b border-slate-800/80 bg-[#161c28]/60 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
+            
+            {/* Contact Item 1: Phone */}
+            <a 
+              href={`tel:${COMPANY_INFO.primaryPhone}`} 
+              className="flex items-center gap-3.5 group p-2 rounded-xl transition-all duration-200 hover:bg-slate-800/40"
+            >
+              <div className="w-11 h-11 rounded-xl bg-[#087FE5]/15 border border-[#087FE5]/30 text-[#087FE5] flex items-center justify-center flex-shrink-0 group-hover:bg-[#087FE5] group-hover:text-white transition-all duration-200 shadow-sm">
+                <Phone className="w-5 h-5" />
+              </div>
+              <div className="min-w-0">
+                <p className="text-[10px] uppercase font-bold tracking-wider text-slate-400 group-hover:text-[#08B9E8] transition-colors">
+                  Talk to an Enterprise Architect
+                </p>
+                <p className="text-sm font-semibold text-white tracking-wide truncate">
+                  {COMPANY_INFO.primaryPhone}
+                </p>
+              </div>
+            </a>
+
+            {/* Contact Item 2: Email */}
+            <a 
+              href={`mailto:${COMPANY_INFO.primaryEmail}`} 
+              className="flex items-center gap-3.5 group p-2 rounded-xl transition-all duration-200 hover:bg-slate-800/40"
+            >
+              <div className="w-11 h-11 rounded-xl bg-[#087FE5]/15 border border-[#087FE5]/30 text-[#087FE5] flex items-center justify-center flex-shrink-0 group-hover:bg-[#087FE5] group-hover:text-white transition-all duration-200 shadow-sm">
+                <Mail className="w-5 h-5" />
+              </div>
+              <div className="min-w-0">
+                <p className="text-[10px] uppercase font-bold tracking-wider text-slate-400 group-hover:text-[#08B9E8] transition-colors">
+                  Official Consulting Enquiry
+                </p>
+                <p className="text-sm font-semibold text-white tracking-wide truncate">
+                  {COMPANY_INFO.primaryEmail}
+                </p>
+              </div>
+            </a>
+
+            {/* Contact Item 3: Headquarters */}
+            <div className="flex items-center gap-3.5 p-2 rounded-xl">
+              <div className="w-11 h-11 rounded-xl bg-[#087FE5]/15 border border-[#087FE5]/30 text-[#087FE5] flex items-center justify-center flex-shrink-0 shadow-sm">
+                <MapPin className="w-5 h-5" />
+              </div>
+              <div className="min-w-0">
+                <p className="text-[10px] uppercase font-bold tracking-wider text-slate-400">
+                  Headquarters & Delivery Hub
+                </p>
+                <p className="text-sm font-semibold text-white tracking-wide truncate">
+                  {COMPANY_INFO.address}
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      {/* =========================================================================
+          MAIN 5-COLUMN FOOTER LAYOUT
+          Column 1: Logo, Bio, SAP Gold Partner & Socials (Span 3)
+          Column 2: Quick Links (Span 2)
+          Column 3: Industries (Span 2)
+          Column 4: Corporate Office & Global Delivery Card (Span 3)
+          Column 5: Interactive Animated Gallery 3x2 Grid (Span 2)
+      ========================================================================= */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-12 lg:pt-16 lg:pb-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-6 items-start">
           
-          {/* 1. COLUMN 1: LOGO, CREDENTIALS, SAP GOLD PARTNER & BIO (Span 4) */}
+          {/* 1. COLUMN 1: LOGO, CREDENTIALS, SAP GOLD PARTNER & BIO (Span 3) */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-4 space-y-4"
+            className="lg:col-span-3 space-y-4"
           >
             {/* White Card Logo Container */}
             <div className="inline-block">
@@ -135,60 +212,44 @@ export const Footer: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-xs sm:text-sm text-slate-400 leading-relaxed font-normal pr-4"
+              className="text-xs sm:text-sm text-slate-400 leading-relaxed font-normal pr-2"
             >
               ZisanTech Solutions is an enterprise SAP Consulting and Technology Practice. We drive full-lifecycle SAP S/4HANA Cloud implementations, legacy migrations, custom ERP automation, and career-oriented workforce training programs.
             </motion.p>
 
-            {/* SAP Gold Partner Showcase Badge */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.25 }}
-              className="p-2.5 bg-white rounded-xl shadow-md border border-slate-700/30 flex items-center gap-3 w-fit"
-            >
+            {/* Official SAP Gold Partner Certified Partner Badge */}
+            <div className="inline-flex items-center gap-3 bg-white px-3 py-1.5 rounded-lg shadow-md border border-slate-200">
               <img
-                src="/sap_gold_partner_perfect.svg"
+                src="/sap_gold_partner_tight.png"
                 alt="SAP Gold Partner"
-                className="h-7 w-auto object-contain"
+                className="h-6 w-auto object-contain"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
-                  target.src = '/sap_partner_logo.png';
+                  target.src = '/sap_partner_clean.png';
                 }}
               />
-              <div className="border-l border-slate-300 pl-3">
-                <div className="text-[11px] font-bold text-slate-900 leading-tight">Certified Partner</div>
-                <div className="text-[10px] text-slate-600 font-medium leading-tight">Enterprise SAP Delivery</div>
+              <div className="border-l border-slate-300 pl-2.5">
+                <span className="block text-[11px] font-bold text-slate-900 leading-none">Certified Partner</span>
+                <span className="block text-[9px] font-medium text-slate-600 tracking-wide mt-0.5">Enterprise SAP Delivery</span>
               </div>
-            </motion.div>
+            </div>
 
-            {/* ISO Quality Standards Line */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.3 }}
-              className="flex items-center gap-2 text-xs text-slate-400 pt-1"
-            >
+            {/* ISO Certification Badge with Pulse Animation */}
+            <div className="flex items-center gap-2 text-xs text-[#08B9E8] pt-1">
               <ShieldCheck className="w-4 h-4 text-[#08B9E8] flex-shrink-0" />
-              <span>ISO 9001:2015 &amp; SAP Global Delivery Standards</span>
-            </motion.div>
+              <span className="text-[11px] font-medium tracking-wide">
+                ISO 9001:2015 & SAP Global Delivery Standards
+              </span>
+            </div>
 
-            {/* Clean Social Media Icons */}
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.35 }}
-              className="pt-2 flex items-center gap-4 text-slate-400"
-            >
+            {/* Minimal Social Media Icons */}
+            <div className="pt-2 flex items-center gap-3 text-slate-400">
               {[
-                { icon: <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />, href: "https://wa.me/918797818499", label: "WhatsApp" },
-                { icon: <LinkedInIcon className="w-4 h-4" />, href: COMPANY_INFO.social.linkedin, label: "LinkedIn" },
-                { icon: <TwitterIcon className="w-4 h-4" />, href: "https://twitter.com", label: "Twitter" },
-                { icon: <FacebookIcon className="w-4 h-4" />, href: "https://facebook.com", label: "Facebook" },
-                { icon: <InstagramIcon className="w-4 h-4" />, href: "https://instagram.com", label: "Instagram" }
+                { icon: <WhatsAppIcon className="w-4 h-4" />, href: "https://wa.me/918797818499", label: "WhatsApp", color: "hover:text-[#25D366]" },
+                { icon: <LinkedInIcon className="w-4 h-4" />, href: COMPANY_INFO.social.linkedin, label: "LinkedIn", color: "hover:text-[#0077b5]" },
+                { icon: <TwitterIcon className="w-4 h-4" />, href: "https://twitter.com", label: "Twitter / X", color: "hover:text-[#08B9E8]" },
+                { icon: <FacebookIcon className="w-4 h-4" />, href: "https://facebook.com", label: "Facebook", color: "hover:text-[#1877f2]" },
+                { icon: <InstagramIcon className="w-4 h-4" />, href: "https://instagram.com", label: "Instagram", color: "hover:text-[#e4405f]" }
               ].map((social) => (
                 <motion.a
                   key={social.label}
@@ -197,22 +258,22 @@ export const Footer: React.FC = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#08B9E8] transition-colors p-1 cursor-pointer"
+                  className={`transition-colors p-1 cursor-pointer ${social.color}`}
                   aria-label={social.label}
                 >
                   {social.icon}
                 </motion.a>
               ))}
-            </motion.div>
+            </div>
           </motion.div>
 
-          {/* 2. COLUMN 2: QUICK LINKS (Span 3) */}
+          {/* 2. COLUMN 2: QUICK LINKS (Span 2) */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-3 space-y-4"
+            className="lg:col-span-2 space-y-4"
           >
             <div>
               <h4 className="text-base font-bold text-white font-heading tracking-wide">
@@ -227,29 +288,25 @@ export const Footer: React.FC = () => {
               />
             </div>
 
-            {/* Special Blogs Pill Button */}
-            <motion.div
-              initial={{ opacity: 0, x: -10 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.3 }}
-              className="pt-1 pb-2"
+            {/* Blogs & Tech Insights Pill Button */}
+            <motion.a
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              href="#blogs"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollTo('blogs');
+              }}
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#087FE5]/15 border border-[#087FE5]/40 text-[#08B9E8] hover:bg-[#087FE5] hover:text-white transition-all text-xs font-semibold group cursor-pointer w-full justify-between"
             >
-              <a
-                href="#blogs"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollTo('blogs');
-                }}
-                className="inline-flex items-center gap-2 text-sm font-semibold text-[#08B9E8] hover:text-white transition-colors cursor-pointer group"
-              >
-                <BookOpen className="w-4 h-4 group-hover:scale-110 transition-transform" />
-                <span>Blogs &amp; Tech Insights</span>
-                <span className="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-[#087FE5]/20 text-[#08B9E8] border border-[#087FE5]/40 ml-1">
-                  Articles
-                </span>
-              </a>
-            </motion.div>
+              <span className="flex items-center gap-1.5">
+                <BookOpen className="w-3.5 h-3.5" />
+                <span>Blogs & Tech Insights</span>
+              </span>
+              <span className="text-[9px] uppercase px-1.5 py-0.5 rounded bg-[#087FE5]/30 text-white font-bold">
+                Articles
+              </span>
+            </motion.a>
 
             <ul className="space-y-2.5 text-xs sm:text-sm text-slate-400">
               {[
@@ -424,6 +481,59 @@ export const Footer: React.FC = () => {
                 SCHEDULE CONSULTATION
               </motion.a>
             </motion.div>
+          </motion.div>
+
+          {/* 5. COLUMN 5: ANIMATED GALLERY 3X2 GRID (Span 2) */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-2 space-y-4"
+          >
+            <div>
+              <h4 className="text-base font-bold text-white font-heading tracking-wide">
+                GALLERY
+              </h4>
+              <motion.div
+                initial={{ width: 0 }}
+                whileInView={{ width: 48 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.45 }}
+                className="h-[2px] bg-[#087FE5] mt-2.5"
+              />
+            </div>
+
+            {/* 3x2 Thumbnail Grid with Framer Motion Scale & Glow Hover */}
+            <div className="grid grid-cols-3 gap-2 pt-1">
+              {galleryImages.map((img, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, scale: 0.85 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.15 + i * 0.05 }}
+                  whileHover={{ scale: 1.12, y: -2 }}
+                  className="aspect-square rounded-md overflow-hidden bg-slate-800 border border-slate-700/70 group cursor-pointer shadow-sm hover:border-[#08B9E8] transition-all relative"
+                  title={img.label}
+                >
+                  <img
+                    src={img.src}
+                    alt={img.label}
+                    className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-120"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.src = '/zisantech_collaborative_consulting.jpg';
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                </motion.div>
+              ))}
+            </div>
+
+            <p className="text-[10px] text-slate-400 leading-tight pt-1">
+              Enterprise SAP architectures, clean-core implementations & cloud hubs.
+            </p>
           </motion.div>
 
         </div>

@@ -801,138 +801,6 @@ export const ConceptEnterprise: React.FC = () => {
       </section>
 
 
-{/* =========================================================================
-          8. TRAINING & ENABLEMENT SECTION: (Images 1 & 2 - 8 Modules Grid)
-      ========================================================================= */}
-      <section id="training" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center max-w-3xl mx-auto mb-16 space-y-3"
-        >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#E0F2FE] border border-[#BAE6FD] text-[#0369A1] text-xs font-bold tracking-wide">
-            <span>CAREER INCUBATION &amp; ENABLEMENT</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#071B49] font-heading leading-tight tracking-tight">
-            Take Your Careers to New Heights with the Leading ERP Solution Provider
-          </h2>
-          <p className="text-sm text-slate-600 leading-relaxed max-w-2xl mx-auto">
-            Upskill with real enterprise projects, 24/7 dedicated server sandboxes, and structured curriculum designed by veteran SAP consultants.
-          </p>
-        </motion.div>
-
-        {/* 8 Module Cards in 2 Rows of 4 (Images 1 & 2 Exact Match) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
-          {[
-            {
-              id: 'sap-sd',
-              badge: 'SAP-SD',
-              title: 'SAP SD (Sales & Distribution)',
-              desc: 'Master order-to-cash (O2C) cycles, enterprise sales structures, pricing procedures, delivery workflows, and...',
-              duration: '8 - 10 Weeks'
-            },
-            {
-              id: 'sap-mm',
-              badge: 'SAP-MM',
-              title: 'SAP MM (Materials Management)',
-              desc: 'Master Procure-to-Pay (P2P), inventory governance, vendor evaluation, valuation, and physical inventory reconciliations.',
-              duration: '8 - 10 Weeks'
-            },
-            {
-              id: 'sap-pp',
-              badge: 'SAP-PP',
-              title: 'SAP PP (Production Planning)',
-              desc: 'Master manufacturing work centers, bill of materials (BOM), routings, demand management, MRP, and shop floor...',
-              duration: '8 - 10 Weeks'
-            },
-            {
-              id: 'sap-qm',
-              badge: 'SAP-QM',
-              title: 'SAP QM (Quality Management)',
-              desc: 'Master inspection lots, sampling procedures, quality certificates, defect recording, and audit management.',
-              duration: '6 - 8 Weeks'
-            },
-            {
-              id: 'sap-fico',
-              badge: 'SAP-FICO',
-              title: 'SAP FICO (Financial & Cost Management)',
-              desc: 'Master general ledger, accounts payable/receivable, asset accounting, cost centers, profit centers, and fiscal...',
-              duration: '10 - 12 Weeks'
-            },
-            {
-              id: 'sap-hcm',
-              badge: 'SAP-HCM',
-              title: 'SAP HCM (Human Capital Management)',
-              desc: 'Master organizational management, personnel administration, time recording, and payroll run configurations.',
-              duration: '8 - 10 Weeks'
-            },
-            {
-              id: 'sap-ccm',
-              badge: 'SAP-CCM',
-              title: 'SAP CCM (Compensation & Claims Management)',
-              desc: 'Master inbound/outbound shipments, delivery documentation, picking strategies, packing units, and carrier...',
-              duration: '6 - 8 Weeks'
-            },
-            {
-              id: 'sap-tm',
-              badge: 'SAP-TM',
-              title: 'SAP TM (Transportation Management)',
-              desc: 'Master freight order execution, carrier selection, route optimization, container tracking, and charge calculations.',
-              duration: '8 - 10 Weeks'
-            }
-          ].map((mod, idx) => (
-            <motion.div
-              key={mod.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-30px' }}
-              transition={{ duration: 0.45, delay: idx * 0.05 }}
-              whileHover={{ y: -6, scale: 1.015 }}
-              className="group relative bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl hover:shadow-[#087FE5]/15 border border-slate-200/90 hover:border-[#087FE5] transition-all duration-300 flex flex-col justify-between overflow-hidden cursor-pointer"
-            >
-              {/* Soft Watermark Corner Curve (Matching zisantech.vercel.app & Screenshot 1) */}
-              <div 
-                className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-[#087FE5]/10 to-transparent rounded-bl-full pointer-events-none group-hover:from-[#087FE5]/25 transition-all duration-500" 
-              />
-
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-[11px] font-mono font-bold text-[#063B83] bg-blue-50/90 border border-blue-200/60 px-2.5 py-1 rounded-md shadow-xs group-hover:bg-[#063B83] group-hover:text-white transition-colors">
-                    {mod.badge}
-                  </span>
-                  <span className="text-[10px] font-bold text-slate-400 font-mono">
-                    Live Sandbox
-                  </span>
-                </div>
-
-                <h3 className="text-base font-bold text-[#071B49] group-hover:text-[#087FE5] transition-colors font-heading mb-2">
-                  {mod.title}
-                </h3>
-
-                <p className="text-xs text-slate-600 line-clamp-3 mb-4 leading-relaxed font-normal">
-                  {mod.desc}
-                </p>
-              </div>
-
-              <div className="pt-4 border-t border-slate-100 flex items-center justify-between relative z-10">
-                <a
-                  href="#contact"
-                  className="text-xs font-bold text-[#087FE5] group-hover:text-[#063B83] flex items-center gap-1 group-hover:gap-1.5 transition-all cursor-pointer"
-                >
-                  <span>Request Syllabus</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </a>
-
-                <span className="text-[11px] font-semibold text-slate-500 font-mono bg-slate-50 px-2 py-0.5 rounded border border-slate-100">
-                  {mod.duration}
-                </span>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
                   {/* =========================================================================
           5. INDUSTRIES WE SERVE SECTION: Placed directly after Counter Strip (Screenshot 1, 2, 3)
       ========================================================================= */}
@@ -1073,6 +941,139 @@ export const ConceptEnterprise: React.FC = () => {
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-2 transition-transform duration-300" />
                   </a>
                 </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+{/* =========================================================================
+          8. TRAINING & ENABLEMENT SECTION: (Images 1 & 2 - 8 Modules Grid)
+      ========================================================================= */}
+      <section id="training" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-3xl mx-auto mb-16 space-y-3"
+        >
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#E0F2FE] border border-[#BAE6FD] text-[#0369A1] text-xs font-bold tracking-wide">
+            <span>CAREER INCUBATION &amp; ENABLEMENT</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#071B49] font-heading leading-tight tracking-tight">
+            Take Your Careers to New Heights with the Leading ERP Solution Provider
+          </h2>
+          <p className="text-sm text-slate-600 leading-relaxed max-w-2xl mx-auto">
+            Upskill with real enterprise projects, 24/7 dedicated server sandboxes, and structured curriculum designed by veteran SAP consultants.
+          </p>
+        </motion.div>
+
+        {/* 8 Module Cards in 2 Rows of 4 (Images 1 & 2 Exact Match) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+          {[
+            {
+              id: 'sap-sd',
+              badge: 'SAP-SD',
+              title: 'SAP SD (Sales & Distribution)',
+              desc: 'Master order-to-cash (O2C) cycles, enterprise sales structures, pricing procedures, delivery workflows, and...',
+              duration: '8 - 10 Weeks'
+            },
+            {
+              id: 'sap-mm',
+              badge: 'SAP-MM',
+              title: 'SAP MM (Materials Management)',
+              desc: 'Master Procure-to-Pay (P2P), inventory governance, vendor evaluation, valuation, and physical inventory reconciliations.',
+              duration: '8 - 10 Weeks'
+            },
+            {
+              id: 'sap-pp',
+              badge: 'SAP-PP',
+              title: 'SAP PP (Production Planning)',
+              desc: 'Master manufacturing work centers, bill of materials (BOM), routings, demand management, MRP, and shop floor...',
+              duration: '8 - 10 Weeks'
+            },
+            {
+              id: 'sap-qm',
+              badge: 'SAP-QM',
+              title: 'SAP QM (Quality Management)',
+              desc: 'Master inspection lots, sampling procedures, quality certificates, defect recording, and audit management.',
+              duration: '6 - 8 Weeks'
+            },
+            {
+              id: 'sap-fico',
+              badge: 'SAP-FICO',
+              title: 'SAP FICO (Financial & Cost Management)',
+              desc: 'Master general ledger, accounts payable/receivable, asset accounting, cost centers, profit centers, and fiscal...',
+              duration: '10 - 12 Weeks'
+            },
+            {
+              id: 'sap-hcm',
+              badge: 'SAP-HCM',
+              title: 'SAP HCM (Human Capital Management)',
+              desc: 'Master organizational management, personnel administration, time recording, and payroll run configurations.',
+              duration: '8 - 10 Weeks'
+            },
+            {
+              id: 'sap-ccm',
+              badge: 'SAP-CCM',
+              title: 'SAP CCM (Compensation & Claims Management)',
+              desc: 'Master inbound/outbound shipments, delivery documentation, picking strategies, packing units, and carrier...',
+              duration: '6 - 8 Weeks'
+            },
+            {
+              id: 'sap-tm',
+              badge: 'SAP-TM',
+              title: 'SAP TM (Transportation Management)',
+              desc: 'Master freight order execution, carrier selection, route optimization, container tracking, and charge calculations.',
+              duration: '8 - 10 Weeks'
+            }
+          ].map((mod, idx) => (
+            <motion.div
+              key={mod.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-30px' }}
+              transition={{ duration: 0.45, delay: idx * 0.05 }}
+              whileHover={{ y: -6, scale: 1.015 }}
+              className="group relative bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl hover:shadow-[#087FE5]/15 border border-slate-200/90 hover:border-[#087FE5] transition-all duration-300 flex flex-col justify-between overflow-hidden cursor-pointer"
+            >
+              {/* Soft Watermark Corner Curve (Matching zisantech.vercel.app & Screenshot 1) */}
+              <div 
+                className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-[#087FE5]/10 to-transparent rounded-bl-full pointer-events-none group-hover:from-[#087FE5]/25 transition-all duration-500" 
+              />
+
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-[11px] font-mono font-bold text-[#063B83] bg-blue-50/90 border border-blue-200/60 px-2.5 py-1 rounded-md shadow-xs group-hover:bg-[#063B83] group-hover:text-white transition-colors">
+                    {mod.badge}
+                  </span>
+                  <span className="text-[10px] font-bold text-slate-400 font-mono">
+                    Live Sandbox
+                  </span>
+                </div>
+
+                <h3 className="text-base font-bold text-[#071B49] group-hover:text-[#087FE5] transition-colors font-heading mb-2">
+                  {mod.title}
+                </h3>
+
+                <p className="text-xs text-slate-600 line-clamp-3 mb-4 leading-relaxed font-normal">
+                  {mod.desc}
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-slate-100 flex items-center justify-between relative z-10">
+                <a
+                  href="#contact"
+                  className="text-xs font-bold text-[#087FE5] group-hover:text-[#063B83] flex items-center gap-1 group-hover:gap-1.5 transition-all cursor-pointer"
+                >
+                  <span>Request Syllabus</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </a>
+
+                <span className="text-[11px] font-semibold text-slate-500 font-mono bg-slate-50 px-2 py-0.5 rounded border border-slate-100">
+                  {mod.duration}
+                </span>
               </div>
             </motion.div>
           ))}
