@@ -360,18 +360,6 @@ export const Footer: React.FC = () => {
                   {COMPANY_INFO.primaryEmail}
                 </span>
               </a>
-
-              <a
-                href="mailto:consulting@zisantech.com"
-                className="flex items-center gap-2.5 text-[#cbd5e1] hover:text-white transition-colors group cursor-pointer"
-              >
-                <div className="w-5 h-5 rounded flex items-center justify-center bg-[#087FE5] text-white flex-shrink-0 shadow-sm">
-                  <Mail className="w-3 h-3" />
-                </div>
-                <span className="text-[#cbd5e1] group-hover:text-white group-hover:translate-x-1 transition-transform truncate">
-                  consulting@zisantech.com
-                </span>
-              </a>
             </div>
 
             {/* Minimal Schedule Consultation CTA */}
