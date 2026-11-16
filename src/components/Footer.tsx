@@ -6,7 +6,6 @@ import {
   Phone,
   Mail,
   ChevronUp,
-  MapPin,
   Sparkles
 } from 'lucide-react';
 import { COMPANY_INFO } from '../data/siteData';
@@ -58,91 +57,110 @@ export const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="relative w-full bg-[#1e2025] text-[#9ca3af] font-sans border-t border-slate-700/50 overflow-hidden">
+    <footer className="relative w-full bg-[#1b1d22] text-[#9ca3af] font-sans border-t border-slate-700/60 overflow-hidden">
       
       {/* =========================================================================
-          LUXURY BACKGROUND AMBIENT ANIMATION (Subtle Floating Auroras & Particles)
+          ENTERPRISE IT CONSULTING BACKGROUND ANIMATION (Circuit Grid + Data Pulses)
       ========================================================================= */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Floating Aurora 1 (Cyan/Blue) */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden select-none">
+        
+        {/* 1. Interactive Tech Circuit SVG Grid with Live Glowing Data Pulses */}
+        <svg 
+          className="absolute inset-0 w-full h-full opacity-[0.14]" 
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <pattern id="it-grid" width="60" height="60" patternUnits="userSpaceOnUse">
+              <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(8, 185, 232, 0.45)" strokeWidth="0.8" />
+              <circle cx="0" cy="0" r="1.5" fill="rgba(8, 127, 229, 0.7)" />
+            </pattern>
+            {/* Horizontal Data Line Gradient */}
+            <linearGradient id="data-pulse" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="transparent" />
+              <stop offset="50%" stopColor="#08B9E8" stopOpacity="0.9" />
+              <stop offset="100%" stopColor="transparent" />
+            </linearGradient>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#it-grid)" />
+        </svg>
+
+        {/* 2. Flowing Data Streams (Horizontal & Vertical Glowing Rays) */}
         <motion.div
-          animate={{
-            x: [0, 40, -30, 0],
-            y: [0, -30, 20, 0],
-            scale: [1, 1.15, 0.95, 1],
-            opacity: [0.12, 0.22, 0.15, 0.12]
-          }}
-          transition={{
-            duration: 14,
-            repeat: Infinity,
-            ease: 'easeInOut'
-          }}
-          className="absolute -top-32 -left-20 w-[420px] h-[420px] rounded-full bg-gradient-to-br from-[#087FE5]/30 via-[#08B9E8]/20 to-transparent blur-[100px]"
+          animate={{ x: ['-100%', '200%'] }}
+          transition={{ duration: 7, repeat: Infinity, ease: 'linear' }}
+          className="absolute top-[28%] left-0 w-80 h-[1.5px] bg-gradient-to-r from-transparent via-[#08B9E8] to-transparent shadow-[0_0_12px_#08B9E8]"
         />
 
-        {/* Floating Aurora 2 (Royal Navy / Blue Accent) */}
         <motion.div
-          animate={{
-            x: [0, -50, 30, 0],
-            y: [0, 40, -25, 0],
-            scale: [1, 1.2, 0.9, 1],
-            opacity: [0.1, 0.18, 0.12, 0.1]
-          }}
-          transition={{
-            duration: 18,
-            repeat: Infinity,
-            ease: 'easeInOut'
-          }}
-          className="absolute -bottom-28 right-10 w-[480px] h-[480px] rounded-full bg-gradient-to-tr from-[#063B83]/30 via-[#087FE5]/15 to-transparent blur-[110px]"
+          animate={{ x: ['200%', '-100%'] }}
+          transition={{ duration: 10, repeat: Infinity, ease: 'linear', delay: 2 }}
+          className="absolute top-[68%] left-0 w-96 h-[1.5px] bg-gradient-to-r from-transparent via-[#087FE5] to-transparent shadow-[0_0_12px_#087FE5]"
         />
 
-        {/* Floating Aurora 3 (Center Ambient Depth) */}
         <motion.div
-          animate={{
-            opacity: [0.04, 0.09, 0.04],
-            scale: [0.95, 1.05, 0.95]
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: 'easeInOut'
-          }}
-          className="absolute top-1/3 left-1/3 w-[360px] h-[360px] rounded-full bg-[#087FE5]/10 blur-[90px]"
+          animate={{ y: ['-100%', '200%'] }}
+          transition={{ duration: 8, repeat: Infinity, ease: 'linear', delay: 1 }}
+          className="absolute top-0 left-[22%] w-[1.5px] h-60 bg-gradient-to-b from-transparent via-[#08B9E8] to-transparent shadow-[0_0_12px_#08B9E8]"
         />
 
-        {/* Subtle Floating Tech Particle Stars */}
+        <motion.div
+          animate={{ y: ['200%', '-100%'] }}
+          transition={{ duration: 11, repeat: Infinity, ease: 'linear', delay: 4 }}
+          className="absolute top-0 right-[28%] w-[1.5px] h-64 bg-gradient-to-b from-transparent via-[#087FE5] to-transparent shadow-[0_0_12px_#087FE5]"
+        />
+
+        {/* 3. Floating ERP Cloud Nodes (Pulsing glowing cyber points) */}
         {[
-          { top: '20%', left: '15%', delay: 0, duration: 6 },
-          { top: '45%', left: '75%', delay: 1.5, duration: 8 },
-          { top: '70%', left: '35%', delay: 3, duration: 7 },
-          { top: '25%', left: '88%', delay: 2, duration: 9 },
-          { top: '80%', left: '80%', delay: 0.5, duration: 6.5 }
-        ].map((pt, i) => (
+          { x: '12%', y: '35%', size: 3, delay: 0 },
+          { x: '38%', y: '18%', size: 4, delay: 1.2 },
+          { x: '62%', y: '42%', size: 3.5, delay: 2.5 },
+          { x: '82%', y: '24%', size: 4, delay: 0.8 },
+          { x: '91%', y: '65%', size: 3, delay: 1.8 },
+          { x: '24%', y: '78%', size: 3.5, delay: 3 }
+        ].map((node, idx) => (
           <motion.div
-            key={i}
-            style={{ top: pt.top, left: pt.left }}
+            key={idx}
+            style={{ left: node.x, top: node.y }}
             animate={{
-              y: [0, -14, 0],
-              opacity: [0.2, 0.7, 0.2],
-              scale: [0.8, 1.2, 0.8]
+              scale: [1, 1.8, 1],
+              opacity: [0.3, 0.9, 0.3]
             }}
             transition={{
-              duration: pt.duration,
+              duration: 3.5,
               repeat: Infinity,
-              delay: pt.delay,
+              delay: node.delay,
               ease: 'easeInOut'
             }}
-            className="absolute w-1 h-1 rounded-full bg-[#08B9E8] shadow-[0_0_8px_#08B9E8]"
-          />
+            className="absolute rounded-full bg-[#08B9E8] shadow-[0_0_14px_#08B9E8]"
+          >
+            <div 
+              style={{ width: `${node.size}px`, height: `${node.size}px` }}
+              className="rounded-full bg-white" 
+            />
+          </motion.div>
         ))}
 
-        {/* Ultra-subtle geometric dot-grid */}
-        <div 
-          className="absolute inset-0 opacity-[0.025]"
-          style={{
-            backgroundImage: `radial-gradient(rgba(255,255,255,0.7) 1px, transparent 1px)`,
-            backgroundSize: '24px 24px'
+        {/* 4. Deep Ambient Atmospheric Auroras for Enterprise Elegance */}
+        <motion.div
+          animate={{
+            x: [0, 35, -25, 0],
+            y: [0, -25, 20, 0],
+            scale: [1, 1.15, 0.95, 1],
+            opacity: [0.12, 0.22, 0.14, 0.12]
           }}
+          transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
+          className="absolute -top-36 -left-20 w-[460px] h-[460px] rounded-full bg-gradient-to-br from-[#087FE5]/35 via-[#08B9E8]/20 to-transparent blur-[110px]"
+        />
+
+        <motion.div
+          animate={{
+            x: [0, -45, 30, 0],
+            y: [0, 35, -20, 0],
+            scale: [1, 1.2, 0.9, 1],
+            opacity: [0.1, 0.2, 0.12, 0.1]
+          }}
+          transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
+          className="absolute -bottom-32 right-12 w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-[#063B83]/35 via-[#087FE5]/20 to-transparent blur-[120px]"
         />
       </div>
 
@@ -230,7 +248,7 @@ export const Footer: React.FC = () => {
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-7 h-7 rounded-full bg-[#16181c] hover:bg-[#087FE5] text-[#9ca3af] hover:text-white flex items-center justify-center transition-all cursor-pointer shadow-sm border border-slate-700/50"
+                  className="w-7 h-7 rounded-full bg-[#14161a] hover:bg-[#087FE5] text-[#9ca3af] hover:text-white flex items-center justify-center transition-all cursor-pointer shadow-sm border border-slate-700/50"
                   aria-label={s.label}
                 >
                   {s.icon}
@@ -425,7 +443,7 @@ export const Footer: React.FC = () => {
       {/* =========================================================================
           SUB-FOOTER COPYRIGHT BAR
       ========================================================================= */}
-      <div className="relative z-10 border-t border-slate-800 bg-[#16181c] py-4">
+      <div className="relative z-10 border-t border-slate-800 bg-[#14161a] py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#9ca3af]">
           
           <div className="text-center sm:text-left text-xs text-[#9ca3af]">
