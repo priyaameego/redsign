@@ -16,7 +16,7 @@ import { SERVICES, COMPANY_INFO } from '../data/siteData';
 
 export const ServicesPage: React.FC = () => {
   const { category, id } = useParams<{ category?: string; id?: string }>();
-  const [activeTab, setActiveTab] = useState<'all' | 'sap' | 'other'>('all');
+  const [activeTab, setActiveTab] = useState<'all' | 'sap' | 'enterprise'>('all');
 
   // If specific service is selected via URL: /services1/:category/:id
   const selectedService = id
@@ -158,7 +158,7 @@ export const ServicesPage: React.FC = () => {
   // Listing View
   const filteredServices = SERVICES.filter((s) => {
     if (activeTab === 'sap') return s.type === 'sap';
-    if (activeTab === 'other') return s.type === 'other';
+    if (activeTab === 'enterprise') return s.type === 'enterprise';
     return true;
   });
 
@@ -174,7 +174,7 @@ export const ServicesPage: React.FC = () => {
               Enterprise Services & Solutions
             </h1>
             <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-              Explore our full catalog of 12 verified SAP and modern IT capabilities, delivered with SLA accountability and clean-core engineering.
+              Explore our full catalog of 13 verified SAP and Enterprise & Cloud Solutions, delivered with SLA accountability and clean-core engineering.
             </p>
 
             {/* Filter Tabs */}
@@ -185,7 +185,7 @@ export const ServicesPage: React.FC = () => {
                   activeTab === 'all' ? 'bg-blue-600 text-white shadow-md' : 'bg-white/10 text-slate-300 hover:bg-white/20'
                 }`}
               >
-                All Services (12)
+                All Services (13)
               </button>
               <button
                 onClick={() => setActiveTab('sap')}
@@ -193,15 +193,15 @@ export const ServicesPage: React.FC = () => {
                   activeTab === 'sap' ? 'bg-blue-600 text-white shadow-md' : 'bg-white/10 text-slate-300 hover:bg-white/20'
                 }`}
               >
-                SAP Enterprise Services (7)
+                SAP Services (7)
               </button>
               <button
-                onClick={() => setActiveTab('other')}
+                onClick={() => setActiveTab('enterprise')}
                 className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
-                  activeTab === 'other' ? 'bg-blue-600 text-white shadow-md' : 'bg-white/10 text-slate-300 hover:bg-white/20'
+                  activeTab === 'enterprise' ? 'bg-blue-600 text-white shadow-md' : 'bg-white/10 text-slate-300 hover:bg-white/20'
                 }`}
               >
-                Other IT Services (5)
+                Enterprise &amp; Cloud Solutions (6)
               </button>
             </div>
           </div>

@@ -195,10 +195,10 @@ export const Navbar: React.FC = () => {
                   <div>
                     <div className="flex items-center gap-2 mb-3 pb-2 border-b border-slate-100">
                       <Cpu className="w-4 h-4 text-[#063B83]" />
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-[#063B83]">SAP Services Preview</h4>
+                      <h4 className="text-xs font-bold uppercase tracking-wider text-[#063B83]">SAP Services</h4>
                     </div>
                     <ul className="space-y-1">
-                      {SERVICES.filter(s => s.category.includes('SAP')).map((s) => (
+                      {SERVICES.filter(s => s.category === 'SAP Services').map((s) => (
                         <li key={s.id}>
                           <button
                             onClick={() => scrollToSection('services')}
@@ -215,10 +215,10 @@ export const Navbar: React.FC = () => {
                   <div>
                     <div className="flex items-center gap-2 mb-3 pb-2 border-b border-slate-100">
                       <Layers className="w-4 h-4 text-[#087FE5]" />
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-[#087FE5]">Enterprise & Cloud</h4>
+                      <h4 className="text-xs font-bold uppercase tracking-wider text-[#087FE5]">Enterprise & Cloud Solutions</h4>
                     </div>
                     <ul className="space-y-1">
-                      {SERVICES.filter(s => !s.category.includes('SAP')).map((s) => (
+                      {SERVICES.filter(s => s.category === 'Enterprise & Cloud Solutions').map((s) => (
                         <li key={s.id}>
                           <button
                             onClick={() => scrollToSection('services')}
@@ -255,7 +255,7 @@ export const Navbar: React.FC = () => {
               onClick={() => handleDropdownClick('training', 'training')}
               className="px-3.5 py-1 text-sm font-semibold tracking-wide flex items-center gap-1 text-slate-700 hover:text-[#063B83] transition-colors cursor-pointer"
             >
-              Training
+              SAP Training
               <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'training' ? 'rotate-180' : ''}`} />
             </button>
 

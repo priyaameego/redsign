@@ -1,7 +1,7 @@
 export interface ServiceItem {
   id: number;
-  category: 'SAP SERVICES' | 'Other Services';
-  type: 'sap' | 'other';
+  category: 'SAP Services' | 'Enterprise & Cloud Solutions';
+  type: 'sap' | 'enterprise';
   title: string;
   slug: string;
   url: string;
@@ -221,13 +221,14 @@ export const INDUSTRIES: IndustryItem[] = [
 ];
 
 export const SERVICES: ServiceItem[] = [
+  // --- 1. SAP Services (7 Client-Requested Services) ---
   {
     id: 1,
-    category: 'SAP SERVICES',
+    category: 'SAP Services',
     type: 'sap',
     title: 'SAP Rollout',
     slug: 'sap-rollout',
-    url: '/services1/SAP SERVICES/1',
+    url: '/services1/SAP Services/1',
     image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80',
     shortDesc: 'Expand your global SAP template seamlessly across branches, subsidiaries, and manufacturing plants with minimal operational disruption.',
     fullDesc: [
@@ -255,47 +256,15 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     id: 2,
-    category: 'SAP SERVICES',
+    category: 'SAP Services',
     type: 'sap',
-    title: 'SAP Custom Solutions',
-    slug: 'sap-custom-solutions',
-    url: '/services1/SAP SERVICES/2',
-    image: '/blog_reliable_it_fresh.jpg',
-    shortDesc: 'Bespoke ABAP, Fiori apps, workflow automation, and custom enhancements tailored to your unique proprietary operational edges.',
+    title: 'SAP AMS (Application Management Services)',
+    slug: 'sap-ams',
+    url: '/services1/SAP Services/2',
+    image: '/zisantech_collaborative_consulting.jpg',
+    shortDesc: 'Dependable L1-L3 SLA-governed support, 24/7 proactive monitoring, incident management, and continuous ERP performance tuning.',
     fullDesc: [
-      'When standard SAP configurations do not match your unique enterprise competitive advantage, ZisanTech builds secure, scalable, and upgrade-safe custom solutions.',
-      'Our team leverages clean-core principles, modern SAP BTP extensions, and optimized ABAP on HANA to craft high-performance business applications.'
-    ],
-    keyFeatures: [
-      'Modern SAP Fiori & UI5 responsive web experiences',
-      'Clean-core ABAP RESTful Application Programming (RAP) & CAP models',
-      'Complex report generation, custom RFCs, and enhancement points (BAdIs/User Exits)',
-      'Automated business approval workflows across mobile and desktop'
-    ],
-    deliverables: [
-      'Technical design documentation (TDD) and functional specifications',
-      'Fully unit-tested and transport-managed source code',
-      'Security role authorizations and audit logs',
-      'Interactive user manual and administration guide'
-    ],
-    businessValue: [
-      'Eliminate repetitive manual spreadsheets and disjointed tools',
-      'Enhance workforce productivity with modern intuitive screens',
-      'Retain proprietary operational workflows without breaking ERP upgradeability'
-    ],
-    icon: 'Cpu'
-  },
-  {
-    id: 3,
-    category: 'SAP SERVICES',
-    type: 'sap',
-    title: 'SAP Support',
-    slug: 'sap-support',
-    url: '/services1/SAP SERVICES/3',
-    image: '/blog_sap_consulting_fresh.jpg',
-    shortDesc: 'Dependable L1-L3 SLA-governed support, performance monitoring, defect resolution, and continuous system optimization.',
-    fullDesc: [
-      'Ensure maximum business continuity with ZisanTech’s 24/7 proactive SAP Support. We protect your critical transactional ecosystem against unexpected downtime and bottlenecks.',
+      'Ensure maximum business continuity with ZisanTech’s 24/7 proactive SAP Application Management Services (AMS). We protect your critical transactional ecosystem against unexpected downtime and bottlenecks.',
       'From urgent month-end closing support to routine ticket resolution and patch regression testing, our dedicated consultants keep your business operations humming.'
     ],
     keyFeatures: [
@@ -318,172 +287,238 @@ export const SERVICES: ServiceItem[] = [
     icon: 'ShieldCheck'
   },
   {
-    id: 4,
-    category: 'SAP SERVICES',
+    id: 3,
+    category: 'SAP Services',
     type: 'sap',
-    title: 'SAP Integration',
-    slug: 'sap-integration',
-    url: '/services1/SAP SERVICES/4',
-    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80',
-    shortDesc: 'Seamlessly bridge SAP with third-party software, cloud platforms, e-commerce stores, logistics APIs, and IoT devices.',
+    title: 'Rise with SAP',
+    slug: 'rise-with-sap',
+    url: '/services1/SAP Services/3',
+    image: '/hero_sap_slide1.jpg',
+    shortDesc: 'Comprehensive business transformation as a service guiding your journey to SAP S/4HANA Cloud with minimal risk and guaranteed ROI.',
     fullDesc: [
-      'Break operational data silos. ZisanTech connects your central SAP ERP core with modern SaaS tools, banking portals, CRM platforms, legacy databases, and industrial devices.',
-      'Utilizing SAP Integration Suite (CPI/PO), REST/OData endpoints, IDocs, and secure webservices, we enable high-throughput synchronous and asynchronous data pipelines.'
+      'Accelerate your cloud transformation with RISE with SAP delivered by ZisanTech Solutions. We bundle cloud ERP, business process intelligence, cloud infrastructure, and outcome-driven services into one unified contract.',
+      'Whether modernizing legacy ECC or deploying fresh clean-core S/4HANA Cloud, we deliver scalable enterprise agility tailored to your specific industry.'
     ],
     keyFeatures: [
-      'SAP CPI / Cloud Integration and legacy SAP PO/PI pipeline orchestration',
-      'Direct banking host-to-host payout and statement automation',
-      'E-commerce & CRM real-time data sync (Salesforce, Shopify, custom portals)',
-      'Shop-floor IoT, PLC, and weighbridge automated data capture'
+      'Cloud ERP private and public edition assessment and enablement',
+      'Business Process Intelligence (Signavio) process mining',
+      'Clean-core architecture governance preserving standard extensibility',
+      'Infrastructure management across hyperscalers (AWS, Azure, GCP)'
     ],
     deliverables: [
-      'Interface Architecture Blueprint and data mapping catalogues',
-      'Pre-built monitoring alarms and automated error reprocessing queues',
-      'End-to-end handshake validation across test sandboxes',
-      'API security tokens, certificates, and IP whitelist setup'
+      'RISE with SAP Transformation Roadmap and TCO analysis',
+      'Cloud Readiness and Custom Code Assessment Report',
+      'Automated migration wave execution blueprint',
+      'Hyper-care SLA handover and operational steady-state documentation'
     ],
     businessValue: [
-      'Eliminate duplicate data entry across disparate applications',
-      'Real-time information flow for executive decision-making',
-      'Zero data drops with resilient asynchronous message queues'
+      'Up to 20% lower total cost of ownership compared to legacy hosting',
+      'Continuous quarterly feature innovation without disruptive upgrades',
+      'Single SLA covering cloud infrastructure, software, and technical managed services'
+    ],
+    icon: 'Rocket'
+  },
+  {
+    id: 4,
+    category: 'SAP Services',
+    type: 'sap',
+    title: 'SAP Migration',
+    slug: 'sap-migration',
+    url: '/services1/SAP Services/4',
+    image: '/hero_sap_consulting_1.jpg',
+    shortDesc: 'Safe, predictable migration from SAP ECC to S/4HANA via Brownfield, Greenfield, or Selective Data Transition pathways.',
+    fullDesc: [
+      'Modernize legacy SAP platforms to the power of in-memory computing. ZisanTech provides structured, risk-free SAP S/4HANA migration services leveraging proven automated toolsets.',
+      'We remediate custom code, restructure financial ledgers (Universal Journal), and consolidate master data with minimal production downtime.'
+    ],
+    keyFeatures: [
+      'Brownfield (system conversion) and Greenfield (new implementation) pathways',
+      'Selective Data Transition and historical data archiving',
+      'Custom code remediation and simplification item checks',
+      'Cutover simulation and near-zero downtime execution'
+    ],
+    deliverables: [
+      'Detailed S/4HANA Readiness Assessment & Simplification Report',
+      'Custom Code Adaptation Matrix and remediation logs',
+      'Comprehensive Cutover Runbook with dry-run benchmarks',
+      'Post go-live stabilization and hyper-care support'
+    ],
+    businessValue: [
+      'Eliminate technical debt and unlock real-time in-memory analytics',
+      'Streamlined business processes matching industry best practices',
+      'Guaranteed compliance with SAP 2027 maintenance deadlines'
+    ],
+    icon: 'Workflow'
+  },
+  {
+    id: 5,
+    category: 'SAP Services',
+    type: 'sap',
+    title: 'SAP Integration & BTP',
+    slug: 'sap-integration-btp',
+    url: '/services1/SAP Services/5',
+    image: '/hero_sap_slide2.jpg',
+    shortDesc: 'Seamlessly bridge SAP with third-party software, cloud platforms, e-commerce stores, logistics APIs, and SAP BTP extensions.',
+    fullDesc: [
+      'Break operational data silos and build side-by-side cloud extensions without altering your SAP core. ZisanTech leverages SAP Business Technology Platform (BTP) and Integration Suite.',
+      'Utilizing Cloud Integration (CPI), REST/OData APIs, IDocs, event brokers, and secure webservices, we enable high-throughput synchronous and asynchronous enterprise pipelines.'
+    ],
+    keyFeatures: [
+      'SAP Integration Suite (Cloud Integration / CPI) & legacy PO/PI orchestration',
+      'SAP BTP side-by-side extension development (CAP / RAP models)',
+      'Direct banking host-to-host payout and bank statement reconciliation',
+      'E-commerce & CRM real-time data sync with automated error recovery queues'
+    ],
+    deliverables: [
+      'Enterprise Interface Architecture Blueprint and mapping catalog',
+      'Pre-built monitoring alarms and automated retry queues',
+      'Security certificate management and API gateway configuration',
+      'Sandbox validation and load testing verification certificates'
+    ],
+    businessValue: [
+      'Eliminate duplicate manual data entry across disparate systems',
+      'Preserve clean-core architecture for friction-free future upgrades',
+      'Real-time information flow for executive decision-making'
     ],
     icon: 'Network'
   },
   {
-    id: 5,
-    category: 'SAP SERVICES',
-    type: 'sap',
-    title: 'SAP Consulting',
-    slug: 'sap-consulting',
-    url: '/services1/SAP SERVICES/5',
-    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
-    shortDesc: 'Strategic ERP roadmapping, S/4HANA migration advisory, architecture reviews, and business process re-engineering.',
-    fullDesc: [
-      'Transform ERP from a recording system into a strategic driver of revenue and efficiency. Our senior SAP consultants guide your enterprise through roadmap design and technology investments.',
-      'Whether evaluating brownfield vs. greenfield S/4HANA migration, consolidating disparate ERP instances, or re-engineering supply chain flows, we provide battle-tested advisory.'
-    ],
-    keyFeatures: [
-      'S/4HANA readiness assessments and business case justification',
-      'Business Process Re-engineering (BPR) and best-practice benchmarking',
-      'License optimization and infrastructure sizing guidance',
-      'Independent quality assurance and governance audits'
-    ],
-    deliverables: [
-      'Executive Technology Roadmap and Transition Plan',
-      'Total Cost of Ownership (TCO) & ROI projection models',
-      'As-Is vs. To-Be process mapping documentation',
-      'Risk mitigation and governance handbook'
-    ],
-    businessValue: [
-      'Avoid costly software over-licensing and architectural missteps',
-      'Accelerate executive consensus and stakeholder buy-in',
-      'Maximize ROI from SAP investments through modern best practices'
-    ],
-    icon: 'Briefcase'
-  },
-  {
     id: 6,
-    category: 'SAP SERVICES',
+    category: 'SAP Services',
     type: 'sap',
-    title: 'SAP E-Invoice & E-Way Bill',
-    slug: 'sap-e-invoice-e-way-bill',
-    url: '/services1/SAP SERVICES/6',
-    image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80',
-    shortDesc: 'Direct, automated statutory compliance for GST E-Invoicing, QR codes, and E-Way Bill generation directly inside SAP.',
+    title: 'SAP Analytics',
+    slug: 'sap-analytics',
+    url: '/services1/SAP Services/6',
+    image: '/hero_sap_slide3.jpg',
+    shortDesc: 'Real-time corporate dashboards, predictive financial modeling, and unified data intelligence with SAP Analytics Cloud (SAC) and Datasphere.',
     fullDesc: [
-      'Stay 100% tax compliant without adding friction to daily dispatch and billing. ZisanTech provides a robust, seamless bridge between SAP and the government GSTN / IRP portals.',
-      'Invoices generated in SAP SD or FI automatically acquire IRN (Invoice Reference Number), signed QR codes, and E-Way Bills in seconds, enabling instant printout and dispatch.'
+      'Transform complex transactional records into actionable boardroom intelligence. ZisanTech deploys SAP Analytics Cloud (SAC), SAP Datasphere, and embedded S/4HANA analytics.',
+      'We design executive dashboards, self-service KPIs, and predictive budgeting models that give stakeholders complete visibility across supply chain, sales, and fiscal performance.'
     ],
     keyFeatures: [
-      'Direct API handshake with government-approved GSP / IRP gateways',
-      'Real-time automated generation of IRN, signed QR code, and E-Way Bills',
-      'Automatic handling of credit notes, debit notes, and cancellation workflows',
-      'Configurable fallback mechanisms, retry queues, and bulk generation tools'
+      'SAP Analytics Cloud (SAC) interactive storytelling and executive cockpits',
+      'SAP Datasphere & BW/4HANA unified semantic business data fabric',
+      'Embedded S/4HANA analytics and Core Data Services (CDS) views',
+      'Financial planning, automated forecasting, and variance simulation'
     ],
     deliverables: [
-      'SAP Add-on connector configured for your company codes and plant structures',
-      'Customized invoice print formats compliant with statutory layout rules',
-      'Exception management cockpit for failed or pending IRNs',
-      'Comprehensive user guide for dispatch and accounts personnel'
+      'Tailored Executive KPI Dashboards accessible via mobile and web',
+      'Semantic data models connecting SAP and non-SAP sources',
+      'Automated scheduled report distribution pipelines',
+      'Business analyst training and self-service query guides'
     ],
     businessValue: [
-      'Zero truck detention or shipment delays caused by manual bill generation',
-      '100% statutory penalty avoidance with guaranteed compliance',
-      'Massive time savings for accounts receivable and logistics teams'
+      'Instant visibility into profitability, operational cash flow, and inventory turns',
+      'Single source of truth eliminating conflicting department spreadsheets',
+      'Accelerated strategic decision-making powered by predictive insights'
     ],
-    icon: 'FileCheck'
+    icon: 'TrendingUp'
   },
   {
     id: 7,
-    category: 'SAP SERVICES',
+    category: 'SAP Services',
     type: 'sap',
-    title: 'SAP AI & Intelligent ERP',
-    slug: 'sap-ai',
-    url: '/services1/SAP SERVICES/7',
+    title: 'SAP AI & Automation',
+    slug: 'sap-ai-automation',
+    url: '/services1/SAP Services/7',
     image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80',
-    shortDesc: 'Infuse artificial intelligence, machine learning, and robotic process automation into your core enterprise workflows.',
+    shortDesc: 'Infuse artificial intelligence, machine learning, and automated statutory compliance into core enterprise ERP workflows.',
     fullDesc: [
-      'Harness modern artificial intelligence directly alongside your transactional data. ZisanTech helps forward-thinking enterprises deploy machine learning and intelligent document processing in SAP.',
-      'From automated accounts payable vendor invoice reading to predictive cash-flow forecasting and intelligent material reorder recommendations, we turn ERP data into autonomous decisions.'
+      'Harness modern artificial intelligence directly alongside your transactional data. ZisanTech helps forward-thinking enterprises deploy machine learning, SAP Joule capabilities, and robotic process automation.',
+      'From automated vendor invoice reading to predictive cash-flow forecasting and GST E-Invoicing / E-Way Bill statutory automation, we turn ERP data into autonomous decisions.'
     ],
     keyFeatures: [
       'Intelligent Document Processing (IDP) for automated invoice and PO ingestion',
-      'Predictive inventory demand forecasting algorithms',
-      'AI-driven customer credit scoring and payment delay probability indicators',
+      'Automated statutory compliance including GST E-Invoice & E-Way Bill generation',
+      'AI-driven inventory demand forecasting and predictive reordering',
       'Integration with generative AI assistants and SAP Joule capabilities'
     ],
     deliverables: [
       'Trained and validated AI workflow pipelines connected to SAP BTP',
       'Human-in-the-loop exception handling dashboard',
-      'Accuracy verification benchmarks and model drift tracking',
+      'Automated tax compliance connectors and validation cockpit',
       'Technical architecture and compliance review documentation'
     ],
     businessValue: [
       '80% reduction in manual data keying across high-volume accounting',
-      'Proactive identification of supply chain bottlenecks before they occur',
+      '100% statutory tax compliance avoiding transportation detention and penalties',
       'Smarter working capital management through algorithmic insights'
     ],
     icon: 'Sparkles'
   },
+
+  // --- 2. Enterprise & Cloud Solutions (6 Client-Requested Services) ---
   {
     id: 8,
-    category: 'Other Services',
-    type: 'other',
-    title: 'CRM / ERP Solutions',
-    slug: 'crm-erp-solutions',
-    url: '/services1/Other Services/1',
+    category: 'Enterprise & Cloud Solutions',
+    type: 'enterprise',
+    title: 'CRM Solutions',
+    slug: 'crm-solutions',
+    url: '/services1/Enterprise & Cloud Solutions/8',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
-    shortDesc: 'Tailored enterprise platforms connecting customer pipelines, sales operations, field force, and back-office accounting.',
+    shortDesc: 'Tailored enterprise CRM platforms connecting lead pipelines, customer support, sales automation, and executive forecasting.',
     fullDesc: [
-      'For mid-market and enterprise organizations seeking agile operational systems, ZisanTech provides tailored CRM and ERP implementations that connect front-line sales with back-office execution.',
-      'We eliminate disconnected spreadsheets, streamline customer journey interactions, and provide real-time sales visibility for leadership.'
+      'Empower your revenue teams with a unified customer ecosystem. ZisanTech delivers tailored CRM solutions that connect marketing outreach, sales pipelines, client retention, and after-sales service.',
+      'We eliminate disconnected communication, automate follow-up cadences, and give sales leaders 360-degree real-time visibility into quota attainment.'
     ],
     keyFeatures: [
-      'Lead-to-cash pipeline automation and sales performance tracking',
-      'Field sales force tracking with mobile geolocation check-ins',
-      'Customer support ticketing, SLA tracking, and resolution knowledge bases',
-      'Real-time financial ledgers and automated invoicing modules'
+      'Omnichannel lead capture and intelligent sales rep routing',
+      'Visual deal stage pipeline and automated quote generation',
+      'Customer support ticketing, SLA escalation, and knowledge management',
+      'Mobile CRM accessibility for field reps with geolocation check-ins'
     ],
     deliverables: [
-      'Configured CRM/ERP workspace matching your organizational hierarchy',
-      'Data import from legacy systems with sanitized contact records',
-      'Management dashboards and automated daily executive email digests',
-      'Training sessions for sales and support representatives'
+      'Customized CRM architecture tailored to your sales process',
+      'Sanitized data migration from legacy spreadsheets and databases',
+      'Automated daily/weekly executive performance reporting digests',
+      'Hands-on sales team onboarding and administrator training'
     ],
     businessValue: [
-      'Higher lead conversion rates and shorter sales cycle velocity',
-      'Complete 360-degree visibility into client lifetime value and service history',
-      'Cohesive organizational communication across distributed teams'
+      '30% increase in lead-to-opportunity conversion velocity',
+      'Zero lead leakage through automated SLA-driven follow-ups',
+      'Complete visibility into customer lifetime value (LTV) and satisfaction'
     ],
     icon: 'Users'
   },
   {
     id: 9,
-    category: 'Other Services',
-    type: 'other',
-    title: 'E-commerce Solutions',
-    slug: 'ecommerce-solutions',
-    url: '/services1/Other Services/2',
+    category: 'Enterprise & Cloud Solutions',
+    type: 'enterprise',
+    title: 'ERP Solutions',
+    slug: 'erp-solutions',
+    url: '/services1/Enterprise & Cloud Solutions/9',
+    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80',
+    shortDesc: 'Comprehensive cloud and on-premise ERP platforms uniting procurement, inventory, production, accounting, and sales operations.',
+    fullDesc: [
+      'Build a rock-solid operational foundation for growth. ZisanTech delivers agile, robust ERP solutions designed to streamline inventory, procurement, manufacturing, and financial reconciliations.',
+      'Whether deploying modular enterprise ERP or modernizing departmental workflows, our certified architects ensure end-to-end statutory compliance and operational excellence.'
+    ],
+    keyFeatures: [
+      'Integrated general ledger, accounts payable, and accounts receivable',
+      'Real-time multi-warehouse inventory control and batch traceability',
+      'Procurement automation with vendor comparison and quotation management',
+      'Production scheduling, Bill of Materials (BOM), and work center tracking'
+    ],
+    deliverables: [
+      'Complete ERP system configuration and master data initialization',
+      'Statutory tax integration and customized invoice/challan formats',
+      'Role-based access permissions and audit compliance logging',
+      'Comprehensive user manuals and transition support'
+    ],
+    businessValue: [
+      'Real-time financial visibility eliminating manual period-end chaos',
+      'Reduced inventory holding costs with accurate material reorder points',
+      'Seamless scalability supporting multi-branch and multi-entity expansion'
+    ],
+    icon: 'Layers'
+  },
+  {
+    id: 10,
+    category: 'Enterprise & Cloud Solutions',
+    type: 'enterprise',
+    title: 'E-Commerce Development',
+    slug: 'e-commerce-development',
+    url: '/services1/Enterprise & Cloud Solutions/10',
     image: 'https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&fit=crop&w=800&q=80',
     shortDesc: 'High-conversion B2B and B2C digital storefronts engineered with real-time ERP inventory and payment gateway integration.',
     fullDesc: [
@@ -510,12 +545,12 @@ export const SERVICES: ServiceItem[] = [
     icon: 'ShoppingCart'
   },
   {
-    id: 10,
-    category: 'Other Services',
-    type: 'other',
-    title: 'HRMS Solutions',
-    slug: 'hrms-solutions',
-    url: '/services1/Other Services/3',
+    id: 11,
+    category: 'Enterprise & Cloud Solutions',
+    type: 'enterprise',
+    title: 'HRMS Solution',
+    slug: 'hrms-solution',
+    url: '/services1/Enterprise & Cloud Solutions/11',
     image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80',
     shortDesc: 'Comprehensive human capital platforms covering recruitment, attendance, automated payroll, and employee self-service.',
     fullDesc: [
@@ -542,12 +577,12 @@ export const SERVICES: ServiceItem[] = [
     icon: 'UserCheck'
   },
   {
-    id: 11,
-    category: 'Other Services',
-    type: 'other',
-    title: 'Digital Marketing & Growth',
+    id: 12,
+    category: 'Enterprise & Cloud Solutions',
+    type: 'enterprise',
+    title: 'Digital Marketing',
     slug: 'digital-marketing',
-    url: '/services1/Other Services/4',
+    url: '/services1/Enterprise & Cloud Solutions/12',
     image: 'https://images.unsplash.com/photo-1432888622747-4eb9a8f2c293?auto=format&fit=crop&w=800&q=80',
     shortDesc: 'Data-driven B2B lead generation, search engine optimization, content strategy, and performance campaign management.',
     fullDesc: [
@@ -574,12 +609,12 @@ export const SERVICES: ServiceItem[] = [
     icon: 'TrendingUp'
   },
   {
-    id: 12,
-    category: 'Other Services',
-    type: 'other',
+    id: 13,
+    category: 'Enterprise & Cloud Solutions',
+    type: 'enterprise',
     title: 'App & Web Development',
     slug: 'app-web-development',
-    url: '/services1/Other Services/5',
+    url: '/services1/Enterprise & Cloud Solutions/13',
     image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80',
     shortDesc: 'Scalable cloud-native web portals, SaaS platforms, and cross-platform mobile apps built with modern technology stacks.',
     fullDesc: [
@@ -599,11 +634,11 @@ export const SERVICES: ServiceItem[] = [
       'Post-deployment technical handover and support'
     ],
     businessValue: [
-      'Rapid go-to-market speed with modular, reusable component architectures',
-      'Flawless responsiveness across all devices and screen sizes',
-      'Enterprise-grade security standards with encrypted data pipelines'
+      'High-performance applications with 99.9% uptime reliability',
+      'Reduced time-to-market through agile sprint-based delivery',
+      'Modern, responsive design that delights enterprise users'
     ],
-    icon: 'Code2'
+    icon: 'Code'
   }
 ];
 
@@ -822,9 +857,9 @@ export const TRAINING_MODULES: TrainingItem[] = [
     id: 7,
     category: 'Functional Modules',
     type: 'functional',
-    title: 'SAP LE (Logistics Execution)',
-    code: 'SAP-LE',
-    slug: 'sap-le-training',
+    title: 'SAP CCM (Compensation & Claims Management)',
+    code: 'SAP-CCM',
+    slug: 'sap-ccm-training',
     url: '/trainingprogrammes/Functional Modules/7',
     image: 'https://images.unsplash.com/photo-1586528116493-a029325540fa?auto=format&fit=crop&w=800&q=80',
     shortDesc: 'Master inbound/outbound shipments, delivery documentation, picking strategies, packing units, and carrier freight calculation.',

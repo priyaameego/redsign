@@ -105,7 +105,7 @@ export const ConceptSAP: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {SERVICES.filter(s => s.category === 'SAP SERVICES').map((s) => (
+          {SERVICES.filter(s => s.category === 'SAP Services').map((s) => (
             <div key={s.id} className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
               <div>
                 <span className="text-xs font-mono text-blue-600 font-semibold">SAP SERVICE // 0{s.id}</span>

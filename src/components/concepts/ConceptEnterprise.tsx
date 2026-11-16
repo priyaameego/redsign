@@ -799,156 +799,155 @@ export const ConceptEnterprise: React.FC = () => {
 
 
       {/* =========================================================================
-          7. ENTERPRISE SAP & IT SERVICES SECTION (Images 5 & 6)
+          7. ENTERPRISE SAP & IT SERVICES SECTION (Original Screenshot Section + New Client Additions)
       ========================================================================= */}
       <section id="services" className="bg-[#f8fafc] py-24 border-t border-slate-200 relative overflow-hidden">
         <div className="absolute top-1/4 right-0 w-96 h-96 bg-[#087FE5]/5 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-10 left-0 w-80 h-80 bg-[#063B83]/5 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
-            <div className="space-y-3 max-w-3xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E0F2FE] border border-[#BAE6FD] text-[#0369A1] text-xs font-bold tracking-wide">
-                <span className="w-2 h-2 rounded-full bg-[#0284C7]"></span>
-                <span>PROVEN ENTERPRISE PRACTICE</span>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-24">
+          
+          {/* =========================================================================
+              PART 1: ORIGINAL ENTERPRISE SAP & IT SERVICES (6 Screenshot Cards Exact Match)
+          ========================================================================= */}
+          <div>
+            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
+              <div className="space-y-3 max-w-3xl">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E0F2FE] border border-[#BAE6FD] text-[#0369A1] text-xs font-bold tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-[#0284C7]"></span>
+                  <span>PROVEN ENTERPRISE PRACTICE</span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-[#071B49] font-heading leading-tight tracking-tight">
+                  Enterprise SAP &amp; IT Services
+                </h2>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  End-to-end consulting, migration, customization, and 24/7 managed support powered by certified SAP architects.
+                </p>
               </div>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#071B49] font-heading leading-tight tracking-tight">
-                Enterprise SAP &amp; IT Services
-              </h2>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                End-to-end consulting, migration, customization, and 24/7 managed support powered by certified SAP architects.
-              </p>
+              <div className="flex-shrink-0">
+                <a
+                  href="#contact"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#087FE5] hover:bg-[#063B83] text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-all shadow-md hover:shadow-lg active:scale-95 cursor-pointer"
+                >
+                  <span>EXPLORE ALL SERVICES</span>
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
             </div>
-            <div className="flex-shrink-0">
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-[#087FE5] hover:bg-[#063B83] text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-all shadow-md hover:shadow-lg active:scale-95 cursor-pointer"
-              >
-                <span>EXPLORE ALL SERVICES</span>
-                <ArrowRight className="w-4 h-4" />
-              </a>
-            </div>
-          </div>
 
-          {/* 6 White Cards matching Screenshots with 3D Sheen Sweep & Premium Hover Animations */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                id: 'sap-rollout',
-                title: 'SAP Rollout',
-                desc: 'Expand your global SAP template seamlessly across branches, subsidiaries, and manufacturing plants with minimal operational disruption.',
-                image: '/hero_sap_slide1.jpg',
-                badge: 'SAP SERVICES'
-              },
-              {
-                id: 'sap-custom-solutions',
-                title: 'SAP Custom Solutions',
-                desc: 'Bespoke ABAP, Fiori apps, workflow automation, and custom enhancements tailored to your unique proprietary operational edges.',
-                image: '/hero_sap_slide3.jpg',
-                badge: 'SAP SERVICES'
-              },
-              {
-                id: 'sap-support',
-                title: 'SAP Support',
-                desc: 'Dependable L1-L3 SLA-governed support, performance monitoring, defect resolution, and continuous system optimization.',
-                image: '/zisantech_collaborative_consulting.jpg',
-                badge: 'SAP SERVICES'
-              },
-              {
-                id: 'sap-integration',
-                title: 'SAP Integration',
-                desc: 'Seamlessly bridge SAP with third-party software, cloud platforms, e-commerce stores, logistics APIs, and IoT devices.',
-                image: '/hero_sap_slide2.jpg',
-                badge: 'SAP SERVICES'
-              },
-              {
-                id: 'sap-consulting',
-                title: 'SAP Consulting',
-                desc: 'Strategic ERP roadmapping, S/4HANA migration advisory, architecture reviews, and business process re-engineering.',
-                image: '/hero_sap_consulting_1.jpg',
-                badge: 'SAP SERVICES'
-              },
-              {
-                id: 'sap-einvoice',
-                title: 'SAP E-Invoice & E-Way Bill',
-                desc: 'Direct, automated statutory compliance for GST E-Invoicing, QR codes, and E-Way Bill generation directly inside SAP.',
-                image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80',
-                badge: 'SAP SERVICES'
-              }
-            ].map((svc, idx) => (
-              <motion.div
-                key={svc.id}
-                initial={{ opacity: 0, y: 35 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-40px' }}
-                transition={{ duration: 0.5, delay: idx * 0.08 }}
-                whileHover={{ y: -10 }}
-                className="group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:shadow-[#087FE5]/20 transition-all duration-500 border border-slate-200/90 hover:border-[#087FE5] flex flex-col justify-between cursor-pointer"
-              >
-                <div>
-                  {/* Image container with 3D sheen swipe reflection, vignette & smooth zoom */}
-                  <div className="relative h-56 sm:h-60 overflow-hidden bg-slate-900">
-                    <img
-                      src={svc.image}
-                      alt={svc.title}
-                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 group-hover:rotate-[0.5deg]"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.src = '/hero_sap_consulting_2.jpg';
-                      }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#071B49]/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
-
-                    {/* 3D Sheen Light Reflection Sweep on Hover */}
-                    <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/25 to-transparent pointer-events-none" />
-
-                    {/* Category Badge */}
-                    <div className="absolute top-3.5 left-3.5 px-3 py-1 rounded-md bg-[#071B49]/90 backdrop-blur-md text-[#08B9E8] text-[10px] font-bold uppercase font-mono tracking-wider border border-[#087FE5]/40 shadow-md">
-                      {svc.badge}
+            {/* 6 Original White Cards Matching Screenshot 1, 2, 3 */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                {
+                  id: 'orig-sap-rollout',
+                  title: 'SAP Rollout',
+                  desc: 'Expand your global SAP template seamlessly across branches, subsidiaries, and manufacturing plants with minimal operational disruption.',
+                  image: '/hero_sap_slide1.jpg',
+                  badge: 'SAP SERVICES'
+                },
+                {
+                  id: 'orig-sap-custom-solutions',
+                  title: 'SAP Custom Solutions',
+                  desc: 'Bespoke ABAP, Fiori apps, workflow automation, and custom enhancements tailored to your unique proprietary operational edges.',
+                  image: '/hero_sap_slide3.jpg',
+                  badge: 'SAP SERVICES'
+                },
+                {
+                  id: 'orig-sap-support',
+                  title: 'SAP Support',
+                  desc: 'Dependable L1-L3 SLA-governed support, performance monitoring, defect resolution, and continuous system optimization.',
+                  image: '/zisantech_collaborative_consulting.jpg',
+                  badge: 'SAP SERVICES'
+                },
+                {
+                  id: 'orig-sap-integration',
+                  title: 'SAP Integration',
+                  desc: 'Seamlessly bridge SAP with third-party software, cloud platforms, e-commerce stores, logistics APIs, and IoT devices.',
+                  image: '/hero_sap_slide2.jpg',
+                  badge: 'SAP SERVICES'
+                },
+                {
+                  id: 'orig-sap-consulting',
+                  title: 'SAP Consulting',
+                  desc: 'Strategic ERP roadmapping, S/4HANA migration advisory, architecture reviews, and business process re-engineering.',
+                  image: '/hero_sap_consulting_1.jpg',
+                  badge: 'SAP SERVICES'
+                },
+                {
+                  id: 'orig-sap-einvoice',
+                  title: 'SAP E-Invoice & E-Way Bill',
+                  desc: 'Direct, automated statutory compliance for GST E-Invoicing, QR codes, and E-Way Bill generation directly inside SAP.',
+                  image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80',
+                  badge: 'SAP SERVICES'
+                }
+              ].map((svc, idx) => (
+                <motion.div
+                  key={svc.id}
+                  initial={{ opacity: 0, y: 35 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-40px' }}
+                  transition={{ duration: 0.5, delay: idx * 0.08 }}
+                  whileHover={{ y: -8 }}
+                  className="group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:shadow-[#087FE5]/20 transition-all duration-500 border border-slate-200/90 hover:border-[#087FE5] flex flex-col justify-between cursor-pointer"
+                >
+                  <div>
+                    <div className="relative h-56 sm:h-60 overflow-hidden bg-slate-900">
+                      <img
+                        src={svc.image}
+                        alt={svc.title}
+                        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 group-hover:rotate-[0.5deg]"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.src = '/hero_sap_consulting_2.jpg';
+                        }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#071B49]/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+                      <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/25 to-transparent pointer-events-none" />
+                      <div className="absolute top-3.5 left-3.5 px-3 py-1 rounded-md bg-[#071B49]/90 backdrop-blur-md text-[#08B9E8] text-[10px] font-bold uppercase font-mono tracking-wider border border-[#087FE5]/40 shadow-md">
+                        {svc.badge}
+                      </div>
+                      <div className="absolute bottom-3.5 right-3.5 w-8 h-8 rounded-full bg-white/95 backdrop-blur text-[#063B83] flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:scale-100 scale-75 transition-all duration-300 shadow-md group-hover:bg-[#087FE5] group-hover:text-white">
+                        <ArrowRight className="w-4 h-4" />
+                      </div>
                     </div>
 
-                    {/* Floating Circle Arrow Button on Hover */}
-                    <div className="absolute bottom-3.5 right-3.5 w-8 h-8 rounded-full bg-white/95 backdrop-blur text-[#063B83] flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:scale-100 scale-75 transition-all duration-300 shadow-md group-hover:bg-[#087FE5] group-hover:text-white">
-                      <ArrowRight className="w-4 h-4" />
+                    <div className="p-7 space-y-3">
+                      <h3 className="text-xl font-bold text-[#071B49] group-hover:text-[#087FE5] transition-colors font-heading leading-snug">
+                        {svc.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                        {svc.desc}
+                      </p>
                     </div>
                   </div>
 
-                  {/* Body Content */}
-                  <div className="p-7 space-y-3">
-                    <h3 className="text-xl font-bold text-[#071B49] group-hover:text-[#087FE5] transition-colors font-heading leading-snug">
-                      {svc.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                      {svc.desc}
-                    </p>
+                  <div className="px-7 pb-6 pt-0">
+                    <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
+                      <a
+                        href="#contact"
+                        className="font-bold text-[#087FE5] group-hover:text-[#063B83] flex items-center gap-1.5 transition-colors cursor-pointer"
+                      >
+                        <span>Explore Scope</span>
+                        <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform duration-300" />
+                      </a>
+                      <a
+                        href="#contact"
+                        className="text-slate-400 group-hover:text-[#071B49] font-semibold transition-colors cursor-pointer"
+                      >
+                        <span>Enquire Now →</span>
+                      </a>
+                    </div>
                   </div>
-                </div>
-
-                {/* Footer Action Links */}
-                <div className="px-7 pb-6 pt-0">
-                  <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
-                    <a
-                      href="#contact"
-                      className="font-bold text-[#063B83] group-hover:text-[#087FE5] flex items-center gap-1.5 transition-colors cursor-pointer"
-                    >
-                      <span>Explore Scope</span>
-                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform duration-300" />
-                    </a>
-                    <a
-                      href="#contact"
-                      className="text-slate-400 group-hover:text-[#071B49] font-semibold transition-colors cursor-pointer"
-                    >
-                      <span>Enquire Now →</span>
-                    </a>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </div>
           </div>
+
         </div>
       </section>
 
-      {/* =========================================================================
+
+{/* =========================================================================
           8. TRAINING & ENABLEMENT SECTION: (Images 1 & 2 - 8 Modules Grid)
       ========================================================================= */}
       <section id="training" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1016,9 +1015,9 @@ export const ConceptEnterprise: React.FC = () => {
               duration: '8 - 10 Weeks'
             },
             {
-              id: 'sap-le',
-              badge: 'SAP-LE',
-              title: 'SAP LE (Logistics Execution)',
+              id: 'sap-ccm',
+              badge: 'SAP-CCM',
+              title: 'SAP CCM (Compensation & Claims Management)',
               desc: 'Master inbound/outbound shipments, delivery documentation, picking strategies, packing units, and carrier...',
               duration: '6 - 8 Weeks'
             },
