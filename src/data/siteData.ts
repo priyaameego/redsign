@@ -170,7 +170,7 @@ export const INDUSTRIES: IndustryItem[] = [
     id: 'steel',
     name: 'Steel & Metallurgy',
     tagline: 'High-Volume Mill Logistics, Heat Tracking & Metal Yields',
-    image: 'https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80',
+    image: '/industry_steel_metallurgy.jpg',
     summary: 'Optimizing melt-shop to rolling-mill yields, heat-wise traceability, weighbridge integrations, and bulk commodity transit logistics.',
     challenges: [
       'Tracking heat numbers, chemical composition, and mechanical properties per slab/coil',
@@ -196,7 +196,7 @@ export const INDUSTRIES: IndustryItem[] = [
     id: 'pharma',
     name: 'Pharma & Life Sciences',
     tagline: 'GxP Validated Formulations, Serialization & Cold Chain Integrity',
-    image: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=1200&q=80',
+    image: '/industry_pharma_lifesciences.jpg',
     summary: 'Enabling FDA 21 CFR Part 11 electronic records, batch release automation, clinical inventory monitoring, and audited track-and-trace pipelines.',
     challenges: [
       'Zero-tolerance compliance standards (GxP, 21 CFR Part 11, audit trails)',

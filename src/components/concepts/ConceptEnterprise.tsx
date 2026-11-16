@@ -119,7 +119,7 @@ export const ConceptEnterprise: React.FC = () => {
 
   return (
     <div className="bg-white text-slate-800 font-sans selection:bg-[#063B83] selection:text-white overflow-hidden relative">
-      
+
 
 
       {/* =========================================================================
@@ -132,9 +132,8 @@ export const ConceptEnterprise: React.FC = () => {
           return (
             <div
               key={index}
-              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                isActive ? 'opacity-100 z-10 pointer-events-auto' : 'opacity-0 z-0 pointer-events-none'
-              }`}
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${isActive ? 'opacity-100 z-10 pointer-events-auto' : 'opacity-0 z-0 pointer-events-none'
+                }`}
             >
               {/* Background Visual with Luxury Cinematic Ken Burns Effect */}
               <motion.img
@@ -260,9 +259,8 @@ export const ConceptEnterprise: React.FC = () => {
             <button
               key={i}
               onClick={() => setCurrentSlide(i)}
-              className={`h-2 transition-all rounded-full cursor-pointer ${
-                i === currentSlide ? 'w-8 bg-[#087FE5]' : 'w-2.5 bg-white/40 hover:bg-white'
-              }`}
+              className={`h-2 transition-all rounded-full cursor-pointer ${i === currentSlide ? 'w-8 bg-[#087FE5]' : 'w-2.5 bg-white/40 hover:bg-white'
+                }`}
               aria-label={`Slide ${i + 1}`}
             />
           ))}
@@ -332,7 +330,7 @@ export const ConceptEnterprise: React.FC = () => {
       ========================================================================= */}
       <section id="about" className="py-20 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
-                    {/* Vertical Brand Electric Blue Accent Pill (from Screenshot) */}
+          {/* Vertical Brand Electric Blue Accent Pill (from Screenshot) */}
           <div className="hidden lg:block absolute left-1/2 -translate-x-1/2 top-16 w-2.5 h-16 bg-gradient-to-b from-[#087FE5] to-[#08B9E8] rounded-full shadow-md shadow-[#087FE5]/30 z-20 pointer-events-none" />
 
           {/* Left Multi-Layer Image Montage */}
@@ -660,7 +658,7 @@ export const ConceptEnterprise: React.FC = () => {
         <div className="absolute bottom-10 left-0 w-80 h-80 bg-[#063B83]/5 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-24">
-          
+
           {/* =========================================================================
               PART 1: ORIGINAL ENTERPRISE SAP & IT SERVICES (6 Screenshot Cards Exact Match)
           ========================================================================= */}
@@ -696,42 +694,42 @@ export const ConceptEnterprise: React.FC = () => {
                   id: 'orig-sap-rollout',
                   title: 'SAP Rollout',
                   desc: 'Expand your global SAP template seamlessly across branches, subsidiaries, and manufacturing plants with minimal operational disruption.',
-                  image: '/hero_sap_slide1.jpg',
+                  image: '/sap_service_card_rollout_fullhd.jpg',
                   badge: 'SAP SERVICES'
                 },
                 {
                   id: 'orig-sap-custom-solutions',
                   title: 'SAP Custom Solutions',
                   desc: 'Bespoke ABAP, Fiori apps, workflow automation, and custom enhancements tailored to your unique proprietary operational edges.',
-                  image: '/hero_sap_slide3.jpg',
+                  image: '/sap_service_card_custom_fullhd.jpg',
                   badge: 'SAP SERVICES'
                 },
                 {
                   id: 'orig-sap-support',
                   title: 'SAP Support',
                   desc: 'Dependable L1-L3 SLA-governed support, performance monitoring, defect resolution, and continuous system optimization.',
-                  image: '/zisantech_collaborative_consulting.jpg',
+                  image: '/sap_service_card_support_fullhd.jpg',
                   badge: 'SAP SERVICES'
                 },
                 {
                   id: 'orig-sap-integration',
                   title: 'SAP Integration',
                   desc: 'Seamlessly bridge SAP with third-party software, cloud platforms, e-commerce stores, logistics APIs, and IoT devices.',
-                  image: '/hero_sap_slide2.jpg',
+                  image: '/sap_service_card_integration_fullhd.jpg',
                   badge: 'SAP SERVICES'
                 },
                 {
                   id: 'orig-sap-consulting',
                   title: 'SAP Consulting',
                   desc: 'Strategic ERP roadmapping, S/4HANA migration advisory, architecture reviews, and business process re-engineering.',
-                  image: '/hero_sap_consulting_1.jpg',
+                  image: '/sap_service_card_consulting_fullhd.jpg',
                   badge: 'SAP SERVICES'
                 },
                 {
                   id: 'orig-sap-einvoice',
                   title: 'SAP E-Invoice & E-Way Bill',
                   desc: 'Direct, automated statutory compliance for GST E-Invoicing, QR codes, and E-Way Bill generation directly inside SAP.',
-                  image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80',
+                  image: '/sap_service_card_einvoice_fullhd.jpg',
                   badge: 'SAP SERVICES'
                 }
               ].map((svc, idx) => (
@@ -801,7 +799,7 @@ export const ConceptEnterprise: React.FC = () => {
       </section>
 
 
-                  {/* =========================================================================
+      {/* =========================================================================
           5. INDUSTRIES WE SERVE SECTION: Placed directly after Counter Strip (Screenshot 1, 2, 3)
       ========================================================================= */}
       <section id="industries" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white relative">
@@ -866,7 +864,7 @@ export const ConceptEnterprise: React.FC = () => {
               title: 'Steel & Metallurgy',
               tagline: 'HIGH-VOLUME MILL LOGISTICS, HEAT TRACKING & METAL YIELDS',
               desc: 'Optimizing melt-shop to rolling-mill yields, heat-wise traceability, weighbridge integrations, and heavy furnace asset uptime.',
-              image: 'https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80',
+              image: '/industry_steel_metallurgy.jpg',
               titleColor: 'text-[#38BDF8]',
               linkColor: 'text-white'
             },
@@ -875,7 +873,7 @@ export const ConceptEnterprise: React.FC = () => {
               title: 'Pharma & Life Sciences',
               tagline: 'GXP VALIDATED FORMULATIONS, SERIALIZATION & COLD CHAIN INTEGRITY',
               desc: 'Enabling FDA 21 CFR Part 11 electronic records, batch release automation, clinical inventory serialization, and audit validation.',
-              image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80',
+              image: '/industry_pharma_lifesciences.jpg',
               titleColor: 'text-white',
               linkColor: 'text-[#38BDF8]'
             }
@@ -900,7 +898,7 @@ export const ConceptEnterprise: React.FC = () => {
 
               {/* Gradient Dark Vignette Overlays */}
               <div className="absolute inset-0 bg-gradient-to-t from-[#071B49] via-[#071B49]/70 to-[#071B49]/15 group-hover:via-[#071B49]/75 transition-all duration-500" />
-              
+
               {/* Radial Luminous Blue Glow on Hover in Corner */}
               <div className="absolute top-0 right-0 w-44 h-44 bg-[radial-gradient(circle,rgba(8,127,229,0.45)_0%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none blur-xl" />
 
@@ -947,7 +945,7 @@ export const ConceptEnterprise: React.FC = () => {
         </div>
       </section>
 
-{/* =========================================================================
+      {/* =========================================================================
           8. TRAINING & ENABLEMENT SECTION: (Images 1 & 2 - 8 Modules Grid)
       ========================================================================= */}
       <section id="training" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1039,8 +1037,8 @@ export const ConceptEnterprise: React.FC = () => {
               className="group relative bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl hover:shadow-[#087FE5]/15 border border-slate-200/90 hover:border-[#087FE5] transition-all duration-300 flex flex-col justify-between overflow-hidden cursor-pointer"
             >
               {/* Soft Watermark Corner Curve (Matching zisantech.vercel.app & Screenshot 1) */}
-              <div 
-                className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-[#087FE5]/10 to-transparent rounded-bl-full pointer-events-none group-hover:from-[#087FE5]/25 transition-all duration-500" 
+              <div
+                className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-[#087FE5]/10 to-transparent rounded-bl-full pointer-events-none group-hover:from-[#087FE5]/25 transition-all duration-500"
               />
 
               <div>
@@ -1219,8 +1217,8 @@ export const ConceptEnterprise: React.FC = () => {
       {/* =========================================================================
           ENTERPRISE CTA BANNER WITH CONTACT STRIP (Exact Match to User Screenshot 1)
       ========================================================================= */}
-      <section 
-        id="contact-cta" 
+      <section
+        id="contact-cta"
         className="relative z-10 text-white border-t border-b border-[#051232]"
       >
         {/* Top Part: Gradient from deep navy blue to dark midnight */}
@@ -1271,7 +1269,7 @@ export const ConceptEnterprise: React.FC = () => {
         </div>
 
         {/* Bottom Part: Darker midnight navy strip separated by precise border matching Screenshot 1 (#212c4a) */}
-        <div 
+        <div
           className="bg-[#04102a] py-6 border-t border-[#212c4a]"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
