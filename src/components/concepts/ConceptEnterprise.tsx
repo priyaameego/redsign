@@ -651,152 +651,6 @@ export const ConceptEnterprise: React.FC = () => {
         </div>
       </div>
 
-                  {/* =========================================================================
-          5. INDUSTRIES WE SERVE SECTION: Placed directly after Counter Strip (Screenshot 1, 2, 3)
-      ========================================================================= */}
-      <section id="industries" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white relative">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center max-w-3xl mx-auto mb-16 space-y-3"
-        >
-          <span className="text-xs font-bold uppercase tracking-widest text-[#087FE5]">
-            INDUSTRIES WE SERVE
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#071B49] font-heading leading-tight tracking-tight">
-            Digitize your industry performance with our top SAP ERP Solution
-          </h2>
-          <p className="text-sm text-slate-600 leading-relaxed max-w-3xl mx-auto">
-            Your industry-specific customized SAP ERP solutions for all business sizes, ensuring statutory compliance. We optimize processes, integrate best practices, and drive operational success.
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[
-            {
-              id: 'manufacturing',
-              title: 'Manufacturing',
-              tagline: 'END-TO-END SHOP FLOOR TO TOP FLOOR ORCHESTRATION',
-              desc: 'Empowering discrete and process manufacturers with lean production workflows, integrated supply chain forecasting, and IoT predictive maintenance.',
-              image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80',
-              titleColor: 'text-white',
-              linkColor: 'text-[#38BDF8]'
-            },
-            {
-              id: 'retail-textile',
-              title: 'Retail & Textile',
-              tagline: 'AGILE OMNICHANNEL FULFILLMENT & YARN-TO-GARMENT LIFECYCLE',
-              desc: 'Delivering unified retail ERP, multi-channel commerce sync, inventory visibility, and structured yarn-to-garment supply chain execution.',
-              image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80',
-              titleColor: 'text-white',
-              linkColor: 'text-[#38BDF8]'
-            },
-            {
-              id: 'oil-gas',
-              title: 'Oil & Gas',
-              tagline: 'RESILIENT DOWNSTREAM & UPSTREAM ASSET GOVERNANCE',
-              desc: 'Ensuring strict compliance, capital asset lifecycle integrity, vendor audit trails, and multi-currency global operational governance.',
-              image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80',
-              titleColor: 'text-white',
-              linkColor: 'text-[#38BDF8]'
-            },
-            {
-              id: 'agro-chemical',
-              title: 'Agro Chemical',
-              tagline: 'STRINGENT FORMULATION GOVERNANCE & DISTRIBUTED DEALER NETWORKS',
-              desc: 'Accelerating formula versioning, hazardous material governance, seasonal distributor credit, and compliance-driven chemical batches.',
-              image: 'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=800&q=80',
-              titleColor: 'text-white',
-              linkColor: 'text-[#38BDF8]'
-            },
-            {
-              id: 'steel',
-              title: 'Steel & Metallurgy',
-              tagline: 'HIGH-VOLUME MILL LOGISTICS, HEAT TRACKING & METAL YIELDS',
-              desc: 'Optimizing melt-shop to rolling-mill yields, heat-wise traceability, weighbridge integrations, and heavy furnace asset uptime.',
-              image: 'https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80',
-              titleColor: 'text-[#38BDF8]',
-              linkColor: 'text-white'
-            },
-            {
-              id: 'pharma',
-              title: 'Pharma & Life Sciences',
-              tagline: 'GXP VALIDATED FORMULATIONS, SERIALIZATION & COLD CHAIN INTEGRITY',
-              desc: 'Enabling FDA 21 CFR Part 11 electronic records, batch release automation, clinical inventory serialization, and audit validation.',
-              image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80',
-              titleColor: 'text-white',
-              linkColor: 'text-[#38BDF8]'
-            }
-          ].map((ind, idx) => (
-            <motion.div
-              key={ind.id}
-              initial={{ opacity: 0, y: 35 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.5, delay: idx * 0.08 }}
-              className="relative h-[390px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-[#087FE5]/35 border border-slate-800/80 hover:border-[#087FE5] transition-all duration-500 hover:-translate-y-2.5 group cursor-pointer bg-slate-900"
-            >
-              {/* Background Image with Zoom & Rotation Hover Animation */}
-              <img
-                src={ind.image}
-                alt={ind.title}
-                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 group-hover:rotate-[0.5deg]"
-              />
-
-              {/* 3D Diagonal Sheen Sweep Reflection on Hover */}
-              <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none z-10" />
-
-              {/* Gradient Dark Vignette Overlays */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#071B49] via-[#071B49]/70 to-[#071B49]/15 group-hover:via-[#071B49]/75 transition-all duration-500" />
-              
-              {/* Radial Luminous Blue Glow on Hover in Corner */}
-              <div className="absolute top-0 right-0 w-44 h-44 bg-[radial-gradient(circle,rgba(8,127,229,0.45)_0%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none blur-xl" />
-
-              {/* Top-Right Badge: ● SAP Vertical (with hover lift) */}
-              <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-[#071B49]/90 backdrop-blur-md border border-white/10 text-[#38BDF8] text-[10px] font-bold tracking-wider font-mono shadow flex items-center gap-1.5 group-hover:scale-105 group-hover:border-[#087FE5]/60 transition-all z-20">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#087FE5] animate-pulse"></span>
-                <span>SAP Vertical</span>
-              </div>
-
-              {/* Floating Action Circle Button on Hover */}
-              <div className="absolute top-4 left-4 w-9 h-9 rounded-full bg-white/10 backdrop-blur-md text-white flex items-center justify-center opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-300 shadow-lg group-hover:bg-[#087FE5] z-20">
-                <ArrowRight className="w-4 h-4" />
-              </div>
-
-              {/* Bottom Content Container */}
-              <div className="absolute inset-x-0 bottom-0 p-6 sm:p-7 space-y-3 z-20">
-                {/* Translucent Blue Tagline Box */}
-                <div className="inline-block px-3 py-1.5 rounded-md bg-[#0284C7]/20 border border-[#0284C7]/40 backdrop-blur-sm group-hover:border-[#38BDF8]/60 group-hover:bg-[#0284C7]/35 transition-all">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#38BDF8] font-mono block">
-                    {ind.tagline}
-                  </span>
-                </div>
-
-                <h3 className={`text-2xl font-bold ${ind.titleColor} font-heading group-hover:text-[#38BDF8] transition-colors leading-tight`}>
-                  {ind.title}
-                </h3>
-
-                <p className="text-xs sm:text-[13px] text-slate-200 line-clamp-2 leading-relaxed font-normal">
-                  {ind.desc}
-                </p>
-
-                <div className="pt-2">
-                  <a
-                    href="#contact"
-                    className={`inline-flex items-center gap-1.5 text-xs font-bold ${ind.linkColor} group-hover:text-[#38BDF8] transition-colors`}
-                  >
-                    <span>Explore Industry Architecture</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-2 transition-transform duration-300" />
-                  </a>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
 
       {/* =========================================================================
           7. ENTERPRISE SAP & IT SERVICES SECTION (Original Screenshot Section + New Client Additions)
@@ -1079,6 +933,152 @@ export const ConceptEnterprise: React.FC = () => {
           ))}
         </div>
       </section>
+                  {/* =========================================================================
+          5. INDUSTRIES WE SERVE SECTION: Placed directly after Counter Strip (Screenshot 1, 2, 3)
+      ========================================================================= */}
+      <section id="industries" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white relative">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-3xl mx-auto mb-16 space-y-3"
+        >
+          <span className="text-xs font-bold uppercase tracking-widest text-[#087FE5]">
+            INDUSTRIES WE SERVE
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#071B49] font-heading leading-tight tracking-tight">
+            Digitize your industry performance with our top SAP ERP Solution
+          </h2>
+          <p className="text-sm text-slate-600 leading-relaxed max-w-3xl mx-auto">
+            Your industry-specific customized SAP ERP solutions for all business sizes, ensuring statutory compliance. We optimize processes, integrate best practices, and drive operational success.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {[
+            {
+              id: 'manufacturing',
+              title: 'Manufacturing',
+              tagline: 'END-TO-END SHOP FLOOR TO TOP FLOOR ORCHESTRATION',
+              desc: 'Empowering discrete and process manufacturers with lean production workflows, integrated supply chain forecasting, and IoT predictive maintenance.',
+              image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80',
+              titleColor: 'text-white',
+              linkColor: 'text-[#38BDF8]'
+            },
+            {
+              id: 'retail-textile',
+              title: 'Retail & Textile',
+              tagline: 'AGILE OMNICHANNEL FULFILLMENT & YARN-TO-GARMENT LIFECYCLE',
+              desc: 'Delivering unified retail ERP, multi-channel commerce sync, inventory visibility, and structured yarn-to-garment supply chain execution.',
+              image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80',
+              titleColor: 'text-white',
+              linkColor: 'text-[#38BDF8]'
+            },
+            {
+              id: 'oil-gas',
+              title: 'Oil & Gas',
+              tagline: 'RESILIENT DOWNSTREAM & UPSTREAM ASSET GOVERNANCE',
+              desc: 'Ensuring strict compliance, capital asset lifecycle integrity, vendor audit trails, and multi-currency global operational governance.',
+              image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80',
+              titleColor: 'text-white',
+              linkColor: 'text-[#38BDF8]'
+            },
+            {
+              id: 'agro-chemical',
+              title: 'Agro Chemical',
+              tagline: 'STRINGENT FORMULATION GOVERNANCE & DISTRIBUTED DEALER NETWORKS',
+              desc: 'Accelerating formula versioning, hazardous material governance, seasonal distributor credit, and compliance-driven chemical batches.',
+              image: 'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=800&q=80',
+              titleColor: 'text-white',
+              linkColor: 'text-[#38BDF8]'
+            },
+            {
+              id: 'steel',
+              title: 'Steel & Metallurgy',
+              tagline: 'HIGH-VOLUME MILL LOGISTICS, HEAT TRACKING & METAL YIELDS',
+              desc: 'Optimizing melt-shop to rolling-mill yields, heat-wise traceability, weighbridge integrations, and heavy furnace asset uptime.',
+              image: 'https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80',
+              titleColor: 'text-[#38BDF8]',
+              linkColor: 'text-white'
+            },
+            {
+              id: 'pharma',
+              title: 'Pharma & Life Sciences',
+              tagline: 'GXP VALIDATED FORMULATIONS, SERIALIZATION & COLD CHAIN INTEGRITY',
+              desc: 'Enabling FDA 21 CFR Part 11 electronic records, batch release automation, clinical inventory serialization, and audit validation.',
+              image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80',
+              titleColor: 'text-white',
+              linkColor: 'text-[#38BDF8]'
+            }
+          ].map((ind, idx) => (
+            <motion.div
+              key={ind.id}
+              initial={{ opacity: 0, y: 35 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.5, delay: idx * 0.08 }}
+              className="relative h-[390px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-[#087FE5]/35 border border-slate-800/80 hover:border-[#087FE5] transition-all duration-500 hover:-translate-y-2.5 group cursor-pointer bg-slate-900"
+            >
+              {/* Background Image with Zoom & Rotation Hover Animation */}
+              <img
+                src={ind.image}
+                alt={ind.title}
+                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 group-hover:rotate-[0.5deg]"
+              />
+
+              {/* 3D Diagonal Sheen Sweep Reflection on Hover */}
+              <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none z-10" />
+
+              {/* Gradient Dark Vignette Overlays */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#071B49] via-[#071B49]/70 to-[#071B49]/15 group-hover:via-[#071B49]/75 transition-all duration-500" />
+              
+              {/* Radial Luminous Blue Glow on Hover in Corner */}
+              <div className="absolute top-0 right-0 w-44 h-44 bg-[radial-gradient(circle,rgba(8,127,229,0.45)_0%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none blur-xl" />
+
+              {/* Top-Right Badge: ● SAP Vertical (with hover lift) */}
+              <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-[#071B49]/90 backdrop-blur-md border border-white/10 text-[#38BDF8] text-[10px] font-bold tracking-wider font-mono shadow flex items-center gap-1.5 group-hover:scale-105 group-hover:border-[#087FE5]/60 transition-all z-20">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#087FE5] animate-pulse"></span>
+                <span>SAP Vertical</span>
+              </div>
+
+              {/* Floating Action Circle Button on Hover */}
+              <div className="absolute top-4 left-4 w-9 h-9 rounded-full bg-white/10 backdrop-blur-md text-white flex items-center justify-center opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-300 shadow-lg group-hover:bg-[#087FE5] z-20">
+                <ArrowRight className="w-4 h-4" />
+              </div>
+
+              {/* Bottom Content Container */}
+              <div className="absolute inset-x-0 bottom-0 p-6 sm:p-7 space-y-3 z-20">
+                {/* Translucent Blue Tagline Box */}
+                <div className="inline-block px-3 py-1.5 rounded-md bg-[#0284C7]/20 border border-[#0284C7]/40 backdrop-blur-sm group-hover:border-[#38BDF8]/60 group-hover:bg-[#0284C7]/35 transition-all">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#38BDF8] font-mono block">
+                    {ind.tagline}
+                  </span>
+                </div>
+
+                <h3 className={`text-2xl font-bold ${ind.titleColor} font-heading group-hover:text-[#38BDF8] transition-colors leading-tight`}>
+                  {ind.title}
+                </h3>
+
+                <p className="text-xs sm:text-[13px] text-slate-200 line-clamp-2 leading-relaxed font-normal">
+                  {ind.desc}
+                </p>
+
+                <div className="pt-2">
+                  <a
+                    href="#contact"
+                    className={`inline-flex items-center gap-1.5 text-xs font-bold ${ind.linkColor} group-hover:text-[#38BDF8] transition-colors`}
+                  >
+                    <span>Explore Industry Architecture</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-2 transition-transform duration-300" />
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
 
       {/* =========================================================================
           SECOND BLUE DIVIDER: Exact Client Requested Position
