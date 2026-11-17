@@ -230,10 +230,10 @@ export const SERVICES: ServiceItem[] = [
     slug: 'sap-rollout',
     url: '/services1/SAP Services/1',
     image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80',
-    shortDesc: 'Expand your global SAP template seamlessly across branches, subsidiaries, and manufacturing plants with minimal operational disruption.',
+    shortDesc: 'Scale your standardized corporate SAP blueprint to new business units, international subsidiaries, and facilities with disciplined cutover governance.',
     fullDesc: [
-      'ZisanTech Solutions delivers proven SAP Rollout services designed to scale your core ERP template to new business units, regional branches, and overseas acquisitions.',
-      'We balance headquarters governance with localized statutory, legal, and operational nuances, ensuring standard processes are respected while regional taxation (GST, VAT, withholding taxes) is flawlessly accommodated.'
+      'ZisanTech Solutions delivers enterprise SAP Rollout capabilities engineered to scale standardized ERP blueprints across multi-location business entities, regional branches, and operating plants.',
+      'We balance central corporate governance with regional legal and operational requirements, ensuring core business processes remain standardized while statutory compliance (GST, e-way bills, local taxation) is seamlessly integrated.'
     ],
     keyFeatures: [
       'Global template harmonization and gap analysis',

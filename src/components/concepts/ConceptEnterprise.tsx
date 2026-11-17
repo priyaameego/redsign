@@ -974,56 +974,56 @@ export const ConceptEnterprise: React.FC = () => {
               id: 'sap-sd',
               badge: 'SAP-SD',
               title: 'SAP SD (Sales & Distribution)',
-              desc: 'Master order-to-cash (O2C) cycles, enterprise sales structures, pricing procedures, delivery workflows, and...',
+              desc: 'Hands-on configuration of Order-to-Cash (O2C) lifecycles, enterprise billing conditions, sales order fulfillment, shipping point determination, and credit management.',
               duration: '8 - 10 Weeks'
             },
             {
               id: 'sap-mm',
               badge: 'SAP-MM',
               title: 'SAP MM (Materials Management)',
-              desc: 'Master Procure-to-Pay (P2P), inventory governance, vendor evaluation, valuation, and physical inventory reconciliations.',
+              desc: 'Comprehensive inventory procurement lifecycles, material requirement planning, purchase order automation, valuation class mapping, and invoice verification.',
               duration: '8 - 10 Weeks'
             },
             {
               id: 'sap-pp',
               badge: 'SAP-PP',
               title: 'SAP PP (Production Planning)',
-              desc: 'Master manufacturing work centers, bill of materials (BOM), routings, demand management, MRP, and shop floor...',
+              desc: 'Live shop-floor manufacturing simulations, work center capacity planning, bill of materials (BOM) hierarchy, routing sequences, and production order execution.',
               duration: '8 - 10 Weeks'
             },
             {
               id: 'sap-qm',
               badge: 'SAP-QM',
               title: 'SAP QM (Quality Management)',
-              desc: 'Master inspection lots, sampling procedures, quality certificates, defect recording, and audit management.',
+              desc: 'Structured quality inspection planning, sampling schemes, calibration protocols, certificate of analysis generation, and enterprise non-conformance tracking.',
               duration: '6 - 8 Weeks'
             },
             {
               id: 'sap-fico',
               badge: 'SAP-FICO',
               title: 'SAP FICO (Financial & Cost Management)',
-              desc: 'Master general ledger, accounts payable/receivable, asset accounting, cost centers, profit centers, and fiscal...',
+              desc: 'Financial ledger harmonization, accounts payable/receivable automation, asset capitalization, internal cost allocation, and statutory financial reporting.',
               duration: '10 - 12 Weeks'
             },
             {
               id: 'sap-hcm',
               badge: 'SAP-HCM',
               title: 'SAP HCM (Human Capital Management)',
-              desc: 'Master organizational management, personnel administration, time recording, and payroll run configurations.',
+              desc: 'Workforce organizational hierarchy modeling, personnel administration, enterprise time evaluation schemas, compensation structures, and payroll run lifecycles.',
               duration: '8 - 10 Weeks'
             },
             {
               id: 'sap-ccm',
               badge: 'SAP-CCM',
               title: 'SAP CCM (Compensation & Claims Management)',
-              desc: 'Master inbound/outbound shipments, delivery documentation, picking strategies, packing units, and carrier...',
+              desc: 'Configuring supplier rebate agreements, incentive settlement profiles, commission structures, retroactive billing adjustments, and claims reconciliation.',
               duration: '6 - 8 Weeks'
             },
             {
               id: 'sap-tm',
               badge: 'SAP-TM',
               title: 'SAP TM (Transportation Management)',
-              desc: 'Master freight order execution, carrier selection, route optimization, container tracking, and charge calculations.',
+              desc: 'Multimodal freight order planning, dynamic carrier tendering, route optimization, real-time container tracking, and freight charge settlement workflows.',
               duration: '8 - 10 Weeks'
             }
           ].map((mod, idx) => (

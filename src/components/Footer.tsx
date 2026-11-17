@@ -207,7 +207,7 @@ export const Footer: React.FC = () => {
 
             {/* Clean Enterprise Bio */}
             <p className="text-xs sm:text-sm text-[#9ca3af] leading-relaxed pr-3 font-normal">
-              ZisanTech Solutions is a premier SAP Consulting and Cloud Technology Practice. We drive full-lifecycle S/4HANA implementations, legacy migrations, and custom enterprise automation.
+              ZisanTech Solutions is dedicated to empowering enterprises through specialized SAP consulting, modern IT architecture, and practical workforce enablement. We help organizations simplify workflows, integrate digital platforms, and achieve sustainable operational growth.
             </p>
 
             {/* SAP Gold Partner Certified Partner Badge */}
