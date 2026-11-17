@@ -72,11 +72,11 @@ export const ConceptEnterprise: React.FC = () => {
 
   const slides = [
     {
-      badge: 'ENTERPRISE SAP CLOUD ARCHITECTURE',
-      line1: 'Accelerate Growth With',
-      highlight: 'SAP S/4HANA & Digital Cloud',
-      line2: 'With ZisanTech Solutions',
-      description: 'End-to-end enterprise SAP ERP consulting, agile implementations, cloud modernization, and continuous SLA support engineered for high-growth businesses.',
+      badge: 'INTELLIGENT ENTERPRISE SOLUTIONS',
+      line1: 'Empowering Businesses Through',
+      highlight: 'Strategic SAP Consulting & Innovation',
+      line2: 'Engineered for Performance',
+      description: 'ZisanTech Solutions delivers business-focused SAP implementations, cloud migration roadmaps, and continuous technical advisory tailored to dynamic enterprise workflows.',
       bgImage: '/hero_sap_consulting_1.jpg',
       btnText: 'EXPLORE SERVICES',
       btnLink: '#services',
@@ -84,26 +84,26 @@ export const ConceptEnterprise: React.FC = () => {
       secondaryBtnLink: '#contact-cta'
     },
     {
-      badge: 'STRATEGIC SAP IT CONSULTING',
-      line1: 'Seamless Integration &',
-      highlight: 'Enterprise Process Automation',
-      line2: 'Across Global Standards',
-      description: 'Simplify business workflows, unify multi-plant operations, and connect distributed supply chains with reliable SAP integration and custom ERP solutions.',
+      badge: 'CONNECTED CLOUD ARCHITECTURE',
+      line1: 'Unified Enterprise Workflows &',
+      highlight: 'Reliable Cross-System Integration',
+      line2: 'Across Business Platforms',
+      description: 'Synchronize disparate operations, streamline supplier collaboration, and connect third-party platforms with clean-core SAP integration and tailored IT engineering.',
       bgImage: '/hero_sap_consulting_2.jpg',
-      btnText: 'SCHEDULE A DEMO',
-      btnLink: '#contact-cta',
+      btnText: 'VIEW SOLUTIONS',
+      btnLink: '#services',
       secondaryBtnText: 'EXPLORE MODULES',
       secondaryBtnLink: '#training'
     },
     {
-      badge: 'DATA-DRIVEN BUSINESS INTELLIGENCE',
-      line1: 'Transforming Operations',
-      highlight: 'Through SAP Intelligence & IT',
-      line2: 'For Enterprise Excellence',
-      description: 'Empowering enterprises and professionals with real-time analytics visibility, proven industry solutions, and career-oriented SAP training.',
+      badge: 'DATA INTELLIGENCE & PROFESSIONAL MENTORSHIP',
+      line1: 'Driving Operational Transparency',
+      highlight: 'With Practical SAP Enablement',
+      line2: 'For Future-Ready Teams',
+      description: 'Equipping organizations and professionals with live system access, actionable decision-making visibility, and industry-oriented SAP competency programs.',
       bgImage: '/hero_sap_consulting_3.jpg',
-      btnText: 'KNOW OUR STORY',
-      btnLink: '#know-our-story',
+      btnText: 'OUR EXPERTISE',
+      btnLink: '#about',
       secondaryBtnText: 'TALK TO AN ARCHITECT',
       secondaryBtnLink: '#contact-cta'
     }
@@ -275,18 +275,18 @@ export const ConceptEnterprise: React.FC = () => {
           {[
             {
               icon: BarChart3,
-              title: "Swift ERP Implementation",
-              description: "Minimize downtime with our seasoned consulting team, ensuring a fast and seamless SAP S/4HANA Cloud rollout."
+              title: "Rapid Deployment Methodology",
+              description: "Structured project phases and clean-core migration roadmaps designed to minimize cutover downtime and protect operational continuity."
             },
             {
               icon: Rocket,
-              title: "Real-time Analytics",
-              description: "Gain a decisive operational edge with instant data insights from SAP, driving enterprise efficiency and executive visibility."
+              title: "Operational Intelligence",
+              description: "Transform business data into actionable execution metrics with integrated S/4HANA visibility and executive reporting dashboards."
             },
             {
               icon: ThumbsUp,
-              title: "Affordable Scalability",
-              description: "Enjoy the scalability and flexibility of SAP Cloud offerings, adapting seamlessly to your corporate growth without friction."
+              title: "Flexible Enterprise Growth",
+              description: "Future-ready cloud infrastructure and scalable application frameworks that evolve alongside your multi-entity business requirements."
             }
           ].map((benefit, idx) => {
             const Icon = benefit.icon;
@@ -326,7 +326,7 @@ export const ConceptEnterprise: React.FC = () => {
       </section>
 
       {/* =========================================================================
-          3. ZISANTECH "BUILDING A SUSTAINABLE DIGITAL FUTURE WITH SAP" (Screenshot 1)
+          3. ZISANTECH ENTERPRISE TRANSFORMATION PRACTICE
       ========================================================================= */}
       <section id="about" className="py-20 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
@@ -405,12 +405,12 @@ export const ConceptEnterprise: React.FC = () => {
             >
               <div className="inline-flex items-center gap-2">
                 <span className="text-xs font-bold uppercase tracking-widest text-[#0066CC] font-mono">
-                  DIGITIZE YOUR BUSINESS PROCESSES
+                  ENTERPRISE TRANSFORMATION PRACTICE
                 </span>
                 <span className="w-8 h-0.5 bg-[#0066CC] rounded-full"></span>
               </div>
               <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-[#071B49] mt-3 leading-[1.18] font-heading">
-                <span className="text-[#0066CC]">ZisanTech,</span> Your Partner in Building a Sustainable Digital Future with SAP
+                <span className="text-[#0066CC]">ZisanTech Solutions:</span> Intelligent Business Systems Engineered for Long-Term Value
               </h2>
             </motion.div>
 
@@ -421,10 +421,10 @@ export const ConceptEnterprise: React.FC = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal"
             >
-              ZisanTech, a leading enterprise RISE with SAP S/4HANA Partner, delivers proven solutions drawn from over a decade of verified industry expertise, recognized for innovative ERP services including:
+              ZisanTech Solutions partners with enterprises to modernise operational systems, align technology with core organizational objectives, and ensure measurable business outcomes across:
             </motion.p>
 
-            {/* Feature 1: ZisanTech Services (Image 2 Exact Match) */}
+            {/* Feature 1: Enterprise SAP Advisory & Delivery */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -437,15 +437,15 @@ export const ConceptEnterprise: React.FC = () => {
               </div>
               <div className="space-y-1">
                 <h3 className="text-base sm:text-lg font-bold text-[#071B49] font-heading group-hover:text-[#0066CC] transition-colors">
-                  ZisanTech Services
+                  Enterprise SAP Advisory &amp; Delivery
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                  As a certified SAP Gold Partner, ZisanTech provides licensing, implementation, consulting, and 24/7 SLA hyper-care support services.
+                  End-to-end S/4HANA solution architecture, system configuration, data migration, and dedicated ongoing maintenance.
                 </p>
               </div>
             </motion.div>
 
-            {/* Feature 2: Customized ERP Add-ons (Image 2 Exact Match) */}
+            {/* Feature 2: Statutory Compliance & System Integration */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -458,15 +458,15 @@ export const ConceptEnterprise: React.FC = () => {
               </div>
               <div className="space-y-1">
                 <h3 className="text-base sm:text-lg font-bold text-[#071B49] font-heading group-hover:text-[#0066CC] transition-colors">
-                  Customized ERP Add-ons
+                  Statutory Compliance &amp; System Integration
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                  Specialized GST E-Invoicing, E-Way Bill integrations, and automated statutory compliance modules built for Indian enterprises.
+                  Automated GST e-invoicing, e-way bill generation, weighbridge connectivity, and direct banking interfaces integrated into core workflows.
                 </p>
               </div>
             </motion.div>
 
-            {/* Feature 3: Affordable ERP Solution for your Business (Image 3 Exact Match with Sleek Blue Top Border) */}
+            {/* Feature 3: Value-Driven Solutions Engineered for Agility */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -476,17 +476,17 @@ export const ConceptEnterprise: React.FC = () => {
             >
               <div>
                 <h3 className="text-sm sm:text-base font-bold text-[#071B49] font-heading group-hover:text-[#087FE5] transition-colors">
-                  Affordable ERP Solution for your Business
+                  High-Impact Digital Solutions for Growing Enterprises
                 </h3>
                 <p className="text-xs text-slate-600 mt-1 font-normal">
-                  Tailored implementations engineered for enterprise agility
+                  Pragmatic technology frameworks designed to adapt with your expanding operations
                 </p>
               </div>
               <a
                 href="#services"
                 className="text-xs font-bold text-[#087FE5] hover:text-[#063B83] flex items-center gap-1.5 uppercase tracking-wider transition-colors cursor-pointer flex-shrink-0"
               >
-                <span>MORE</span>
+                <span>EXPLORE</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </a>
             </motion.div>
@@ -513,24 +513,24 @@ export const ConceptEnterprise: React.FC = () => {
               className="lg:col-span-7 space-y-6"
             >
               <span className="text-xs font-bold uppercase tracking-widest text-[#08B9E8] font-mono">
-                WHY CHOOSE ZISANTECH
+                WHY WORK WITH ZISANTECH
               </span>
 
               <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-white leading-tight font-heading">
-                Your Certified RISE with SAP S/4HANA Cloud Implementation Partner
+                Specialized Enterprise SAP Advisory &amp; Digital Cloud Engineering
               </h2>
 
               <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-xl">
-                We take pride in our extensive experience and dedication to delivering innovative solutions that drive business success. We're doing the right thing, the right way.
+                We combine deep technical mastery, client-focused agility, and dedicated post-deployment support to ensure your technology systems deliver enduring operational value.
               </p>
 
               <div className="space-y-3 pt-2">
                 {[
-                  'End-to-end SAP services, pre and post-implementation.',
-                  'Trusted SAP partner with proven enterprise delivery.',
-                  '10+ Years of specialized SAP S/4HANA implementations.',
-                  'Automated Indian statutory compliance: E-Invoice & E-Way Bill.',
-                  'Expert certified SAP consultants with 24/7 round-the-clock support.'
+                  'Full lifecycle SAP implementation, version migration, and hyper-care support.',
+                  'Collaborative consulting focused on practical, scalable business workflows.',
+                  'Specialized integration across enterprise applications, banking, and statutory portals.',
+                  'Automated Indian GST e-invoicing and e-way bill generation compliance.',
+                  'Accessible technical architects offering dedicated SLA-governed support.'
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3 text-xs sm:text-sm text-slate-200">
                     <div className="w-5 h-5 rounded-full bg-[#087FE5] text-white flex items-center justify-center flex-shrink-0 shadow-sm">
@@ -667,13 +667,13 @@ export const ConceptEnterprise: React.FC = () => {
               <div className="space-y-3 max-w-3xl">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E0F2FE] border border-[#BAE6FD] text-[#0369A1] text-xs font-bold tracking-wide">
                   <span className="w-2 h-2 rounded-full bg-[#0284C7]"></span>
-                  <span>PROVEN ENTERPRISE PRACTICE</span>
+                  <span>ENTERPRISE SAP CAPABILITIES</span>
                 </div>
                 <h2 className="text-3xl sm:text-4xl font-extrabold text-[#071B49] font-heading leading-tight tracking-tight">
-                  Enterprise SAP &amp; IT Services
+                  Modern Enterprise SAP Solutions &amp; Technical Services
                 </h2>
                 <p className="text-sm text-slate-600 leading-relaxed">
-                  End-to-end consulting, migration, customization, and 24/7 managed support powered by certified SAP architects.
+                  Strategic roadmap formulation, clean-core application modernization, custom extension engineering, and SLA-governed support delivered by seasoned enterprise consultants.
                 </p>
               </div>
               <div className="flex-shrink-0">
@@ -681,7 +681,7 @@ export const ConceptEnterprise: React.FC = () => {
                   href="#contact"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-[#087FE5] hover:bg-[#063B83] text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-all shadow-md hover:shadow-lg active:scale-95 cursor-pointer"
                 >
-                  <span>EXPLORE ALL SERVICES</span>
+                  <span>VIEW ALL PRACTICES</span>
                   <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
@@ -693,42 +693,42 @@ export const ConceptEnterprise: React.FC = () => {
                 {
                   id: 'orig-sap-rollout',
                   title: 'SAP Rollout',
-                  desc: 'Expand your global SAP template seamlessly across branches, subsidiaries, and manufacturing plants with minimal operational disruption.',
+                  desc: 'Scale your standardized corporate SAP blueprint to new business units, international subsidiaries, and facilities with disciplined cutover governance.',
                   image: '/sap_service_card_rollout_fullhd.jpg',
                   badge: 'SAP SERVICES'
                 },
                 {
                   id: 'orig-sap-custom-solutions',
                   title: 'SAP Custom Solutions',
-                  desc: 'Bespoke ABAP, Fiori apps, workflow automation, and custom enhancements tailored to your unique proprietary operational edges.',
+                  desc: 'Engineer tailored Fiori applications, specialized ABAP enhancements, and automated business workflows to match your proprietary operational models.',
                   image: '/sap_service_card_custom_fullhd.jpg',
                   badge: 'SAP SERVICES'
                 },
                 {
                   id: 'orig-sap-support',
                   title: 'SAP Support',
-                  desc: 'Dependable L1-L3 SLA-governed support, performance monitoring, defect resolution, and continuous system optimization.',
+                  desc: 'Ensure system resilience through proactive SLA-managed maintenance, system health monitoring, functional defect resolution, and regular tuning.',
                   image: '/sap_service_card_support_fullhd.jpg',
                   badge: 'SAP SERVICES'
                 },
                 {
                   id: 'orig-sap-integration',
                   title: 'SAP Integration',
-                  desc: 'Seamlessly bridge SAP with third-party software, cloud platforms, e-commerce stores, logistics APIs, and IoT devices.',
+                  desc: 'Connect your SAP ecosystem with enterprise data lakes, third-party logistics, cloud payment gateways, and automated shop-floor telemetry.',
                   image: '/sap_service_card_integration_fullhd.jpg',
                   badge: 'SAP SERVICES'
                 },
                 {
                   id: 'orig-sap-consulting',
                   title: 'SAP Consulting',
-                  desc: 'Strategic ERP roadmapping, S/4HANA migration advisory, architecture reviews, and business process re-engineering.',
+                  desc: 'Formulate practical digital transformation roadmaps, business process re-engineering, clean-core guidance, and strategic ERP advisory.',
                   image: '/sap_service_card_consulting_fullhd.jpg',
                   badge: 'SAP SERVICES'
                 },
                 {
                   id: 'orig-sap-einvoice',
                   title: 'SAP E-Invoice & E-Way Bill',
-                  desc: 'Direct, automated statutory compliance for GST E-Invoicing, QR codes, and E-Way Bill generation directly inside SAP.',
+                  desc: 'Direct statutory compliance integration inside SAP for real-time GST invoice registration, IRN generation, digital QR signing, and e-way bill workflows.',
                   image: '/sap_service_card_einvoice_fullhd.jpg',
                   badge: 'SAP SERVICES'
                 }
@@ -814,10 +814,10 @@ export const ConceptEnterprise: React.FC = () => {
             INDUSTRIES WE SERVE
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#071B49] font-heading leading-tight tracking-tight">
-            Digitize your industry performance with our top SAP ERP Solution
+            Tailored Industry Solutions Powered by Enterprise SAP Architectures
           </h2>
           <p className="text-sm text-slate-600 leading-relaxed max-w-3xl mx-auto">
-            Your industry-specific customized SAP ERP solutions for all business sizes, ensuring statutory compliance. We optimize processes, integrate best practices, and drive operational success.
+            Vertical-specific SAP implementations engineered to address unique compliance, supply chain traceability, and shop-floor manufacturing challenges across dynamic business environments.
           </p>
         </motion.div>
 
@@ -827,7 +827,7 @@ export const ConceptEnterprise: React.FC = () => {
               id: 'manufacturing',
               title: 'Manufacturing',
               tagline: 'END-TO-END SHOP FLOOR TO TOP FLOOR ORCHESTRATION',
-              desc: 'Empowering discrete and process manufacturers with lean production workflows, integrated supply chain forecasting, and IoT predictive maintenance.',
+              desc: 'Enabling discrete and continuous process facilities with lean manufacturing cycles, integrated production planning, machine telemetrics, and predictive maintenance.',
               image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80',
               titleColor: 'text-white',
               linkColor: 'text-[#38BDF8]'
@@ -836,7 +836,7 @@ export const ConceptEnterprise: React.FC = () => {
               id: 'retail-textile',
               title: 'Retail & Textile',
               tagline: 'AGILE OMNICHANNEL FULFILLMENT & YARN-TO-GARMENT LIFECYCLE',
-              desc: 'Delivering unified retail ERP, multi-channel commerce sync, inventory visibility, and structured yarn-to-garment supply chain execution.',
+              desc: 'Orchestrating multi-tier textile inventories, shade-wise dye lot segregation, warehouse dispatch pipelines, and synchronized point-of-sale commerce platforms.',
               image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80',
               titleColor: 'text-white',
               linkColor: 'text-[#38BDF8]'
@@ -845,7 +845,7 @@ export const ConceptEnterprise: React.FC = () => {
               id: 'oil-gas',
               title: 'Oil & Gas',
               tagline: 'RESILIENT DOWNSTREAM & UPSTREAM ASSET GOVERNANCE',
-              desc: 'Ensuring strict compliance, capital asset lifecycle integrity, vendor audit trails, and multi-currency global operational governance.',
+              desc: 'Enforcing regulatory traceability, preventive capital plant asset maintenance, joint-venture accounting structures, and multi-entity governance protocols.',
               image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80',
               titleColor: 'text-white',
               linkColor: 'text-[#38BDF8]'
@@ -854,7 +854,7 @@ export const ConceptEnterprise: React.FC = () => {
               id: 'agro-chemical',
               title: 'Agro Chemical',
               tagline: 'STRINGENT FORMULATION GOVERNANCE & DISTRIBUTED DEALER NETWORKS',
-              desc: 'Accelerating formula versioning, hazardous material governance, seasonal distributor credit, and compliance-driven chemical batches.',
+              desc: 'Managing active ingredient recipe formulation, hazardous raw material documentation, seasonal distribution pricing, and statutory batch genealogy.',
               image: 'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=800&q=80',
               titleColor: 'text-white',
               linkColor: 'text-[#38BDF8]'
@@ -863,7 +863,7 @@ export const ConceptEnterprise: React.FC = () => {
               id: 'steel',
               title: 'Steel & Metallurgy',
               tagline: 'HIGH-VOLUME MILL LOGISTICS, HEAT TRACKING & METAL YIELDS',
-              desc: 'Optimizing melt-shop to rolling-mill yields, heat-wise traceability, weighbridge integrations, and heavy furnace asset uptime.',
+              desc: 'Streamlining furnace-to-finishing logistics, heat-wise metallurgical chemistry tracking, automated weighbridge integration, and heavy plant uptime.',
               image: '/industry_steel_metallurgy.jpg',
               titleColor: 'text-[#38BDF8]',
               linkColor: 'text-white'
@@ -872,7 +872,7 @@ export const ConceptEnterprise: React.FC = () => {
               id: 'pharma',
               title: 'Pharma & Life Sciences',
               tagline: 'GXP VALIDATED FORMULATIONS, SERIALIZATION & COLD CHAIN INTEGRITY',
-              desc: 'Enabling FDA 21 CFR Part 11 electronic records, batch release automation, clinical inventory serialization, and audit validation.',
+              desc: 'Delivering GxP-compliant validation frameworks, automated batch release controls, clinical-grade serialization tracking, and electronic audit logs.',
               image: '/industry_pharma_lifesciences.jpg',
               titleColor: 'text-white',
               linkColor: 'text-[#38BDF8]'
@@ -960,10 +960,10 @@ export const ConceptEnterprise: React.FC = () => {
             <span>CAREER INCUBATION &amp; ENABLEMENT</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#071B49] font-heading leading-tight tracking-tight">
-            Take Your Careers to New Heights with the Leading ERP Solution Provider
+            Build Practical Industry Competence with Hands-on SAP Training
           </h2>
           <p className="text-sm text-slate-600 leading-relaxed max-w-2xl mx-auto">
-            Upskill with real enterprise projects, 24/7 dedicated server sandboxes, and structured curriculum designed by veteran SAP consultants.
+            Practical learning programs featuring live system simulation, realistic business scenarios, and dedicated mentorship by experienced SAP practitioners.
           </p>
         </motion.div>
 
@@ -1117,31 +1117,31 @@ export const ConceptEnterprise: React.FC = () => {
                 id: 1,
                 day: '2',
                 month: 'DEC',
-                title: 'Empowering Your Business with SAP',
-                author: 'by Admin',
-                category: 'Technology',
+                title: 'How SAP Consulting Helps Businesses Work Smarter',
+                author: 'by ZisanTech Team',
+                category: 'Enterprise Strategy',
                 image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
-                excerpt: 'How next-generation SAP ERP cloud architectures drive operational agility, eliminate...'
+                excerpt: 'How aligning standard SAP architectures with clean-core business logic eliminates workflow bottlenecks and boosts operational transparency...'
               },
               {
                 id: 2,
                 day: '7',
                 month: 'JAN',
-                title: 'SAP: Driving Industry Transformation ...',
-                author: 'by Admin',
-                category: 'Technology',
+                title: 'Why Reliable IT Services Matter for Growing Businesses',
+                author: 'by ZisanTech Team',
+                category: 'IT Engineering',
                 image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80',
-                excerpt: 'Explore how AI-integrated SAP S/4HANA automates predictive maintenance, supply...'
+                excerpt: 'Understanding the critical importance of continuous monitoring, proactive system maintenance, and unified enterprise software integration...'
               },
               {
                 id: 3,
                 day: '12',
                 month: 'FEB',
-                title: 'SAP S/4HANA Cloud: Private or Public? ...',
-                author: 'by Admin',
-                category: 'Technology',
+                title: 'Building Your Career Through Practical SAP Training',
+                author: 'by ZisanTech Team',
+                category: 'Professional Skills',
                 image: '/hero_sap_consulting_1.jpg',
-                excerpt: 'Comprehensive decision framework comparing private versus public cloud ERP deployments for...'
+                excerpt: 'Bridging the divide between theoretical textbook concepts and live project configurations across core functional and technical modules...'
               }
             ].map((blog, idx) => (
               <motion.div
@@ -1231,7 +1231,7 @@ export const ConceptEnterprise: React.FC = () => {
               transition={{ duration: 0.5 }}
               className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-white font-heading tracking-tight leading-snug"
             >
-              Need Expert SAP ERP Consulting for Your Business?
+              Accelerate Your Enterprise Transformation with ZisanTech
             </motion.h2>
 
             <motion.p
@@ -1241,7 +1241,7 @@ export const ConceptEnterprise: React.FC = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-xs sm:text-[13.5px] text-slate-300 max-w-xl mx-auto leading-relaxed"
             >
-              Speak directly with our senior SAP S/4HANA architects to evaluate your ERP roadmap, cloud migration strategy, and statutory tax integrations.
+              Consult directly with our experienced SAP practitioners to assess system architecture, formulate migration milestones, and integrate enterprise compliance workflows.
             </motion.p>
 
             <motion.div
@@ -1255,14 +1255,14 @@ export const ConceptEnterprise: React.FC = () => {
                 href="#contact"
                 className="w-full sm:w-auto text-center px-7 py-2.5 bg-[#087FE5] hover:bg-[#0663c0] text-white text-[11px] font-bold uppercase tracking-wider rounded-md transition-all shadow-md active:scale-95 cursor-pointer leading-normal"
               >
-                GET A FREE DEMO / CONSULTATION
+                SCHEDULE AN ARCHITECTURE REVIEW
               </a>
               <a
                 href="tel:+918797818499"
                 style={{ border: '1px solid #374262', backgroundColor: '#1d2848' }}
                 className="w-full sm:w-auto text-center px-6 py-2.5 hover:bg-[#253254] text-white text-[11px] font-bold uppercase tracking-wider rounded-md transition-all active:scale-95 cursor-pointer leading-normal"
               >
-                CALL: +91 87978 18499
+                CONNECT DIRECTLY: +91 87978 18499
               </a>
             </motion.div>
           </div>
