@@ -447,19 +447,15 @@ export const Navbar: React.FC = () => {
           </button>
         </nav>
 
-        {/* Right: Authentic SAP Gold Partner Logo in Clean Subtle Card (Matches Original) */}
-        <div className="hidden lg:flex items-center space-x-2 flex-shrink-0 pl-3">
-          <div className="flex items-center p-1.5 bg-white border border-slate-200 rounded-lg shadow-sm hover:shadow transition-all">
-            <img
-              src="/sap_gold_partner_perfect.svg"
-              alt="Official SAP Gold Partner"
-              className="h-9 sm:h-10 w-auto object-contain"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.src = '/sap_gold_partner.png';
-              }}
-            />
-          </div>
+        {/* Right CTA Button: Desktop Consultation Trigger */}
+        <div className="hidden lg:flex items-center space-x-3 flex-shrink-0 pl-3">
+          <button
+            onClick={() => scrollToSection('contact-cta')}
+            className="px-5 py-2.5 bg-[#063B83] hover:bg-[#087FE5] text-white text-xs font-bold uppercase tracking-wider rounded-lg shadow-sm hover:shadow transition-all cursor-pointer flex items-center gap-2"
+          >
+            <span>Consultation</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </button>
         </div>
 
         {/* Mobile Hamburger Toggle */}
@@ -476,17 +472,9 @@ export const Navbar: React.FC = () => {
       {mobileMenuOpen && (
         <div className="lg:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-3">
           <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-            <div className="p-1 bg-white border border-slate-200 rounded-lg shadow-sm">
-              <img
-                src="/sap_gold_partner_perfect.svg"
-                alt="Official SAP Gold Partner"
-                className="h-8 w-auto object-contain"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.src = '/sap_gold_partner.png';
-                }}
-              />
-            </div>
+            <span className="text-xs font-bold text-[#063B83] tracking-wider uppercase font-mono">
+              ZisanTech Solutions
+            </span>
             <button
               onClick={() => scrollToSection('contact-cta')}
               className="px-3.5 py-1.5 bg-[#063B83] text-white text-xs font-bold rounded shadow-sm"

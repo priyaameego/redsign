@@ -210,31 +210,6 @@ export const Footer: React.FC = () => {
               ZisanTech Solutions is dedicated to empowering enterprises through specialized SAP consulting, modern IT architecture, and practical workforce enablement. We help organizations simplify workflows, integrate digital platforms, and achieve sustainable operational growth.
             </p>
 
-            {/* SAP Gold Partner Certified Partner Badge */}
-            <div className="inline-flex items-center gap-3 bg-white px-3 py-1.5 rounded-lg shadow-sm border border-slate-200/90">
-              <img
-                src="/sap_gold_partner_tight.png"
-                alt="SAP Gold Partner"
-                className="h-6 w-auto object-contain"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.src = '/sap_partner_clean.png';
-                }}
-              />
-              <div className="border-l border-slate-300 pl-2.5">
-                <span className="block text-[11px] font-bold text-slate-900 leading-none">Certified Partner</span>
-                <span className="block text-[9px] font-medium text-slate-600 tracking-wide mt-0.5">Enterprise SAP Delivery</span>
-              </div>
-            </div>
-
-            {/* ISO Certification Badge */}
-            <div className="flex items-center gap-2 text-xs text-[#08B9E8] pt-0.5">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#08B9E8] flex-shrink-0" />
-              <span className="text-[11px] font-medium tracking-wide">
-                ISO 9001:2015 & SAP Global Delivery Standards
-              </span>
-            </div>
-
             {/* Circular Social Media Icons */}
             <div className="pt-1 flex items-center gap-2.5 text-slate-400">
               {[
@@ -436,8 +411,6 @@ export const Footer: React.FC = () => {
           
           <div className="text-center sm:text-left text-xs text-[#9ca3af]">
             <span>© {new Date().getFullYear()} ZisanTech Solutions. All Rights Reserved.</span>
-            <span className="hidden sm:inline mx-2 text-slate-600">|</span>
-            <span className="text-slate-500 hidden sm:inline">SAP and RISE with SAP are registered trademarks of SAP SE.</span>
           </div>
 
           <div className="flex items-center gap-4 text-xs text-[#9ca3af]">

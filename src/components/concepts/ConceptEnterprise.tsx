@@ -379,7 +379,7 @@ export const ConceptEnterprise: React.FC = () => {
       {/* =========================================================================
           3. ZISANTECH ENTERPRISE TRANSFORMATION PRACTICE
       ========================================================================= */}
-      <section id="about" className="py-20 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <section id="about" className="py-14 lg:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
           {/* Vertical Brand Electric Blue Accent Pill (from Screenshot) */}
           <div className="hidden lg:block absolute left-1/2 -translate-x-1/2 top-16 w-2.5 h-16 bg-gradient-to-b from-[#087FE5] to-[#08B9E8] rounded-full shadow-md shadow-[#087FE5]/30 z-20 pointer-events-none" />
@@ -548,7 +548,7 @@ export const ConceptEnterprise: React.FC = () => {
       {/* =========================================================================
           4. WHY CHOOSE ZISANTECH / RISE WITH SAP PARTNER (Screenshot 2)
       ========================================================================= */}
-      <section id="why-choose-zisantech" className="bg-[#071B49] text-white py-20 lg:py-24 relative overflow-hidden">
+      <section id="why-choose-zisantech" className="bg-[#071B49] text-white py-14 lg:py-16 relative overflow-hidden">
         {/* Subtle Ambient Vignette */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#05143A] via-[#071B49] to-[#040F2B] opacity-95"></div>
         <div className="absolute -top-24 -left-24 w-96 h-96 bg-[#087FE5]/10 rounded-full blur-3xl pointer-events-none"></div>
@@ -603,23 +603,46 @@ export const ConceptEnterprise: React.FC = () => {
               </div>
             </motion.div>
 
-            {/* Right Video / Visual Banner */}
+            {/* Right Visual Enterprise Image Banner */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, scale: 0.94, y: 20 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               className="lg:col-span-5"
             >
-              <div className="rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 relative group bg-slate-900 cursor-pointer">
+              <div className="rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl border-2 border-white/25 relative group bg-gradient-to-br from-[#061b48] to-[#040b1e]">
+                {/* 3D Diagonal Sheen Sweep on Hover */}
+                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none z-20" />
+
+                {/* Ambient Corner Glow */}
+                <div className="absolute -top-12 -right-12 w-48 h-48 bg-[#087FE5]/30 rounded-full blur-2xl pointer-events-none z-10" />
+
                 <img
-                  src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1000&q=80"
-                  alt="ZisanTech Enterprise Team"
-                  className="w-full h-[360px] sm:h-[400px] object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=85"
+                  alt="ZisanTech SAP Enterprise Architecture & Digital Practice"
+                  className="w-full h-[370px] sm:h-[430px] object-cover object-center transition-all duration-700 ease-out group-hover:scale-105 group-hover:contrast-[1.03]"
                 />
-                <div className="absolute inset-0 bg-[#063B83]/30 group-hover:bg-[#063B83]/20 transition-colors flex items-center justify-center">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white text-[#063B83] flex items-center justify-center shadow-2xl pl-1 group-hover:scale-110 transition-transform">
-                    <Play className="w-7 h-7 sm:w-8 sm:h-8 fill-current text-[#063B83]" />
+
+                {/* Elegant enterprise gradient overlay for depth */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#05143A]/90 via-[#071B49]/30 to-transparent pointer-events-none" />
+
+                {/* Floating Glassmorphism Enterprise Credential Badge */}
+                <div className="absolute bottom-5 left-5 right-5 bg-[#05143A]/85 backdrop-blur-md rounded-xl p-4 border border-white/20 shadow-2xl flex items-center justify-between z-20 group-hover:bg-[#05143A]/95 transition-colors">
+                  <div className="space-y-1">
+                    <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-[#087FE5]/25 border border-[#087FE5]/40 text-[#38BDF8] text-[10px] font-mono font-bold tracking-wider uppercase">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8] animate-pulse"></span>
+                      <span>ENTERPRISE ARCHITECTURE</span>
+                    </div>
+                    <p className="text-xs sm:text-[13px] font-bold text-white font-heading">
+                      Next-Gen SAP Cloud &amp; S/4HANA Practice
+                    </p>
+                    <p className="text-[11px] text-slate-300 font-medium">
+                      Disciplined delivery • Clean-core modernization
+                    </p>
+                  </div>
+                  <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#087FE5] to-[#08B9E8] text-white flex items-center justify-center flex-shrink-0 shadow-lg shadow-[#087FE5]/40 ml-3">
+                    <ShieldCheck className="w-5 h-5 text-white" />
                   </div>
                 </div>
               </div>
@@ -631,7 +654,7 @@ export const ConceptEnterprise: React.FC = () => {
       {/* =========================================================================
           6. ZisanTech FUN FACTS / METRICS STRIP
       ========================================================================= */}
-      <section id="metrics" className="bg-[#f5f8fc] py-16 border-y border-slate-200">
+      <section id="metrics" className="bg-[#f5f8fc] py-12 border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <motion.div
@@ -704,11 +727,11 @@ export const ConceptEnterprise: React.FC = () => {
       {/* =========================================================================
           7. ENTERPRISE SAP & IT SERVICES SECTION (Original Screenshot Section + New Client Additions)
       ========================================================================= */}
-      <section id="services" className="bg-[#f8fafc] py-24 border-t border-slate-200 relative overflow-hidden">
+      <section id="services" className="bg-[#f8fafc] py-16 border-t border-slate-200 relative overflow-hidden">
         <div className="absolute top-1/4 right-0 w-96 h-96 bg-[#087FE5]/5 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-10 left-0 w-80 h-80 bg-[#063B83]/5 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-16">
 
           {/* =========================================================================
               PART 1: ORIGINAL ENTERPRISE SAP & IT SERVICES (6 Screenshot Cards Exact Match)
@@ -853,13 +876,13 @@ export const ConceptEnterprise: React.FC = () => {
       {/* =========================================================================
           5. INDUSTRIES WE SERVE SECTION: Placed directly after Counter Strip (Screenshot 1, 2, 3)
       ========================================================================= */}
-      <section id="industries" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white relative">
+      <section id="industries" className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center max-w-3xl mx-auto mb-16 space-y-3"
+          className="text-center max-w-3xl mx-auto mb-12 space-y-3"
         >
           <span className="text-xs font-bold uppercase tracking-widest text-[#087FE5]">
             INDUSTRIES WE SERVE
@@ -999,13 +1022,13 @@ export const ConceptEnterprise: React.FC = () => {
       {/* =========================================================================
           8. TRAINING & ENABLEMENT SECTION: (Images 1 & 2 - 8 Modules Grid)
       ========================================================================= */}
-      <section id="training" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="training" className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center max-w-3xl mx-auto mb-16 space-y-3"
+          className="text-center max-w-3xl mx-auto mb-12 space-y-3"
         >
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#E0F2FE] border border-[#BAE6FD] text-[#0369A1] text-xs font-bold tracking-wide">
             <span>CAREER INCUBATION &amp; ENABLEMENT</span>
@@ -1144,14 +1167,14 @@ export const ConceptEnterprise: React.FC = () => {
       {/* =========================================================================
           10. BLOGS & INSIGHTS SECTION (Images 3 & 4 Exact Match)
       ========================================================================= */}
-      <section id="blogs" className="bg-[#f8fafc] py-24 border-t border-slate-200">
+      <section id="blogs" className="bg-[#f8fafc] py-16 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-center max-w-3xl mx-auto mb-16 space-y-2"
+            className="text-center max-w-3xl mx-auto mb-10 space-y-2"
           >
             <span className="text-xs font-bold uppercase tracking-widest text-[#087FE5]">
               INSIGHTS &amp; PERSPECTIVES
