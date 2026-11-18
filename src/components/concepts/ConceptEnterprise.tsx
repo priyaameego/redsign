@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import {
   MapPin,
   Mail,
@@ -28,7 +28,9 @@ import {
   Tag,
   Zap,
   Search,
-  Check
+  Check,
+  Star,
+  Quote
 } from 'lucide-react';
 import {
   COMPANY_INFO,
@@ -66,6 +68,55 @@ const WhatsAppIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
     <path d="M12.031 2C6.511 2 2.023 6.488 2.023 12.008c0 1.761.458 3.479 1.33 4.992L2 22l5.133-1.346c1.465.799 3.111 1.22 4.898 1.22 5.52 0 10.008-4.488 10.008-10.008C22.039 6.488 17.551 2 12.031 2zm5.842 14.225c-.243.684-1.416 1.309-1.956 1.389-.523.078-1.205.111-3.666-.889-2.915-1.185-4.809-4.148-4.954-4.341-.145-.193-1.179-1.571-1.179-2.997 0-1.426.747-2.128 1.012-2.418.265-.29.579-.362.772-.362.193 0 .386.002.555.01.179.008.418-.068.654.498.243.58.828 2.022.901 2.167.072.145.121.314.024.507-.097.193-.145.314-.29.483-.145.169-.304.377-.435.507-.145.145-.296.302-.128.59.169.29.749 1.237 1.607 2.002 1.104.984 2.035 1.29 2.325 1.435.29.145.459.121.628-.073.169-.193.724-.845.917-1.135.193-.29.386-.242.652-.145.265.097 1.688.796 1.978.941.29.145.483.217.555.338.072.121.072.701-.171 1.385z" />
   </svg>
 );
+
+// Animated Counter Component that starts from 1 up to target in run-time
+const MetricCounter: React.FC<{ target: number; suffix?: string; duration?: number }> = ({
+  target,
+  suffix = '+',
+  duration = 2000
+}) => {
+  const [count, setCount] = useState<number>(1);
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: true, margin: '-50px' });
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    if (!isInView || hasAnimated.current) return;
+    hasAnimated.current = true;
+
+    let startTime: number | null = null;
+    let animationFrameId: number;
+
+    const startVal = 1;
+    const endVal = target;
+
+    const step = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+      const currentVal = Math.round(startVal + (endVal - startVal) * easeProgress);
+      setCount(currentVal);
+
+      if (progress < 1) {
+        animationFrameId = requestAnimationFrame(step);
+      } else {
+        setCount(endVal);
+      }
+    };
+
+    animationFrameId = requestAnimationFrame(step);
+
+    return () => {
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
+    };
+  }, [isInView, target, duration]);
+
+  return (
+    <span ref={ref}>
+      {count.toLocaleString()}{suffix}
+    </span>
+  );
+};
 
 export const ConceptEnterprise: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -591,7 +642,7 @@ export const ConceptEnterprise: React.FC = () => {
               className="space-y-2"
             >
               <p className="text-4xl sm:text-5xl font-extrabold text-[#063B83] font-heading">
-                10+
+                <MetricCounter target={10} suffix="+" duration={1600} />
               </p>
               <p className="text-xs uppercase tracking-wider text-slate-600 font-bold">YEARS OF TRUST</p>
             </motion.div>
@@ -604,7 +655,7 @@ export const ConceptEnterprise: React.FC = () => {
               className="space-y-2"
             >
               <p className="text-4xl sm:text-5xl font-extrabold text-[#087FE5] font-heading">
-                120+
+                <MetricCounter target={120} suffix="+" duration={1800} />
               </p>
               <p className="text-xs uppercase tracking-wider text-slate-600 font-bold">HAPPY CLIENTS</p>
             </motion.div>
@@ -617,7 +668,7 @@ export const ConceptEnterprise: React.FC = () => {
               className="space-y-2"
             >
               <p className="text-4xl sm:text-5xl font-extrabold text-[#063B83] font-heading">
-                50+
+                <MetricCounter target={50} suffix="+" duration={1600} />
               </p>
               <p className="text-xs uppercase tracking-wider text-slate-600 font-bold">SAP CONSULTANTS</p>
             </motion.div>
@@ -630,7 +681,7 @@ export const ConceptEnterprise: React.FC = () => {
               className="space-y-2"
             >
               <p className="text-4xl sm:text-5xl font-extrabold text-[#087FE5] font-heading">
-                3,500+
+                <MetricCounter target={3500} suffix="+" duration={2000} />
               </p>
               <p className="text-xs uppercase tracking-wider text-slate-600 font-bold">TRAINED PROFESSIONALS</p>
             </motion.div>
@@ -1211,6 +1262,253 @@ export const ConceptEnterprise: React.FC = () => {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          11. CLIENT REVIEWS / FEEDBACK (Small Cards - Polished Continuous Carousel)
+      ========================================================================= */}
+      <section id="reviews" className="bg-[#f0f4f9] py-16 sm:py-20 border-t border-slate-200 overflow-hidden relative">
+        {/* Soft Ambient Background Highlights */}
+        <div className="absolute -top-24 -left-24 w-96 h-96 bg-[#087FE5]/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-[#063B83]/5 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="text-center max-w-2xl mx-auto mb-10 sm:mb-14 space-y-2"
+          >
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#087FE5]/10 text-[#087FE5] text-[11px] font-bold tracking-widest uppercase mb-1">
+              <Sparkles className="w-3 h-3 text-[#087FE5]" />
+              <span>TESTIMONIALS &amp; CLIENT SUCCESS</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#071B49] font-heading leading-tight tracking-tight">
+              Client Feedback &amp; Reviews
+            </h2>
+            <div className="w-12 h-1 bg-gradient-to-r from-[#063B83] via-[#087FE5] to-[#08B9E8] mx-auto mt-2 rounded-full"></div>
+            <p className="text-xs sm:text-sm text-slate-600 mt-2 font-normal max-w-xl mx-auto">
+              Trusted by enterprise leaders across manufacturing, retail, and process industries.
+            </p>
+          </motion.div>
+        </div>
+
+        {/* Continuous Automatic Smooth Looping Carousel */}
+        <div className="relative w-full overflow-hidden py-3">
+          {/* Subtle side fade masks for elegant enterprise feel */}
+          <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-28 bg-gradient-to-r from-[#f0f4f9] to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-28 bg-gradient-to-l from-[#f0f4f9] to-transparent z-10 pointer-events-none" />
+
+          <motion.div
+            className="flex gap-5 w-max px-4 sm:px-8 cursor-grab active:cursor-grabbing"
+            animate={{
+              x: ['0%', '-50%']
+            }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                repeatType: 'loop',
+                duration: 32,
+                ease: 'linear'
+              }
+            }}
+            whileHover={{ transition: { duration: 60 } }}
+          >
+            {[
+              {
+                id: 1,
+                name: 'Vikram Malhotra',
+                role: 'VP of Technology',
+                company: 'Precision Engineering Ltd.',
+                rating: 5,
+                feedback:
+                  'ZisanTech delivered our S/4HANA migration ahead of timeline. Their consulting team ensured zero downtime for shop-floor operations.',
+                initials: 'VM',
+                accent: '#063B83'
+              },
+              {
+                id: 2,
+                name: 'Ananya Deshmukh',
+                role: 'Supply Chain Director',
+                company: 'Aura Apparels & Textiles',
+                rating: 5,
+                feedback:
+                  'Their deep expertise in SAP MM & SD transformed our inventory visibility across 40+ warehouse locations seamlessly.',
+                initials: 'AD',
+                accent: '#087FE5'
+              },
+              {
+                id: 3,
+                name: 'Rajesh K. Singhania',
+                role: 'Chief Financial Officer',
+                company: 'Apex Metal & Mining Corp',
+                rating: 5,
+                feedback:
+                  'Statutory GST e-invoicing and direct banking integration were deployed flawlessly with full audit readiness. Exceptional quality.',
+                initials: 'RS',
+                accent: '#063B83'
+              },
+              {
+                id: 4,
+                name: 'Siddharth Rao',
+                role: 'General Manager - IT',
+                company: 'BioPharma Solutions',
+                rating: 5,
+                feedback:
+                  'Practical corporate training and 24/7 post-implementation support helped our team adapt to new ERP modules effortlessly.',
+                initials: 'SR',
+                accent: '#087FE5'
+              },
+              {
+                id: 5,
+                name: 'Pooja Venkatesh',
+                role: 'Head of Operations',
+                company: 'Kavita Process Chemicals',
+                rating: 5,
+                feedback:
+                  'Unmatched domain depth in PP & QM batch tracing. Our production audit compliance time reduced by nearly 45%.',
+                initials: 'PV',
+                accent: '#063B83'
+              },
+              {
+                id: 6,
+                name: 'Harish Mehta',
+                role: 'Enterprise Architect',
+                company: 'NovaLogix Distribution',
+                rating: 5,
+                feedback:
+                  'Proactive support and structured milestone governance made our RISE with SAP journey completely predictable and cost-effective.',
+                initials: 'HM',
+                accent: '#087FE5'
+              },
+              // Duplicate set to guarantee seamless infinite loop starting from Card 1
+              {
+                id: 'dup-1',
+                name: 'Vikram Malhotra',
+                role: 'VP of Technology',
+                company: 'Precision Engineering Ltd.',
+                rating: 5,
+                feedback:
+                  'ZisanTech delivered our S/4HANA migration ahead of timeline. Their consulting team ensured zero downtime for shop-floor operations.',
+                initials: 'VM',
+                accent: '#063B83'
+              },
+              {
+                id: 'dup-2',
+                name: 'Ananya Deshmukh',
+                role: 'Supply Chain Director',
+                company: 'Aura Apparels & Textiles',
+                rating: 5,
+                feedback:
+                  'Their deep expertise in SAP MM & SD transformed our inventory visibility across 40+ warehouse locations seamlessly.',
+                initials: 'AD',
+                accent: '#087FE5'
+              },
+              {
+                id: 'dup-3',
+                name: 'Rajesh K. Singhania',
+                role: 'Chief Financial Officer',
+                company: 'Apex Metal & Mining Corp',
+                rating: 5,
+                feedback:
+                  'Statutory GST e-invoicing and direct banking integration were deployed flawlessly with full audit readiness. Exceptional quality.',
+                initials: 'RS',
+                accent: '#063B83'
+              },
+              {
+                id: 'dup-4',
+                name: 'Siddharth Rao',
+                role: 'General Manager - IT',
+                company: 'BioPharma Solutions',
+                rating: 5,
+                feedback:
+                  'Practical corporate training and 24/7 post-implementation support helped our team adapt to new ERP modules effortlessly.',
+                initials: 'SR',
+                accent: '#087FE5'
+              },
+              {
+                id: 'dup-5',
+                name: 'Pooja Venkatesh',
+                role: 'Head of Operations',
+                company: 'Kavita Process Chemicals',
+                rating: 5,
+                feedback:
+                  'Unmatched domain depth in PP & QM batch tracing. Our production audit compliance time reduced by nearly 45%.',
+                initials: 'PV',
+                accent: '#063B83'
+              },
+              {
+                id: 'dup-6',
+                name: 'Harish Mehta',
+                role: 'Enterprise Architect',
+                company: 'NovaLogix Distribution',
+                rating: 5,
+                feedback:
+                  'Proactive support and structured milestone governance made our RISE with SAP journey completely predictable and cost-effective.',
+                initials: 'HM',
+                accent: '#087FE5'
+              }
+            ].map((review, idx) => (
+              <motion.div
+                key={review.id}
+                whileHover={{
+                  y: -6,
+                  scale: 1.015,
+                  boxShadow: '0 20px 30px -10px rgba(8, 127, 229, 0.18)'
+                }}
+                transition={{ duration: 0.3, ease: 'easeOut' }}
+                className="w-[280px] sm:w-[320px] flex-shrink-0 bg-white/95 backdrop-blur-sm rounded-xl p-5 border border-slate-200/90 shadow-sm hover:border-[#087FE5]/60 flex flex-col justify-between group transition-colors duration-300 relative overflow-hidden"
+              >
+                {/* Subtle top accent gradient bar */}
+                <div
+                  className="absolute top-0 left-0 right-0 h-1 transition-all duration-300 opacity-60 group-hover:opacity-100"
+                  style={{
+                    background:
+                      idx % 2 === 0
+                        ? 'linear-gradient(90deg, #063B83, #087FE5)'
+                        : 'linear-gradient(90deg, #087FE5, #08B9E8)'
+                  }}
+                />
+
+                <div className="space-y-3 pt-1">
+                  {/* Top row: 5 Stars + Subtle Quote Icon */}
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-0.5">
+                      {[...Array(review.rating)].map((_, i) => (
+                        <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400 drop-shadow-xs" />
+                      ))}
+                    </div>
+                    <Quote className="w-4 h-4 text-slate-300 group-hover:text-[#087FE5] transition-colors" />
+                  </div>
+
+                  {/* Feedback Text - Compact & Balanced Typography */}
+                  <p className="text-xs text-slate-700 leading-relaxed italic line-clamp-4">
+                    "{review.feedback}"
+                  </p>
+                </div>
+
+                {/* Client Profile Footer */}
+                <div className="pt-3.5 mt-3.5 border-t border-slate-100 flex items-center gap-3">
+                  <div
+                    className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0 shadow-sm ring-2 ring-white"
+                    style={{ backgroundColor: review.accent }}
+                  >
+                    {review.initials}
+                  </div>
+                  <div className="min-w-0">
+                    <h4 className="text-xs font-bold text-[#071B49] truncate font-heading group-hover:text-[#087FE5] transition-colors">
+                      {review.name}
+                    </h4>
+                    <p className="text-[10px] text-slate-500 truncate leading-tight">
+                      {review.role} • <span className="font-medium text-slate-700">{review.company}</span>
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
