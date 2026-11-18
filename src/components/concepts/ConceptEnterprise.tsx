@@ -73,7 +73,7 @@ const WhatsAppIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
 const MetricCounter: React.FC<{ target: number; suffix?: string; duration?: number }> = ({
   target,
   suffix = '+',
-  duration = 2000
+  duration = 2600
 }) => {
   const [count, setCount] = useState<number>(1);
   const ref = useRef<HTMLSpanElement>(null);
@@ -93,7 +93,8 @@ const MetricCounter: React.FC<{ target: number; suffix?: string; duration?: numb
     const step = (timestamp: number) => {
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / duration, 1);
-      const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+      // easeOutCubic: continuous, relaxed and natural counting progression
+      const easeProgress = 1 - Math.pow(1 - progress, 3);
       const currentVal = Math.round(startVal + (endVal - startVal) * easeProgress);
       setCount(currentVal);
 
@@ -652,62 +653,117 @@ export const ConceptEnterprise: React.FC = () => {
       </section>
 
       {/* =========================================================================
-          6. ZisanTech FUN FACTS / METRICS STRIP
+          6. ZisanTech FUN FACTS / METRICS STRIP (Refined Premium Cards as Requested)
       ========================================================================= */}
-      <section id="metrics" className="bg-[#f5f8fc] py-12 border-y border-slate-200">
+      <section id="metrics" className="relative py-14 bg-[#f5f8fc] border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 text-center">
+            
+            {/* Card 1: 10+ YEARS OF TRUST */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.1 }}
-              className="space-y-2"
+              transition={{ duration: 0.5, delay: 0.1 }}
+              whileHover={{ y: -4, boxShadow: '0 14px 30px -8px rgba(6, 59, 131, 0.18)' }}
+              className="bg-white rounded-2xl p-5 sm:p-7 border border-slate-200/90 shadow-sm transition-all duration-300 relative group overflow-hidden flex flex-col justify-between"
             >
-              <p className="text-4xl sm:text-5xl font-extrabold text-[#063B83] font-heading">
-                <MetricCounter target={10} suffix="+" duration={1600} />
-              </p>
-              <p className="text-xs uppercase tracking-wider text-slate-600 font-bold">YEARS OF TRUST</p>
+              {/* Subtle top accent bar */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-[#063B83] opacity-80 group-hover:opacity-100 transition-opacity" />
+
+              <div className="relative py-2">
+                <p className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#063B83] font-heading tracking-tight leading-none group-hover:scale-105 transition-transform duration-300">
+                  <MetricCounter target={10} suffix="+" duration={2400} />
+                </p>
+                <span className="absolute top-0 right-4 sm:right-6 w-2 h-2 rounded-full bg-[#087FE5]/60 group-hover:bg-[#087FE5] transition-colors" />
+              </div>
+
+              <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#063B83]" />
+                <p className="text-[11px] sm:text-xs uppercase tracking-wider text-slate-700 font-extrabold">
+                  YEARS OF TRUST
+                </p>
+              </div>
             </motion.div>
 
+            {/* Card 2: 120+ HAPPY CLIENTS */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.2 }}
-              className="space-y-2"
+              transition={{ duration: 0.5, delay: 0.2 }}
+              whileHover={{ y: -4, boxShadow: '0 14px 30px -8px rgba(8, 127, 229, 0.22)' }}
+              className="bg-white rounded-2xl p-5 sm:p-7 border border-slate-200/90 shadow-sm transition-all duration-300 relative group overflow-hidden flex flex-col justify-between"
             >
-              <p className="text-4xl sm:text-5xl font-extrabold text-[#087FE5] font-heading">
-                <MetricCounter target={120} suffix="+" duration={1800} />
-              </p>
-              <p className="text-xs uppercase tracking-wider text-slate-600 font-bold">HAPPY CLIENTS</p>
+              <div className="absolute top-0 left-0 right-0 h-1 bg-[#087FE5] opacity-80 group-hover:opacity-100 transition-opacity" />
+
+              <div className="relative py-2">
+                <p className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#087FE5] font-heading tracking-tight leading-none group-hover:scale-105 transition-transform duration-300">
+                  <MetricCounter target={120} suffix="+" duration={2800} />
+                </p>
+                <span className="absolute top-0 right-4 sm:right-6 w-2 h-2 rounded-full bg-[#08B9E8]/70 group-hover:bg-[#08B9E8] transition-colors" />
+              </div>
+
+              <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#087FE5]" />
+                <p className="text-[11px] sm:text-xs uppercase tracking-wider text-slate-700 font-extrabold">
+                  HAPPY CLIENTS
+                </p>
+              </div>
             </motion.div>
 
+            {/* Card 3: 50+ SAP CONSULTANTS */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.3 }}
-              className="space-y-2"
+              transition={{ duration: 0.5, delay: 0.3 }}
+              whileHover={{ y: -4, boxShadow: '0 14px 30px -8px rgba(6, 59, 131, 0.18)' }}
+              className="bg-white rounded-2xl p-5 sm:p-7 border border-slate-200/90 shadow-sm transition-all duration-300 relative group overflow-hidden flex flex-col justify-between"
             >
-              <p className="text-4xl sm:text-5xl font-extrabold text-[#063B83] font-heading">
-                <MetricCounter target={50} suffix="+" duration={1600} />
-              </p>
-              <p className="text-xs uppercase tracking-wider text-slate-600 font-bold">SAP CONSULTANTS</p>
+              <div className="absolute top-0 left-0 right-0 h-1 bg-[#063B83] opacity-80 group-hover:opacity-100 transition-opacity" />
+
+              <div className="relative py-2">
+                <p className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#063B83] font-heading tracking-tight leading-none group-hover:scale-105 transition-transform duration-300">
+                  <MetricCounter target={50} suffix="+" duration={2600} />
+                </p>
+                <span className="absolute top-0 right-4 sm:right-6 w-2 h-2 rounded-full bg-[#087FE5]/60 group-hover:bg-[#087FE5] transition-colors" />
+              </div>
+
+              <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#063B83]" />
+                <p className="text-[11px] sm:text-xs uppercase tracking-wider text-slate-700 font-extrabold">
+                  SAP CONSULTANTS
+                </p>
+              </div>
             </motion.div>
 
+            {/* Card 4: 3,500+ TRAINED PROFESSIONALS */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.4 }}
-              className="space-y-2"
+              transition={{ duration: 0.5, delay: 0.4 }}
+              whileHover={{ y: -4, boxShadow: '0 14px 30px -8px rgba(8, 127, 229, 0.22)' }}
+              className="bg-white rounded-2xl p-5 sm:p-7 border border-slate-200/90 shadow-sm transition-all duration-300 relative group overflow-hidden flex flex-col justify-between"
             >
-              <p className="text-4xl sm:text-5xl font-extrabold text-[#087FE5] font-heading">
-                <MetricCounter target={3500} suffix="+" duration={2000} />
-              </p>
-              <p className="text-xs uppercase tracking-wider text-slate-600 font-bold">TRAINED PROFESSIONALS</p>
+              <div className="absolute top-0 left-0 right-0 h-1 bg-[#087FE5] opacity-80 group-hover:opacity-100 transition-opacity" />
+
+              <div className="relative py-2">
+                <p className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#087FE5] font-heading tracking-tight leading-none group-hover:scale-105 transition-transform duration-300">
+                  <MetricCounter target={3500} suffix="+" duration={3000} />
+                </p>
+                <span className="absolute top-0 right-4 sm:right-6 w-2 h-2 rounded-full bg-[#08B9E8]/70 group-hover:bg-[#08B9E8] transition-colors" />
+              </div>
+
+              <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#087FE5]" />
+                <p className="text-[11px] sm:text-xs uppercase tracking-wider text-slate-700 font-extrabold">
+                  TRAINED PROFESSIONALS
+                </p>
+              </div>
             </motion.div>
+
           </div>
         </div>
       </section>
