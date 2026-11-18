@@ -653,41 +653,47 @@ export const ConceptEnterprise: React.FC = () => {
       </section>
 
       {/* =========================================================================
-          6. ZisanTech FUN FACTS / METRICS STRIP (Refined Premium Cards as Requested)
+          6. ZisanTech FUN FACTS / METRICS STRIP (Tailored Enterprise Brand Card Design)
       ========================================================================= */}
-      <section id="metrics" className="relative py-14 bg-gradient-to-b from-[#f3f7fc] via-[#f7fafe] to-[#edf3fa] border-y border-slate-200">
+      <section id="metrics" className="relative py-14 bg-[#f8fafc] border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 text-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
             
             {/* Card 1: 10+ YEARS OF TRUST */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              whileHover={{ y: -5, boxShadow: '0 16px 36px -8px rgba(6, 59, 131, 0.22)' }}
-              className="relative bg-white/95 backdrop-blur-sm rounded-2xl p-5 sm:p-7 border border-slate-200/90 shadow-sm transition-all duration-500 group overflow-hidden flex flex-col justify-between"
+              whileHover={{ y: -5 }}
+              className="group relative bg-white rounded-2xl p-6 sm:p-7 shadow-sm hover:shadow-xl hover:shadow-[#063B83]/10 border border-slate-200/90 hover:border-[#063B83] transition-all duration-300 flex flex-col justify-between overflow-hidden cursor-default"
             >
-              {/* Subtle Animated Ambient Glow Light behind the card */}
-              <div className="absolute -top-12 -left-12 w-28 h-28 bg-[#063B83]/10 rounded-full blur-2xl group-hover:scale-150 group-hover:bg-[#063B83]/20 transition-all duration-700 pointer-events-none" />
+              {/* Soft Signature Watermark Corner Curve (Matches Website Services/Training Cards) */}
+              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-[#063B83]/10 to-transparent rounded-bl-full pointer-events-none group-hover:from-[#063B83]/20 transition-all duration-500" />
 
-              {/* Top Accent Gradient Bar with subtle animated shimmer */}
-              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#063B83] via-[#087FE5] to-[#063B83] bg-[length:200%_auto] group-hover:animate-pulse" />
+              <div>
+                {/* Top Badge: Matches website's blue pill tags */}
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-[11px] font-mono font-bold text-[#063B83] bg-blue-50/90 border border-blue-200/60 px-2.5 py-1 rounded-md shadow-xs group-hover:bg-[#063B83] group-hover:text-white transition-colors">
+                    EXPERIENCE
+                  </span>
+                  <div className="w-2 h-2 rounded-full bg-[#063B83]/30 group-hover:bg-[#063B83] transition-colors" />
+                </div>
 
-              <div className="relative py-2 z-10">
-                <p className="text-3xl sm:text-4xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-br from-[#063B83] via-[#072d68] to-[#087FE5] font-heading tracking-tight leading-none group-hover:scale-105 transition-transform duration-300 drop-shadow-[0_2px_10px_rgba(6,59,131,0.18)]">
+                {/* Number: Regular Semibold/Medium (Not Overly Bold) */}
+                <p className="text-3xl sm:text-4xl lg:text-[42px] font-semibold text-[#063B83] font-heading tracking-tight leading-tight group-hover:text-[#087FE5] transition-colors my-2">
                   <MetricCounter target={10} suffix="+" duration={2400} />
                 </p>
-                {/* Micro Animated Pulse Indicator Dot */}
-                <span className="absolute top-0 right-3 sm:right-5 w-2 h-2 rounded-full bg-[#087FE5] shadow-[0_0_8px_#087FE5] animate-ping opacity-75" />
-                <span className="absolute top-0 right-3 sm:right-5 w-2 h-2 rounded-full bg-[#087FE5]" />
               </div>
 
-              <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-center gap-1.5 z-10">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#063B83]" />
-                <p className="text-[11px] sm:text-xs uppercase tracking-wider text-slate-700 font-extrabold">
+              {/* Bottom Label Strip */}
+              <div className="mt-4 pt-3.5 border-t border-slate-100 flex items-center justify-between">
+                <span className="text-xs font-semibold text-slate-600 uppercase tracking-wider">
                   YEARS OF TRUST
-                </p>
+                </span>
+                <span className="text-[11px] font-mono text-slate-400 group-hover:text-[#063B83] transition-colors">
+                  01
+                </span>
               </div>
             </motion.div>
 
@@ -695,29 +701,33 @@ export const ConceptEnterprise: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              whileHover={{ y: -5, boxShadow: '0 16px 36px -8px rgba(8, 127, 229, 0.28)' }}
-              className="relative bg-white/95 backdrop-blur-sm rounded-2xl p-5 sm:p-7 border border-slate-200/90 shadow-sm transition-all duration-500 group overflow-hidden flex flex-col justify-between"
+              whileHover={{ y: -5 }}
+              className="group relative bg-white rounded-2xl p-6 sm:p-7 shadow-sm hover:shadow-xl hover:shadow-[#087FE5]/15 border border-slate-200/90 hover:border-[#087FE5] transition-all duration-300 flex flex-col justify-between overflow-hidden cursor-default"
             >
-              {/* Subtle Animated Ambient Glow Light behind the card */}
-              <div className="absolute -top-12 -right-12 w-28 h-28 bg-[#087FE5]/12 rounded-full blur-2xl group-hover:scale-150 group-hover:bg-[#087FE5]/25 transition-all duration-700 pointer-events-none" />
+              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-[#087FE5]/10 to-transparent rounded-bl-full pointer-events-none group-hover:from-[#087FE5]/25 transition-all duration-500" />
 
-              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#087FE5] via-[#08B9E8] to-[#087FE5] bg-[length:200%_auto] group-hover:animate-pulse" />
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-[11px] font-mono font-bold text-[#087FE5] bg-sky-50/90 border border-sky-200/60 px-2.5 py-1 rounded-md shadow-xs group-hover:bg-[#087FE5] group-hover:text-white transition-colors">
+                    ENTERPRISE
+                  </span>
+                  <div className="w-2 h-2 rounded-full bg-[#087FE5]/30 group-hover:bg-[#087FE5] transition-colors" />
+                </div>
 
-              <div className="relative py-2 z-10">
-                <p className="text-3xl sm:text-4xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-br from-[#087FE5] via-[#0066cc] to-[#08B9E8] font-heading tracking-tight leading-none group-hover:scale-105 transition-transform duration-300 drop-shadow-[0_2px_12px_rgba(8,127,229,0.25)]">
+                <p className="text-3xl sm:text-4xl lg:text-[42px] font-semibold text-[#087FE5] font-heading tracking-tight leading-tight group-hover:text-[#063B83] transition-colors my-2">
                   <MetricCounter target={120} suffix="+" duration={2800} />
                 </p>
-                <span className="absolute top-0 right-3 sm:right-5 w-2 h-2 rounded-full bg-[#08B9E8] shadow-[0_0_8px_#08B9E8] animate-ping opacity-75" />
-                <span className="absolute top-0 right-3 sm:right-5 w-2 h-2 rounded-full bg-[#08B9E8]" />
               </div>
 
-              <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-center gap-1.5 z-10">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#087FE5]" />
-                <p className="text-[11px] sm:text-xs uppercase tracking-wider text-slate-700 font-extrabold">
+              <div className="mt-4 pt-3.5 border-t border-slate-100 flex items-center justify-between">
+                <span className="text-xs font-semibold text-slate-600 uppercase tracking-wider">
                   HAPPY CLIENTS
-                </p>
+                </span>
+                <span className="text-[11px] font-mono text-slate-400 group-hover:text-[#087FE5] transition-colors">
+                  02
+                </span>
               </div>
             </motion.div>
 
@@ -725,28 +735,33 @@ export const ConceptEnterprise: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              whileHover={{ y: -5, boxShadow: '0 16px 36px -8px rgba(6, 59, 131, 0.22)' }}
-              className="relative bg-white/95 backdrop-blur-sm rounded-2xl p-5 sm:p-7 border border-slate-200/90 shadow-sm transition-all duration-500 group overflow-hidden flex flex-col justify-between"
+              whileHover={{ y: -5 }}
+              className="group relative bg-white rounded-2xl p-6 sm:p-7 shadow-sm hover:shadow-xl hover:shadow-[#063B83]/10 border border-slate-200/90 hover:border-[#063B83] transition-all duration-300 flex flex-col justify-between overflow-hidden cursor-default"
             >
-              <div className="absolute -top-12 -left-12 w-28 h-28 bg-[#063B83]/10 rounded-full blur-2xl group-hover:scale-150 group-hover:bg-[#063B83]/20 transition-all duration-700 pointer-events-none" />
+              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-[#063B83]/10 to-transparent rounded-bl-full pointer-events-none group-hover:from-[#063B83]/20 transition-all duration-500" />
 
-              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#063B83] via-[#087FE5] to-[#063B83] bg-[length:200%_auto] group-hover:animate-pulse" />
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-[11px] font-mono font-bold text-[#063B83] bg-blue-50/90 border border-blue-200/60 px-2.5 py-1 rounded-md shadow-xs group-hover:bg-[#063B83] group-hover:text-white transition-colors">
+                    CONSULTING
+                  </span>
+                  <div className="w-2 h-2 rounded-full bg-[#063B83]/30 group-hover:bg-[#063B83] transition-colors" />
+                </div>
 
-              <div className="relative py-2 z-10">
-                <p className="text-3xl sm:text-4xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-br from-[#063B83] via-[#072d68] to-[#087FE5] font-heading tracking-tight leading-none group-hover:scale-105 transition-transform duration-300 drop-shadow-[0_2px_10px_rgba(6,59,131,0.18)]">
+                <p className="text-3xl sm:text-4xl lg:text-[42px] font-semibold text-[#063B83] font-heading tracking-tight leading-tight group-hover:text-[#087FE5] transition-colors my-2">
                   <MetricCounter target={50} suffix="+" duration={2600} />
                 </p>
-                <span className="absolute top-0 right-3 sm:right-5 w-2 h-2 rounded-full bg-[#087FE5] shadow-[0_0_8px_#087FE5] animate-ping opacity-75" />
-                <span className="absolute top-0 right-3 sm:right-5 w-2 h-2 rounded-full bg-[#087FE5]" />
               </div>
 
-              <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-center gap-1.5 z-10">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#063B83]" />
-                <p className="text-[11px] sm:text-xs uppercase tracking-wider text-slate-700 font-extrabold">
+              <div className="mt-4 pt-3.5 border-t border-slate-100 flex items-center justify-between">
+                <span className="text-xs font-semibold text-slate-600 uppercase tracking-wider">
                   SAP CONSULTANTS
-                </p>
+                </span>
+                <span className="text-[11px] font-mono text-slate-400 group-hover:text-[#063B83] transition-colors">
+                  03
+                </span>
               </div>
             </motion.div>
 
@@ -754,28 +769,33 @@ export const ConceptEnterprise: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              whileHover={{ y: -5, boxShadow: '0 16px 36px -8px rgba(8, 127, 229, 0.28)' }}
-              className="relative bg-white/95 backdrop-blur-sm rounded-2xl p-5 sm:p-7 border border-slate-200/90 shadow-sm transition-all duration-500 group overflow-hidden flex flex-col justify-between"
+              whileHover={{ y: -5 }}
+              className="group relative bg-white rounded-2xl p-6 sm:p-7 shadow-sm hover:shadow-xl hover:shadow-[#087FE5]/15 border border-slate-200/90 hover:border-[#087FE5] transition-all duration-300 flex flex-col justify-between overflow-hidden cursor-default"
             >
-              <div className="absolute -top-12 -right-12 w-28 h-28 bg-[#087FE5]/12 rounded-full blur-2xl group-hover:scale-150 group-hover:bg-[#087FE5]/25 transition-all duration-700 pointer-events-none" />
+              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-[#087FE5]/10 to-transparent rounded-bl-full pointer-events-none group-hover:from-[#087FE5]/25 transition-all duration-500" />
 
-              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#087FE5] via-[#08B9E8] to-[#087FE5] bg-[length:200%_auto] group-hover:animate-pulse" />
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-[11px] font-mono font-bold text-[#087FE5] bg-sky-50/90 border border-sky-200/60 px-2.5 py-1 rounded-md shadow-xs group-hover:bg-[#087FE5] group-hover:text-white transition-colors">
+                    WORKFORCE
+                  </span>
+                  <div className="w-2 h-2 rounded-full bg-[#087FE5]/30 group-hover:bg-[#087FE5] transition-colors" />
+                </div>
 
-              <div className="relative py-2 z-10">
-                <p className="text-3xl sm:text-4xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-br from-[#087FE5] via-[#0066cc] to-[#08B9E8] font-heading tracking-tight leading-none group-hover:scale-105 transition-transform duration-300 drop-shadow-[0_2px_12px_rgba(8,127,229,0.25)]">
+                <p className="text-3xl sm:text-4xl lg:text-[42px] font-semibold text-[#087FE5] font-heading tracking-tight leading-tight group-hover:text-[#063B83] transition-colors my-2">
                   <MetricCounter target={3500} suffix="+" duration={3000} />
                 </p>
-                <span className="absolute top-0 right-3 sm:right-5 w-2 h-2 rounded-full bg-[#08B9E8] shadow-[0_0_8px_#08B9E8] animate-ping opacity-75" />
-                <span className="absolute top-0 right-3 sm:right-5 w-2 h-2 rounded-full bg-[#08B9E8]" />
               </div>
 
-              <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-center gap-1.5 z-10">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#087FE5]" />
-                <p className="text-[11px] sm:text-xs uppercase tracking-wider text-slate-700 font-extrabold">
+              <div className="mt-4 pt-3.5 border-t border-slate-100 flex items-center justify-between">
+                <span className="text-xs font-semibold text-slate-600 uppercase tracking-wider">
                   TRAINED PROFESSIONALS
-                </p>
+                </span>
+                <span className="text-[11px] font-mono text-slate-400 group-hover:text-[#087FE5] transition-colors">
+                  04
+                </span>
               </div>
             </motion.div>
 
