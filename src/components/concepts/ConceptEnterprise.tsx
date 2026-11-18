@@ -655,7 +655,7 @@ export const ConceptEnterprise: React.FC = () => {
       {/* =========================================================================
           6. ZisanTech FUN FACTS / METRICS STRIP (Refined Premium Cards as Requested)
       ========================================================================= */}
-      <section id="metrics" className="relative py-14 bg-[#f5f8fc] border-y border-slate-200">
+      <section id="metrics" className="relative py-14 bg-gradient-to-b from-[#f3f7fc] via-[#f7fafe] to-[#edf3fa] border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 text-center">
             
@@ -665,20 +665,25 @@ export const ConceptEnterprise: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              whileHover={{ y: -4, boxShadow: '0 14px 30px -8px rgba(6, 59, 131, 0.18)' }}
-              className="bg-white rounded-2xl p-5 sm:p-7 border border-slate-200/90 shadow-sm transition-all duration-300 relative group overflow-hidden flex flex-col justify-between"
+              whileHover={{ y: -5, boxShadow: '0 16px 36px -8px rgba(6, 59, 131, 0.22)' }}
+              className="relative bg-white/95 backdrop-blur-sm rounded-2xl p-5 sm:p-7 border border-slate-200/90 shadow-sm transition-all duration-500 group overflow-hidden flex flex-col justify-between"
             >
-              {/* Subtle top accent bar */}
-              <div className="absolute top-0 left-0 right-0 h-1 bg-[#063B83] opacity-80 group-hover:opacity-100 transition-opacity" />
+              {/* Subtle Animated Ambient Glow Light behind the card */}
+              <div className="absolute -top-12 -left-12 w-28 h-28 bg-[#063B83]/10 rounded-full blur-2xl group-hover:scale-150 group-hover:bg-[#063B83]/20 transition-all duration-700 pointer-events-none" />
 
-              <div className="relative py-2">
-                <p className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#063B83] font-heading tracking-tight leading-none group-hover:scale-105 transition-transform duration-300">
+              {/* Top Accent Gradient Bar with subtle animated shimmer */}
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#063B83] via-[#087FE5] to-[#063B83] bg-[length:200%_auto] group-hover:animate-pulse" />
+
+              <div className="relative py-2 z-10">
+                <p className="text-3xl sm:text-4xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-br from-[#063B83] via-[#072d68] to-[#087FE5] font-heading tracking-tight leading-none group-hover:scale-105 transition-transform duration-300 drop-shadow-[0_2px_10px_rgba(6,59,131,0.18)]">
                   <MetricCounter target={10} suffix="+" duration={2400} />
                 </p>
-                <span className="absolute top-0 right-4 sm:right-6 w-2 h-2 rounded-full bg-[#087FE5]/60 group-hover:bg-[#087FE5] transition-colors" />
+                {/* Micro Animated Pulse Indicator Dot */}
+                <span className="absolute top-0 right-3 sm:right-5 w-2 h-2 rounded-full bg-[#087FE5] shadow-[0_0_8px_#087FE5] animate-ping opacity-75" />
+                <span className="absolute top-0 right-3 sm:right-5 w-2 h-2 rounded-full bg-[#087FE5]" />
               </div>
 
-              <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-center gap-1.5">
+              <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-center gap-1.5 z-10">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#063B83]" />
                 <p className="text-[11px] sm:text-xs uppercase tracking-wider text-slate-700 font-extrabold">
                   YEARS OF TRUST
@@ -692,19 +697,23 @@ export const ConceptEnterprise: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              whileHover={{ y: -4, boxShadow: '0 14px 30px -8px rgba(8, 127, 229, 0.22)' }}
-              className="bg-white rounded-2xl p-5 sm:p-7 border border-slate-200/90 shadow-sm transition-all duration-300 relative group overflow-hidden flex flex-col justify-between"
+              whileHover={{ y: -5, boxShadow: '0 16px 36px -8px rgba(8, 127, 229, 0.28)' }}
+              className="relative bg-white/95 backdrop-blur-sm rounded-2xl p-5 sm:p-7 border border-slate-200/90 shadow-sm transition-all duration-500 group overflow-hidden flex flex-col justify-between"
             >
-              <div className="absolute top-0 left-0 right-0 h-1 bg-[#087FE5] opacity-80 group-hover:opacity-100 transition-opacity" />
+              {/* Subtle Animated Ambient Glow Light behind the card */}
+              <div className="absolute -top-12 -right-12 w-28 h-28 bg-[#087FE5]/12 rounded-full blur-2xl group-hover:scale-150 group-hover:bg-[#087FE5]/25 transition-all duration-700 pointer-events-none" />
 
-              <div className="relative py-2">
-                <p className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#087FE5] font-heading tracking-tight leading-none group-hover:scale-105 transition-transform duration-300">
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#087FE5] via-[#08B9E8] to-[#087FE5] bg-[length:200%_auto] group-hover:animate-pulse" />
+
+              <div className="relative py-2 z-10">
+                <p className="text-3xl sm:text-4xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-br from-[#087FE5] via-[#0066cc] to-[#08B9E8] font-heading tracking-tight leading-none group-hover:scale-105 transition-transform duration-300 drop-shadow-[0_2px_12px_rgba(8,127,229,0.25)]">
                   <MetricCounter target={120} suffix="+" duration={2800} />
                 </p>
-                <span className="absolute top-0 right-4 sm:right-6 w-2 h-2 rounded-full bg-[#08B9E8]/70 group-hover:bg-[#08B9E8] transition-colors" />
+                <span className="absolute top-0 right-3 sm:right-5 w-2 h-2 rounded-full bg-[#08B9E8] shadow-[0_0_8px_#08B9E8] animate-ping opacity-75" />
+                <span className="absolute top-0 right-3 sm:right-5 w-2 h-2 rounded-full bg-[#08B9E8]" />
               </div>
 
-              <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-center gap-1.5">
+              <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-center gap-1.5 z-10">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#087FE5]" />
                 <p className="text-[11px] sm:text-xs uppercase tracking-wider text-slate-700 font-extrabold">
                   HAPPY CLIENTS
@@ -718,19 +727,22 @@ export const ConceptEnterprise: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              whileHover={{ y: -4, boxShadow: '0 14px 30px -8px rgba(6, 59, 131, 0.18)' }}
-              className="bg-white rounded-2xl p-5 sm:p-7 border border-slate-200/90 shadow-sm transition-all duration-300 relative group overflow-hidden flex flex-col justify-between"
+              whileHover={{ y: -5, boxShadow: '0 16px 36px -8px rgba(6, 59, 131, 0.22)' }}
+              className="relative bg-white/95 backdrop-blur-sm rounded-2xl p-5 sm:p-7 border border-slate-200/90 shadow-sm transition-all duration-500 group overflow-hidden flex flex-col justify-between"
             >
-              <div className="absolute top-0 left-0 right-0 h-1 bg-[#063B83] opacity-80 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute -top-12 -left-12 w-28 h-28 bg-[#063B83]/10 rounded-full blur-2xl group-hover:scale-150 group-hover:bg-[#063B83]/20 transition-all duration-700 pointer-events-none" />
 
-              <div className="relative py-2">
-                <p className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#063B83] font-heading tracking-tight leading-none group-hover:scale-105 transition-transform duration-300">
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#063B83] via-[#087FE5] to-[#063B83] bg-[length:200%_auto] group-hover:animate-pulse" />
+
+              <div className="relative py-2 z-10">
+                <p className="text-3xl sm:text-4xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-br from-[#063B83] via-[#072d68] to-[#087FE5] font-heading tracking-tight leading-none group-hover:scale-105 transition-transform duration-300 drop-shadow-[0_2px_10px_rgba(6,59,131,0.18)]">
                   <MetricCounter target={50} suffix="+" duration={2600} />
                 </p>
-                <span className="absolute top-0 right-4 sm:right-6 w-2 h-2 rounded-full bg-[#087FE5]/60 group-hover:bg-[#087FE5] transition-colors" />
+                <span className="absolute top-0 right-3 sm:right-5 w-2 h-2 rounded-full bg-[#087FE5] shadow-[0_0_8px_#087FE5] animate-ping opacity-75" />
+                <span className="absolute top-0 right-3 sm:right-5 w-2 h-2 rounded-full bg-[#087FE5]" />
               </div>
 
-              <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-center gap-1.5">
+              <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-center gap-1.5 z-10">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#063B83]" />
                 <p className="text-[11px] sm:text-xs uppercase tracking-wider text-slate-700 font-extrabold">
                   SAP CONSULTANTS
@@ -744,19 +756,22 @@ export const ConceptEnterprise: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              whileHover={{ y: -4, boxShadow: '0 14px 30px -8px rgba(8, 127, 229, 0.22)' }}
-              className="bg-white rounded-2xl p-5 sm:p-7 border border-slate-200/90 shadow-sm transition-all duration-300 relative group overflow-hidden flex flex-col justify-between"
+              whileHover={{ y: -5, boxShadow: '0 16px 36px -8px rgba(8, 127, 229, 0.28)' }}
+              className="relative bg-white/95 backdrop-blur-sm rounded-2xl p-5 sm:p-7 border border-slate-200/90 shadow-sm transition-all duration-500 group overflow-hidden flex flex-col justify-between"
             >
-              <div className="absolute top-0 left-0 right-0 h-1 bg-[#087FE5] opacity-80 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute -top-12 -right-12 w-28 h-28 bg-[#087FE5]/12 rounded-full blur-2xl group-hover:scale-150 group-hover:bg-[#087FE5]/25 transition-all duration-700 pointer-events-none" />
 
-              <div className="relative py-2">
-                <p className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#087FE5] font-heading tracking-tight leading-none group-hover:scale-105 transition-transform duration-300">
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#087FE5] via-[#08B9E8] to-[#087FE5] bg-[length:200%_auto] group-hover:animate-pulse" />
+
+              <div className="relative py-2 z-10">
+                <p className="text-3xl sm:text-4xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-br from-[#087FE5] via-[#0066cc] to-[#08B9E8] font-heading tracking-tight leading-none group-hover:scale-105 transition-transform duration-300 drop-shadow-[0_2px_12px_rgba(8,127,229,0.25)]">
                   <MetricCounter target={3500} suffix="+" duration={3000} />
                 </p>
-                <span className="absolute top-0 right-4 sm:right-6 w-2 h-2 rounded-full bg-[#08B9E8]/70 group-hover:bg-[#08B9E8] transition-colors" />
+                <span className="absolute top-0 right-3 sm:right-5 w-2 h-2 rounded-full bg-[#08B9E8] shadow-[0_0_8px_#08B9E8] animate-ping opacity-75" />
+                <span className="absolute top-0 right-3 sm:right-5 w-2 h-2 rounded-full bg-[#08B9E8]" />
               </div>
 
-              <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-center gap-1.5">
+              <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-center gap-1.5 z-10">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#087FE5]" />
                 <p className="text-[11px] sm:text-xs uppercase tracking-wider text-slate-700 font-extrabold">
                   TRAINED PROFESSIONALS
