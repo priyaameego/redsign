@@ -393,18 +393,18 @@ export const ConceptEnterprise: React.FC = () => {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-6 relative pb-8 sm:pb-0"
           >
-            {/* Base Image: Premium SAP Architecture & Consulting Boardroom */}
+            {/* Base Image: Direct Enterprise SAP IT Consulting Discussion */}
             <div className="relative w-full sm:w-[86%] rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-900 group cursor-pointer transition-all duration-500 hover:shadow-[#087FE5]/25 hover:shadow-2xl">
               {/* 3D Diagonal Light Sheen Sweep on Hover */}
               <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none z-10" />
 
               <img
-                src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=85"
-                alt="ZisanTech SAP Enterprise Architecture & Digital Practice"
+                src="/hero_sap_consulting_1.jpg"
+                alt="SAP Enterprise Consulting & IT Architecture Discussion"
                 className="w-full h-[360px] sm:h-[420px] object-cover transition-transform duration-700 ease-out group-hover:scale-110 group-hover:rotate-[0.5deg]"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
-                  target.src = '/exact_sap_consulting_hd.jpg';
+                  target.src = '/zisantech_collaborative_consulting.jpg';
                 }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#071B49]/70 via-transparent to-transparent opacity-80 group-hover:opacity-50 transition-opacity duration-500 pointer-events-none"></div>
@@ -413,7 +413,7 @@ export const ConceptEnterprise: React.FC = () => {
               <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#087FE5]/30 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10" />
             </div>
 
-            {/* Overlapping Image: Modern SAP Cloud Platform & Real-Time Enterprise Analytics Interface */}
+            {/* Overlapping Image: Live SAP S/4HANA ERP System Screens & Analytics Interface */}
             <motion.div
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
@@ -423,12 +423,12 @@ export const ConceptEnterprise: React.FC = () => {
               <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/25 to-transparent pointer-events-none z-10" />
 
               <img
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=85"
-                alt="SAP Enterprise Cloud & Real-Time Analytics"
+                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=85"
+                alt="SAP Analytics & Real-Time Enterprise Dashboard"
                 className="w-full h-[230px] sm:h-[260px] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
-                  target.src = '/cloud_integration_3d_hub.jpg';
+                  target.src = '/hero_sap_slide3.jpg';
                 }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#071B49]/60 via-transparent to-transparent opacity-70 group-hover:opacity-40 transition-opacity duration-500 pointer-events-none"></div>
