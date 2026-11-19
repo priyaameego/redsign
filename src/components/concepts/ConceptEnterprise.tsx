@@ -393,36 +393,48 @@ export const ConceptEnterprise: React.FC = () => {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-6 relative pb-8 sm:pb-0"
           >
-            {/* Base Image: Team working around table */}
-            <div className="relative w-full sm:w-[86%] rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-900 group">
+            {/* Base Image: Premium SAP Architecture & Consulting Boardroom */}
+            <div className="relative w-full sm:w-[86%] rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-900 group cursor-pointer transition-all duration-500 hover:shadow-[#087FE5]/25 hover:shadow-2xl">
+              {/* 3D Diagonal Light Sheen Sweep on Hover */}
+              <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none z-10" />
+
               <img
-                src="/zisantech_target_team_base.jpg"
-                alt="ZisanTech Team Collaboration"
-                className="w-full h-[360px] sm:h-[420px] object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=85"
+                alt="ZisanTech SAP Enterprise Architecture & Digital Practice"
+                className="w-full h-[360px] sm:h-[420px] object-cover transition-transform duration-700 ease-out group-hover:scale-110 group-hover:rotate-[0.5deg]"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
-                  target.src = '/zisantech_collaborative_consulting.jpg';
+                  target.src = '/exact_sap_consulting_hd.jpg';
                 }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#071B49]/50 via-transparent to-transparent pointer-events-none"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#071B49]/70 via-transparent to-transparent opacity-80 group-hover:opacity-50 transition-opacity duration-500 pointer-events-none"></div>
+
+              {/* Subtle Corner Glow Accent */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#087FE5]/30 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10" />
             </div>
 
-            {/* Overlapping Image: Earth night lights from orbit */}
+            {/* Overlapping Image: Modern SAP Cloud Platform & Real-Time Enterprise Analytics Interface */}
             <motion.div
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-              className="relative sm:absolute sm:right-0 sm:bottom-6 w-full sm:w-[68%] rounded-3xl overflow-hidden shadow-2xl border-4 border-white mt-4 sm:mt-0 z-10 group bg-slate-900"
+              className="relative sm:absolute sm:right-0 sm:bottom-6 w-full sm:w-[68%] rounded-3xl overflow-hidden shadow-2xl border-4 border-white mt-4 sm:mt-0 z-10 group bg-slate-900 cursor-pointer transition-all duration-500 hover:shadow-[#087FE5]/35 hover:shadow-2xl"
             >
+              {/* 3D Diagonal Light Sheen Sweep on Hover */}
+              <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/25 to-transparent pointer-events-none z-10" />
+
               <img
-                src="/zisantech_target_earth_front.jpg"
-                alt="Digital Enterprise Cloud Mesh"
-                className="w-full h-[230px] sm:h-[260px] object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=85"
+                alt="SAP Enterprise Cloud & Real-Time Analytics"
+                className="w-full h-[230px] sm:h-[260px] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
-                  target.src = '/zisantech_enterprise_cloud_mesh.jpg';
+                  target.src = '/cloud_integration_3d_hub.jpg';
                 }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#071B49]/40 via-transparent to-transparent pointer-events-none"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#071B49]/60 via-transparent to-transparent opacity-70 group-hover:opacity-40 transition-opacity duration-500 pointer-events-none"></div>
+
+              {/* Corner Glow Accent */}
+              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-[#08B9E8]/35 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10" />
             </motion.div>
 
             {/* Floating Counter Badge: 360+ Satisfied Clients */}
@@ -431,7 +443,8 @@ export const ConceptEnterprise: React.FC = () => {
               whileInView={{ scale: 1, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="relative sm:absolute sm:-bottom-4 sm:left-4 z-20 bg-white/95 backdrop-blur-md rounded-2xl p-4 sm:p-5 shadow-2xl border border-slate-100 flex items-center gap-3.5 mt-4 sm:mt-0 max-w-xs"
+              whileHover={{ scale: 1.05, y: -4 }}
+              className="relative sm:absolute sm:-bottom-4 sm:left-4 z-20 bg-white/95 backdrop-blur-md rounded-2xl p-4 sm:p-5 shadow-2xl border border-slate-100 flex items-center gap-3.5 mt-4 sm:mt-0 max-w-xs transition-all duration-300 hover:shadow-[#087FE5]/20 cursor-default"
             >
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#063B83] to-[#087FE5] text-white flex items-center justify-center font-bold shadow-md shadow-[#087FE5]/20 flex-shrink-0">
                 <Users className="w-6 h-6" />
