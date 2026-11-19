@@ -26,6 +26,7 @@ import { SERVICES, TRAINING_MODULES, INDUSTRIES, COMPANY_INFO } from '../data/si
 
 export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const dropdownTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -490,12 +491,75 @@ export const Navbar: React.FC = () => {
             >
               Home
             </button>
-            <button
-              onClick={() => scrollToSection('services')}
-              className="w-full text-left block px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-[#f5f8fc] rounded"
-            >
-              Services
-            </button>
+
+            {/* Mobile Services Accordion Dropdown */}
+            <div className="rounded-lg overflow-hidden">
+              <div className="flex items-center justify-between w-full px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-[#f5f8fc] rounded">
+                <button
+                  onClick={() => scrollToSection('services')}
+                  className="flex-1 text-left text-slate-800 font-semibold"
+                >
+                  Services
+                </button>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setMobileServicesOpen(!mobileServicesOpen);
+                  }}
+                  className="p-1 rounded text-slate-500 hover:text-[#063B83]"
+                  aria-label="Toggle Services Submenu"
+                >
+                  <ChevronDown
+                    className={`w-4 h-4 transition-transform duration-200 ${
+                      mobileServicesOpen ? 'rotate-180 text-[#087FE5]' : ''
+                    }`}
+                  />
+                </button>
+              </div>
+
+              {mobileServicesOpen && (
+                <div className="pl-4 pr-2 py-2 bg-[#f8fafc] border-l-2 border-[#087FE5] my-1 space-y-3 text-xs">
+                  {/* SAP Services Category */}
+                  <div>
+                    <div className="flex items-center gap-1.5 font-bold uppercase tracking-wider text-[11px] text-[#063B83] mb-1.5">
+                      <Cpu className="w-3.5 h-3.5" />
+                      <span>SAP Services</span>
+                    </div>
+                    <div className="space-y-1 pl-1">
+                      {SERVICES.filter((s) => s.category === 'SAP Services').map((s) => (
+                        <button
+                          key={s.id}
+                          onClick={() => scrollToSection('services')}
+                          className="w-full text-left py-1 text-slate-600 hover:text-[#063B83] block truncate font-medium"
+                        >
+                          • {s.title}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Enterprise & Cloud Category */}
+                  <div>
+                    <div className="flex items-center gap-1.5 font-bold uppercase tracking-wider text-[11px] text-[#087FE5] mb-1.5 pt-1 border-t border-slate-200/60">
+                      <Layers className="w-3.5 h-3.5" />
+                      <span>Enterprise & Cloud</span>
+                    </div>
+                    <div className="space-y-1 pl-1">
+                      {SERVICES.filter((s) => s.category === 'Enterprise & Cloud Solutions').map((s) => (
+                        <button
+                          key={s.id}
+                          onClick={() => scrollToSection('services')}
+                          className="w-full text-left py-1 text-slate-600 hover:text-[#087FE5] block truncate font-medium"
+                        >
+                          • {s.title}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+
             <button
               onClick={() => scrollToSection('training')}
               className="w-full text-left block px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-[#f5f8fc] rounded"
