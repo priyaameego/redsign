@@ -852,49 +852,56 @@ export const ConceptEnterprise: React.FC = () => {
               </div>
             </div>
 
-            {/* 6 Original White Cards Matching Screenshot 1, 2, 3 */}
+            {/* 7 Client-Requested SAP Services Matching Header Dropdown Exactly */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 {
-                  id: 'orig-sap-rollout',
+                  id: 'sap-rollout',
                   title: 'SAP Rollout',
-                  desc: 'Scale your standardized corporate SAP blueprint to new business units, international subsidiaries, and facilities with disciplined cutover governance.',
+                  desc: 'Scale your standardized corporate SAP blueprint to new business units, international subsidiaries, and operating facilities with disciplined cutover governance.',
                   image: '/sap_service_card_rollout_fullhd.jpg',
                   badge: 'SAP SERVICES'
                 },
                 {
-                  id: 'orig-sap-custom-solutions',
-                  title: 'SAP Custom Solutions',
-                  desc: 'Engineer tailored Fiori applications, specialized ABAP enhancements, and automated business workflows to match your proprietary operational models.',
-                  image: '/sap_service_card_custom_fullhd.jpg',
+                  id: 'sap-ams',
+                  title: 'SAP AMS (Application Management Services)',
+                  desc: 'Dependable L1-L3 SLA-governed support, 24/7 proactive monitoring, incident management, and continuous ERP performance tuning.',
+                  image: '/zisantech_collaborative_consulting.jpg',
                   badge: 'SAP SERVICES'
                 },
                 {
-                  id: 'orig-sap-support',
-                  title: 'SAP Support',
-                  desc: 'Ensure system resilience through proactive SLA-managed maintenance, system health monitoring, functional defect resolution, and regular tuning.',
-                  image: '/sap_service_card_support_fullhd.jpg',
+                  id: 'rise-with-sap',
+                  title: 'Rise with SAP',
+                  desc: 'Comprehensive business transformation as a service guiding your journey to SAP S/4HANA Cloud with minimal risk and guaranteed ROI.',
+                  image: '/hero_sap_slide1.jpg',
                   badge: 'SAP SERVICES'
                 },
                 {
-                  id: 'orig-sap-integration',
-                  title: 'SAP Integration',
-                  desc: 'Connect your SAP ecosystem with enterprise data lakes, third-party logistics, cloud payment gateways, and automated shop-floor telemetry.',
-                  image: '/sap_service_card_integration_fullhd.jpg',
+                  id: 'sap-migration',
+                  title: 'SAP Migration',
+                  desc: 'Safe, predictable migration from SAP ECC to S/4HANA via Brownfield, Greenfield, or Selective Data Transition pathways.',
+                  image: '/hero_sap_consulting_1.jpg',
                   badge: 'SAP SERVICES'
                 },
                 {
-                  id: 'orig-sap-consulting',
-                  title: 'SAP Consulting',
-                  desc: 'Formulate practical digital transformation roadmaps, business process re-engineering, clean-core guidance, and strategic ERP advisory.',
-                  image: '/sap_service_card_consulting_fullhd.jpg',
+                  id: 'sap-integration-btp',
+                  title: 'SAP Integration & BTP',
+                  desc: 'Seamlessly bridge SAP with third-party software, cloud platforms, e-commerce stores, logistics APIs, and SAP BTP extensions.',
+                  image: '/hero_sap_slide2.jpg',
                   badge: 'SAP SERVICES'
                 },
                 {
-                  id: 'orig-sap-einvoice',
-                  title: 'SAP E-Invoice & E-Way Bill',
-                  desc: 'Direct statutory compliance integration inside SAP for real-time GST invoice registration, IRN generation, digital QR signing, and e-way bill workflows.',
-                  image: '/sap_service_card_einvoice_fullhd.jpg',
+                  id: 'sap-analytics',
+                  title: 'SAP Analytics',
+                  desc: 'Real-time corporate dashboards, predictive financial modeling, and unified data intelligence with SAP Analytics Cloud (SAC) and Datasphere.',
+                  image: '/hero_sap_slide3.jpg',
+                  badge: 'SAP SERVICES'
+                },
+                {
+                  id: 'sap-ai-automation',
+                  title: 'SAP AI & Automation',
+                  desc: 'Infuse artificial intelligence, machine learning, and automated statutory compliance into core enterprise ERP workflows.',
+                  image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80',
                   badge: 'SAP SERVICES'
                 }
               ].map((svc, idx) => (
