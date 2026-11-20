@@ -44,8 +44,9 @@ export const App: React.FC = () => {
               <Route path="/career" element={<CareerPage />} />
               <Route path="/contact" element={<ContactPage />} />
 
-              {/* Services: Listing & Detail routes preserving original URL structure */}
+              {/* Services: Dedicated Slugs, Listing & Detail routes */}
               <Route path="/services" element={<ServicesPage />} />
+              <Route path="/services/:slug" element={<ServicesPage />} />
               <Route path="/services1/:category/:id" element={<ServicesPage />} />
 
               {/* Industries: "We Serve Industries" Landing & 6 Dedicated Sub-Pages */}

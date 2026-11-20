@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
   ChevronDown,
   Menu,
@@ -29,11 +30,35 @@ export const Navbar: React.FC = () => {
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const dropdownTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  // Smooth scroll handler to stay on the Homepage
+  const isHomeActive = location.pathname === '/';
+  const isServicesActive = location.pathname.startsWith('/services') || location.pathname.startsWith('/services1');
+  const isTrainingActive = location.pathname.startsWith('/training');
+  const isIndustriesActive = location.pathname.startsWith('/industries');
+  const isCompanyActive = location.pathname === '/about' || location.pathname === '/career';
+  const isContactActive = location.pathname === '/contact';
+
+  // Smooth scroll handler to stay on the Homepage, or navigate to Homepage first if on another route
   const scrollToSection = (sectionId: string) => {
     setActiveDropdown(null);
     setMobileMenuOpen(false);
+
+    if (location.pathname !== '/') {
+      if (sectionId === 'top') {
+        navigate('/');
+        return;
+      }
+      navigate(`/#${sectionId}`);
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+      return;
+    }
 
     if (sectionId === 'top') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -62,7 +87,11 @@ export const Navbar: React.FC = () => {
 
   const handleDropdownClick = (menuName: string, sectionId: string) => {
     if (activeDropdown === menuName) {
-      scrollToSection(sectionId);
+      if (menuName === 'services') {
+        navigate('/services');
+      } else {
+        scrollToSection(sectionId);
+      }
     } else {
       setActiveDropdown(menuName);
     }
@@ -148,7 +177,13 @@ export const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between relative">
         {/* Left: Official ZisanTech Brand Logo (Restored original clean vector logo) */}
         <button
-          onClick={() => scrollToSection('top')}
+          onClick={() => {
+            if (location.pathname === '/') {
+              scrollToSection('top');
+            } else {
+              navigate('/');
+            }
+          }}
           className="flex items-center gap-2 group flex-shrink-0 cursor-pointer text-left"
           aria-label="ZisanTech Home"
         >
@@ -166,8 +201,18 @@ export const Navbar: React.FC = () => {
         {/* Center: Desktop Navigation Bar with Rich Interactive Preview Mega-Menus */}
         <nav className="hidden lg:flex items-center space-x-1 font-sans">
           <button
-            onClick={() => scrollToSection('top')}
-            className="px-3.5 py-2.5 text-sm font-bold tracking-wide text-[#063B83] border-b-2 border-[#063B83] transition-colors cursor-pointer"
+            onClick={() => {
+              if (location.pathname === '/') {
+                scrollToSection('top');
+              } else {
+                navigate('/');
+              }
+            }}
+            className={`px-3.5 py-2 text-sm tracking-wide transition-colors cursor-pointer ${
+              isHomeActive
+                ? 'font-bold text-[#063B83] border-b-2 border-[#063B83]'
+                : 'font-semibold text-slate-700 hover:text-[#063B83] border-b-2 border-transparent'
+            }`}
           >
             Home
           </button>
@@ -180,7 +225,11 @@ export const Navbar: React.FC = () => {
           >
             <button
               onClick={() => handleDropdownClick('services', 'services')}
-              className="px-3.5 py-1 text-sm font-semibold tracking-wide flex items-center gap-1 text-slate-700 hover:text-[#063B83] transition-colors cursor-pointer"
+              className={`px-3.5 py-2 text-sm tracking-wide flex items-center gap-1 transition-colors cursor-pointer ${
+                isServicesActive
+                  ? 'font-bold text-[#063B83] border-b-2 border-[#063B83]'
+                  : 'font-semibold text-slate-700 hover:text-[#063B83] border-b-2 border-transparent'
+              }`}
             >
               Services
               <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'services' ? 'rotate-180' : ''}`} />
@@ -201,13 +250,14 @@ export const Navbar: React.FC = () => {
                     <ul className="space-y-1">
                       {SERVICES.filter(s => s.category === 'SAP Services').map((s) => (
                         <li key={s.id}>
-                          <button
-                            onClick={() => scrollToSection('services')}
+                          <Link
+                            to={`/services/${s.slug}`}
+                            onClick={() => setActiveDropdown(null)}
                             className="w-full text-left p-2 rounded hover:bg-[#f5f8fc] text-xs text-slate-700 hover:text-[#063B83] transition-colors group cursor-pointer block"
                           >
                             <span className="font-semibold block">{s.title}</span>
                             <span className="text-[11px] text-slate-500 line-clamp-1">{s.shortDesc}</span>
-                          </button>
+                          </Link>
                         </li>
                       ))}
                     </ul>
@@ -221,24 +271,26 @@ export const Navbar: React.FC = () => {
                     <ul className="space-y-1">
                       {SERVICES.filter(s => s.category === 'Enterprise & Cloud Solutions').map((s) => (
                         <li key={s.id}>
-                          <button
-                            onClick={() => scrollToSection('services')}
+                          <Link
+                            to={`/services/${s.slug}`}
+                            onClick={() => setActiveDropdown(null)}
                             className="w-full text-left p-2 rounded hover:bg-[#f5f8fc] text-xs text-slate-700 hover:text-[#087FE5] transition-colors group cursor-pointer block"
                           >
                             <span className="font-semibold block">{s.title}</span>
                             <span className="text-[11px] text-slate-500 line-clamp-1">{s.shortDesc}</span>
-                          </button>
+                          </Link>
                         </li>
                       ))}
                     </ul>
 
                     <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
-                      <button
-                        onClick={() => scrollToSection('services')}
+                      <Link
+                        to="/services"
+                        onClick={() => setActiveDropdown(null)}
                         className="text-xs font-bold text-[#063B83] hover:text-[#087FE5] flex items-center gap-1 cursor-pointer"
                       >
-                        Explore All Services On Homepage <ArrowRight className="w-3 h-3" />
-                      </button>
+                        Explore All 13 Services <ArrowRight className="w-3 h-3" />
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -254,7 +306,11 @@ export const Navbar: React.FC = () => {
           >
             <button
               onClick={() => handleDropdownClick('training', 'training')}
-              className="px-3.5 py-1 text-sm font-semibold tracking-wide flex items-center gap-1 text-slate-700 hover:text-[#063B83] transition-colors cursor-pointer"
+              className={`px-3.5 py-2 text-sm tracking-wide flex items-center gap-1 transition-colors cursor-pointer ${
+                isTrainingActive
+                  ? 'font-bold text-[#063B83] border-b-2 border-[#063B83]'
+                  : 'font-semibold text-slate-700 hover:text-[#063B83] border-b-2 border-transparent'
+              }`}
             >
               SAP Training
               <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'training' ? 'rotate-180' : ''}`} />
@@ -322,7 +378,11 @@ export const Navbar: React.FC = () => {
           >
             <button
               onClick={() => handleDropdownClick('industries', 'industries')}
-              className="px-3.5 py-1 text-sm font-semibold tracking-wide flex items-center gap-1 text-slate-700 hover:text-[#063B83] transition-colors cursor-pointer"
+              className={`px-3.5 py-2 text-sm tracking-wide flex items-center gap-1 transition-colors cursor-pointer ${
+                isIndustriesActive
+                  ? 'font-bold text-[#063B83] border-b-2 border-[#063B83]'
+                  : 'font-semibold text-slate-700 hover:text-[#063B83] border-b-2 border-transparent'
+              }`}
             >
               Industries
               <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'industries' ? 'rotate-180' : ''}`} />
@@ -381,7 +441,11 @@ export const Navbar: React.FC = () => {
           >
             <button
               onClick={() => handleDropdownClick('company', 'about')}
-              className="px-3.5 py-1 text-sm font-semibold tracking-wide flex items-center gap-1 text-slate-700 hover:text-[#063B83] transition-colors cursor-pointer"
+              className={`px-3.5 py-2 text-sm tracking-wide flex items-center gap-1 transition-colors cursor-pointer ${
+                isCompanyActive
+                  ? 'font-bold text-[#063B83] border-b-2 border-[#063B83]'
+                  : 'font-semibold text-slate-700 hover:text-[#063B83] border-b-2 border-transparent'
+              }`}
             >
               Company
               <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'company' ? 'rotate-180' : ''}`} />
@@ -441,8 +505,18 @@ export const Navbar: React.FC = () => {
           </div>
 
           <button
-            onClick={() => scrollToSection('contact-cta')}
-            className="px-3.5 py-2.5 text-sm font-semibold tracking-wide text-slate-700 hover:text-[#063B83] transition-colors cursor-pointer"
+            onClick={() => {
+              if (location.pathname === '/') {
+                scrollToSection('contact-cta');
+              } else {
+                navigate('/contact');
+              }
+            }}
+            className={`px-3.5 py-2 text-sm tracking-wide transition-colors cursor-pointer ${
+              isContactActive
+                ? 'font-bold text-[#063B83] border-b-2 border-[#063B83]'
+                : 'font-semibold text-slate-700 hover:text-[#063B83] border-b-2 border-transparent'
+            }`}
           >
             Contact
           </button>
@@ -486,18 +560,36 @@ export const Navbar: React.FC = () => {
 
           <div className="space-y-1">
             <button
-              onClick={() => scrollToSection('top')}
-              className="w-full text-left block px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-[#f5f8fc] rounded"
+              onClick={() => {
+                if (location.pathname === '/') {
+                  scrollToSection('top');
+                } else {
+                  navigate('/');
+                  setMobileMenuOpen(false);
+                }
+              }}
+              className={`w-full text-left block px-3 py-2 text-sm rounded ${
+                isHomeActive
+                  ? 'font-bold text-[#063B83] bg-[#f5f8fc]'
+                  : 'font-semibold text-slate-700 hover:bg-[#f5f8fc]'
+              }`}
             >
               Home
             </button>
 
             {/* Mobile Services Accordion Dropdown */}
             <div className="rounded-lg overflow-hidden">
-              <div className="flex items-center justify-between w-full px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-[#f5f8fc] rounded">
+              <div className="flex items-center justify-between w-full px-3 py-2 text-sm rounded hover:bg-[#f5f8fc]">
                 <button
-                  onClick={() => scrollToSection('services')}
-                  className="flex-1 text-left text-slate-800 font-semibold"
+                  onClick={() => {
+                    navigate('/services');
+                    setMobileMenuOpen(false);
+                  }}
+                  className={`flex-1 text-left ${
+                    isServicesActive
+                      ? 'text-[#063B83] font-bold'
+                      : 'text-slate-800 font-semibold'
+                  }`}
                 >
                   Services
                 </button>
@@ -527,13 +619,14 @@ export const Navbar: React.FC = () => {
                     </div>
                     <div className="space-y-1 pl-1">
                       {SERVICES.filter((s) => s.category === 'SAP Services').map((s) => (
-                        <button
+                        <Link
                           key={s.id}
-                          onClick={() => scrollToSection('services')}
+                          to={`/services/${s.slug}`}
+                          onClick={() => setMobileMenuOpen(false)}
                           className="w-full text-left py-1 text-slate-600 hover:text-[#063B83] block truncate font-medium"
                         >
                           • {s.title}
-                        </button>
+                        </Link>
                       ))}
                     </div>
                   </div>
@@ -546,13 +639,14 @@ export const Navbar: React.FC = () => {
                     </div>
                     <div className="space-y-1 pl-1">
                       {SERVICES.filter((s) => s.category === 'Enterprise & Cloud Solutions').map((s) => (
-                        <button
+                        <Link
                           key={s.id}
-                          onClick={() => scrollToSection('services')}
+                          to={`/services/${s.slug}`}
+                          onClick={() => setMobileMenuOpen(false)}
                           className="w-full text-left py-1 text-slate-600 hover:text-[#087FE5] block truncate font-medium"
                         >
                           • {s.title}
-                        </button>
+                        </Link>
                       ))}
                     </div>
                   </div>
