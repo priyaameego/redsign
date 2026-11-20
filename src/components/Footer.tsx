@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
   ShieldCheck,
@@ -47,14 +48,50 @@ export const Footer: React.FC = () => {
     }
   };
 
-  const galleryImages = [
+  const [galleryImages, setGalleryImages] = useState([
     { src: '/gallery_thumb1.jpg', label: 'Cloud Architecture' },
     { src: '/gallery_thumb2.jpg', label: 'Semiconductor Hardware' },
     { src: '/gallery_thumb3.jpg', label: 'Consulting Delivery' },
     { src: '/gallery_thumb4.jpg', label: 'Server Infrastructure' },
     { src: '/gallery_thumb5.jpg', label: 'Process Analytics' },
     { src: '/gallery_thumb6.jpg', label: 'Enterprise Hub' }
-  ];
+  ]);
+
+  useEffect(() => {
+    fetch('/api/gallery')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.posts && Array.isArray(data.posts) && data.posts.length > 0) {
+          const dynamicItems: { src: string; label: string }[] = [];
+          data.posts.forEach((post: any) => {
+            if (post.coverImage) {
+              dynamicItems.push({ src: post.coverImage, label: post.title });
+            }
+            if (Array.isArray(post.images)) {
+              post.images.forEach((img: string) => {
+                if (dynamicItems.length < 6 && img !== post.coverImage) {
+                  dynamicItems.push({ src: img, label: post.title });
+                }
+              });
+            }
+          });
+
+          if (dynamicItems.length > 0) {
+            const defaults = [
+              { src: '/gallery_thumb1.jpg', label: 'Cloud Architecture' },
+              { src: '/gallery_thumb2.jpg', label: 'Semiconductor Hardware' },
+              { src: '/gallery_thumb3.jpg', label: 'Consulting Delivery' },
+              { src: '/gallery_thumb4.jpg', label: 'Server Infrastructure' },
+              { src: '/gallery_thumb5.jpg', label: 'Process Analytics' },
+              { src: '/gallery_thumb6.jpg', label: 'Enterprise Hub' }
+            ];
+            const combined = [...dynamicItems, ...defaults].slice(0, 6);
+            setGalleryImages(combined);
+          }
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   return (
     <footer className="relative w-full bg-[#1b1d22] text-[#9ca3af] font-sans border-t border-slate-700/60 overflow-hidden">
@@ -361,37 +398,54 @@ export const Footer: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="lg:col-span-3 space-y-3.5"
           >
-            <div>
-              <h4 className="text-sm font-bold text-white tracking-wider uppercase">
-                Gallery
-              </h4>
-              <div className="h-[2px] w-8 bg-[#087FE5] mt-1.5" />
+            <div className="flex items-center justify-between">
+              <div>
+                <Link
+                  to="/gallery"
+                  className="text-sm font-bold text-white tracking-wider uppercase hover:text-[#08B9E8] transition-colors"
+                >
+                  Gallery
+                </Link>
+                <div className="h-[2px] w-8 bg-[#087FE5] mt-1.5" />
+              </div>
+              <Link
+                to="/gallery"
+                className="text-[11px] text-[#08B9E8] hover:underline font-semibold flex items-center gap-1"
+              >
+                <span>View All</span>
+                <span>→</span>
+              </Link>
             </div>
 
             {/* 3x2 Thumbnail Grid with Framer Motion Scale & Border Glow */}
             <div className="grid grid-cols-3 gap-2 pt-1">
               {galleryImages.map((img, i) => (
-                <motion.div
+                <Link
+                  to="/gallery"
                   key={i}
-                  initial={{ opacity: 0, scale: 0.85 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.35, delay: 0.1 + i * 0.04 }}
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  className="aspect-square rounded-md overflow-hidden bg-slate-800 border border-slate-700/60 group cursor-pointer shadow-sm hover:border-[#08B9E8] transition-all relative"
+                  className="block"
                   title={img.label}
                 >
-                  <img
-                    src={img.src}
-                    alt={img.label}
-                    className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-120"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.src = '/zisantech_collaborative_consulting.jpg';
-                    }}
-                  />
-                  <div className="absolute inset-0 bg-[#087FE5]/0 group-hover:bg-[#087FE5]/20 transition-colors pointer-events-none" />
-                </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.85 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.35, delay: 0.1 + i * 0.04 }}
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    className="aspect-square rounded-md overflow-hidden bg-slate-800 border border-slate-700/60 group cursor-pointer shadow-sm hover:border-[#08B9E8] transition-all relative"
+                  >
+                    <img
+                      src={img.src}
+                      alt={img.label}
+                      className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-120"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.src = '/zisantech_collaborative_consulting.jpg';
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-[#087FE5]/0 group-hover:bg-[#087FE5]/20 transition-colors pointer-events-none" />
+                  </motion.div>
+                </Link>
               ))}
             </div>
 
@@ -435,6 +489,13 @@ export const Footer: React.FC = () => {
             >
               Terms of Service
             </a>
+            <span className="text-slate-600">|</span>
+            <Link
+              to="/admin"
+              className="text-slate-500 hover:text-white transition-colors cursor-pointer"
+            >
+              Admin Portal
+            </Link>
 
             {/* Circular Scroll-To-Top Button */}
             <motion.button

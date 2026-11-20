@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import {
   Calendar,
@@ -15,12 +15,65 @@ import { BLOGS } from '../data/siteData';
 
 export const BlogPage: React.FC = () => {
   const { id } = useParams<{ id?: string }>();
+  const [blogs, setBlogs] = useState<any[]>(BLOGS);
+  const [loadedFromApi, setLoadedFromApi] = useState(false);
 
-  const selectedBlog = id ? BLOGS.find((b) => b.id === parseInt(id)) : null;
+  useEffect(() => {
+    fetch('/api/blogs')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.blogs && Array.isArray(data.blogs) && data.blogs.length > 0) {
+          const formatted = data.blogs.map((b: any) => ({
+            ...b,
+            image: b.featuredImage || b.image || '/hero_sap_slide1.jpg',
+            content: Array.isArray(b.content)
+              ? b.content
+              : typeof b.content === 'string'
+              ? b.content.split('\n\n').filter(Boolean)
+              : [String(b.content || '')],
+            keyTakeaways: Array.isArray(b.keyTakeaways) ? b.keyTakeaways : [],
+            tags: Array.isArray(b.tags) ? b.tags : [],
+            url: b.url || `/blog/${b.slug || b.id}`
+          }));
+          setBlogs(formatted);
+          setLoadedFromApi(true);
+        }
+      })
+      .catch(() => {
+        // Fallback to static BLOGS
+      });
+  }, []);
+
+  const selectedBlog = id
+    ? blogs.find(
+        (b) =>
+          b.id.toString() === id ||
+          b.slug === id ||
+          (b.url && (b.url.endsWith(`/${id}`) || b.url === `/blog/${id}`))
+      )
+    : null;
 
   // Single Blog Detail Page
-  if (selectedBlog) {
-    const relatedBlogs = BLOGS.filter((b) => b.id !== selectedBlog.id).slice(0, 3);
+  if (id) {
+    if (!selectedBlog) {
+      return (
+        <div className="min-h-[50vh] flex flex-col items-center justify-center py-20 px-4 text-center">
+          <h2 className="text-2xl font-bold text-slate-800 mb-2">Article Not Found</h2>
+          <p className="text-sm text-slate-500 mb-6">
+            The requested article could not be found or may have been unpublished.
+          </p>
+          <Link
+            to="/blog"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#087FE5] text-white font-semibold text-xs hover:bg-[#063B83] transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            <span>Back to All Articles</span>
+          </Link>
+        </div>
+      );
+    }
+
+    const relatedBlogs = blogs.filter((b) => b.id !== selectedBlog.id).slice(0, 3);
 
     return (
       <div className="space-y-16 pb-20">
@@ -41,7 +94,7 @@ export const BlogPage: React.FC = () => {
               </span>
               <span className="text-xs text-slate-400 flex items-center gap-1">
                 <Clock className="w-3.5 h-3.5" />
-                {selectedBlog.readTime}
+                {selectedBlog.readTime || '5 min read'}
               </span>
             </div>
 
@@ -55,7 +108,7 @@ export const BlogPage: React.FC = () => {
                   Z
                 </div>
                 <div>
-                  <p className="text-white font-medium">{selectedBlog.author}</p>
+                  <p className="text-white font-medium">{selectedBlog.author || 'ZisanTech Enterprise Team'}</p>
                   <p className="text-[11px] text-slate-400">{selectedBlog.date}</p>
                 </div>
               </div>
@@ -66,75 +119,116 @@ export const BlogPage: React.FC = () => {
         {/* Article Body */}
         <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="prose prose-lg max-w-none space-y-6 text-slate-700 leading-relaxed">
-            <p className="text-lg font-medium text-navy-950 border-l-4 border-blue-600 pl-4 italic">
-              {selectedBlog.excerpt}
-            </p>
+            {selectedBlog.image && (
+              <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md my-4 max-h-[460px]">
+                <img
+                  src={selectedBlog.image}
+                  alt={selectedBlog.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            )}
 
-            {selectedBlog.content.map((para, idx) => (
-              <p key={idx} className="text-base text-slate-700 leading-relaxed">
-                {para}
+            {selectedBlog.excerpt && (
+              <p className="text-lg font-medium text-navy-950 border-l-4 border-blue-600 pl-4 italic">
+                {selectedBlog.excerpt}
               </p>
-            ))}
+            )}
+
+            {Array.isArray(selectedBlog.content) ? (
+              selectedBlog.content.map((para: string, idx: number) => (
+                <p key={idx} className="text-base text-slate-700 leading-relaxed">
+                  {para}
+                </p>
+              ))
+            ) : (
+              <p className="text-base text-slate-700 leading-relaxed">
+                {String(selectedBlog.content || '')}
+              </p>
+            )}
 
             {/* Key Takeaways Box */}
-            <div className="my-8 p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
-              <h3 className="text-base font-bold text-navy-950 uppercase tracking-wider">
-                Key Strategic Takeaways:
-              </h3>
-              <ul className="space-y-2">
-                {selectedBlog.keyTakeaways.map((takeaway, idx) => (
-                  <li key={idx} className="flex items-start gap-2.5 text-sm text-slate-700">
-                    <span className="text-teal-600 font-bold">•</span>
-                    <span>{takeaway}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {selectedBlog.keyTakeaways && selectedBlog.keyTakeaways.length > 0 && (
+              <div className="my-8 p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
+                <h3 className="text-base font-bold text-navy-950 uppercase tracking-wider">
+                  Key Strategic Takeaways:
+                </h3>
+                <ul className="space-y-2">
+                  {selectedBlog.keyTakeaways.map((takeaway: string, idx: number) => (
+                    <li key={idx} className="flex items-start gap-2.5 text-sm text-slate-700">
+                      <span className="text-teal-600 font-bold">•</span>
+                      <span>{takeaway}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
             {/* Tags */}
-            <div className="pt-6 border-t border-slate-200 flex items-center gap-2 flex-wrap">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Tagged In:</span>
-              {selectedBlog.tags.map((tag, idx) => (
-                <span key={idx} className="px-3 py-1 rounded-lg bg-slate-100 text-slate-700 text-xs font-medium">
-                  #{tag}
-                </span>
-              ))}
-            </div>
+            {selectedBlog.tags && selectedBlog.tags.length > 0 && (
+              <div className="pt-6 border-t border-slate-200 flex items-center gap-2 flex-wrap">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Tagged In:</span>
+                {selectedBlog.tags.map((tag: string, idx: number) => (
+                  <span key={idx} className="px-3 py-1 rounded-lg bg-slate-100 text-slate-700 text-xs font-medium">
+                    #{tag}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
         </article>
 
         {/* Related Articles */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 border-t border-slate-200">
-          <h2 className="text-2xl font-bold text-navy-950 mb-8 font-display">Related Enterprise Articles</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {relatedBlogs.map((b) => (
-              <div
-                key={b.id}
-                className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-lg transition-all flex flex-col justify-between"
-              >
-                <div>
-                  <span className="text-xs font-bold text-blue-700 uppercase">{b.category}</span>
-                  <h3 className="text-base font-bold text-navy-950 mt-2 mb-2 line-clamp-2 hover:text-blue-700">
-                    <Link to={b.url}>{b.title}</Link>
-                  </h3>
-                  <p className="text-xs text-slate-600 line-clamp-3 mb-4">{b.excerpt}</p>
-                </div>
-                <Link
-                  to={b.url}
-                  className="text-xs font-bold text-blue-700 hover:text-blue-900 pt-3 border-t border-slate-100 flex items-center justify-between"
+        {relatedBlogs.length > 0 && (
+          <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 border-t border-slate-200">
+            <h2 className="text-2xl font-bold text-navy-950 mb-8 font-display">Related Enterprise Articles</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {relatedBlogs.map((b) => (
+                <div
+                  key={b.id}
+                  className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-lg transition-all flex flex-col justify-between"
                 >
-                  <span>Read Article</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
-            ))}
-          </div>
-        </section>
+                  <div>
+                    <span className="text-xs font-bold text-blue-700 uppercase">{b.category}</span>
+                    <h3 className="text-base font-bold text-navy-950 mt-2 mb-2 line-clamp-2 hover:text-blue-700">
+                      <Link to={b.url || `/blog/${b.slug || b.id}`}>{b.title}</Link>
+                    </h3>
+                    <p className="text-xs text-slate-600 line-clamp-3 mb-4">{b.excerpt}</p>
+                  </div>
+                  <Link
+                    to={b.url || `/blog/${b.slug || b.id}`}
+                    className="text-xs font-bold text-blue-700 hover:text-blue-900 pt-3 border-t border-slate-100 flex items-center justify-between"
+                  >
+                    <span>Read Article</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
       </div>
     );
   }
 
   // Blog Listing Page
+  const [selectedCategory, setSelectedCategory] = useState<string>('All');
+  const featuredBlog = blogs.length > 0 ? blogs[0] : null;
+  const gridBlogs = blogs.length > 1 ? blogs.slice(1) : blogs;
+
+  // Dynamic unique categories collected from all published blogs in DB
+  const allCategories = [
+    'All',
+    ...Array.from(new Set(blogs.map((b) => b.category).filter(Boolean)))
+  ];
+
+  const filteredGridBlogs =
+    selectedCategory === 'All'
+      ? gridBlogs
+      : blogs.filter(
+          (b) => (b.category || '').toLowerCase() === selectedCategory.toLowerCase()
+        );
+
   return (
     <div className="space-y-20 pb-20">
       <section className="bg-navy-950 text-white py-20 border-b border-white/10 relative overflow-hidden">
@@ -153,39 +247,60 @@ export const BlogPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Featured Blog (Article 7: Clean-Core S/4HANA Strategy) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-gradient-to-r from-navy-950 via-slate-900 to-blue-950 text-white p-8 sm:p-12 border border-white/10 shadow-2xl">
-          <div className="max-w-3xl space-y-4">
-            <span className="px-3 py-1 rounded-full text-xs font-bold bg-teal-500/20 text-teal-300 border border-teal-500/30">
-              Featured Research • New Analysis
-            </span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-white font-display">
-              <Link to="/blog/7" className="hover:text-teal-300 transition-colors">
-                {BLOGS[6].title}
-              </Link>
-            </h2>
-            <p className="text-slate-300 text-sm leading-relaxed">
-              {BLOGS[6].excerpt}
-            </p>
-            <div className="pt-2 flex items-center gap-4">
-              <Link
-                to="/blog/7"
-                className="px-6 py-3 rounded-xl bg-teal-500 hover:bg-teal-400 text-navy-950 font-bold text-xs transition-colors inline-flex items-center gap-2"
-              >
-                <span>Read Full Architectural Guide</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-              <span className="text-xs text-slate-400">{BLOGS[6].readTime}</span>
+      {/* Featured Blog */}
+      {featuredBlog && (
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="rounded-3xl bg-gradient-to-r from-navy-950 via-slate-900 to-blue-950 text-white p-8 sm:p-12 border border-white/10 shadow-2xl">
+            <div className="max-w-3xl space-y-4">
+              <span className="px-3 py-1 rounded-full text-xs font-bold bg-teal-500/20 text-teal-300 border border-teal-500/30">
+                Featured Research • {featuredBlog.category}
+              </span>
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-white font-display">
+                <Link to={featuredBlog.url || `/blog/${featuredBlog.slug || featuredBlog.id}`} className="hover:text-teal-300 transition-colors">
+                  {featuredBlog.title}
+                </Link>
+              </h2>
+              <p className="text-slate-300 text-sm leading-relaxed">
+                {featuredBlog.excerpt}
+              </p>
+              <div className="pt-2 flex items-center gap-4">
+                <Link
+                  to={featuredBlog.url || `/blog/${featuredBlog.slug || featuredBlog.id}`}
+                  className="px-6 py-3 rounded-xl bg-teal-500 hover:bg-teal-400 text-navy-950 font-bold text-xs transition-colors inline-flex items-center gap-2"
+                >
+                  <span>Read Full Architectural Guide</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <span className="text-xs text-slate-400">{featuredBlog.readTime}</span>
+              </div>
             </div>
           </div>
+        </section>
+      )}
+
+      {/* Dynamic Category Filter Bar */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+          {allCategories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setSelectedCategory(cat)}
+              className={`px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
+                selectedCategory === cat
+                  ? 'bg-[#087FE5] text-white shadow-md shadow-blue-500/20'
+                  : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 hover:border-slate-300'
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
         </div>
       </section>
 
-      {/* Blog Cards Grid (All original 6 articles preserved) */}
+      {/* Blog Cards Grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {BLOGS.slice(0, 6).map((blog) => (
+          {filteredGridBlogs.map((blog) => (
             <div
               key={blog.id}
               className="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
@@ -199,7 +314,7 @@ export const BlogPage: React.FC = () => {
                 </div>
 
                 <h3 className="text-xl font-bold text-navy-950 mb-3 group-hover:text-blue-700 transition-colors">
-                  <Link to={blog.url}>{blog.title}</Link>
+                  <Link to={blog.url || `/blog/${blog.slug || blog.id}`}>{blog.title}</Link>
                 </h3>
 
                 <p className="text-xs text-slate-600 leading-relaxed mb-6">
@@ -210,7 +325,7 @@ export const BlogPage: React.FC = () => {
               <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
                 <span className="text-[11px] text-slate-400">{blog.date}</span>
                 <Link
-                  to={blog.url}
+                  to={blog.url || `/blog/${blog.slug || blog.id}`}
                   className="text-xs font-bold text-blue-700 hover:text-blue-900 flex items-center gap-1 group-hover:gap-2 transition-all"
                 >
                   <span>Read Article</span>
@@ -224,4 +339,3 @@ export const BlogPage: React.FC = () => {
     </div>
   );
 };
-
