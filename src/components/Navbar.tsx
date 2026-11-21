@@ -89,12 +89,33 @@ export const Navbar: React.FC = () => {
     if (activeDropdown === menuName) {
       if (menuName === 'services') {
         navigate('/services');
+      } else if (menuName === 'training') {
+        navigate('/training');
       } else {
         scrollToSection(sectionId);
       }
     } else {
       setActiveDropdown(menuName);
     }
+  };
+
+  const TRAINING_PATH_MAP: Record<string, string> = {
+    'SAP-SD': '/training/sap-sd',
+    'SAP-MM': '/training/sap-mm',
+    'SAP-PP': '/training/sap-pp',
+    'SAP-QM': '/training/sap-qm',
+    'SAP-FICO': '/training/sap-fico',
+    'SAP-HCM': '/training/sap-hcm',
+    'SAP-CCM': '/training/sap-le',
+    'SAP-LE': '/training/sap-le',
+    'SAP-TM': '/training/sap-tm',
+    'SAP-EWM': '/training/sap-ewm',
+    'SAP-ARIBA': '/training/sap-ariba',
+    'SAP-ABAP': '/training/sap-abap',
+    'SAP-BASIS': '/training/sap-basis',
+    'SAP-PI-PO': '/training/sap-pi-po',
+    'SAP-CPI': '/training/sap-cpi',
+    'SAP-CIDS': '/training/sap-cids',
   };
 
   const industryIcons: Record<string, React.ReactNode> = {
@@ -329,16 +350,24 @@ export const Navbar: React.FC = () => {
                       <h4 className="text-xs font-bold uppercase tracking-wider text-[#063B83]">Functional Modules Preview</h4>
                     </div>
                     <div className="grid grid-cols-2 gap-1 max-h-[280px] overflow-y-auto pr-1">
-                      {TRAINING_MODULES.filter(t => t.type === 'functional').map((t) => (
-                        <button
-                          key={t.id}
-                          onClick={() => scrollToSection('training')}
-                          className="w-full text-left p-1.5 rounded hover:bg-[#f5f8fc] text-xs group block cursor-pointer"
-                        >
-                          <span className="font-bold text-[#087FE5] block text-[10px]">{t.code}</span>
-                          <span className="text-slate-700 group-hover:text-[#063B83] font-medium truncate block">{t.title.split(' (')[0]}</span>
-                        </button>
-                      ))}
+                      {TRAINING_MODULES.filter(t => t.type === 'functional').map((t) => {
+                        const code = t.code === 'SAP-CCM' ? 'SAP-LE' : t.code;
+                        const title = t.code === 'SAP-CCM' ? 'SAP LE (Logistics Execution)' : t.title;
+                        const path = TRAINING_PATH_MAP[code] || `/training/${t.slug}`;
+                        return (
+                          <button
+                            key={t.id}
+                            onClick={() => {
+                              setActiveDropdown(null);
+                              navigate(path);
+                            }}
+                            className="w-full text-left p-1.5 rounded hover:bg-[#f5f8fc] text-xs group block cursor-pointer"
+                          >
+                            <span className="font-bold text-[#087FE5] block text-[10px]">{code}</span>
+                            <span className="text-slate-700 group-hover:text-[#063B83] font-medium truncate block">{title.split(' (')[0]}</span>
+                          </button>
+                        );
+                      })}
                     </div>
                   </div>
 
@@ -348,17 +377,23 @@ export const Navbar: React.FC = () => {
                       <h4 className="text-xs font-bold uppercase tracking-wider text-[#087FE5]">Technical Modules Preview</h4>
                     </div>
                     <ul className="space-y-1">
-                      {TRAINING_MODULES.filter(t => t.type === 'technical').map((t) => (
-                        <li key={t.id}>
-                          <button
-                            onClick={() => scrollToSection('training')}
-                            className="w-full text-left block p-1.5 rounded hover:bg-[#f5f8fc] text-xs group cursor-pointer"
-                          >
-                            <span className="font-bold text-[#063B83] mr-1.5 text-[10px]">{t.code}</span>
-                            <span className="text-slate-700 group-hover:text-[#087FE5] font-medium">{t.title}</span>
-                          </button>
-                        </li>
-                      ))}
+                      {TRAINING_MODULES.filter(t => t.type === 'technical').map((t) => {
+                        const path = TRAINING_PATH_MAP[t.code] || `/training/${t.slug}`;
+                        return (
+                          <li key={t.id}>
+                            <button
+                              onClick={() => {
+                                setActiveDropdown(null);
+                                navigate(path);
+                              }}
+                              className="w-full text-left block p-1.5 rounded hover:bg-[#f5f8fc] text-xs group cursor-pointer"
+                            >
+                              <span className="font-bold text-[#063B83] mr-1.5 text-[10px]">{t.code}</span>
+                              <span className="text-slate-700 group-hover:text-[#087FE5] font-medium">{t.title}</span>
+                            </button>
+                          </li>
+                        );
+                      })}
                     </ul>
                     <div className="mt-4 p-3 rounded-lg bg-[#f5f8fc] border border-slate-200">
                       <p className="text-xs font-bold text-[#063B83]">100% Placement & Live Sandbox</p>
@@ -655,7 +690,14 @@ export const Navbar: React.FC = () => {
             </div>
 
             <button
-              onClick={() => scrollToSection('training')}
+              onClick={() => {
+                setMobileMenuOpen(false);
+                if (location.pathname === '/') {
+                  scrollToSection('training');
+                } else {
+                  navigate('/training');
+                }
+              }}
               className="w-full text-left block px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-[#f5f8fc] rounded"
             >
               SAP Training

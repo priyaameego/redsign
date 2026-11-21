@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import {
   GraduationCap,
   Clock,
@@ -10,9 +11,29 @@ import {
   ChevronRight,
   BookOpen,
   Award,
-  Users2
+  Users2,
+  Sparkles
 } from 'lucide-react';
 import { TRAINING_MODULES, COMPANY_INFO } from '../data/siteData';
+
+const codeToSlug: Record<string, string> = {
+  'SAP-SD': 'sap-sd',
+  'SAP-MM': 'sap-mm',
+  'SAP-PP': 'sap-pp',
+  'SAP-QM': 'sap-qm',
+  'SAP-FICO': 'sap-fico',
+  'SAP-HCM': 'sap-hcm',
+  'SAP-CCM': 'sap-le',
+  'SAP-LE': 'sap-le',
+  'SAP-TM': 'sap-tm',
+  'SAP-EWM': 'sap-ewm',
+  'SAP-ARIBA': 'sap-ariba',
+  'SAP-ABAP': 'sap-abap',
+  'SAP-BASIS': 'sap-basis',
+  'SAP-PI-PO': 'sap-pi-po',
+  'SAP-CPI': 'sap-cpi',
+  'SAP-CIDS': 'sap-cids',
+};
 
 export const TrainingPage: React.FC = () => {
   const { category, id } = useParams<{ category?: string; id?: string }>();
@@ -134,8 +155,8 @@ export const TrainingPage: React.FC = () => {
 
             {/* Sidebar with all modules */}
             <div className="lg:col-span-4 space-y-6">
-              <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
-                <h4 className="text-sm font-bold uppercase tracking-wider text-navy-950 pb-2 border-b border-slate-100">
+              <div className="p-6 rounded-2xl bg-gradient-to-br from-white via-[#fbfdff] to-[#f0f6fd] border border-[#087FE5]/25 shadow-sm space-y-4">
+                <h4 className="text-sm font-bold uppercase tracking-wider text-navy-950 pb-2 border-b border-[#087FE5]/15">
                   All 15 Training Modules
                 </h4>
                 <div className="space-y-1 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
@@ -231,51 +252,76 @@ export const TrainingPage: React.FC = () => {
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredModules.map((mod) => (
-            <div
+          {filteredModules.map((mod, idx) => (
+            <motion.div
               key={mod.id}
-              className="bg-white rounded-2xl p-7 border border-slate-200 hover:border-emerald-500 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: idx * 0.05 }}
+              whileHover={{ y: -8, scale: 1.015 }}
+              className="relative overflow-hidden p-7 rounded-3xl bg-gradient-to-br from-white via-[#fbfdff] to-[#f0f6fd] border border-[#087FE5]/30 hover:border-[#087FE5]/80 shadow-[0_6px_24px_-2px_rgba(8,127,229,0.08)] hover:shadow-[0_18px_40px_-6px_rgba(8,127,229,0.20)] transition-all duration-500 flex flex-col justify-between group cursor-default"
             >
-              <div>
+              {/* 3D Diagonal Light Sheen Sweep */}
+              <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/40 to-transparent pointer-events-none z-10" />
+
+              {/* Ambient Corner Glow Accent - ALWAYS VISIBLE */}
+              <div className="absolute top-0 right-0 w-36 h-36 rounded-bl-full pointer-events-none bg-[radial-gradient(circle_at_top_right,rgba(8,185,232,0.16),transparent_70%)] group-hover:scale-110 transition-transform duration-500" />
+
+              {/* Background Code Watermark */}
+              <span className="absolute -right-2 -bottom-2 text-6xl font-black text-[#087FE5]/10 font-mono select-none pointer-events-none group-hover:text-[#087FE5]/20 transition-colors duration-300">
+                {mod.code.replace('SAP-', '')}
+              </span>
+
+              <div className="relative z-10">
                 <div className="flex items-center justify-between mb-4">
-                  <span className="px-2.5 py-1 rounded text-[10px] font-bold font-mono uppercase bg-emerald-50 text-emerald-700">
-                    {mod.code}
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold font-mono uppercase bg-white/95 text-[#063B83] border border-[#087FE5]/40 shadow-sm">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#087FE5] animate-pulse" />
+                    <span>{mod.code === 'SAP-CCM' ? 'SAP-LE' : mod.code}</span>
                   </span>
-                  <span className="text-xs text-slate-400">{mod.duration}</span>
+                  <span className="text-xs text-slate-500 font-semibold">{mod.duration}</span>
                 </div>
 
-                <h3 className="text-xl font-bold text-navy-950 mb-2 group-hover:text-emerald-700 transition-colors">
-                  {mod.title}
+                <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-[#063B83] transition-colors">
+                  <Link to={`/training/${codeToSlug[mod.code] || mod.slug}`}>
+                    {mod.code === 'SAP-CCM' ? 'SAP LE (Logistics Execution)' : mod.title}
+                  </Link>
                 </h3>
 
                 <p className="text-xs text-slate-600 leading-relaxed mb-6">
                   {mod.shortDesc}
                 </p>
 
-                <div className="space-y-1.5 mb-6">
+                <div className="space-y-2 mb-6">
                   <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400">Curriculum Highlights:</p>
-                  {mod.coreTopics.slice(0, 3).map((top, idx) => (
-                    <div key={idx} className="flex items-start gap-2 text-xs text-slate-700">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 mt-0.5 flex-shrink-0" />
+                  {mod.coreTopics.slice(0, 3).map((top, tidx) => (
+                    <div key={tidx} className="flex items-start gap-2 text-xs text-slate-700">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#087FE5] mt-0.5 flex-shrink-0" />
                       <span className="line-clamp-1">{top}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
+              <div className="pt-4 border-t border-slate-100 flex items-center justify-between relative z-10">
                 <Link
-                  to={mod.url}
-                  className="text-xs font-bold text-emerald-700 hover:text-emerald-900 flex items-center gap-1 group-hover:gap-2 transition-all"
+                  to={`/training/${codeToSlug[mod.code] || mod.slug}`}
+                  className="inline-flex items-center gap-2 text-xs font-bold text-[#087FE5] group-hover:text-[#063B83] transition-colors"
                 >
-                  <span>Explore Syllabus</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <span className="relative">
+                    Explore Syllabus
+                    <span className="absolute left-0 -bottom-0.5 w-0 group-hover:w-full h-0.5 bg-[#087FE5] transition-all duration-300" />
+                  </span>
+                  <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1.5 transition-transform" />
                 </Link>
-                <Link to="/contact" className="text-xs text-slate-400 hover:text-slate-700">
-                  Enroll
+                <Link
+                  to="/contact"
+                  className="px-3 py-1 rounded-lg text-xs font-bold text-slate-500 hover:text-[#063B83] hover:bg-slate-100 transition-colors"
+                >
+                  Enroll Now
                 </Link>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>

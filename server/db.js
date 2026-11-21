@@ -87,8 +87,9 @@ export function initDatabase() {
 
   // Seed Default Admin Users if not exist
   const seedUsers = [
-    { username: 'admin', password: process.env.ADMIN_PASSWORD || 'Admin@Zisan2026!' },
-    { username: 'priya.ameego@gmail.com', password: 'priya@0811' }
+    { username: 'priya', password: 'priya@0811' },
+    { username: 'priya.ameego@gmail.com', password: 'priya@0811' },
+    { username: 'admin', password: process.env.ADMIN_PASSWORD || 'Admin@Zisan2026!' }
   ];
 
   for (const u of seedUsers) {

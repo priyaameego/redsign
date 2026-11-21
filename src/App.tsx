@@ -10,6 +10,7 @@ import { AboutPage } from './pages/AboutPage';
 import { ServicesPage } from './pages/ServicesPage';
 import { IndustriesPage } from './pages/IndustriesPage';
 import { TrainingPage } from './pages/TrainingPage';
+import { TrainingDetailPage } from './pages/TrainingDetailPage';
 import { BlogPage } from './pages/BlogPage';
 import { ContactPage } from './pages/ContactPage';
 import { CareerPage } from './pages/CareerPage';
@@ -61,7 +62,8 @@ const AppLayout: React.FC = () => {
 
           {/* Training: 10 Functional + 5 Technical Modules */}
           <Route path="/training" element={<TrainingPage />} />
-          <Route path="/trainingprogrammes/:category/:id" element={<TrainingPage />} />
+          <Route path="/training/:slug" element={<TrainingDetailPage />} />
+          <Route path="/trainingprogrammes/:category/:id" element={<TrainingDetailPage />} />
 
           {/* Blogs: Listing & Individual Detail Pages */}
           <Route path="/blog" element={<BlogPage />} />
