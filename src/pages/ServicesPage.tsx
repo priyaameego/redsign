@@ -46,6 +46,64 @@ import {
 import { SERVICES, COMPANY_INFO } from '../data/siteData';
 import { DETAILED_SERVICES_MAP, DetailedService } from '../data/serviceDetails/detailedServices';
 
+const FIVE_D_FRAMEWORK = [
+  {
+    num: '01',
+    phase: 'Stage 01 • Assessment',
+    title: 'Discover',
+    subtitle: 'Architecture Audit & Fit-Gap Analysis',
+    icon: Search,
+    iconBg: '#E0F2FE',
+    accentColor: '#0284C7',
+    desc: 'Deep-dive architectural evaluation, existing process landscape audit, and business fit-gap analysis to identify requirements and operational risks.',
+    points: ['Architecture Fit-Gap Audit', 'ERP Landscape Discovery', 'Readiness & Risk Matrix'],
+  },
+  {
+    num: '02',
+    phase: 'Stage 02 • Blueprinting',
+    title: 'Define',
+    subtitle: 'Solution Blueprint & Governance',
+    icon: Target,
+    iconBg: '#EEF2FF',
+    accentColor: '#4F46E5',
+    desc: 'Formulating strategic solution blueprints, global template harmonization, security matrices, and risk-mitigated cutover roadmaps.',
+    points: ['Target Solution Blueprint', 'Statutory Localization Plan', 'Execution Roadmap'],
+  },
+  {
+    num: '03',
+    phase: 'Stage 03 • Engineering',
+    title: 'Develop',
+    subtitle: 'Clean-Core Build & BTP Extensions',
+    icon: Code2,
+    iconBg: '#F0FDF4',
+    accentColor: '#16A34A',
+    desc: 'Clean-core ERP configurations, custom SAP BTP cloud extensions, API integrations, and robust automated data transformation pipelines.',
+    points: ['SAP BTP Extension Build', 'API & Peripheral Integration', 'Data Cleansing Engine'],
+  },
+  {
+    num: '04',
+    phase: 'Stage 04 • Cutover',
+    title: 'Deliver',
+    subtitle: 'Rehearsed Cutover & Go-Live',
+    icon: Rocket,
+    iconBg: '#EFF6FF',
+    accentColor: '#2563EB',
+    desc: 'Meticulously rehearsed cutover blackout simulations, rigorous UAT sign-offs, and seamless go-live deployment with zero unplanned downtime.',
+    points: ['Rehearsed Cutover Protocols', 'End-to-End UAT Sign-Off', 'Command Center Deployment'],
+  },
+  {
+    num: '05',
+    phase: 'Stage 05 • Optimization',
+    title: 'Drive Growth',
+    subtitle: 'Post-Go-Live Value Realization',
+    icon: TrendingUp,
+    iconBg: '#FEF3C7',
+    accentColor: '#D97706',
+    desc: 'Continuous post-go-live hypercare, 24/7 SLA-governed support, AI-driven process optimization, and sustained enterprise value realization.',
+    points: ['Dedicated Hypercare Warranty', '24/7 SLA Support Operations', 'Value Realization & Scale'],
+  },
+];
+
 export const ServicesPage: React.FC = () => {
   const { slug, category, id } = useParams<{ slug?: string; category?: string; id?: string }>();
   const [activeTab, setActiveTab] = useState<'all' | 'sap' | 'enterprise'>('all');
@@ -158,13 +216,6 @@ export const ServicesPage: React.FC = () => {
                       {detailedData.category} • Module 0{detailedData.id}
                     </span>
                   </div>
-
-                  {isSap && (
-                    <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#063B83]/80 text-[#38bdf8] border border-[#08B9E8]/30 backdrop-blur-md text-xs font-bold shadow-sm">
-                      <ShieldCheck className="w-3.5 h-3.5 text-[#08B9E8]" />
-                      <span>SAP Gold Partner Standards</span>
-                    </div>
-                  )}
                 </motion.div>
 
                 {/* Animated Headline with Blur-to-Focus */}
@@ -172,10 +223,10 @@ export const ServicesPage: React.FC = () => {
                   initial={{ opacity: 0, y: 35, filter: 'blur(8px)' }}
                   animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                   transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-                  className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-extrabold text-white leading-[1.12] tracking-tight font-heading"
+                  className="text-2xl sm:text-4xl md:text-5xl lg:text-[50px] font-normal sm:font-medium text-white leading-[1.2] tracking-[-0.02em] font-outfit"
                 >
                   {detailedData.heroHeadline} <br />
-                  <span className="text-[#08B9E8] drop-shadow-[0_2px_18px_rgba(8,185,232,0.45)]">
+                  <span className="font-semibold text-[#08B9E8] drop-shadow-[0_2px_18px_rgba(8,185,232,0.35)]">
                     {detailedData.heroHighlight}
                   </span>
                 </motion.h1>
@@ -288,7 +339,7 @@ export const ServicesPage: React.FC = () => {
               whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0c1e3d] tracking-tight leading-tight"
+              className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#0c1e3d] tracking-tight leading-tight font-outfit"
             >
               {detailedData.overviewHeading}
             </motion.h2>
@@ -333,11 +384,11 @@ export const ServicesPage: React.FC = () => {
                 <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/25 to-transparent pointer-events-none z-10" />
 
                 <img
-                  src="/hero_sap_slide3.jpg"
+                  src={detailedData.montageImage || '/photo-1542744173-8e7e53415bb0.jpg'}
                   alt="Real-Time Enterprise SAP Dashboard"
                   className="w-full h-[220px] sm:h-[250px] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                   onError={(e) => {
-                    (e.currentTarget as HTMLImageElement).src = '/exact_sap_consulting_hd.jpg';
+                    (e.currentTarget as HTMLImageElement).src = '/photo-1542744173-8e7e53415bb0.jpg';
                   }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#071B49]/60 via-transparent to-transparent opacity-70 group-hover:opacity-40 transition-opacity duration-500 pointer-events-none" />
@@ -371,7 +422,7 @@ export const ServicesPage: React.FC = () => {
                 <span>Enterprise Architecture Blueprint</span>
               </div>
 
-              <h3 className="text-xl sm:text-2xl font-extrabold text-[#0c1e3d] leading-snug">
+              <h3 className="text-lg sm:text-xl font-semibold text-[#0c1e3d] leading-snug font-outfit">
                 {detailedData.overviewLead}
               </h3>
 
@@ -544,64 +595,16 @@ export const ServicesPage: React.FC = () => {
         )}
 
         {/* =========================================================================
-            SECTION 3: 6 DEDICATED VALUE PILLARS (Authentic ZisanTech Card Hover System)
-            bg-white hover:bg-[#071B49] with radial glow orb and color transitions
-           ========================================================================= */}
-        <section className="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-[#087FE5] text-xs sm:text-sm font-extrabold uppercase tracking-wider block mb-2">
-              Proven Commercial Value
-            </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0c1e3d]">
-              {detailedData.pillarsHeading}
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {detailedData.pillars.map((pillar, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: idx * 0.08 }}
-                className="group relative bg-white hover:bg-[#071B49] p-7 rounded-2xl shadow-lg border border-slate-200/80 hover:border-[#087FE5]/60 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl overflow-hidden cursor-pointer flex flex-col justify-start"
-              >
-                {/* Background Glow Orb on Hover */}
-                <div className="absolute top-0 right-0 w-36 h-36 bg-[radial-gradient(circle,rgba(8,127,229,0.35)_0%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none blur-lg" />
-                <div className="absolute inset-0 bg-gradient-to-br from-[#071B49] via-[#05143A] to-[#040F2B] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-
-                <div className="relative z-10 flex flex-col items-start text-left w-full">
-                  {/* Tag Pill */}
-                  <div className="text-xs font-bold uppercase tracking-wider text-[#087FE5] group-hover:text-[#08B9E8] mb-3 transition-colors duration-200">
-                    {pillar.tag}
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="text-lg sm:text-[19px] font-bold text-[#0c1e3d] group-hover:text-white transition-colors duration-200 mb-2.5 tracking-tight leading-snug">
-                    {pillar.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-[#4b5563] group-hover:text-slate-200 text-xs sm:text-sm leading-relaxed font-normal transition-colors duration-200">
-                    {pillar.desc}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </section>
-
-        {/* =========================================================================
             SECTION 4: CORE SCOPE & CAPABILITIES PILLARS
            ========================================================================= */}
         <section className="py-16 sm:py-24 bg-white border-y border-slate-200/80">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <span className="text-[#087FE5] text-xs sm:text-sm font-extrabold uppercase tracking-wider block mb-2">
-                Technical Blueprint
-              </span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0c1e3d]">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#E0F2FE] border border-[#BAE6FD] text-[#0369A1] text-xs font-semibold tracking-wider uppercase mb-3">
+                <span className="w-2 h-2 rounded-full bg-[#0284C7]" />
+                <span>Technical Blueprint</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium sm:font-semibold text-[#071B49] font-outfit tracking-[-0.02em] leading-tight">
                 {detailedData.capabilitiesHeading}
               </h2>
             </div>
@@ -623,54 +626,54 @@ export const ServicesPage: React.FC = () => {
                   
                   <div className="flex items-start gap-3.5 mb-3 relative z-10">
                     <span className="w-2.5 h-2.5 rounded-full bg-[#087FE5] mt-1.5 flex-shrink-0 group-hover:scale-150 group-hover:bg-[#0c1e3d] transition-all duration-300" />
-                    <span className="text-xs sm:text-sm font-bold text-slate-800 leading-relaxed group-hover:text-[#087FE5] transition-colors duration-300">
+                    <span className="text-xs sm:text-sm font-medium text-slate-800 leading-relaxed group-hover:text-[#087FE5] transition-colors duration-300">
                       {cap.name}
                     </span>
                   </div>
 
-                  <span className="inline-block text-[10px] font-mono font-bold uppercase tracking-wider text-[#087FE5] bg-[#087FE5]/10 px-2.5 py-1 rounded w-fit relative z-10 group-hover:bg-[#087FE5] group-hover:text-white transition-colors duration-200">
+                  <span className="inline-block text-[11px] font-medium tracking-wide text-[#0369A1] bg-[#E0F2FE]/80 border border-[#BAE6FD]/80 px-2.5 py-0.5 rounded-md w-fit relative z-10 group-hover:bg-[#087FE5] group-hover:text-white group-hover:border-[#087FE5] transition-colors duration-200">
                     {cap.highlight}
                   </span>
                 </motion.div>
               ))}
             </div>
 
-            {/* Client Deliverables & Governance Box: Luxury Enterprise Showcase */}
+            {/* Enterprise Project Assurance & Executive Governance Box */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="mt-14 rounded-3xl bg-gradient-to-br from-[#020b1e] via-[#04153b] to-[#030e28] text-white p-8 sm:p-12 border border-white/15 shadow-2xl relative overflow-hidden"
+              className="mt-14 rounded-3xl bg-gradient-to-br from-[#071E54] via-[#0A2972] to-[#05163D] text-white p-8 sm:p-12 border-t-2 border-t-[#38BDF8] border border-blue-400/25 shadow-2xl relative overflow-hidden"
             >
-              {/* Ambient Radial Glow and Background Light */}
-              <div className="absolute top-0 right-0 w-[400px] h-[300px] bg-[radial-gradient(ellipse_at_top_right,rgba(8,127,229,0.22)_0%,transparent_70%)] pointer-events-none" />
-              <div className="absolute bottom-0 left-0 w-[300px] h-[250px] bg-[radial-gradient(ellipse_at_bottom_left,rgba(8,185,232,0.15)_0%,transparent_70%)] pointer-events-none" />
+              {/* Ambient Radiant Glow Effects */}
+              <div className="absolute top-0 right-0 w-[450px] h-[350px] bg-[radial-gradient(ellipse_at_top_right,rgba(56,189,248,0.22)_0%,transparent_70%)] pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-[350px] h-[300px] bg-[radial-gradient(ellipse_at_bottom_left,rgba(99,102,241,0.2)_0%,transparent_70%)] pointer-events-none" />
 
               {/* Header with Title, Tag, and SLA Seal */}
               <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 pb-8 border-b border-white/15 relative z-10 mb-8">
                 <div>
-                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#087FE5]/20 border border-[#08B9E8]/30 text-[#08B9E8] text-xs font-bold uppercase tracking-widest mb-3">
-                    <ShieldCheck className="w-4 h-4 text-[#08B9E8]" />
-                    <span>Contractual Project Handover Protocol</span>
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-400/15 border border-sky-400/30 text-sky-300 text-xs font-semibold tracking-wider uppercase mb-3">
+                    <ShieldCheck className="w-4 h-4 text-sky-400" />
+                    <span>Enterprise Project Assurance & Governance</span>
                   </div>
 
-                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-snug">
-                    Client Deliverables & Formal Governance Sign-Off
+                  <h3 className="text-2xl sm:text-3xl font-semibold text-white tracking-tight leading-snug font-outfit">
+                    Verified Enterprise Deliverables & Executive Sign-Off
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-300 mt-2 max-w-2xl font-light">
-                    Every deployment milestone concludes with enterprise-grade artifacts, rigorous sign-off validation, and complete intellectual property transfer.
+                    Every deployment milestone concludes with institutional-grade artifacts, rigorous validation gates, and complete intellectual property transfer.
                   </p>
                 </div>
 
                 {/* SLA Seal Badge */}
                 <div className="flex items-center gap-3 bg-white/10 border border-white/20 backdrop-blur-md px-5 py-3 rounded-2xl shadow-xl flex-shrink-0">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#087FE5] to-[#08B9E8] flex items-center justify-center text-white font-bold shadow-md">
-                    <Award className="w-5 h-5" />
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#087FE5] to-[#38BDF8] flex items-center justify-center text-white font-bold shadow-md">
+                    <Award className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <div className="text-xs font-bold text-white uppercase tracking-wider">100% Audit-Ready</div>
-                    <div className="text-[11px] text-[#08B9E8]">Signed Milestone Handover</div>
+                    <div className="text-xs font-bold text-white uppercase tracking-wider font-outfit">100% Audit-Ready</div>
+                    <div className="text-[11px] text-sky-300 font-medium">Guaranteed Milestone Handover</div>
                   </div>
                 </div>
               </div>
@@ -684,7 +687,7 @@ export const ServicesPage: React.FC = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: i * 0.1 }}
-                    className="group relative p-5 sm:p-6 rounded-2xl bg-white/[0.05] hover:bg-white/[0.12] border border-white/15 hover:border-[#08B9E8]/70 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#087FE5]/20 flex flex-col justify-between overflow-hidden cursor-default"
+                    className="group relative p-5 sm:p-6 rounded-2xl bg-white/[0.07] hover:bg-white/[0.14] border border-white/15 hover:border-sky-400/60 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-sky-500/20 flex flex-col justify-between overflow-hidden cursor-default"
                   >
                     {/* 3D Diagonal Light Sheen Sweep on Hover */}
                     <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none z-10" />
@@ -692,25 +695,25 @@ export const ServicesPage: React.FC = () => {
                     <div>
                       {/* Top Row: Artifact Code & Verification Pill */}
                       <div className="flex items-center justify-between mb-3">
-                        <span className="text-[11px] font-mono font-bold tracking-wider text-[#08B9E8] uppercase">
+                        <span className="text-[11px] font-mono font-bold tracking-wider text-sky-300 uppercase">
                           ARTIFACT 0{i + 1}
                         </span>
-                        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-bold border border-emerald-500/30">
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-semibold border border-emerald-500/30">
                           <CheckCircle2 className="w-3 h-3 text-emerald-400" />
                           <span>Milestone Verified</span>
                         </span>
                       </div>
 
                       {/* Deliverable Title */}
-                      <p className="text-sm sm:text-base font-bold text-white group-hover:text-[#38bdf8] transition-colors leading-relaxed">
+                      <p className="text-sm sm:text-base font-medium text-white group-hover:text-sky-200 transition-colors leading-relaxed font-outfit">
                         {d}
                       </p>
                     </div>
 
                     {/* Bottom Metadata */}
-                    <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-slate-400">
-                      <span>Governance Standard</span>
-                      <span className="text-slate-300 font-mono">SLA-Locked</span>
+                    <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-slate-300">
+                      <span>Institutional Governance Standard</span>
+                      <span className="text-sky-300 font-mono font-medium">SLA-Locked</span>
                     </div>
                   </motion.div>
                 ))}
@@ -719,14 +722,127 @@ export const ServicesPage: React.FC = () => {
               {/* Bottom Reassurance Banner */}
               <div className="mt-8 pt-6 border-t border-white/15 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs text-slate-300 relative z-10">
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#08B9E8] flex-shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-sky-400 flex-shrink-0" />
                   <span>Full intellectual property transfer, versioned runbooks & configuration codebases.</span>
                 </div>
-                <div className="text-[11px] font-mono text-[#08B9E8] uppercase tracking-wider font-semibold">
+                <div className="text-[11px] font-mono text-sky-300 uppercase tracking-wider font-semibold">
                   Zero Technical Debt Guarantee
                 </div>
               </div>
             </motion.div>
+          </div>
+        </section>
+
+        {/* =========================================================================
+            ZISANTECH 5D DELIVERY FRAMEWORK
+            Proprietary 5-Stage Execution Framework for Flawless Enterprise Delivery
+           ========================================================================= */}
+        <section className="py-20 sm:py-28 bg-gradient-to-b from-[#F8FAFC] via-white to-[#F8FAFC] border-b border-slate-200/80 relative overflow-hidden">
+          {/* Subtle geometric pattern background */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#087FE508_1px,transparent_1px),linear-gradient(to_bottom,#087FE508_1px,transparent_1px)] bg-[size:3rem_3rem] pointer-events-none" />
+          <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-sky-100/40 rounded-full blur-3xl pointer-events-none" />
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            {/* Header */}
+            <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#E0F2FE] border border-[#BAE6FD] text-[#0369A1] text-xs font-semibold tracking-wider uppercase mb-3 shadow-sm">
+                <Workflow className="w-3.5 h-3.5 text-[#0284C7]" />
+                <span>Proprietary Methodology</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#071B49] font-outfit tracking-[-0.02em] leading-tight">
+                ZisanTech 5D Delivery Framework
+              </h2>
+              <p className="text-slate-600 text-sm sm:text-base mt-4 font-normal leading-relaxed max-w-2xl mx-auto">
+                A battle-tested five-stage execution model engineered to eliminate deployment risks, enforce architectural governance, and maximize enterprise value realization.
+              </p>
+            </div>
+
+            {/* 5D Grid / Flow */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5 relative">
+              {/* Connecting line on desktop behind cards */}
+              <div className="hidden lg:block absolute top-14 left-12 right-12 h-0.5 bg-gradient-to-r from-[#0284C7]/20 via-[#087FE5]/40 to-[#0284C7]/20 z-0 pointer-events-none" />
+
+              {FIVE_D_FRAMEWORK.map((step, idx) => {
+                const IconComponent = step.icon;
+                return (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 25 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.45, delay: idx * 0.08 }}
+                    whileHover={{ y: -6, transition: { duration: 0.25 } }}
+                    className="relative z-10 bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-[#087FE5]/60 transition-all duration-300 flex flex-col justify-between group overflow-hidden"
+                  >
+                    {/* Top Ambient Glow on Hover */}
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-[radial-gradient(circle,rgba(8,127,229,0.12)_0%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
+                    <div>
+                      {/* Header: Number & Step Icon */}
+                      <div className="flex items-center justify-between mb-4">
+                        <span
+                          className="w-11 h-11 rounded-xl flex items-center justify-center font-bold text-lg shadow-sm transition-transform duration-300 group-hover:scale-110"
+                          style={{ background: step.iconBg, color: step.accentColor }}
+                        >
+                          <IconComponent className="w-5 h-5" />
+                        </span>
+                        <span className="text-xl font-mono font-bold text-slate-300 group-hover:text-[#087FE5] transition-colors">
+                          {step.num}
+                        </span>
+                      </div>
+
+                      <div className="text-[11px] font-semibold uppercase tracking-wider text-[#0284C7] mb-1">
+                        {step.phase}
+                      </div>
+
+                      <h3 className="text-xl font-semibold text-[#071B49] font-outfit mb-1 group-hover:text-[#087FE5] transition-colors">
+                        {step.title}
+                      </h3>
+
+                      <p className="text-[12px] font-medium text-slate-500 mb-3">
+                        {step.subtitle}
+                      </p>
+
+                      <p className="text-slate-600 text-xs leading-relaxed mb-5 font-normal">
+                        {step.desc}
+                      </p>
+                    </div>
+
+                    {/* Key Highlights / Outcomes */}
+                    <div className="pt-3.5 border-t border-slate-100 space-y-1.5">
+                      <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                        Key Outcomes
+                      </div>
+                      {step.points.map((pt, pIdx) => (
+                        <div key={pIdx} className="flex items-center gap-1.5 text-[11px] font-medium text-slate-700">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 flex-shrink-0" />
+                          <span className="truncate">{pt}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+
+            {/* Bottom Framework Reassurance Bar */}
+            <div className="mt-12 sm:mt-16 bg-[#071B49] text-white p-6 sm:p-8 rounded-2xl shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 border border-white/10">
+              <div className="flex items-center gap-4 text-center md:text-left">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#087FE5] to-[#08B9E8] flex items-center justify-center flex-shrink-0 text-white shadow-md">
+                  <ShieldCheck className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h4 className="text-base sm:text-lg font-semibold font-outfit">Standardized Governance Across All Engagements</h4>
+                  <p className="text-xs sm:text-sm text-slate-300 font-light mt-0.5">Every phase is gated by formal quality audits, SLA guarantees, and enterprise compliance protocols.</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3 flex-shrink-0">
+                <span className="px-4 py-2 rounded-full bg-white/10 border border-white/15 text-xs font-medium text-sky-300">
+                  100% On-Time Cutover SLA
+                </span>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -791,55 +907,92 @@ export const ServicesPage: React.FC = () => {
         </section>
 
         {/* =========================================================================
-            SECTION 6: WHY PARTNER WITH ZISANTECH SOLUTIONS? (Animated Glassmorphic Dark Section)
+            SECTION 6: WHY PARTNER WITH ZISANTECH SOLUTIONS? (Ultra-Premium Wider Enterprise Showcase)
            ========================================================================= */}
-        <section className="py-16 sm:py-24 bg-gradient-to-b from-[#03091e] via-[#041333] to-[#020b1e] text-white relative overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight">
+        <section className="py-24 sm:py-32 bg-[#051129] relative overflow-hidden text-white border-y border-white/10">
+          {/* Ambient Multi-Layered Radiant Glow & Grid Pattern */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(8,127,229,0.28),transparent_75%)] pointer-events-none" />
+          <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(56,189,248,0.14),transparent_65%)] pointer-events-none blur-2xl" />
+          <div className="absolute bottom-10 -right-32 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(99,102,241,0.14),transparent_65%)] pointer-events-none blur-2xl" />
+          <div className="absolute inset-0 bg-[radial-gradient(#ffffff0a_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
+
+          {/* Wider Fluid Container for Expansive High-Impact Presence */}
+          <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
+            {/* Header with Premium Pill & Balanced Typography */}
+            <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-400/10 border border-sky-400/30 text-sky-300 text-xs font-semibold tracking-wider uppercase mb-4 shadow-sm backdrop-blur-md">
+                <Sparkles className="w-3.5 h-3.5 text-sky-400" />
+                <span>Institutional Advantage & Proven Leadership</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight font-outfit text-white leading-tight">
                 {detailedData.whyPartnerTitle}
               </h2>
-              <p className="text-slate-300 text-xs sm:text-sm mt-3 font-light">
+              <p className="text-slate-300 text-sm sm:text-base mt-4 font-light leading-relaxed max-w-2xl mx-auto">
                 {detailedData.whyPartnerSubtitle}
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {detailedData.whyCards.map((card, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 25 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.45, delay: idx * 0.08 }}
-                  whileHover={{ y: -8, scale: 1.02, transition: { duration: 0.25 } }}
-                  className="p-7 rounded-2xl bg-white/[0.05] border border-white/10 backdrop-blur-md hover:bg-white/[0.1] hover:border-[#08B9E8]/50 transition-all duration-300 text-center flex flex-col items-center group shadow-xl cursor-default"
-                >
-                  <div className="w-14 h-14 rounded-full bg-gradient-to-tr from-[#087FE5] to-[#08B9E8] p-0.5 mb-5 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    <div className="w-full h-full rounded-full bg-[#03091e] flex items-center justify-center">
-                      <ShieldCheck className="w-6 h-6 text-[#08B9E8]" />
+            {/* 4 Wider, Distinct Enterprise Architecture Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7">
+              {detailedData.whyCards.map((card, idx) => {
+                // Dynamic contextual icon for each card
+                const icons = [Globe2, ShieldCheck, Zap, Cpu];
+                const IconComp = icons[idx % icons.length];
+                return (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 25 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.45, delay: idx * 0.08 }}
+                    whileHover={{ y: -8, scale: 1.015, transition: { duration: 0.25 } }}
+                    className="relative p-7 sm:p-8 rounded-3xl bg-gradient-to-b from-white/[0.08] to-white/[0.02] border border-white/15 hover:border-sky-400/60 backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(8,127,229,0.22)] flex flex-col justify-between group overflow-hidden cursor-default"
+                  >
+                    {/* 3D Diagonal Light Sheen Sweep on Hover */}
+                    <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/15 to-transparent pointer-events-none z-10" />
+
+                    {/* Watermark Index Number */}
+                    <span className="absolute top-5 right-6 text-3xl font-mono font-bold text-white/[0.07] group-hover:text-sky-400/25 transition-colors select-none">
+                      0{idx + 1}
+                    </span>
+
+                    <div className="relative z-10">
+                      {/* Icon Container with Luminous Gradient */}
+                      <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-sky-400/20 to-blue-600/30 border border-sky-400/30 p-3 mb-6 flex items-center justify-center text-sky-300 shadow-lg group-hover:scale-110 group-hover:bg-[#087FE5] group-hover:text-white transition-all duration-300">
+                        <IconComp className="w-6 h-6 sm:w-7 sm:h-7" />
+                      </div>
+
+                      {/* Card Title */}
+                      <h3 className="text-xl sm:text-[21px] font-semibold text-white font-outfit mb-3 leading-snug group-hover:text-sky-200 transition-colors">
+                        {card.title}
+                      </h3>
+
+                      {/* Card Description */}
+                      <p className="text-slate-300 text-xs sm:text-sm leading-relaxed font-light">
+                        {card.desc}
+                      </p>
                     </div>
-                  </div>
-                  <h4 className="text-base font-bold text-white mb-2.5">
-                    {card.title}
-                  </h4>
-                  <p className="text-xs text-slate-300 leading-relaxed font-light">
-                    {card.desc}
-                  </p>
-                </motion.div>
-              ))}
+
+                    {/* Bottom Verification Seal */}
+                    <div className="mt-6 pt-4 border-t border-white/10 flex items-center gap-2 text-[11px] text-sky-300 font-medium font-outfit relative z-10">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
+                      <span>Enterprise Architecture Standard</span>
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
 
-            {/* Quick Consultation CTA with Dedicated Gradient Button */}
-            <div className="mt-16 text-center">
+            {/* Quick Consultation CTA with Dedicated High-Impact Button */}
+            <div className="mt-16 sm:mt-20 text-center relative z-10">
               <Link
                 to="/contact"
-                className="relative group overflow-hidden inline-flex items-center gap-2.5 px-9 py-4 bg-gradient-to-r from-[#087FE5] via-[#0664B5] to-[#043E7A] text-white font-bold rounded-xl text-sm shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl cursor-pointer"
+                className="relative group overflow-hidden inline-flex items-center gap-3 px-10 py-4.5 bg-gradient-to-r from-[#087FE5] via-[#0284C7] to-[#08B9E8] text-white font-semibold rounded-2xl text-sm sm:text-base shadow-2xl shadow-sky-500/25 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-sky-400/40 cursor-pointer"
               >
                 {/* Sheen sweep */}
-                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none z-10" />
                 <span>Request Solution Blueprint for {detailedData.title}</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1.5 transition-transform" />
               </Link>
             </div>
           </div>
@@ -873,7 +1026,7 @@ export const ServicesPage: React.FC = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.1 }}
-                  className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0c1e3d] tracking-tight leading-tight"
+                  className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#071B49] font-outfit tracking-[-0.02em] leading-tight"
                 >
                   Other Solutions in {detailedData.category}
                 </motion.h3>
@@ -897,7 +1050,7 @@ export const ServicesPage: React.FC = () => {
                   to="/services"
                   className="group inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-white hover:bg-[#071B49] text-slate-800 hover:text-white border border-slate-300/80 hover:border-[#071B49] text-xs sm:text-sm font-bold shadow-sm hover:shadow-xl transition-all duration-300"
                 >
-                  <span>Explore Complete Portfolio (13 Services)</span>
+                  <span>Explore Complete Portfolio ({SERVICES.length} Solutions)</span>
                   <ArrowRight className="w-4 h-4 text-[#087FE5] group-hover:text-[#08B9E8] transform group-hover:translate-x-1 transition-all" />
                 </Link>
               </motion.div>

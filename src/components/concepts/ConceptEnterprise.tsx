@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion, useInView } from 'framer-motion';
 import {
   MapPin,
@@ -120,16 +121,17 @@ const MetricCounter: React.FC<{ target: number; suffix?: string; duration?: numb
 };
 
 export const ConceptEnterprise: React.FC = () => {
+  const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
     {
       badge: 'INTELLIGENT ENTERPRISE SOLUTIONS',
-      line1: 'Empowering Businesses Through',
-      highlight: 'Strategic SAP Consulting & Innovation',
-      line2: 'Engineered for Performance',
-      description: 'ZisanTech Solutions delivers business-focused SAP implementations, cloud migration roadmaps, and continuous technical advisory tailored to dynamic enterprise workflows.',
-      bgImage: '/hero_sap_consulting_1.jpg',
+      line1: 'Empowering Global Enterprise',
+      highlight: 'Through Precision SAP Innovation',
+      line2: '',
+      description: 'Business-focused SAP S/4HANA implementations, cloud migration roadmaps, and continuous technical advisory tailored to dynamic enterprise workflows.',
+      bgImage: '/hero_sap_enterprise_luxury.jpg',
       btnText: 'EXPLORE SERVICES',
       btnLink: '#services',
       secondaryBtnText: 'REQUEST CONSULTATION',
@@ -137,23 +139,23 @@ export const ConceptEnterprise: React.FC = () => {
     },
     {
       badge: 'CONNECTED CLOUD ARCHITECTURE',
-      line1: 'Unified Enterprise Workflows &',
-      highlight: 'Reliable Cross-System Integration',
-      line2: 'Across Business Platforms',
-      description: 'Synchronize disparate operations, streamline supplier collaboration, and connect third-party platforms with clean-core SAP integration and tailored IT engineering.',
-      bgImage: '/hero_sap_consulting_2.jpg',
+      line1: 'Architecting Clean Core',
+      highlight: 'With Seamless S/4HANA Cloud',
+      line2: '',
+      description: 'Synchronize disparate operations, streamline supplier collaboration, and connect third-party platforms with clean-core SAP integration and tailored engineering.',
+      bgImage: '/hero_sap_boardroom_luxury.jpg',
       btnText: 'VIEW SOLUTIONS',
       btnLink: '#services',
       secondaryBtnText: 'EXPLORE MODULES',
       secondaryBtnLink: '#training'
     },
     {
-      badge: 'DATA INTELLIGENCE & PROFESSIONAL MENTORSHIP',
-      line1: 'Driving Operational Transparency',
-      highlight: 'With Practical SAP Enablement',
-      line2: 'For Future-Ready Teams',
-      description: 'Equipping organizations and professionals with live system access, actionable decision-making visibility, and industry-oriented SAP competency programs.',
-      bgImage: '/hero_sap_consulting_3.jpg',
+      badge: 'ENTERPRISE DATA & TALENT ENABLEMENT',
+      line1: 'Driving Operational Agility',
+      highlight: 'With Actionable SAP Intelligence',
+      line2: '',
+      description: 'Equipping global organizations and technology teams with real-time decision visibility, clean data pipelines, and industry-proven SAP expertise.',
+      bgImage: '/sap_hero_slide1_enterprise.jpg',
       btnText: 'OUR EXPERTISE',
       btnLink: '#about',
       secondaryBtnText: 'TALK TO AN ARCHITECT',
@@ -223,10 +225,10 @@ export const ConceptEnterprise: React.FC = () => {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                      className="inline-flex items-center gap-2.5 px-3.5 sm:px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 shadow-md"
+                      className="inline-flex items-center gap-2.5 px-3.5 sm:px-4 py-1.5 rounded-full bg-[#031333]/85 backdrop-blur-md border border-[#08B9E8]/35 shadow-md shadow-[#08B9E8]/10"
                     >
                       <span className="w-5 h-0.5 bg-[#08B9E8] rounded-full shadow-[0_0_8px_#08B9E8]"></span>
-                      <span className="text-[11px] sm:text-xs font-bold tracking-widest text-slate-100 uppercase font-mono">
+                      <span className="text-[10px] sm:text-xs font-bold tracking-widest text-slate-100 uppercase font-mono">
                         {slide.badge}
                       </span>
                     </motion.div>
@@ -237,14 +239,19 @@ export const ConceptEnterprise: React.FC = () => {
                       initial={{ opacity: 0, y: 35, filter: 'blur(6px)' }}
                       animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                       transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-                      className="text-2xl sm:text-4xl md:text-5xl lg:text-[56px] font-extrabold text-white leading-[1.14] tracking-tight font-heading"
+                      className="text-2xl sm:text-4xl md:text-5xl lg:text-[50px] font-normal sm:font-medium font-outfit text-white leading-[1.2] tracking-[-0.02em] drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)]"
                     >
                       {slide.line1} <br />
-                      <span className="text-[#08B9E8] drop-shadow-[0_2px_14px_rgba(8,185,232,0.45)]">
+                      <span className="font-semibold bg-gradient-to-r from-[#38bdf8] via-[#08B9E8] to-[#60a5fa] bg-clip-text text-transparent drop-shadow-[0_2px_18px_rgba(8,185,232,0.35)]">
                         {slide.highlight}
-                      </span>{' '}
-                      <br />
-                      {slide.line2}
+                      </span>
+                      {slide.line2 && (
+                        <>
+                          {' '}
+                          <br />
+                          {slide.line2}
+                        </>
+                      )}
                     </motion.h1>
 
                     {/* Description */}
@@ -253,7 +260,7 @@ export const ConceptEnterprise: React.FC = () => {
                       initial={{ opacity: 0, y: 25 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                      className="text-xs sm:text-sm md:text-base text-slate-200 leading-relaxed max-w-xl font-normal"
+                      className="text-xs sm:text-sm md:text-base text-slate-200/90 leading-relaxed max-w-xl font-normal drop-shadow-sm font-sans"
                     >
                       {slide.description}
                     </motion.p>
@@ -268,7 +275,7 @@ export const ConceptEnterprise: React.FC = () => {
                     >
                       <a
                         href={slide.btnLink}
-                        className="w-full sm:w-auto text-center px-8 py-3.5 sm:py-4 bg-gradient-to-r from-[#063B83] via-[#087FE5] to-[#08B9E8] hover:from-[#087FE5] hover:to-[#063B83] text-white text-xs sm:text-sm font-extrabold tracking-wider uppercase rounded-lg shadow-xl shadow-[#087FE5]/30 transition-all flex items-center justify-center gap-2 group hover:-translate-y-0.5 active:scale-95 cursor-pointer"
+                        className="w-full sm:w-auto text-center px-8 py-3.5 sm:py-4 bg-gradient-to-r from-[#063B83] via-[#087FE5] to-[#08B9E8] hover:from-[#087FE5] hover:to-[#063B83] text-white text-xs sm:text-sm font-semibold tracking-wider uppercase rounded-lg shadow-xl shadow-[#087FE5]/25 transition-all flex items-center justify-center gap-2 group hover:-translate-y-0.5 active:scale-95 cursor-pointer"
                       >
                         <span>{slide.btnText}</span>
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
@@ -276,7 +283,7 @@ export const ConceptEnterprise: React.FC = () => {
 
                       <a
                         href={slide.secondaryBtnLink}
-                        className="w-full sm:w-auto text-center px-6 sm:px-7 py-3.5 sm:py-4 bg-white/15 hover:bg-white/25 text-white font-bold text-xs sm:text-sm tracking-wider uppercase rounded-lg backdrop-blur-md border border-white/25 transition-all hover:-translate-y-0.5 active:scale-95 cursor-pointer"
+                        className="w-full sm:w-auto text-center px-6 sm:px-7 py-3.5 sm:py-4 bg-white/15 hover:bg-white/25 text-white font-medium text-xs sm:text-sm tracking-wider uppercase rounded-lg backdrop-blur-md border border-white/25 transition-all hover:-translate-y-0.5 active:scale-95 cursor-pointer"
                       >
                         {slide.secondaryBtnText}
                       </a>
@@ -362,7 +369,7 @@ export const ConceptEnterprise: React.FC = () => {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-lg sm:text-[19px] font-bold text-[#0c1e3d] group-hover:text-white transition-colors duration-200 mb-2.5 tracking-tight leading-snug">
+                  <h3 className="text-base sm:text-[18px] font-semibold text-[#0c1e3d] group-hover:text-white transition-colors duration-200 mb-2.5 tracking-tight leading-snug">
                     {benefit.title}
                   </h3>
 
@@ -439,22 +446,25 @@ export const ConceptEnterprise: React.FC = () => {
 
             {/* Floating Counter Badge: 360+ Satisfied Clients */}
             <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
+              initial={{ scale: 0.85, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              whileHover={{ scale: 1.05, y: -4 }}
-              className="relative sm:absolute sm:-bottom-4 sm:left-4 z-20 bg-white/95 backdrop-blur-md rounded-2xl p-4 sm:p-5 shadow-2xl border border-slate-100 flex items-center gap-3.5 mt-4 sm:mt-0 max-w-xs transition-all duration-300 hover:shadow-[#087FE5]/20 cursor-default"
+              transition={{ duration: 0.45, delay: 0.2 }}
+              whileHover={{ scale: 1.03, y: -2 }}
+              className="relative sm:absolute sm:-bottom-5 sm:left-6 z-20 bg-white/95 backdrop-blur-md rounded-2xl p-3 sm:p-4 shadow-xl border border-blue-100/80 flex items-center gap-3 mt-3 sm:mt-0 max-w-[230px] sm:max-w-xs transition-all duration-300 hover:shadow-2xl hover:shadow-[#087FE5]/15 cursor-default"
             >
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#063B83] to-[#087FE5] text-white flex items-center justify-center font-bold shadow-md shadow-[#087FE5]/20 flex-shrink-0">
-                <Users className="w-6 h-6" />
+              <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#063B83] to-[#087FE5] text-white flex items-center justify-center font-medium shadow-md shadow-[#087FE5]/25 flex-shrink-0">
+                <Users className="w-5 h-5" />
               </div>
               <div>
-                <p className="text-2xl sm:text-3xl font-black text-[#087FE5] leading-none font-heading">
-                  360+
-                </p>
-                <p className="text-xs font-bold text-[#071B49] mt-1">
-                  Satisfied Clients
+                <div className="flex items-baseline gap-1">
+                  <span className="text-xl sm:text-2xl font-bold text-[#063B83] font-outfit">
+                    360+
+                  </span>
+                  <span className="text-[11px] font-semibold text-[#087FE5]">Global</span>
+                </div>
+                <p className="text-[11px] sm:text-xs font-medium text-slate-600 mt-0.5">
+                  Satisfied Enterprise Clients
                 </p>
               </div>
             </motion.div>
@@ -474,8 +484,8 @@ export const ConceptEnterprise: React.FC = () => {
                 </span>
                 <span className="w-8 h-0.5 bg-[#0066CC] rounded-full"></span>
               </div>
-              <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-[#071B49] mt-3 leading-[1.18] font-heading">
-                <span className="text-[#0066CC]">ZisanTech Solutions:</span> Intelligent Business Systems Engineered for Long-Term Value
+              <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-semibold text-[#071B49] mt-3 leading-[1.22] font-outfit">
+                <span className="text-[#0066CC] font-semibold">ZisanTech Solutions:</span> Intelligent Business Systems Engineered for Long-Term Value
               </h2>
             </motion.div>
 
@@ -581,7 +591,7 @@ export const ConceptEnterprise: React.FC = () => {
                 WHY WORK WITH ZISANTECH
               </span>
 
-              <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-white leading-tight font-heading">
+              <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-semibold text-white leading-tight font-outfit">
                 Specialized Enterprise SAP Advisory &amp; Digital Cloud Engineering
               </h2>
 
@@ -841,27 +851,25 @@ export const ConceptEnterprise: React.FC = () => {
               PART 1: ORIGINAL ENTERPRISE SAP & IT SERVICES (6 Screenshot Cards Exact Match)
           ========================================================================= */}
           <div>
-            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
-              <div className="space-y-3 max-w-3xl">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E0F2FE] border border-[#BAE6FD] text-[#0369A1] text-xs font-bold tracking-wide">
-                  <span className="w-2 h-2 rounded-full bg-[#0284C7]"></span>
-                  <span>ENTERPRISE SAP CAPABILITIES</span>
-                </div>
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-[#071B49] font-heading leading-tight tracking-tight">
-                  Modern Enterprise SAP Solutions &amp; Technical Services
-                </h2>
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  Strategic roadmap formulation, clean-core application modernization, custom extension engineering, and SLA-governed support delivered by seasoned enterprise consultants.
-                </p>
+            <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E0F2FE] border border-[#BAE6FD] text-[#0369A1] text-xs font-bold tracking-wide">
+                <span className="w-2 h-2 rounded-full bg-[#0284C7]"></span>
+                <span>ENTERPRISE SAP CAPABILITIES</span>
               </div>
-              <div className="flex-shrink-0">
-                <a
-                  href="#contact"
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#071B49] font-outfit leading-tight tracking-tight">
+                Modern Enterprise SAP Solutions &amp; Technical Services
+              </h2>
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+                Strategic roadmap formulation, clean-core application modernization, custom extension engineering, and SLA-governed support delivered by seasoned enterprise consultants.
+              </p>
+              <div className="pt-2">
+                <Link
+                  to="/services"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-[#087FE5] hover:bg-[#063B83] text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-all shadow-md hover:shadow-lg active:scale-95 cursor-pointer"
                 >
                   <span>VIEW ALL PRACTICES</span>
                   <ArrowRight className="w-4 h-4" />
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -879,14 +887,14 @@ export const ConceptEnterprise: React.FC = () => {
                   id: 'sap-ams',
                   title: 'SAP AMS (Application Management Services)',
                   desc: 'Dependable L1-L3 SLA-governed support, 24/7 proactive monitoring, incident management, and continuous ERP performance tuning.',
-                  image: '/zisantech_collaborative_consulting.jpg',
+                  image: '/sap_service_card_support_fullhd.jpg',
                   badge: 'SAP SERVICES'
                 },
                 {
                   id: 'rise-with-sap',
                   title: 'Rise with SAP',
                   desc: 'Comprehensive business transformation as a service guiding your journey to SAP S/4HANA Cloud with minimal risk and guaranteed ROI.',
-                  image: '/hero_sap_slide1.jpg',
+                  image: '/zisantech_collaborative_consulting.jpg',
                   badge: 'SAP SERVICES'
                 },
                 {
@@ -900,21 +908,21 @@ export const ConceptEnterprise: React.FC = () => {
                   id: 'sap-integration-btp',
                   title: 'SAP Integration & BTP',
                   desc: 'Seamlessly bridge SAP with third-party software, cloud platforms, e-commerce stores, logistics APIs, and SAP BTP extensions.',
-                  image: '/hero_sap_slide2.jpg',
+                  image: '/sap_service_card_integration_fullhd.jpg',
                   badge: 'SAP SERVICES'
                 },
                 {
                   id: 'sap-analytics',
                   title: 'SAP Analytics',
                   desc: 'Real-time corporate dashboards, predictive financial modeling, and unified data intelligence with SAP Analytics Cloud (SAC) and Datasphere.',
-                  image: '/hero_sap_slide3.jpg',
+                  image: '/photo-1542744173-8e7e53415bb0.jpg',
                   badge: 'SAP SERVICES'
                 },
                 {
                   id: 'sap-ai-automation',
                   title: 'SAP AI & Automation',
                   desc: 'Infuse artificial intelligence, machine learning, and automated statutory compliance into core enterprise ERP workflows.',
-                  image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80',
+                  image: '/modern_dev_team_hd.jpg',
                   badge: 'SAP SERVICES'
                 }
               ].map((svc, idx) => (
@@ -925,6 +933,7 @@ export const ConceptEnterprise: React.FC = () => {
                   viewport={{ once: true, margin: '-40px' }}
                   transition={{ duration: 0.5, delay: idx * 0.08 }}
                   whileHover={{ y: -8 }}
+                  onClick={() => navigate(`/services/${svc.id}`)}
                   className="group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:shadow-[#087FE5]/20 transition-all duration-500 border border-slate-200/90 hover:border-[#087FE5] flex flex-col justify-between cursor-pointer"
                 >
                   <div>
@@ -950,7 +959,13 @@ export const ConceptEnterprise: React.FC = () => {
 
                     <div className="p-7 space-y-3">
                       <h3 className="text-xl font-bold text-[#071B49] group-hover:text-[#087FE5] transition-colors font-heading leading-snug">
-                        {svc.title}
+                        <Link
+                          to={`/services/${svc.id}`}
+                          onClick={(e) => e.stopPropagation()}
+                          className="hover:text-[#087FE5] transition-colors"
+                        >
+                          {svc.title}
+                        </Link>
                       </h3>
                       <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                         {svc.desc}
@@ -960,19 +975,21 @@ export const ConceptEnterprise: React.FC = () => {
 
                   <div className="px-7 pb-6 pt-0">
                     <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
-                      <a
-                        href="#contact"
+                      <Link
+                        to={`/services/${svc.id}`}
+                        onClick={(e) => e.stopPropagation()}
                         className="font-bold text-[#087FE5] group-hover:text-[#063B83] flex items-center gap-1.5 transition-colors cursor-pointer"
                       >
                         <span>Explore Scope</span>
                         <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform duration-300" />
-                      </a>
-                      <a
-                        href="#contact"
+                      </Link>
+                      <Link
+                        to={`/services/${svc.id}`}
+                        onClick={(e) => e.stopPropagation()}
                         className="text-slate-400 group-hover:text-[#071B49] font-semibold transition-colors cursor-pointer"
                       >
                         <span>Enquire Now →</span>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </motion.div>
@@ -983,6 +1000,139 @@ export const ConceptEnterprise: React.FC = () => {
         </div>
       </section>
 
+
+      {/* =========================================================================
+          8. TRAINING & ENABLEMENT SECTION: (Images 1 & 2 - 8 Modules Grid)
+      ========================================================================= */}
+      <section id="training" className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-3xl mx-auto mb-12 space-y-3"
+        >
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#E0F2FE] border border-[#BAE6FD] text-[#0369A1] text-xs font-bold tracking-wide">
+            <span>CAREER INCUBATION &amp; ENABLEMENT</span>
+          </div>
+          <h2 className="text-2xl sm:text-3xl font-semibold text-[#071B49] font-outfit leading-tight tracking-tight">
+            Build Practical Industry Competence with Hands-on SAP Training
+          </h2>
+          <p className="text-sm text-slate-600 leading-relaxed max-w-2xl mx-auto">
+            Practical learning programs featuring live system simulation, realistic business scenarios, and dedicated mentorship by experienced SAP practitioners.
+          </p>
+        </motion.div>
+
+        {/* 8 Module Cards in 2 Rows of 4 (Images 1 & 2 Exact Match) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+          {[
+            {
+              id: 'sap-sd',
+              badge: 'SAP-SD',
+              title: 'SAP SD (Sales & Distribution)',
+              desc: 'Hands-on configuration of Order-to-Cash (O2C) lifecycles, enterprise billing conditions, sales order fulfillment, shipping point determination, and credit management.',
+              duration: '8 - 10 Weeks'
+            },
+            {
+              id: 'sap-mm',
+              badge: 'SAP-MM',
+              title: 'SAP MM (Materials Management)',
+              desc: 'Comprehensive inventory procurement lifecycles, material requirement planning, purchase order automation, valuation class mapping, and invoice verification.',
+              duration: '8 - 10 Weeks'
+            },
+            {
+              id: 'sap-pp',
+              badge: 'SAP-PP',
+              title: 'SAP PP (Production Planning)',
+              desc: 'Live shop-floor manufacturing simulations, work center capacity planning, bill of materials (BOM) hierarchy, routing sequences, and production order execution.',
+              duration: '8 - 10 Weeks'
+            },
+            {
+              id: 'sap-qm',
+              badge: 'SAP-QM',
+              title: 'SAP QM (Quality Management)',
+              desc: 'Structured quality inspection planning, sampling schemes, calibration protocols, certificate of analysis generation, and enterprise non-conformance tracking.',
+              duration: '6 - 8 Weeks'
+            },
+            {
+              id: 'sap-fico',
+              badge: 'SAP-FICO',
+              title: 'SAP FICO (Financial & Cost Management)',
+              desc: 'Financial ledger harmonization, accounts payable/receivable automation, asset capitalization, internal cost allocation, and statutory financial reporting.',
+              duration: '10 - 12 Weeks'
+            },
+            {
+              id: 'sap-hcm',
+              badge: 'SAP-HCM',
+              title: 'SAP HCM (Human Capital Management)',
+              desc: 'Workforce organizational hierarchy modeling, personnel administration, enterprise time evaluation schemas, compensation structures, and payroll run lifecycles.',
+              duration: '8 - 10 Weeks'
+            },
+            {
+              id: 'sap-ccm',
+              badge: 'SAP-CCM',
+              title: 'SAP CCM (Create Contact Management)',
+              desc: 'Configuring enterprise contact management lifecycles, contract settlement agreements, incentive structures, and operational workflow reconciliation.',
+              duration: '6 - 8 Weeks'
+            },
+            {
+              id: 'sap-tm',
+              badge: 'SAP-TM',
+              title: 'SAP TM (Transportation Management)',
+              desc: 'Multimodal freight order planning, dynamic carrier tendering, route optimization, real-time container tracking, and freight charge settlement workflows.',
+              duration: '8 - 10 Weeks'
+            }
+          ].map((mod, idx) => (
+            <motion.div
+              key={mod.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-30px' }}
+              transition={{ duration: 0.45, delay: idx * 0.05 }}
+              whileHover={{ y: -6, scale: 1.015 }}
+              className="group relative bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl hover:shadow-[#087FE5]/15 border border-slate-200/90 hover:border-[#087FE5] transition-all duration-300 flex flex-col justify-between overflow-hidden cursor-pointer"
+            >
+              {/* Soft Watermark Corner Curve (Matching zisantech.vercel.app & Screenshot 1) */}
+              <div
+                className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-[#087FE5]/10 to-transparent rounded-bl-full pointer-events-none group-hover:from-[#087FE5]/25 transition-all duration-500"
+              />
+
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-[11px] font-mono font-bold text-[#063B83] bg-blue-50/90 border border-blue-200/60 px-2.5 py-1 rounded-md shadow-xs group-hover:bg-[#063B83] group-hover:text-white transition-colors">
+                    {mod.badge}
+                  </span>
+                  <span className="text-[10px] font-bold text-slate-400 font-mono">
+                    Live Sandbox
+                  </span>
+                </div>
+
+                <h3 className="text-base font-semibold text-[#071B49] group-hover:text-[#087FE5] transition-colors font-heading mb-2">
+                  {mod.title}
+                </h3>
+
+                <p className="text-xs text-slate-600 line-clamp-3 mb-4 leading-relaxed font-normal">
+                  {mod.desc}
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-slate-100 flex items-center justify-between relative z-10">
+                <a
+                  href="#contact"
+                  className="text-xs font-bold text-[#087FE5] group-hover:text-[#063B83] flex items-center gap-1 group-hover:gap-1.5 transition-all cursor-pointer"
+                >
+                  <span>Request Syllabus</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </a>
+
+                <span className="text-[11px] font-semibold text-slate-500 font-mono bg-slate-50 px-2 py-0.5 rounded border border-slate-100">
+                  {mod.duration}
+                </span>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
 
       {/* =========================================================================
           5. INDUSTRIES WE SERVE SECTION: Placed directly after Counter Strip (Screenshot 1, 2, 3)
@@ -998,7 +1148,7 @@ export const ConceptEnterprise: React.FC = () => {
           <span className="text-xs font-bold uppercase tracking-widest text-[#087FE5]">
             INDUSTRIES WE SERVE
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#071B49] font-heading leading-tight tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-semibold text-[#071B49] font-outfit leading-tight tracking-tight">
             Tailored Industry Solutions Powered by Enterprise SAP Architectures
           </h2>
           <p className="text-sm text-slate-600 leading-relaxed max-w-3xl mx-auto">
@@ -1107,7 +1257,7 @@ export const ConceptEnterprise: React.FC = () => {
                   </span>
                 </div>
 
-                <h3 className={`text-2xl font-bold ${ind.titleColor} font-heading group-hover:text-[#38BDF8] transition-colors leading-tight`}>
+                <h3 className={`text-2xl font-semibold ${ind.titleColor} font-heading group-hover:text-[#38BDF8] transition-colors leading-tight`}>
                   {ind.title}
                 </h3>
 
@@ -1124,139 +1274,6 @@ export const ConceptEnterprise: React.FC = () => {
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-2 transition-transform duration-300" />
                   </a>
                 </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* =========================================================================
-          8. TRAINING & ENABLEMENT SECTION: (Images 1 & 2 - 8 Modules Grid)
-      ========================================================================= */}
-      <section id="training" className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center max-w-3xl mx-auto mb-12 space-y-3"
-        >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#E0F2FE] border border-[#BAE6FD] text-[#0369A1] text-xs font-bold tracking-wide">
-            <span>CAREER INCUBATION &amp; ENABLEMENT</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#071B49] font-heading leading-tight tracking-tight">
-            Build Practical Industry Competence with Hands-on SAP Training
-          </h2>
-          <p className="text-sm text-slate-600 leading-relaxed max-w-2xl mx-auto">
-            Practical learning programs featuring live system simulation, realistic business scenarios, and dedicated mentorship by experienced SAP practitioners.
-          </p>
-        </motion.div>
-
-        {/* 8 Module Cards in 2 Rows of 4 (Images 1 & 2 Exact Match) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
-          {[
-            {
-              id: 'sap-sd',
-              badge: 'SAP-SD',
-              title: 'SAP SD (Sales & Distribution)',
-              desc: 'Hands-on configuration of Order-to-Cash (O2C) lifecycles, enterprise billing conditions, sales order fulfillment, shipping point determination, and credit management.',
-              duration: '8 - 10 Weeks'
-            },
-            {
-              id: 'sap-mm',
-              badge: 'SAP-MM',
-              title: 'SAP MM (Materials Management)',
-              desc: 'Comprehensive inventory procurement lifecycles, material requirement planning, purchase order automation, valuation class mapping, and invoice verification.',
-              duration: '8 - 10 Weeks'
-            },
-            {
-              id: 'sap-pp',
-              badge: 'SAP-PP',
-              title: 'SAP PP (Production Planning)',
-              desc: 'Live shop-floor manufacturing simulations, work center capacity planning, bill of materials (BOM) hierarchy, routing sequences, and production order execution.',
-              duration: '8 - 10 Weeks'
-            },
-            {
-              id: 'sap-qm',
-              badge: 'SAP-QM',
-              title: 'SAP QM (Quality Management)',
-              desc: 'Structured quality inspection planning, sampling schemes, calibration protocols, certificate of analysis generation, and enterprise non-conformance tracking.',
-              duration: '6 - 8 Weeks'
-            },
-            {
-              id: 'sap-fico',
-              badge: 'SAP-FICO',
-              title: 'SAP FICO (Financial & Cost Management)',
-              desc: 'Financial ledger harmonization, accounts payable/receivable automation, asset capitalization, internal cost allocation, and statutory financial reporting.',
-              duration: '10 - 12 Weeks'
-            },
-            {
-              id: 'sap-hcm',
-              badge: 'SAP-HCM',
-              title: 'SAP HCM (Human Capital Management)',
-              desc: 'Workforce organizational hierarchy modeling, personnel administration, enterprise time evaluation schemas, compensation structures, and payroll run lifecycles.',
-              duration: '8 - 10 Weeks'
-            },
-            {
-              id: 'sap-ccm',
-              badge: 'SAP-CCM',
-              title: 'SAP CCM (Compensation & Claims Management)',
-              desc: 'Configuring supplier rebate agreements, incentive settlement profiles, commission structures, retroactive billing adjustments, and claims reconciliation.',
-              duration: '6 - 8 Weeks'
-            },
-            {
-              id: 'sap-tm',
-              badge: 'SAP-TM',
-              title: 'SAP TM (Transportation Management)',
-              desc: 'Multimodal freight order planning, dynamic carrier tendering, route optimization, real-time container tracking, and freight charge settlement workflows.',
-              duration: '8 - 10 Weeks'
-            }
-          ].map((mod, idx) => (
-            <motion.div
-              key={mod.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-30px' }}
-              transition={{ duration: 0.45, delay: idx * 0.05 }}
-              whileHover={{ y: -6, scale: 1.015 }}
-              className="group relative bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl hover:shadow-[#087FE5]/15 border border-slate-200/90 hover:border-[#087FE5] transition-all duration-300 flex flex-col justify-between overflow-hidden cursor-pointer"
-            >
-              {/* Soft Watermark Corner Curve (Matching zisantech.vercel.app & Screenshot 1) */}
-              <div
-                className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-[#087FE5]/10 to-transparent rounded-bl-full pointer-events-none group-hover:from-[#087FE5]/25 transition-all duration-500"
-              />
-
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-[11px] font-mono font-bold text-[#063B83] bg-blue-50/90 border border-blue-200/60 px-2.5 py-1 rounded-md shadow-xs group-hover:bg-[#063B83] group-hover:text-white transition-colors">
-                    {mod.badge}
-                  </span>
-                  <span className="text-[10px] font-bold text-slate-400 font-mono">
-                    Live Sandbox
-                  </span>
-                </div>
-
-                <h3 className="text-base font-bold text-[#071B49] group-hover:text-[#087FE5] transition-colors font-heading mb-2">
-                  {mod.title}
-                </h3>
-
-                <p className="text-xs text-slate-600 line-clamp-3 mb-4 leading-relaxed font-normal">
-                  {mod.desc}
-                </p>
-              </div>
-
-              <div className="pt-4 border-t border-slate-100 flex items-center justify-between relative z-10">
-                <a
-                  href="#contact"
-                  className="text-xs font-bold text-[#087FE5] group-hover:text-[#063B83] flex items-center gap-1 group-hover:gap-1.5 transition-all cursor-pointer"
-                >
-                  <span>Request Syllabus</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </a>
-
-                <span className="text-[11px] font-semibold text-slate-500 font-mono bg-slate-50 px-2 py-0.5 rounded border border-slate-100">
-                  {mod.duration}
-                </span>
               </div>
             </motion.div>
           ))}
@@ -1290,7 +1307,7 @@ export const ConceptEnterprise: React.FC = () => {
             <span className="text-xs font-bold uppercase tracking-widest text-[#087FE5]">
               INSIGHTS &amp; PERSPECTIVES
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#071B49] font-heading leading-tight tracking-tight mt-1">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-[#071B49] font-outfit leading-tight tracking-tight mt-1">
               Blogs
             </h2>
             <div className="w-12 h-1 bg-[#087FE5] mx-auto mt-2 rounded-full"></div>
@@ -1300,33 +1317,33 @@ export const ConceptEnterprise: React.FC = () => {
             {[
               {
                 id: 1,
-                day: '2',
-                month: 'DEC',
+                day: '15',
+                month: 'MAR',
                 title: 'How SAP Consulting Helps Businesses Work Smarter',
                 author: 'by ZisanTech Team',
-                category: 'Enterprise Strategy',
-                image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
-                excerpt: 'How aligning standard SAP architectures with clean-core business logic eliminates workflow bottlenecks and boosts operational transparency...'
+                category: 'SAP Strategy',
+                image: '/blog/1.jpeg',
+                excerpt: 'Modern ERP is no longer just a digital ledger; it is the central operational engine orchestrating lean supply chains, rapid compliance, and real-time leadership insights.'
               },
               {
                 id: 2,
-                day: '7',
-                month: 'JAN',
+                day: '18',
+                month: 'MAR',
                 title: 'Why Reliable IT Services Matter for Growing Businesses',
                 author: 'by ZisanTech Team',
-                category: 'IT Engineering',
-                image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80',
-                excerpt: 'Understanding the critical importance of continuous monitoring, proactive system maintenance, and unified enterprise software integration...'
+                category: 'IT Strategy',
+                image: '/blog/2.jpeg',
+                excerpt: 'Scaling an enterprise requires dependable, high-availability IT infrastructure and managed services that eliminate downtime and safeguard critical company data.'
               },
               {
                 id: 3,
-                day: '12',
-                month: 'FEB',
+                day: '20',
+                month: 'MAR',
                 title: 'Building Your Career Through Practical SAP Training',
                 author: 'by ZisanTech Team',
-                category: 'Professional Skills',
-                image: '/hero_sap_consulting_1.jpg',
-                excerpt: 'Bridging the divide between theoretical textbook concepts and live project configurations across core functional and technical modules...'
+                category: 'SAP Careers',
+                image: '/blog/3.jpeg',
+                excerpt: 'Theoretical slide decks do not prepare you for enterprise consulting. Why hands-on sandbox experience, real-world case studies, and business acumen define successful SAP professionals.'
               }
             ].map((blog, idx) => (
               <motion.div
@@ -1335,6 +1352,7 @@ export const ConceptEnterprise: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
+                onClick={() => navigate(`/blog/${blog.id}`)}
                 className="bg-white rounded-2xl overflow-hidden border border-slate-200/90 shadow-sm hover:shadow-2xl hover:shadow-[#087FE5]/20 hover:border-[#087FE5]/80 transition-all duration-500 hover:-translate-y-2 flex flex-col justify-between group cursor-pointer relative"
               >
                 <div>
@@ -1350,7 +1368,7 @@ export const ConceptEnterprise: React.FC = () => {
                     {/* Gradient overlay for depth */}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#071B49]/70 via-transparent to-transparent opacity-40 group-hover:opacity-20 transition-opacity duration-500" />
 
-                    {/* Blue Square Date Badge (Image 3 exact) */}
+                    {/* Blue Square Date Badge */}
                     <div className="absolute top-3 right-3 bg-[#087FE5] text-white px-3 py-1.5 rounded-lg text-center shadow-lg font-mono flex flex-col items-center min-w-[46px] group-hover:scale-105 group-hover:bg-[#0663c0] transition-all">
                       <span className="text-base font-extrabold leading-none">{blog.day}</span>
                       <span className="text-[10px] font-bold tracking-wider uppercase leading-tight mt-0.5">{blog.month}</span>
@@ -1374,7 +1392,13 @@ export const ConceptEnterprise: React.FC = () => {
                       </span>
                     </div>
                     <h3 className="text-xl font-bold text-[#071B49] group-hover:text-[#087FE5] transition-colors leading-snug font-heading">
-                      <a href="#contact">{blog.title}</a>
+                      <Link
+                        to={`/blog/${blog.id}`}
+                        onClick={(e) => e.stopPropagation()}
+                        className="hover:text-[#087FE5] transition-colors"
+                      >
+                        {blog.title}
+                      </Link>
                     </h3>
                     <p className="text-xs sm:text-sm text-slate-600 line-clamp-2 leading-relaxed">
                       {blog.excerpt}
@@ -1384,17 +1408,29 @@ export const ConceptEnterprise: React.FC = () => {
 
                 <div className="px-6 pb-6 pt-0">
                   <div className="pt-4 border-t border-slate-100">
-                    <a
-                      href="#contact"
+                    <Link
+                      to={`/blog/${blog.id}`}
+                      onClick={(e) => e.stopPropagation()}
                       className="font-bold text-xs text-[#087FE5] group-hover:text-[#063B83] flex items-center gap-1.5 transition-colors cursor-pointer"
                     >
-                      <span>Read Full Insight</span>
+                      <span>Read Article</span>
                       <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform duration-300" />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </motion.div>
             ))}
+          </div>
+
+          {/* View All Articles Action */}
+          <div className="text-center mt-12">
+            <Link
+              to="/blog"
+              className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#063B83] hover:bg-[#087FE5] text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-all shadow-md hover:shadow-lg active:scale-95 cursor-pointer"
+            >
+              <span>VIEW ALL BLOGS &amp; INSIGHTS</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>
@@ -1419,7 +1455,7 @@ export const ConceptEnterprise: React.FC = () => {
               <Sparkles className="w-3 h-3 text-[#087FE5]" />
               <span>TESTIMONIALS &amp; CLIENT SUCCESS</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#071B49] font-heading leading-tight tracking-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#071B49] font-outfit leading-tight tracking-tight">
               Client Feedback &amp; Reviews
             </h2>
             <div className="w-12 h-1 bg-gradient-to-r from-[#063B83] via-[#087FE5] to-[#08B9E8] mx-auto mt-2 rounded-full"></div>
@@ -1661,7 +1697,7 @@ export const ConceptEnterprise: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-white font-heading tracking-tight leading-snug"
+              className="text-2xl sm:text-3xl lg:text-[34px] font-semibold text-white font-outfit tracking-tight leading-snug"
             >
               Accelerate Your Enterprise Transformation with ZisanTech
             </motion.h2>
@@ -1697,66 +1733,6 @@ export const ConceptEnterprise: React.FC = () => {
                 CONNECT DIRECTLY: +91 87978 18499
               </a>
             </motion.div>
-          </div>
-        </div>
-
-        {/* Bottom Part: Darker midnight navy strip separated by precise border matching Screenshot 1 (#212c4a) */}
-        <div
-          className="bg-[#04102a] py-6 border-t border-[#212c4a]"
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-center text-left">
-              {/* Phone */}
-              <div className="flex items-center gap-3.5 group">
-                <div className="w-10 h-10 rounded-xl bg-[#0066CC] text-white flex items-center justify-center flex-shrink-0 shadow-[0_0_20px_rgba(0,102,204,0.6)] group-hover:scale-105 transition-transform">
-                  <Phone className="w-4 h-4" />
-                </div>
-                <div className="space-y-0.5">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block font-mono">
-                    TALK TO AN ENTERPRISE ARCHITECT
-                  </span>
-                  <a
-                    href="tel:+918797818499"
-                    className="text-sm font-bold text-white hover:text-[#08B9E8] transition-colors"
-                  >
-                    +91 87978 18499
-                  </a>
-                </div>
-              </div>
-
-              {/* Email */}
-              <div className="flex items-center gap-3.5 group">
-                <div className="w-10 h-10 rounded-xl bg-[#0066CC] text-white flex items-center justify-center flex-shrink-0 shadow-[0_0_20px_rgba(0,102,204,0.6)] group-hover:scale-105 transition-transform">
-                  <Mail className="w-4 h-4" />
-                </div>
-                <div className="space-y-0.5">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block font-mono">
-                    OFFICIAL CONSULTING ENQUIRY
-                  </span>
-                  <a
-                    href="mailto:info@zisantech.com"
-                    className="text-sm font-bold text-white hover:text-[#08B9E8] transition-colors"
-                  >
-                    info@zisantech.com
-                  </a>
-                </div>
-              </div>
-
-              {/* Address */}
-              <div className="flex items-center gap-3.5 group">
-                <div className="w-10 h-10 rounded-xl bg-[#0066CC] text-white flex items-center justify-center flex-shrink-0 shadow-[0_0_20px_rgba(0,102,204,0.6)] group-hover:scale-105 transition-transform">
-                  <MapPin className="w-4 h-4" />
-                </div>
-                <div className="space-y-0.5">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block font-mono">
-                    HEADQUARTERS &amp; DELIVERY HUB
-                  </span>
-                  <span className="text-xs font-semibold text-white block">
-                    Commercial Business District, New Delhi, India
-                  </span>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>

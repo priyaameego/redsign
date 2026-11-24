@@ -18,6 +18,7 @@ export interface DetailedService {
   heroTagline: string;
   heroImage: string;
   secondaryImage: string;
+  montageImage?: string;
   sliderSlides: ServiceSlide[];
   overviewSubheading: string;
   overviewHeading: string;
@@ -62,7 +63,8 @@ export const DETAILED_SERVICES_MAP: Record<string, DetailedService> = {
     heroHighlight: 'Through Disciplined SAP Rollout',
     heroTagline: 'Scale verified corporate templates to international subsidiaries, newly acquired operating entities, and multi-plant hubs with zero operational disruption.',
     heroImage: '/sap_service_card_rollout_fullhd.jpg',
-    secondaryImage: '/sap_service_rollout_hd.jpg',
+    secondaryImage: '/hero_sap_consulting_1.jpg',
+    montageImage: '/zisantech_collaborative_consulting.jpg',
     sliderSlides: [
       {
         title: 'Global Core Template Harmonization',
@@ -93,7 +95,7 @@ export const DETAILED_SERVICES_MAP: Record<string, DetailedService> = {
       {
         title: 'Rehearsed Cutover & Hyper-Care',
         subtitle: 'Dry-Run Execution Protocols for Zero Unplanned Production Downtime',
-        image: '/zisantech_meeting_presentation.png',
+        image: '/exact_sap_consulting_hd.jpg',
         badge: 'Cutover Execution',
         metric: '< 48 Hrs',
         metricLabel: 'Weekend Cutover Window',
@@ -105,8 +107,8 @@ export const DETAILED_SERVICES_MAP: Record<string, DetailedService> = {
       }
     ],
     overviewSubheading: 'Standardization • Localization • Cutover Governance',
-    overviewHeading: 'Strategic Multi-Entity ERP Expansion Engineered for Flawless Execution',
-    overviewLead: 'Scaling an established SAP core across diverse subsidiaries requires a delicate balance between strict global process harmonization and local jurisdictional compliance.',
+    overviewHeading: 'Strategic Multi-Entity SAP ERP Rollout',
+    overviewLead: 'Balancing global ERP process harmonization with regional statutory compliance across expanding enterprise entities.',
     overviewBody: [
       'ZisanTech Solutions engineers enterprise SAP Rollout frameworks designed to clone corporate template blueprints across newly acquired plants, sales depots, and regional business units. We ensure your master data governance, corporate financial charts, and supply chain controls remain unified.',
       'Our dedicated rollout teams navigate complex local statutory mandates—including regional tax structures, e-invoicing protocols, GST/e-way bills, and multi-currency reporting—without compromising the integrity of your central ERP core.',
@@ -381,13 +383,13 @@ export const DETAILED_SERVICES_MAP: Record<string, DetailedService> = {
     heroHeadline: 'Business Transformation as a Service',
     heroHighlight: 'Accelerated with RISE with SAP',
     heroTagline: 'Unify cloud ERP software, industry best practices, process intelligence, and hyperscaler infrastructure into one agile transformation journey.',
-    heroImage: '/hero_sap_slide1.jpg',
+    heroImage: '/zisantech_collaborative_consulting.jpg',
     secondaryImage: '/exact_sap_consulting_hd.jpg',
     sliderSlides: [
       {
         title: 'Business Process Intelligence with Signavio',
         subtitle: 'Process Mining to Uncover Hidden Bottlenecks and Modernization Gains',
-        image: '/hero_sap_slide1.jpg',
+        image: '/zisantech_collaborative_consulting.jpg',
         badge: 'Process Intelligence',
         metric: '35%',
         metricLabel: 'Faster Order-to-Cash Velocity',
@@ -861,13 +863,13 @@ export const DETAILED_SERVICES_MAP: Record<string, DetailedService> = {
     heroHeadline: 'Real-Time Enterprise Intelligence',
     heroHighlight: 'Powered by SAP Analytics Cloud & Datasphere',
     heroTagline: 'Transform transactional complexity into predictive boardroom intelligence with interactive dashboards, semantic data layers, and automated forecasting.',
-    heroImage: '/hero_sap_slide3.jpg',
+    heroImage: '/photo-1542744173-8e7e53415bb0.jpg',
     secondaryImage: '/exact_office_card2_hd.jpg',
     sliderSlides: [
       {
         title: 'Executive Cockpits in SAP Analytics Cloud',
         subtitle: 'Real-Time Visual Storytelling from Enterprise KPIs to Transactional Line Items',
-        image: '/hero_sap_slide3.jpg',
+        image: '/photo-1542744173-8e7e53415bb0.jpg',
         badge: 'Boardroom Cockpits',
         metric: '< 1 Sec',
         metricLabel: 'Query Execution on Live Ledgers',
@@ -2130,5 +2132,521 @@ export const DETAILED_SERVICES_MAP: Record<string, DetailedService> = {
       { title: 'Cloud-Native Reliability', desc: 'Auto-scaling cloud architectures that maintain 99.9% uptime during intense traffic spikes.' },
       { title: 'Full Intellectual Property Transfer', desc: 'You retain 100% ownership of all source code, design assets, and cloud deployment repositories.' }
     ]
-  }
+  },
+  // 14. SAP Custom Solutions
+  'sap-custom-solutions': {
+    id: 14,
+    slug: 'sap-custom-solutions',
+    category: 'SAP Services',
+    title: 'SAP Custom Solutions',
+    heroHeadline: 'Bespoke Enterprise Extensions',
+    heroHighlight: 'Engineered for Unique Business Operations',
+    heroTagline: 'Design and deploy clean-core ABAP extensions, modern SAP Fiori applications, and BTP cloud microservices tailored to your exact industry workflows without technical debt.',
+    heroImage: '/sap_service_card_custom_fullhd.jpg',
+    secondaryImage: '/exact_sap_consulting_hd.jpg',
+    montageImage: '/photo-1542744173-8e7e53415bb0.jpg',
+    sliderSlides: [
+      {
+        title: 'Modern SAP Fiori & UI5 Applications',
+        subtitle: 'Consumer-Grade Experiences for High-Volume Enterprise Operations',
+        image: '/sap_service_card_custom_fullhd.jpg',
+        badge: 'User Experience',
+        metric: '75%',
+        metricLabel: 'Faster Task Completion',
+        points: [
+          'Responsive desktop, tablet, and mobile interfaces designed for shop floor and field teams',
+          'Role-based dashboards eliminating cumbersome multi-screen SAP GUI transactions',
+          'Offline synchronization capabilities for warehouse and remote plant environments'
+        ]
+      },
+      {
+        title: 'Side-by-Side BTP Cloud Extensions',
+        subtitle: 'Decoupled Microservices Preserving S/4HANA Clean-Core Upgradeability',
+        image: '/exact_sap_consulting_hd.jpg',
+        badge: 'Clean Core',
+        metric: '100%',
+        metricLabel: 'Upgrade-Proof Architecture',
+        points: [
+          'Custom cloud applications built on SAP Business Technology Platform (BTP)',
+          'Event-driven architecture connecting SAP core via standard REST and OData APIs',
+          'Zero custom code modifications inside the ERP core, guaranteeing smooth release upgrades'
+        ]
+      },
+      {
+        title: 'ABAP RESTful Application Programming (RAP)',
+        subtitle: 'High-Performance Backend Business Logic & CDS View Optimization',
+        image: '/hero_sap_slide3.jpg',
+        badge: 'Enterprise Backend',
+        metric: '4x',
+        metricLabel: 'Query Execution Speed',
+        points: [
+          'State-of-the-art RAP and BOPF framework implementations for robust transaction management',
+          'Core Data Services (CDS) views pushing computational logic directly to HANA in-memory DB',
+          'Automated unit testing suites enforcing strict SAP code inspector governance'
+        ]
+      }
+    ],
+    overviewSubheading: 'Custom Enterprise Development • Clean-Core Architecture • Process Optimization',
+    overviewHeading: 'Tailored SAP Engineering Bridging Standard ERP with Specialized Realities',
+    overviewLead: 'Standard ERP capabilities provide the baseline, but bespoke extensions create the competitive advantage that sets industry leaders apart.',
+    overviewBody: [
+      'Every enterprise possesses proprietary production algorithms, specialized supply chain arrangements, and unique operational logic that off-the-shelf software cannot adequately accommodate.',
+      'ZisanTech Solutions engineers bespoke SAP Custom Solutions adhering strictly to SAP Clean-Core principles. By decoupling extensions through SAP BTP and leveraging ABAP RESTful programming, we deliver maximum operational agility while guaranteeing your core ERP remains 100% upgrade-ready.'
+    ],
+    pillarsHeading: 'Pillars of Clean-Core SAP Engineering',
+    pillars: [
+      {
+        tag: 'Decoupled Core',
+        title: 'Side-by-Side BTP Extensions',
+        desc: 'Execute custom application logic on SAP BTP to preserve a clean core, preventing costly regression and technical debt during upgrades.'
+      },
+      {
+        tag: 'Modern UI',
+        title: 'Fiori User Experience',
+        desc: 'Replace legacy transactional screens with streamlined, role-tailored SAP Fiori apps that boost employee speed and eliminate user error.'
+      },
+      {
+        tag: 'In-Memory Speed',
+        title: 'CDS & In-Memory Pushdown',
+        desc: 'Leverage Core Data Services to push heavy business calculations directly to the SAP HANA database layer for instantaneous response.'
+      },
+      {
+        tag: 'System Connectivity',
+        title: 'API & Event Mesh Integration',
+        desc: 'Connect custom SAP applications with legacy enterprise software and third-party SaaS platforms through secure, standardized APIs.'
+      },
+      {
+        tag: 'Automated Logic',
+        title: 'Custom Workflow Engines',
+        desc: 'Automate multi-tier approval hierarchies, dynamic pricing matrices, and condition validations tailored to your operating rules.'
+      },
+      {
+        tag: 'Code Governance',
+        title: 'Automated Quality Benchmarks',
+        desc: 'Enforce SAP ABAP Test Cockpit (ATC) governance and automated regression testing across all delivered software transports.'
+      }
+    ],
+    capabilitiesHeading: 'Custom Development Capabilities & Implementation Scope',
+    capabilities: [
+      { name: 'Custom SAP Fiori / UI5 Responsive Web Apps', highlight: 'USER EXPERIENCE' },
+      { name: 'Side-by-Side Cloud Extensions on SAP BTP', highlight: 'CLEAN CORE' },
+      { name: 'ABAP RESTful Application Programming (RAP)', highlight: 'MODERN BACKEND' },
+      { name: 'Core Data Services (CDS) Views & Analytics', highlight: 'IN-MEMORY SPEED' },
+      { name: 'Proprietary Industry Calculation Engines', highlight: 'ALGORITHMIC LOGIC' },
+      { name: 'Third-Party Webhook & Event Mesh Connectors', highlight: 'EVENT-DRIVEN' },
+      { name: 'Custom Report Cockpits & Operational Dashboards', highlight: 'REAL-TIME DATA' },
+      { name: 'Automated Regression Testing & ATC Compliance', highlight: 'ZERO DEBT' }
+    ],
+    deliverables: [
+      'Functional & Technical Design Blueprint (FSD/TSD)',
+      'Clean-Core Versioned Code Repository & Transports',
+      'Comprehensive UAT Sign-Off & Test Runbooks',
+      'Administrator Handover & API Contract Specifications'
+    ],
+    methodologyHeading: 'Custom Solution Development Lifecycle',
+    methodologySubheading: 'Agile sprint-driven engineering ensuring rapid prototyping, disciplined testing, and zero business interruption.',
+    methodology: [
+      {
+        num: '01',
+        title: 'Business Requirement Scoping',
+        tags: 'Requirement Matrix • Fit-Gap Audit',
+        desc: 'Detailed discovery sessions with process owners to define exact input parameters, business logic rules, and user journey personas.'
+      },
+      {
+        num: '02',
+        title: 'Clean-Core Architecture Design',
+        tags: 'BTP vs On-Stack • Data Modeling',
+        desc: 'Architecting the optimal extension pattern (in-app vs side-by-side) with strict adherence to SAP S/4HANA clean-core principles.'
+      },
+      {
+        num: '03',
+        title: 'Agile Iterative Development',
+        tags: 'RAP Backend • Fiori UI5 Frontend',
+        desc: 'Sprint-based engineering of backend services, CDS views, and responsive user interfaces with continuous stakeholder demonstrations.'
+      },
+      {
+        num: '04',
+        title: 'Integration & Performance Tuning',
+        tags: 'HANA Optimization • API Security',
+        desc: 'Rigorous query profiling, SQL trace diagnostics, and stress testing under peak transaction loads to ensure sub-second response times.'
+      },
+      {
+        num: '05',
+        title: 'Comprehensive UAT & Quality Audit',
+        tags: 'Test Automation • ATC Code Check',
+        desc: 'Formal user acceptance validation covering boundary conditions, automated security checks, and formal stakeholder sign-offs.'
+      },
+      {
+        num: '06',
+        title: 'Deployment & Hypercare Support',
+        tags: 'Transport Management • SLA Warranty',
+        desc: 'Production cutover execution followed by dedicated hypercare stabilization and operational knowledge transfer to internal IT teams.'
+      }
+    ],
+    whyPartnerTitle: 'Why Choose ZisanTech for SAP Custom Solutions?',
+    whyPartnerSubtitle: 'Decades of combined engineering excellence delivering clean-core custom innovations that evolve with your enterprise.',
+    whyCards: [
+      {
+        title: 'Clean-Core Architecture',
+        desc: 'Upgrade-safe extensions that preserve SAP standard functionality and ensure future S/4HANA release compatibility without rework.'
+      },
+      {
+        title: 'Agile Delivery Speed',
+        desc: 'Rapid sprint-based prototyping delivering functional enterprise applications in weeks rather than months.'
+      },
+      {
+        title: 'Intuitive User Experience',
+        desc: 'Modern consumer-grade SAP Fiori interfaces designed to eliminate user training curves and boost workforce data entry accuracy.'
+      },
+      {
+        title: 'Zero Technical Debt',
+        desc: 'Stringent code reviews, automated unit tests, and comprehensive documentation guaranteeing maintainable institutional software.'
+      }
+    ]
+  },
+
+  // 15. SAP Consulting
+  'sap-consulting': {
+    id: 15,
+    slug: 'sap-consulting',
+    category: 'SAP Services',
+    title: 'SAP Consulting',
+    heroHeadline: 'Strategic Enterprise SAP Advisory',
+    heroHighlight: 'Aligning Technology with Growth Objectives',
+    heroTagline: 'End-to-end strategic guidance from seasoned enterprise architects—covering business case modeling, cloud migration strategy, and process optimization.',
+    heroImage: '/sap_service_card_consulting_fullhd.jpg',
+    secondaryImage: '/exact_sap_consulting_hd.jpg',
+    montageImage: '/photo-1542744173-8e7e53415bb0.jpg',
+    sliderSlides: [
+      {
+        title: 'S/4HANA Business Case & Value Realization',
+        subtitle: 'Objective Financial Modeling & Strategic ROI Justification',
+        image: '/sap_service_card_consulting_fullhd.jpg',
+        badge: 'Executive Advisory',
+        metric: '35%',
+        metricLabel: 'Average TCO Reduction',
+        points: [
+          'Detailed assessment of current ECC landscape and operational pain points',
+          'Quantified business case analysis mapping efficiency gains to bottom-line ROI',
+          'Multi-year capital budgeting and software license optimization guidance'
+        ]
+      },
+      {
+        title: 'Core Process Harmonization & Benchmarking',
+        subtitle: 'Eliminating Operational Silos Across Multi-Entity Subsidiaries',
+        image: '/exact_sap_consulting_hd.jpg',
+        badge: 'Process Excellence',
+        metric: '90%',
+        metricLabel: 'Standard Template Alignment',
+        points: [
+          'Industry benchmark comparisons across procurement, manufacturing, and finance',
+          'Consolidation of divergent entity charts of accounts and regional master data',
+          'Elimination of redundant non-standard custom developments and offline spreadsheets'
+        ]
+      },
+      {
+        title: 'Independent Quality Assurance & Governance',
+        subtitle: 'De-Risking Complex Multi-Vendor ERP Implementation Programs',
+        image: '/hero_sap_slide1.jpg',
+        badge: 'Program Governance',
+        metric: 'Zero',
+        metricLabel: 'Unplanned Project Overruns',
+        points: [
+          'Third-party milestone sign-off validation and deliverable audit review',
+          'Architectural gatekeeper oversight preventing scope creep and core modification',
+          'Executive steering committee reporting with objective project health telemetrics'
+        ]
+      }
+    ],
+    overviewSubheading: 'Executive Advisory • Digital Strategy • S/4HANA Transformation',
+    overviewHeading: 'Transforming Legacy Operations into High-Performance Intelligent Enterprises',
+    overviewLead: 'Technology alone does not drive transformation; disciplined strategy, process alignment, and experienced governance turn ERP investments into enterprise value.',
+    overviewBody: [
+      'Enterprise digital modernization requires clear executive foresight to navigate trade-offs between speed, cost, and long-term architectural agility.',
+      'ZisanTech Solutions partners with leadership teams as a trusted strategic advisor. Our senior principal consultants bring decades of hands-on experience guiding global enterprises through complex ERP transitions, cloud adoption journeys, and process optimization initiatives.'
+    ],
+    pillarsHeading: 'Pillars of Enterprise SAP Strategic Advisory',
+    pillars: [
+      {
+        tag: 'Business Strategy',
+        title: 'Value Realization Roadmap',
+        desc: 'Formulate quantifiable transformation roadmaps directly tied to key operational KPIs, cash flow improvements, and strategic corporate objectives.'
+      },
+      {
+        tag: 'Architecture',
+        title: 'Target Architecture Design',
+        desc: 'Design scalable, future-ready enterprise architectures balancing public cloud agility, private cloud security, and clean-core modularity.'
+      },
+      {
+        tag: 'Operational Efficiency',
+        title: 'Process Re-Engineering',
+        desc: 'Streamline end-to-end business workflows to eliminate redundancies, reduce cycle times, and unlock cross-departmental automation.'
+      },
+      {
+        tag: 'Program Oversight',
+        title: 'Independent Governance',
+        desc: 'Provide objective project audit and quality gate assurance to keep multi-vendor transformation programs on time and on budget.'
+      },
+      {
+        tag: 'Licensing & Cloud',
+        title: 'TCO & License Optimization',
+        desc: 'Optimize SAP software contracts, Digital Access licensing, and hyperscaler cloud infrastructure to significantly lower operating costs.'
+      },
+      {
+        tag: 'Workforce Enablement',
+        title: 'Executive Change Management',
+        desc: 'Align organizational culture, leadership stakeholders, and operational workforce to ensure rapid adoption of new digital tools.'
+      }
+    ],
+    capabilitiesHeading: 'Consulting Advisory Capabilities & Practice Scope',
+    capabilities: [
+      { name: 'Enterprise Digital Maturity & IT Health Audits', highlight: 'DIAGNOSTICS' },
+      { name: 'S/4HANA Business Case & ROI Justification', highlight: 'FINANCIAL MODEL' },
+      { name: 'Target Operating Model (TOM) Architecture', highlight: 'ARCHITECTURE' },
+      { name: 'Cloud Roadmap Advisory (Public vs Private)', highlight: 'CLOUD STRATEGY' },
+      { name: 'Process Harmonization & Template Governance', highlight: 'BEST PRACTICES' },
+      { name: 'Independent Quality Assurance & Gate Audits', highlight: 'DE-RISKING' },
+      { name: 'SAP License & Hyperscaler Infrastructure Sizing', highlight: 'TCO OPTIMIZATION' },
+      { name: 'Executive Steering & Change Enablement', highlight: 'ORGANIZATIONAL FIT' }
+    ],
+    deliverables: [
+      'Digital Transformation Strategic Roadmap & Target Architecture',
+      'Process Benchmarking Scorecard & ROI Justification Model',
+      'Infrastructure Sizing & Hyperscaler Cloud TCO Analysis',
+      'Program Governance Protocols & Quality Sign-Off Rubrics'
+    ],
+    methodologyHeading: 'Strategic Consulting Framework',
+    methodologySubheading: 'Structured advisory lifecycle engineered to build consensus, establish governance, and guarantee strategic ROI.',
+    methodology: [
+      {
+        num: '01',
+        title: 'Landscape Assessment & Baseline Audit',
+        tags: 'Executive Interviews • IT Health Check',
+        desc: 'Comprehensive diagnostic evaluation of existing ERP systems, process inefficiencies, and organizational strategic ambitions.'
+      },
+      {
+        num: '02',
+        title: 'Strategic Fit-Gap & ROI Modeling',
+        tags: 'Cost-Benefit Matrix • Risk Profile',
+        desc: 'Quantifying potential business value, license optimization options, and operational cost reductions across transformation pathways.'
+      },
+      {
+        num: '03',
+        title: 'Target Architecture & Roadmap Design',
+        tags: 'Clean Core • Cloud Strategy',
+        desc: 'Defining future-state system architecture, hyperscaler hosting model, and phased deployment milestones with zero business disruption.'
+      },
+      {
+        num: '04',
+        title: 'Implementation Governance Setup',
+        tags: 'PMO Charter • Quality Gates',
+        desc: 'Establishing formal steering committees, change management charters, and quality assurance gates to guide project execution.'
+      },
+      {
+        num: '05',
+        title: 'Execution Oversight & Quality Audits',
+        tags: 'Milestone Review • Risk Mitigation',
+        desc: 'Continuous independent review of implementation deliverables, cutover readiness checklists, and vendor performance metrics.'
+      },
+      {
+        num: '06',
+        title: 'Value Realization & Continuous Review',
+        tags: 'Post-Launch Audit • KPI Tracking',
+        desc: 'Measuring post-go-live operational metrics against the original business case to verify bottom-line financial and operational gains.'
+      }
+    ],
+    whyPartnerTitle: 'Why Choose ZisanTech for SAP Consulting?',
+    whyPartnerSubtitle: 'Senior principal consultants with proven enterprise track records delivering actionable strategies, not generic slide decks.',
+    whyCards: [
+      {
+        title: 'Senior Practitioner-Led',
+        desc: 'Engage directly with principal consultants possessing 15+ years of hands-on enterprise implementation and architecture experience.'
+      },
+      {
+        title: 'Vendor-Neutral Objectivity',
+        desc: 'Unbiased recommendations focused exclusively on what delivers the lowest TCO and highest return for your specific business.'
+      },
+      {
+        title: 'Holistic Transformation',
+        desc: 'Harmonizing people, processes, and technology to guarantee institutional adoption and sustainable long-term performance.'
+      },
+      {
+        title: 'Proven Business Outcomes',
+        desc: 'Documented track record helping enterprises reduce operational overheads, accelerate closing cycles, and de-risk major cutovers.'
+      }
+    ]
+  },
+
+  // 16. SAP E-Invoice & E-Way Bill
+  'sap-e-invoice-eway-bill': {
+    id: 16,
+    slug: 'sap-e-invoice-eway-bill',
+    category: 'SAP Services',
+    title: 'SAP E-Invoice & E-Way Bill',
+    heroHeadline: 'Automated Statutory GST Compliance',
+    heroHighlight: 'Direct Real-Time Government Portal Integration',
+    heroTagline: 'Eliminate manual tax compliance with our pre-built, secure connector communicating natively between SAP ERP and government IRP/NIC portals for instant IRN, QR code, and E-Way bill generation.',
+    heroImage: '/sap_service_card_einvoice_fullhd.jpg',
+    secondaryImage: '/photo-1542744173-8e7e53415bb0.jpg',
+    montageImage: '/exact_sap_consulting_hd.jpg',
+    sliderSlides: [
+      {
+        title: 'Real-Time Direct API Integration',
+        subtitle: 'Sub-Second Handshake with Government Invoice Registration Portals (IRP)',
+        image: '/sap_service_card_einvoice_fullhd.jpg',
+        badge: 'Instant Compliance',
+        metric: '< 1 Sec',
+        metricLabel: 'IRN Generation Latency',
+        points: [
+          'Direct machine-to-machine REST API connectivity without third-party middleman clouds',
+          'Automatic generation of 64-character Invoice Reference Numbers (IRN) upon invoice save',
+          'Embedded digitally signed B2B QR code placed automatically on standard invoice layouts'
+        ]
+      },
+      {
+        title: 'Single-Click E-Way Bill Automation',
+        subtitle: 'Synchronized Logistics Documentation for Zero Dispatch Delays',
+        image: '/photo-1542744173-8e7e53415bb0.jpg',
+        badge: 'Logistics Continuity',
+        metric: '100%',
+        metricLabel: 'Zero Vehicle Detention',
+        points: [
+          'Automatic generation of Part-A and Part-B E-Way bills directly from SAP delivery orders',
+          'Seamless vehicle number updation and transporter code mapping for multi-modal transit',
+          'Instant cancellation and extension handling managed directly within SAP transactions'
+        ]
+      },
+      {
+        title: 'Enterprise Reconciliation & Error Cockpit',
+        subtitle: 'Automated Data Validation and Zero-Discrepancy Audit Trails',
+        image: '/exact_sap_consulting_hd.jpg',
+        badge: 'Audit Defense',
+        metric: 'Zero',
+        metricLabel: 'Statutory Mismatch Penalties',
+        points: [
+          'Pre-validation algorithms identifying GSTIN errors, HSN code mismatches, and rounding gaps',
+          'User-friendly management cockpit for bulk status tracking and one-click error correction',
+          'Automated data reconciliation matching SAP sales registers with official GSTR-1 filings'
+        ]
+      }
+    ],
+    overviewSubheading: 'Statutory Automation • Real-Time IRP Sync • Zero Audit Discrepancies',
+    overviewHeading: 'Government-Compliant E-Invoicing and E-Way Bill Operations Embedded in SAP',
+    overviewLead: 'Manual data entry into tax portals creates bottlenecks, introduces human error, and exposes enterprises to heavy non-compliance penalties.',
+    overviewBody: [
+      'Regulatory authorities mandate strict compliance standards for high-turnover enterprises, requiring real-time registration of B2B transactions with official government gateways.',
+      'ZisanTech Solutions delivers a robust, certified SAP integration solution that embeds statutory compliance directly into your daily transactional workflow. Our connector operates seamlessly inside SAP ECC 6.0 and S/4HANA, executing instantaneous API exchanges with the GST Invoice Registration Portal (IRP) and NIC without altering standard sales billing processes.'
+    ],
+    pillarsHeading: 'Pillars of Automated Statutory Tax Compliance',
+    pillars: [
+      {
+        tag: 'Instant Handshake',
+        title: 'Direct Government API Sync',
+        desc: 'Connect directly to official GSTN IRP gateways (NIC, ClearTax, etc.) without intermediate data exposure or latency.'
+      },
+      {
+        tag: 'QR Code Printing',
+        title: 'Automated Invoice Layouts',
+        desc: 'Dynamically print digitally signed QR codes, IRNs, and acknowledgment numbers on standard SAP SmartForms and Adobe Forms.'
+      },
+      {
+        tag: 'Supply Chain Sync',
+        title: 'Integrated E-Way Bill Cockpit',
+        desc: 'Generate, update vehicle numbers, and extend E-Way Bills directly from SAP outbound delivery documents with zero dispatch delays.'
+      },
+      {
+        tag: 'Data Integrity',
+        title: 'Pre-Submission Validation',
+        desc: 'Built-in validation rules verify GSTIN checksums, HSN codes, and tax calculation splits before submission to eliminate gateway rejections.'
+      },
+      {
+        tag: 'High Throughput',
+        title: 'Bulk Processing Engine',
+        desc: 'Tested to process thousands of multi-plant invoices concurrently during peak month-end billing hours without system degradation.'
+      },
+      {
+        tag: 'Security & Audit',
+        title: '100% Audit-Trail Archival',
+        desc: 'Securely archive signed JSON payloads, IRNs, and response logs inside SAP for complete regulatory inspection defense.'
+      }
+    ],
+    capabilitiesHeading: 'E-Invoicing Capabilities & Technical Scope',
+    capabilities: [
+      { name: 'Direct REST API Integration with Government IRP', highlight: 'OFFICIAL GATEWAY' },
+      { name: 'Automated IRN & Signed QR Code Generation', highlight: 'INSTANT SYNC' },
+      { name: 'Integrated E-Way Bill Part-A & Part-B Creation', highlight: 'LOGISTICS AUTO' },
+      { name: 'Pre-Validation Engine for GSTIN & HSN Codes', highlight: 'ERROR PREVENTION' },
+      { name: 'SmartForm & Adobe Form Print Program Upgrades', highlight: 'PRINT READY' },
+      { name: 'Error Management Cockpit & Auto-Resubmission', highlight: 'EXCEPTION DESK' },
+      { name: 'Compatible with SAP ECC 6.0, S/4HANA & B1', highlight: 'ERP VERSATILE' },
+      { name: 'Auto-Reconciliation with GSTR-1 & Sales Ledger', highlight: 'AUDIT RECON' }
+    ],
+    deliverables: [
+      'Pre-Configured SAP Transport Packages & Custom Tables',
+      'Invoice Print Layout Enhancements (SmartForms / Adobe Forms)',
+      'Direct Gateway Encryption & API Key Security Setup',
+      'Standard Operating Procedure (SOP) & User Exception Runbooks'
+    ],
+    methodologyHeading: 'E-Invoicing Implementation Lifecycle',
+    methodologySubheading: 'Rapid turnkey deployment delivering fully functional, government-validated compliance in as little as 10 to 14 days.',
+    methodology: [
+      {
+        num: '01',
+        title: 'Tax Master & Process Discovery',
+        tags: 'HSN Audit • Tax Code Mapping',
+        desc: 'Reviewing current billing document types, tax determination procedures, and master data consistency across company codes.'
+      },
+      {
+        num: '02',
+        title: 'SAP Transport Import & Configuration',
+        tags: 'Custom Tables • API Setup',
+        desc: 'Importing standardized transport requests, configuring connection credentials, and establishing encryption certificates.'
+      },
+      {
+        num: '03',
+        title: 'Print Form & QR Code Enhancement',
+        tags: 'Adobe Forms • SmartForms',
+        desc: 'Updating tax invoice layouts to dynamically render government-signed 2D QR codes, IRN hashes, and statutory disclaimers.'
+      },
+      {
+        num: '04',
+        title: 'Sandbox Testing on Government IRP',
+        tags: 'Test Invoices • Edge Cases',
+        desc: 'Conducting comprehensive testing against official IRP sandbox portals covering B2B invoices, credit notes, and export billing.'
+      },
+      {
+        num: '05',
+        title: 'Production Cutover & Portal Go-Live',
+        tags: 'Production APIs • Live Testing',
+        desc: 'Transitioning to live production IRP credentials with real-time verification of generated IRNs and E-Way bills.'
+      },
+      {
+        num: '06',
+        title: 'Post-Go-Live Support & Patch Updates',
+        tags: 'Hypercare • Regulatory Tracking',
+        desc: 'Continuous monitoring during initial billing cycles with guaranteed SLA updates whenever government GST rules change.'
+      }
+    ],
+    whyPartnerTitle: 'Why Choose ZisanTech for SAP E-Invoicing?',
+    whyPartnerSubtitle: 'Battle-tested, turnkey tax compliance trusted by high-volume enterprises across India.',
+    whyCards: [
+      {
+        title: 'Native In-SAP Integration',
+        desc: 'Operates 100% inside your SAP environment without routing sensitive pricing data through third-party cloud servers.'
+      },
+      {
+        title: 'Sub-Second Response',
+        desc: 'High-performance direct API connection generating IRNs and QR codes in under a second during standard billing runs.'
+      },
+      {
+        title: 'Zero Dispatch Delays',
+        desc: 'Simultaneous generation of E-Way bills with invoices guarantees transport vehicles leave operating plants without delay.'
+      },
+      {
+        title: 'Continuous Statutory Warranty',
+        desc: 'Dedicated regulatory tracking ensuring your SAP system automatically updates whenever the GST Council announces new mandates.'
+      }
+    ]
+  },
+
 };

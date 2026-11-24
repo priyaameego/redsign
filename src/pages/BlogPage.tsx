@@ -303,34 +303,51 @@ export const BlogPage: React.FC = () => {
           {filteredGridBlogs.map((blog) => (
             <div
               key={blog.id}
-              className="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+              className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
             >
               <div>
-                <div className="flex items-center justify-between text-xs text-slate-400 mb-3">
-                  <span className="px-2.5 py-1 rounded bg-slate-100 font-semibold text-slate-700">
+                <div className="relative h-48 sm:h-52 overflow-hidden bg-slate-900">
+                  <img
+                    src={blog.image || `/blog/${blog.id}.jpeg`}
+                    alt={blog.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.src = `/blog/${blog.id}.jpeg`;
+                    }}
+                  />
+                  <div className="absolute top-3 right-3 bg-[#087FE5] text-white px-2.5 py-1 rounded text-xs font-bold font-mono shadow">
                     {blog.category}
-                  </span>
-                  <span>{blog.readTime}</span>
+                  </div>
                 </div>
 
-                <h3 className="text-xl font-bold text-navy-950 mb-3 group-hover:text-blue-700 transition-colors">
-                  <Link to={blog.url || `/blog/${blog.slug || blog.id}`}>{blog.title}</Link>
-                </h3>
+                <div className="p-6">
+                  <div className="flex items-center justify-between text-xs text-slate-400 mb-2">
+                    <span className="font-medium text-slate-500">{blog.author || 'ZisanTech Team'}</span>
+                    <span>{blog.readTime || '5 min read'}</span>
+                  </div>
 
-                <p className="text-xs text-slate-600 leading-relaxed mb-6">
-                  {blog.excerpt}
-                </p>
+                  <h3 className="text-lg sm:text-xl font-bold text-navy-950 mb-3 group-hover:text-blue-700 transition-colors leading-snug">
+                    <Link to={blog.url || `/blog/${blog.slug || blog.id}`}>{blog.title}</Link>
+                  </h3>
+
+                  <p className="text-xs text-slate-600 leading-relaxed mb-4 line-clamp-3">
+                    {blog.excerpt}
+                  </p>
+                </div>
               </div>
 
-              <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
-                <span className="text-[11px] text-slate-400">{blog.date}</span>
-                <Link
-                  to={blog.url || `/blog/${blog.slug || blog.id}`}
-                  className="text-xs font-bold text-blue-700 hover:text-blue-900 flex items-center gap-1 group-hover:gap-2 transition-all"
-                >
-                  <span>Read Article</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
+              <div className="px-6 pb-6 pt-0">
+                <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
+                  <span className="text-[11px] text-slate-400">{blog.date}</span>
+                  <Link
+                    to={blog.url || `/blog/${blog.slug || blog.id}`}
+                    className="text-xs font-bold text-blue-700 hover:text-blue-900 flex items-center gap-1 group-hover:gap-2 transition-all"
+                  >
+                    <span>Read Article</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
               </div>
             </div>
           ))}

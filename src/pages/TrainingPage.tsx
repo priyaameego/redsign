@@ -23,7 +23,7 @@ const codeToSlug: Record<string, string> = {
   'SAP-QM': 'sap-qm',
   'SAP-FICO': 'sap-fico',
   'SAP-HCM': 'sap-hcm',
-  'SAP-CCM': 'sap-le',
+  'SAP-CCM': 'sap-ccm',
   'SAP-LE': 'sap-le',
   'SAP-TM': 'sap-tm',
   'SAP-EWM': 'sap-ewm',
@@ -206,7 +206,7 @@ export const TrainingPage: React.FC = () => {
 
   return (
     <div className="space-y-20 pb-20">
-      <section className="bg-navy-950 text-white py-20 border-b border-white/10 relative overflow-hidden">
+      <section className="bg-navy-950 text-white py-12 sm:py-16 md:py-20 border-b border-white/10 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl space-y-4">
             <span className="text-xs font-bold uppercase tracking-wider text-teal-400 bg-teal-500/10 px-3 py-1 rounded-full border border-teal-500/30">
@@ -220,7 +220,7 @@ export const TrainingPage: React.FC = () => {
             </p>
 
             {/* Filter Tabs */}
-            <div className="flex items-center gap-2 pt-4">
+            <div className="flex flex-wrap items-center gap-2 pt-4">
               <button
                 onClick={() => setActiveTab('all')}
                 className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
@@ -251,7 +251,7 @@ export const TrainingPage: React.FC = () => {
       </section>
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
           {filteredModules.map((mod, idx) => (
             <motion.div
               key={mod.id}
@@ -260,7 +260,7 @@ export const TrainingPage: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.45, delay: idx * 0.05 }}
               whileHover={{ y: -8, scale: 1.015 }}
-              className="relative overflow-hidden p-7 rounded-3xl bg-gradient-to-br from-white via-[#fbfdff] to-[#f0f6fd] border border-[#087FE5]/30 hover:border-[#087FE5]/80 shadow-[0_6px_24px_-2px_rgba(8,127,229,0.08)] hover:shadow-[0_18px_40px_-6px_rgba(8,127,229,0.20)] transition-all duration-500 flex flex-col justify-between group cursor-default"
+              className="relative overflow-hidden p-5 sm:p-7 rounded-3xl bg-gradient-to-br from-white via-[#fbfdff] to-[#f0f6fd] border border-[#087FE5]/30 hover:border-[#087FE5]/80 shadow-[0_6px_24px_-2px_rgba(8,127,229,0.08)] hover:shadow-[0_18px_40px_-6px_rgba(8,127,229,0.20)] transition-all duration-500 flex flex-col justify-between group cursor-default"
             >
               {/* 3D Diagonal Light Sheen Sweep */}
               <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/40 to-transparent pointer-events-none z-10" />
@@ -277,14 +277,14 @@ export const TrainingPage: React.FC = () => {
                 <div className="flex items-center justify-between mb-4">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold font-mono uppercase bg-white/95 text-[#063B83] border border-[#087FE5]/40 shadow-sm">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#087FE5] animate-pulse" />
-                    <span>{mod.code === 'SAP-CCM' ? 'SAP-LE' : mod.code}</span>
+                    <span>{mod.code}</span>
                   </span>
                   <span className="text-xs text-slate-500 font-semibold">{mod.duration}</span>
                 </div>
 
                 <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-[#063B83] transition-colors">
                   <Link to={`/training/${codeToSlug[mod.code] || mod.slug}`}>
-                    {mod.code === 'SAP-CCM' ? 'SAP LE (Logistics Execution)' : mod.title}
+                    {mod.title}
                   </Link>
                 </h3>
 

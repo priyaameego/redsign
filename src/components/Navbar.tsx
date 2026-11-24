@@ -28,6 +28,7 @@ import { SERVICES, TRAINING_MODULES, INDUSTRIES, COMPANY_INFO } from '../data/si
 export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileTrainingOpen, setMobileTrainingOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const dropdownTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
@@ -106,7 +107,7 @@ export const Navbar: React.FC = () => {
     'SAP-QM': '/training/sap-qm',
     'SAP-FICO': '/training/sap-fico',
     'SAP-HCM': '/training/sap-hcm',
-    'SAP-CCM': '/training/sap-le',
+    'SAP-CCM': '/training/sap-ccm',
     'SAP-LE': '/training/sap-le',
     'SAP-TM': '/training/sap-tm',
     'SAP-EWM': '/training/sap-ewm',
@@ -220,7 +221,7 @@ export const Navbar: React.FC = () => {
         </button>
 
         {/* Center: Desktop Navigation Bar with Rich Interactive Preview Mega-Menus */}
-        <nav className="hidden lg:flex items-center space-x-1 font-sans">
+        <nav className="hidden lg:flex items-center space-x-1 font-sans flex-nowrap whitespace-nowrap lg:absolute lg:left-1/2 lg:-translate-x-1/2">
           <button
             onClick={() => {
               if (location.pathname === '/') {
@@ -229,7 +230,7 @@ export const Navbar: React.FC = () => {
                 navigate('/');
               }
             }}
-            className={`px-3.5 py-2 text-sm tracking-wide transition-colors cursor-pointer ${
+            className={`px-3.5 py-2 text-sm tracking-wide whitespace-nowrap flex-shrink-0 transition-colors cursor-pointer ${
               isHomeActive
                 ? 'font-bold text-[#063B83] border-b-2 border-[#063B83]'
                 : 'font-semibold text-slate-700 hover:text-[#063B83] border-b-2 border-transparent'
@@ -240,20 +241,20 @@ export const Navbar: React.FC = () => {
 
           {/* 1. Services Dropdown (Preview Catalog - Stays on Homepage) */}
           <div
-            className="relative py-2"
+            className="relative py-2 flex-shrink-0"
             onMouseEnter={() => handleMouseEnter('services')}
             onMouseLeave={handleMouseLeave}
           >
             <button
               onClick={() => handleDropdownClick('services', 'services')}
-              className={`px-3.5 py-2 text-sm tracking-wide flex items-center gap-1 transition-colors cursor-pointer ${
+              className={`px-3.5 py-2 text-sm tracking-wide whitespace-nowrap flex-shrink-0 flex items-center gap-1 transition-colors cursor-pointer ${
                 isServicesActive
                   ? 'font-bold text-[#063B83] border-b-2 border-[#063B83]'
                   : 'font-semibold text-slate-700 hover:text-[#063B83] border-b-2 border-transparent'
               }`}
             >
               Services
-              <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'services' ? 'rotate-180' : ''}`} />
+              <ChevronDown className={`w-3.5 h-3.5 flex-shrink-0 transition-transform duration-200 ${activeDropdown === 'services' ? 'rotate-180' : ''}`} />
             </button>
 
             {activeDropdown === 'services' && (
@@ -321,20 +322,20 @@ export const Navbar: React.FC = () => {
 
           {/* 2. Training Dropdown (Preview Catalog - Stays on Homepage) */}
           <div
-            className="relative py-2"
+            className="relative py-2 flex-shrink-0"
             onMouseEnter={() => handleMouseEnter('training')}
             onMouseLeave={handleMouseLeave}
           >
             <button
               onClick={() => handleDropdownClick('training', 'training')}
-              className={`px-3.5 py-2 text-sm tracking-wide flex items-center gap-1 transition-colors cursor-pointer ${
+              className={`px-3.5 py-2 text-sm tracking-wide whitespace-nowrap flex-shrink-0 flex items-center gap-1 transition-colors cursor-pointer ${
                 isTrainingActive
                   ? 'font-bold text-[#063B83] border-b-2 border-[#063B83]'
                   : 'font-semibold text-slate-700 hover:text-[#063B83] border-b-2 border-transparent'
               }`}
             >
               SAP Training
-              <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'training' ? 'rotate-180' : ''}`} />
+              <ChevronDown className={`w-3.5 h-3.5 flex-shrink-0 transition-transform duration-200 ${activeDropdown === 'training' ? 'rotate-180' : ''}`} />
             </button>
 
             {activeDropdown === 'training' && (
@@ -351,8 +352,8 @@ export const Navbar: React.FC = () => {
                     </div>
                     <div className="grid grid-cols-2 gap-1 max-h-[280px] overflow-y-auto pr-1">
                       {TRAINING_MODULES.filter(t => t.type === 'functional').map((t) => {
-                        const code = t.code === 'SAP-CCM' ? 'SAP-LE' : t.code;
-                        const title = t.code === 'SAP-CCM' ? 'SAP LE (Logistics Execution)' : t.title;
+                        const code = t.code;
+                        const title = t.title;
                         const path = TRAINING_PATH_MAP[code] || `/training/${t.slug}`;
                         return (
                           <button
@@ -407,20 +408,20 @@ export const Navbar: React.FC = () => {
 
           {/* 3. Industries Dropdown (Preview Catalog - Stays on Homepage) */}
           <div
-            className="relative py-2"
+            className="relative py-2 flex-shrink-0"
             onMouseEnter={() => handleMouseEnter('industries')}
             onMouseLeave={handleMouseLeave}
           >
             <button
               onClick={() => handleDropdownClick('industries', 'industries')}
-              className={`px-3.5 py-2 text-sm tracking-wide flex items-center gap-1 transition-colors cursor-pointer ${
+              className={`px-3.5 py-2 text-sm tracking-wide whitespace-nowrap flex-shrink-0 flex items-center gap-1 transition-colors cursor-pointer ${
                 isIndustriesActive
                   ? 'font-bold text-[#063B83] border-b-2 border-[#063B83]'
                   : 'font-semibold text-slate-700 hover:text-[#063B83] border-b-2 border-transparent'
               }`}
             >
               Industries
-              <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'industries' ? 'rotate-180' : ''}`} />
+              <ChevronDown className={`w-3.5 h-3.5 flex-shrink-0 transition-transform duration-200 ${activeDropdown === 'industries' ? 'rotate-180' : ''}`} />
             </button>
 
             {activeDropdown === 'industries' && (
@@ -470,20 +471,20 @@ export const Navbar: React.FC = () => {
 
           {/* 4. Company Dropdown (Preview & Scroll to Homepage Sections) */}
           <div
-            className="relative py-2"
+            className="relative py-2 flex-shrink-0"
             onMouseEnter={() => handleMouseEnter('company')}
             onMouseLeave={handleMouseLeave}
           >
             <button
               onClick={() => handleDropdownClick('company', 'about')}
-              className={`px-3.5 py-2 text-sm tracking-wide flex items-center gap-1 transition-colors cursor-pointer ${
+              className={`px-3.5 py-2 text-sm tracking-wide whitespace-nowrap flex-shrink-0 flex items-center gap-1 transition-colors cursor-pointer ${
                 isCompanyActive
                   ? 'font-bold text-[#063B83] border-b-2 border-[#063B83]'
                   : 'font-semibold text-slate-700 hover:text-[#063B83] border-b-2 border-transparent'
               }`}
             >
               Company
-              <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'company' ? 'rotate-180' : ''}`} />
+              <ChevronDown className={`w-3.5 h-3.5 flex-shrink-0 transition-transform duration-200 ${activeDropdown === 'company' ? 'rotate-180' : ''}`} />
             </button>
 
             {activeDropdown === 'company' && (
@@ -547,7 +548,7 @@ export const Navbar: React.FC = () => {
                 navigate('/contact');
               }
             }}
-            className={`px-3.5 py-2 text-sm tracking-wide transition-colors cursor-pointer ${
+            className={`px-3.5 py-2 text-sm tracking-wide whitespace-nowrap flex-shrink-0 transition-colors cursor-pointer ${
               isContactActive
                 ? 'font-bold text-[#063B83] border-b-2 border-[#063B83]'
                 : 'font-semibold text-slate-700 hover:text-[#063B83] border-b-2 border-transparent'
@@ -556,17 +557,6 @@ export const Navbar: React.FC = () => {
             Contact
           </button>
         </nav>
-
-        {/* Right CTA Button: Desktop Consultation Trigger */}
-        <div className="hidden lg:flex items-center space-x-3 flex-shrink-0 pl-3">
-          <button
-            onClick={() => scrollToSection('contact-cta')}
-            className="px-5 py-2.5 bg-[#063B83] hover:bg-[#087FE5] text-white text-xs font-bold uppercase tracking-wider rounded-lg shadow-sm hover:shadow transition-all cursor-pointer flex items-center gap-2"
-          >
-            <span>Consultation</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </button>
-        </div>
 
         {/* Mobile Hamburger Toggle */}
         <button
@@ -586,7 +576,10 @@ export const Navbar: React.FC = () => {
               ZisanTech Solutions
             </span>
             <button
-              onClick={() => scrollToSection('contact-cta')}
+              onClick={() => {
+                scrollToSection('contact-cta');
+                setMobileMenuOpen(false);
+              }}
               className="px-3.5 py-1.5 bg-[#063B83] text-white text-xs font-bold rounded shadow-sm"
             >
               Consult Now
@@ -689,19 +682,115 @@ export const Navbar: React.FC = () => {
               )}
             </div>
 
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                if (location.pathname === '/') {
-                  scrollToSection('training');
-                } else {
-                  navigate('/training');
-                }
-              }}
-              className="w-full text-left block px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-[#f5f8fc] rounded"
-            >
-              SAP Training
-            </button>
+            {/* Mobile SAP Training Accordion Dropdown */}
+            <div className="rounded-lg overflow-hidden">
+              <button
+                onClick={() => setMobileTrainingOpen(!mobileTrainingOpen)}
+                className="flex items-center justify-between w-full px-3 py-2.5 text-sm rounded hover:bg-[#f5f8fc] transition-colors"
+              >
+                <span
+                  className={`text-left ${
+                    isTrainingActive
+                      ? 'text-[#063B83] font-bold'
+                      : 'text-slate-800 font-semibold'
+                  }`}
+                >
+                  SAP Training
+                </span>
+                <ChevronDown
+                  className={`w-4 h-4 transition-transform duration-200 ${
+                    mobileTrainingOpen ? 'rotate-180 text-[#087FE5]' : 'text-slate-500'
+                  }`}
+                />
+              </button>
+
+              {mobileTrainingOpen && (
+                <div className="pl-3 pr-2 py-2.5 bg-[#f8fafc] border-l-2 border-[#087FE5] my-1 space-y-3 text-xs animate-fade-in">
+                  {/* Top Link to Main Training Page */}
+                  <button
+                    onClick={() => {
+                      navigate('/training');
+                      setMobileMenuOpen(false);
+                      setMobileTrainingOpen(false);
+                    }}
+                    className="w-full text-center py-2 px-3 rounded-lg bg-[#E0F2FE] text-[#0369A1] font-semibold text-xs flex items-center justify-center gap-1.5 shadow-xs hover:bg-[#BAE6FD] transition-colors mb-2"
+                  >
+                    <span>View All 15 SAP Training Programs</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                  {/* Functional Modules (10) */}
+                  <div>
+                    <div className="flex items-center gap-1.5 font-bold uppercase tracking-wider text-[11px] text-[#063B83] mb-1.5 pb-1 border-b border-slate-200/60">
+                      <GraduationCap className="w-3.5 h-3.5 text-[#063B83]" />
+                      <span>Functional Modules (10)</span>
+                    </div>
+                    <div className="grid grid-cols-2 gap-1.5 max-h-[220px] overflow-y-auto pr-1 custom-scrollbar">
+                      {TRAINING_MODULES.filter((t) => t.type === 'functional').map((t) => {
+                        const code = t.code;
+                        const title = t.title.split(' (')[0];
+                        const path = TRAINING_PATH_MAP[code] || `/training/${t.slug}`;
+                        return (
+                          <button
+                            key={t.id}
+                            onClick={() => {
+                              setMobileMenuOpen(false);
+                              setMobileTrainingOpen(false);
+                              navigate(path);
+                            }}
+                            className="text-left p-1.5 rounded-lg bg-white border border-slate-200/80 hover:border-[#087FE5] hover:bg-[#edf5fd] transition-colors block shadow-xs"
+                          >
+                            <span className="font-extrabold text-[#087FE5] block text-[10px] leading-tight">{code}</span>
+                            <span className="text-slate-700 font-medium truncate block text-[11px] leading-snug">{title}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Technical Modules (5) */}
+                  <div>
+                    <div className="flex items-center gap-1.5 font-bold uppercase tracking-wider text-[11px] text-[#087FE5] mb-1.5 pt-2 pb-1 border-b border-slate-200/60">
+                      <Cpu className="w-3.5 h-3.5 text-[#087FE5]" />
+                      <span>Technical Modules (5)</span>
+                    </div>
+                    <div className="grid grid-cols-2 gap-1.5 pr-1">
+                      {TRAINING_MODULES.filter((t) => t.type === 'technical').map((t) => {
+                        const path = TRAINING_PATH_MAP[t.code] || `/training/${t.slug}`;
+                        return (
+                          <button
+                            key={t.id}
+                            onClick={() => {
+                              setMobileMenuOpen(false);
+                              setMobileTrainingOpen(false);
+                              navigate(path);
+                            }}
+                            className="text-left p-1.5 rounded-lg bg-white border border-slate-200/80 hover:border-[#087FE5] hover:bg-[#edf5fd] transition-colors block shadow-xs"
+                          >
+                            <span className="font-extrabold text-[#063B83] block text-[10px] leading-tight">{t.code}</span>
+                            <span className="text-slate-700 font-medium truncate block text-[11px] leading-snug">{t.title}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Quick Academy Link */}
+                  <div className="pt-2 border-t border-slate-200/70 flex items-center justify-between">
+                    <Link
+                      to="/training"
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        setMobileTrainingOpen(false);
+                      }}
+                      className="text-xs font-bold text-[#087FE5] hover:text-[#063B83] flex items-center gap-1 transition-colors"
+                    >
+                      <span>Explore All 15 Training Modules</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
             <button
               onClick={() => scrollToSection('industries')}
               className="w-full text-left block px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-[#f5f8fc] rounded"

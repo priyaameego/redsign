@@ -45,9 +45,10 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Plus Jakarta Sans', 'Manrope', 'system-ui', 'sans-serif'],
-        heading: ['Sora', 'Plus Jakarta Sans', 'sans-serif'],
-        display: ['Sora', 'Plus Jakarta Sans', 'sans-serif'],
+        outfit: ['Outfit', 'Plus Jakarta Sans', 'sans-serif'],
+        sans: ['Plus Jakarta Sans', 'Outfit', 'Manrope', 'system-ui', 'sans-serif'],
+        heading: ['Outfit', 'Sora', 'Plus Jakarta Sans', 'sans-serif'],
+        display: ['Outfit', 'Sora', 'Plus Jakarta Sans', 'sans-serif'],
         mono: ['Space Grotesk', 'JetBrains Mono', 'monospace'],
       },
       boxShadow: {

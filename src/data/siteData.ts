@@ -229,7 +229,7 @@ export const SERVICES: ServiceItem[] = [
     title: 'SAP Rollout',
     slug: 'sap-rollout',
     url: '/services1/SAP Services/1',
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80',
+    image: '/sap_service_card_rollout_fullhd.jpg',
     shortDesc: 'Scale your standardized corporate SAP blueprint to new business units, international subsidiaries, and facilities with disciplined cutover governance.',
     fullDesc: [
       'ZisanTech Solutions delivers enterprise SAP Rollout capabilities engineered to scale standardized ERP blueprints across multi-location business entities, regional branches, and operating plants.',
@@ -261,7 +261,7 @@ export const SERVICES: ServiceItem[] = [
     title: 'SAP AMS (Application Management Services)',
     slug: 'sap-ams',
     url: '/services1/SAP Services/2',
-    image: '/zisantech_collaborative_consulting.jpg',
+    image: '/sap_service_card_support_fullhd.jpg',
     shortDesc: 'Dependable L1-L3 SLA-governed support, 24/7 proactive monitoring, incident management, and continuous ERP performance tuning.',
     fullDesc: [
       'Ensure maximum business continuity with ZisanTech’s 24/7 proactive SAP Application Management Services (AMS). We protect your critical transactional ecosystem against unexpected downtime and bottlenecks.',
@@ -293,7 +293,7 @@ export const SERVICES: ServiceItem[] = [
     title: 'Rise with SAP',
     slug: 'rise-with-sap',
     url: '/services1/SAP Services/3',
-    image: '/hero_sap_slide1.jpg',
+    image: '/zisantech_collaborative_consulting.jpg',
     shortDesc: 'Comprehensive business transformation as a service guiding your journey to SAP S/4HANA Cloud with minimal risk and guaranteed ROI.',
     fullDesc: [
       'Accelerate your cloud transformation with RISE with SAP delivered by ZisanTech Solutions. We bundle cloud ERP, business process intelligence, cloud infrastructure, and outcome-driven services into one unified contract.',
@@ -357,7 +357,7 @@ export const SERVICES: ServiceItem[] = [
     title: 'SAP Integration & BTP',
     slug: 'sap-integration-btp',
     url: '/services1/SAP Services/5',
-    image: '/hero_sap_slide2.jpg',
+    image: '/sap_service_card_integration_fullhd.jpg',
     shortDesc: 'Seamlessly bridge SAP with third-party software, cloud platforms, e-commerce stores, logistics APIs, and SAP BTP extensions.',
     fullDesc: [
       'Break operational data silos and build side-by-side cloud extensions without altering your SAP core. ZisanTech leverages SAP Business Technology Platform (BTP) and Integration Suite.',
@@ -389,7 +389,7 @@ export const SERVICES: ServiceItem[] = [
     title: 'SAP Analytics',
     slug: 'sap-analytics',
     url: '/services1/SAP Services/6',
-    image: '/hero_sap_slide3.jpg',
+    image: '/photo-1542744173-8e7e53415bb0.jpg',
     shortDesc: 'Real-time corporate dashboards, predictive financial modeling, and unified data intelligence with SAP Analytics Cloud (SAC) and Datasphere.',
     fullDesc: [
       'Transform complex transactional records into actionable boardroom intelligence. ZisanTech deploys SAP Analytics Cloud (SAC), SAP Datasphere, and embedded S/4HANA analytics.',
@@ -421,7 +421,7 @@ export const SERVICES: ServiceItem[] = [
     title: 'SAP AI & Automation',
     slug: 'sap-ai-automation',
     url: '/services1/SAP Services/7',
-    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80',
+    image: '/modern_dev_team_hd.jpg',
     shortDesc: 'Infuse artificial intelligence, machine learning, and automated statutory compliance into core enterprise ERP workflows.',
     fullDesc: [
       'Harness modern artificial intelligence directly alongside your transactional data. ZisanTech helps forward-thinking enterprises deploy machine learning, SAP Joule capabilities, and robotic process automation.',
@@ -445,6 +445,103 @@ export const SERVICES: ServiceItem[] = [
       'Smarter working capital management through algorithmic insights'
     ],
     icon: 'Sparkles'
+  },
+
+    {
+    id: 14,
+    category: 'SAP Services',
+    type: 'sap',
+    title: 'SAP Custom Solutions',
+    slug: 'sap-custom-solutions',
+    url: '/services1/SAP Services/14',
+    image: '/sap_service_card_custom_fullhd.jpg',
+    shortDesc: 'Bespoke ABAP extensions, custom Fiori apps, and cloud-ready business logic engineered for distinct enterprise operations.',
+    fullDesc: [
+      'Every enterprise operates with distinct competitive advantages, proprietary workflows, and specialized business processes that out-of-the-box ERP templates cannot fully address.',
+      'ZisanTech Solutions engineers scalable, clean-core SAP Custom Solutions tailored to your operational realities—ranging from intuitive SAP Fiori applications to complex side-by-side BTP microservices and custom logic engines.'
+    ],
+    keyFeatures: [
+      'Clean-core side-by-side extensions using SAP Business Technology Platform (BTP)',
+      'Modern ABAP RESTful Application Programming (RAP) and Core Data Services (CDS)',
+      'Custom SAP Fiori/UI5 applications for desktop, tablet, and mobile field operations',
+      'Proprietary calculation engines, custom transaction suites, and automated workflow triggers'
+    ],
+    deliverables: [
+      'Functional and Technical Architecture Design Specifications (FSD/TSD)',
+      'Versioned, clean-core compliant ABAP/BTP code repositories and transport packages',
+      'End-to-end User Acceptance Testing (UAT) sign-off verification logs',
+      'Comprehensive technical runbooks, API contracts, and administrator guides'
+    ],
+    businessValue: [
+      '100% operational fit for specialized manufacturing, supply chain, and commercial logic',
+      'Future-proof clean core ensuring frictionless SAP S/4HANA release upgrades',
+      'Significantly higher employee productivity and user adoption via modern Fiori UI'
+    ],
+    icon: 'Code2'
+  },
+  {
+    id: 15,
+    category: 'SAP Services',
+    type: 'sap',
+    title: 'SAP Consulting',
+    slug: 'sap-consulting',
+    url: '/services1/SAP Services/15',
+    image: '/sap_service_card_consulting_fullhd.jpg',
+    shortDesc: 'End-to-end strategic advisory matching technology with enterprise business objectives, architecture design, and digital roadmaps.',
+    fullDesc: [
+      'ZisanTech Solutions provides high-impact enterprise SAP Consulting, aligning corporate growth strategies with robust digital architectures.',
+      'Our principal consultants guide leadership through complex transformation decisions—from evaluating business case viability and cloud maturity to optimizing supply chain workflows and standardizing global core templates.'
+    ],
+    keyFeatures: [
+      'Strategic enterprise landscape discovery and IT maturity assessment',
+      'SAP S/4HANA business case justification and value realization roadmap',
+      'Process harmonization, best-practice benchmarking, and organizational change readiness',
+      'Independent program governance, quality assurance audits, and technical advisory'
+    ],
+    deliverables: [
+      'Multi-year Enterprise Transformation Roadmap and Target Architecture Blueprint',
+      'Detailed Process Optimization Scorecards and KPI Value Realization Matrix',
+      'Infrastructure Sizing, Hyperscaler Evaluation, and TCO Financial Models',
+      'Program Governance Protocols and Stakeholder Alignment Runbooks'
+    ],
+    businessValue: [
+      'De-risked enterprise IT investments backed by clear ROI and business metrics',
+      'Harmonized cross-departmental operations and eliminated redundant software silos',
+      'Accelerated transformation velocity with seasoned executive advisory'
+    ],
+    icon: 'Compass'
+  },
+  {
+    id: 16,
+    category: 'SAP Services',
+    type: 'sap',
+    title: 'SAP E-Invoice & E-Way Bill',
+    slug: 'sap-e-invoice-eway-bill',
+    url: '/services1/SAP Services/16',
+    image: '/sap_service_card_einvoice_fullhd.jpg',
+    shortDesc: 'Direct, real-time GST IRP and NIC portal integration natively embedded in SAP for instantaneous IRN, QR code, and E-Way bill generation.',
+    fullDesc: [
+      'Achieve zero-error statutory compliance with ZisanTech’s automated SAP E-Invoice and E-Way Bill integration solution.',
+      'Our native, certified SAP connector communicates directly with the government Invoice Registration Portal (IRP) and National Informatics Centre (NIC) via secure APIs—generating digitally signed IRN numbers, dynamic QR codes, and E-Way bill documents in real-time during standard billing runs.'
+    ],
+    keyFeatures: [
+      'Real-time direct API handshake with GST IRP and NIC government gateways',
+      'Instantaneous IRN generation and signed QR code embedding on invoice print layouts',
+      'Automated single-click and bulk E-Way Bill generation with vehicle number updation',
+      'Pre-built exception handling cockpits for error triaging and auto-resubmission'
+    ],
+    deliverables: [
+      'Pre-configured SAP Transport Packages for SAP ECC 6.0 and S/4HANA',
+      'Customized invoice print programs embedding compliant B2B QR codes and IRNs',
+      'End-to-end sandbox validation with government IRP testing APIs',
+      'Statutory compliance maintenance warranty and automated regulatory patch support'
+    ],
+    businessValue: [
+      '100% audit-proof GST compliance, eliminating billing halts and tax penalties',
+      'Zero logistics detention at transport checkpoints with automated E-Way bills',
+      'High-throughput billing automation handling thousands of daily multi-plant invoices'
+    ],
+    icon: 'FileCheck'
   },
 
   // --- 2. Enterprise & Cloud Solutions (6 Client-Requested Services) ---
@@ -857,7 +954,7 @@ export const TRAINING_MODULES: TrainingItem[] = [
     id: 7,
     category: 'Functional Modules',
     type: 'functional',
-    title: 'SAP CCM (Compensation & Claims Management)',
+    title: 'SAP CCM (Create Contact Management)',
     code: 'SAP-CCM',
     slug: 'sap-ccm-training',
     url: '/trainingprogrammes/Functional Modules/7',
@@ -1166,7 +1263,7 @@ export const BLOGS: BlogItem[] = [
     readTime: '6 min read',
     date: 'March 15, 2026',
     author: 'ZisanTech Enterprise Team',
-    image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80',
+    image: '/blog/1.jpeg',
     excerpt: 'Modern ERP is no longer just a digital ledger; it is the central operational brain orchestrating lean supply chains, rapid compliance, and real-time leadership insights.',
     content: [
       'In today’s competitive global market, enterprise success is dictated by how rapidly and reliably an organization turns transactional data into decisive operational execution.',
@@ -1190,7 +1287,7 @@ export const BLOGS: BlogItem[] = [
     readTime: '5 min read',
     date: 'February 28, 2026',
     author: 'ZisanTech Technology Group',
-    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80',
+    image: '/blog/2.jpeg',
     excerpt: 'Scaling an enterprise requires dependable, high-availability IT infrastructure and managed services that eliminate downtime and safeguard company data.',
     content: [
       'For growing enterprises, technology is either a primary multiplier or a recurring bottleneck. As transaction counts double and customer touchpoints multiply, brittle IT setups begin to crack.',
@@ -1214,7 +1311,7 @@ export const BLOGS: BlogItem[] = [
     readTime: '7 min read',
     date: 'January 22, 2026',
     author: 'ZisanTech Academic Council',
-    image: '/blog_sap_training_fresh.jpg',
+    image: '/blog/3.jpeg',
     excerpt: 'Theoretical slide decks do not prepare you for enterprise consulting. Why hands-on sandbox experience, real-world case studies, and business acumen define successful SAP professionals.',
     content: [
       'Enterprise technology continues to face a massive shortage of qualified, implementation-ready SAP talent. However, companies are increasingly wary of candidates who only memorize theoretical certification dumps without real business understanding.',
@@ -1238,7 +1335,7 @@ export const BLOGS: BlogItem[] = [
     readTime: '6 min read',
     date: 'December 18, 2025',
     author: 'ZisanTech Leadership',
-    image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80',
+    image: '/blog/4.jpeg',
     excerpt: 'Technology alone cannot fix an inefficient process. True digital evolution begins with deep workflow auditing, stakeholder alignment, and clear metrics.',
     content: [
       'Far too many digital transformation initiatives stall or deliver disappointing returns because organizations treat them as pure IT software rollouts rather than fundamental operational evolutions.',
@@ -1262,7 +1359,7 @@ export const BLOGS: BlogItem[] = [
     readTime: '5 min read',
     date: 'November 14, 2025',
     author: 'ZisanTech Operations Desk',
-    image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80',
+    image: '/blog/5.jpeg',
     excerpt: 'The critical post-go-live phase: Why ongoing hyper-care, continuous system tuning, and proactive employee upskilling dictate long-term ERP ROI.',
     content: [
       'The go-live date is often celebrated with fanfare, but in truth, go-live is simply the starting line of an ERP system’s lifecycle.',
@@ -1286,7 +1383,7 @@ export const BLOGS: BlogItem[] = [
     readTime: '6 min read',
     date: 'October 05, 2025',
     author: 'ZisanTech Academic Council',
-    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80',
+    image: '/blog/6.jpeg',
     excerpt: 'With cloud architectures, generative AI, and intelligent ERP evolving at an unprecedented pace, technical professionals must cultivate constant adaptability.',
     content: [
       'The technology landscape never stands still. Tools and paradigms that were cutting-edge five years ago are now considered legacy systems.',
