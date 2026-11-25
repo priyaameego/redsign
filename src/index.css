@@ -121,3 +121,141 @@
   box-shadow: 0 10px 28px rgba(8, 185, 232, 0.5);
   transform: translateY(-2px);
 }
+
+/* ==========================================================================
+   GLOBAL PREMIUM BUTTON HOVER & INTERACTION ANIMATION SYSTEM
+   ========================================================================== */
+
+/* 1. Base transition & smoothness for all interactive buttons and button-like links */
+button,
+a[role="button"],
+input[type="button"],
+input[type="submit"],
+.btn-electric,
+.btn-cyan {
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.25s ease,
+              background-color 0.25s ease,
+              border-color 0.25s ease,
+              color 0.2s ease,
+              filter 0.25s ease;
+}
+
+/* 2. All CTA and Action Buttons (Buttons and styled anchor links) */
+button:not([disabled]):not(nav button):not([class*="w-full text-left"]):not([class*="w-2"]):not([class*="h-2"]):not([class*="w-3"]):not([class*="h-3"]),
+a[class*="px-"][class*="py-"]:not(nav a),
+a[class*="rounded-xl"]:not(nav a),
+a[class*="rounded-lg"]:not(nav a),
+a[class*="rounded-full"][class*="px-"]:not(nav a),
+input[type="submit"],
+input[type="button"],
+.btn-electric,
+.btn-cyan {
+  position: relative;
+  overflow: hidden;
+  will-change: transform, box-shadow;
+}
+
+/* High-Impact Hover Animation: Elevation + Radiant Colored Glow */
+button:not([disabled]):not(nav button):not([class*="w-full text-left"]):not([class*="w-2"]):not([class*="h-2"]):not([class*="w-3"]):not([class*="h-3"]):hover,
+a[class*="px-"][class*="py-"]:not(nav a):hover,
+a[class*="rounded-xl"]:not(nav a):hover,
+a[class*="rounded-lg"]:not(nav a):hover,
+a[class*="rounded-full"][class*="px-"]:not(nav a):hover,
+input[type="submit"]:hover,
+input[type="button"]:hover,
+.btn-electric:hover,
+.btn-cyan:hover {
+  transform: translateY(-3px) scale(1.015) !important;
+  box-shadow: 0 14px 32px -4px rgba(8, 127, 229, 0.45), 0 6px 16px -2px rgba(6, 59, 131, 0.3), 0 0 20px rgba(8, 185, 232, 0.25) !important;
+  filter: brightness(1.06) !important;
+}
+
+/* Tactile Click Response */
+button:not([disabled]):not(nav button):not([class*="w-full text-left"]):active,
+a[class*="px-"][class*="py-"]:not(nav a):active,
+input[type="submit"]:active {
+  transform: translateY(0px) scale(0.975) !important;
+  box-shadow: 0 6px 16px -2px rgba(8, 127, 229, 0.3) !important;
+  transition-duration: 0.1s !important;
+}
+
+/* Dynamic Glass-Sheen Light Reflection Sweep on Hover */
+button:not([disabled]):not(nav button):not([class*="w-full text-left"]):not([class*="w-2"]):not([class*="h-2"]):not([class*="w-3"]):not([class*="h-3"])::after,
+a[class*="px-"][class*="py-"]:not(nav a)::after,
+a[class*="rounded-xl"]:not(nav a)::after,
+a[class*="rounded-lg"]:not(nav a)::after,
+a[class*="rounded-full"][class*="px-"]:not(nav a)::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -120%;
+  width: 60%;
+  height: 200%;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.05) 30%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0.05) 70%,
+    transparent 100%
+  );
+  transform: rotate(25deg);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+button:not([disabled]):not(nav button):not([class*="w-full text-left"]):not([class*="w-2"]):not([class*="h-2"]):not([class*="w-3"]):not([class*="h-3"]):hover::after,
+a[class*="px-"][class*="py-"]:not(nav a):hover::after,
+a[class*="rounded-xl"]:not(nav a):hover::after,
+a[class*="rounded-lg"]:not(nav a):hover::after,
+a[class*="rounded-full"][class*="px-"]:not(nav a):hover::after {
+  opacity: 1;
+  animation: button-sheen-sweep 0.75s ease-out forwards;
+}
+
+@keyframes button-sheen-sweep {
+  0% {
+    left: -120%;
+  }
+  100% {
+    left: 180%;
+  }
+}
+
+/* 3. Icon Nudge Animation inside buttons on hover */
+button:hover svg:last-child:not(:first-child),
+a:hover svg:last-child:not(:first-child) {
+  transform: translateX(4px);
+}
+
+button svg:last-child,
+a svg:last-child {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 4. Safe Boundaries: Ensure navbar tabs, dropdowns, and tiny slider indicators stay stable */
+nav > button,
+nav > div > button,
+nav .absolute button,
+nav a,
+button[class*="w-full text-left"],
+button[class*="w-full"][class*="text-left"],
+button[class*="w-2"],
+button[class*="w-2.5"],
+button[class*="w-3"],
+button[class*="h-2"],
+button[class*="h-3"] {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+nav .absolute button::after,
+button[class*="w-full text-left"]::after,
+button[class*="w-2"]::after,
+button[class*="h-2"]::after {
+  display: none !important;
+}
+
