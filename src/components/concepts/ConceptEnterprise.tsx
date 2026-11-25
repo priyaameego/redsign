@@ -430,7 +430,7 @@ export const ConceptEnterprise: React.FC = () => {
               <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/25 to-transparent pointer-events-none z-10" />
 
               <img
-                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=85"
+                src="/hero_sap_slide3.jpg"
                 alt="SAP Analytics & Real-Time Enterprise Dashboard"
                 className="w-full h-[230px] sm:h-[260px] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                 onError={(e) => {
@@ -643,7 +643,7 @@ export const ConceptEnterprise: React.FC = () => {
                 <div className="absolute -top-12 -right-12 w-48 h-48 bg-[#087FE5]/30 rounded-full blur-2xl pointer-events-none z-10" />
 
                 <img
-                  src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=85"
+                  src="/hero_sap_boardroom_luxury.jpg"
                   alt="ZisanTech SAP Enterprise Architecture & Digital Practice"
                   className="w-full h-[370px] sm:h-[430px] object-cover object-center transition-all duration-700 ease-out group-hover:scale-105 group-hover:contrast-[1.03]"
                 />
@@ -908,7 +908,7 @@ export const ConceptEnterprise: React.FC = () => {
                   id: 'sap-integration-btp',
                   title: 'SAP Integration & BTP',
                   desc: 'Seamlessly bridge SAP with third-party software, cloud platforms, e-commerce stores, logistics APIs, and SAP BTP extensions.',
-                  image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80',
+                  image: '/sap_service_card_integration_fullhd.jpg',
                   badge: 'SAP SERVICES'
                 },
                 {
@@ -1163,7 +1163,7 @@ export const ConceptEnterprise: React.FC = () => {
               title: 'Manufacturing',
               tagline: 'END-TO-END SHOP FLOOR TO TOP FLOOR ORCHESTRATION',
               desc: 'Enabling discrete and continuous process facilities with lean manufacturing cycles, integrated production planning, machine telemetrics, and predictive maintenance.',
-              image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80',
+              image: '/industry_steel_metallurgy.jpg',
               titleColor: 'text-white',
               linkColor: 'text-[#38BDF8]'
             },
@@ -1172,7 +1172,7 @@ export const ConceptEnterprise: React.FC = () => {
               title: 'Retail & Textile',
               tagline: 'AGILE OMNICHANNEL FULFILLMENT & YARN-TO-GARMENT LIFECYCLE',
               desc: 'Orchestrating multi-tier textile inventories, shade-wise dye lot segregation, warehouse dispatch pipelines, and synchronized point-of-sale commerce platforms.',
-              image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80',
+              image: '/hero_sap_slide2.jpg',
               titleColor: 'text-white',
               linkColor: 'text-[#38BDF8]'
             },
@@ -1181,7 +1181,7 @@ export const ConceptEnterprise: React.FC = () => {
               title: 'Oil & Gas',
               tagline: 'RESILIENT DOWNSTREAM & UPSTREAM ASSET GOVERNANCE',
               desc: 'Enforcing regulatory traceability, preventive capital plant asset maintenance, joint-venture accounting structures, and multi-entity governance protocols.',
-              image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80',
+              image: '/skyscraper_hd.jpg',
               titleColor: 'text-white',
               linkColor: 'text-[#38BDF8]'
             },
@@ -1190,7 +1190,7 @@ export const ConceptEnterprise: React.FC = () => {
               title: 'Agro Chemical',
               tagline: 'STRINGENT FORMULATION GOVERNANCE & DISTRIBUTED DEALER NETWORKS',
               desc: 'Managing active ingredient recipe formulation, hazardous raw material documentation, seasonal distribution pricing, and statutory batch genealogy.',
-              image: 'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=800&q=80',
+              image: '/exact_earth_night_hd.jpg',
               titleColor: 'text-white',
               linkColor: 'text-[#38BDF8]'
             },

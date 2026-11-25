@@ -703,13 +703,13 @@ export const DETAILED_SERVICES_MAP: Record<string, DetailedService> = {
     heroHeadline: 'Connected Enterprise Architecture',
     heroHighlight: 'Through SAP Integration Suite & BTP',
     heroTagline: 'Seamlessly bridge your SAP core with third-party cloud platforms, SaaS solutions, logistics APIs, and bespoke side-by-side extensions.',
-    heroImage: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/sap_service_card_integration_fullhd.jpg',
     secondaryImage: '/photo-1504384308090-c894fdcc538d.jpg',
     sliderSlides: [
       {
         title: 'SAP Integration Suite (CPI) Flows',
         subtitle: 'Enterprise Orchestration Across Cloud SaaS and On-Premise Endpoints',
-        image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80',
+        image: '/sap_service_card_integration_fullhd.jpg',
         badge: 'Integration Suite',
         metric: '100M+',
         metricLabel: 'Monthly API Calls Processed',
@@ -735,7 +735,7 @@ export const DETAILED_SERVICES_MAP: Record<string, DetailedService> = {
       {
         title: 'Direct Banking & Statutory Connectors',
         subtitle: 'Host-to-Host Bank Rails, Real-Time Payouts & Automated Tax Portals',
-        image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80',
+        image: '/zisantech_cloud_integration_modern.jpg',
         badge: 'Banking & Statutory',
         metric: 'Real-Time',
         metricLabel: 'Bank Ledger Reconciliation',
@@ -1024,7 +1024,7 @@ export const DETAILED_SERVICES_MAP: Record<string, DetailedService> = {
     heroHighlight: 'Powered by SAP Joule & Intelligent AI',
     heroTagline: 'Infuse artificial intelligence, machine learning, and robotic process automation into core ERP transactions to eliminate repetitive human overhead.',
     heroImage: '/sap_service_card_einvoice_fullhd.jpg',
-    secondaryImage: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80',
+    secondaryImage: '/zisantech_cloud_integration_modern.jpg',
     sliderSlides: [
       {
         title: 'Intelligent Document Processing (IDP)',
@@ -1042,7 +1042,7 @@ export const DETAILED_SERVICES_MAP: Record<string, DetailedService> = {
       {
         title: 'Automated GST & E-Way Bill Compliance',
         subtitle: 'Instantaneous Government Portal Handshake for Every Outbound Shipment',
-        image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80',
+        image: '/zisantech_cloud_integration_modern.jpg',
         badge: 'Statutory Auto',
         metric: 'Instant',
         metricLabel: 'IRN & QR Code Generation',
@@ -1055,7 +1055,7 @@ export const DETAILED_SERVICES_MAP: Record<string, DetailedService> = {
       {
         title: 'SAP Joule Generative AI Assistant',
         subtitle: 'Context-Aware AI Copilot Built Directly into Core Enterprise Workflows',
-        image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80',
+        image: '/hero_sap_slide2.jpg',
         badge: 'Joule Copilot',
         metric: '24/7',
         metricLabel: 'Autonomous Business Insights',
@@ -1503,13 +1503,13 @@ export const DETAILED_SERVICES_MAP: Record<string, DetailedService> = {
     heroHeadline: 'High-Conversion Digital Commerce',
     heroHighlight: 'Through Enterprise E-Commerce Solutions',
     heroTagline: 'Build scalable B2B distributor portals and modern B2C digital storefronts tightly integrated with back-end ERP inventory and automated logistics booking.',
-    heroImage: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/zisantech_cloud_integration_modern.jpg',
     secondaryImage: '/cand_workspace.jpg',
     sliderSlides: [
       {
         title: 'B2B Distributor Wholesale Portals',
         subtitle: 'Tiered Contract Pricing, Credit Limits & Self-Service Order Matrices',
-        image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80',
+        image: '/zisantech_cloud_integration_modern.jpg',
         badge: 'B2B Commerce',
         metric: '24/7',
         metricLabel: 'Dealer Self-Service Ordering',

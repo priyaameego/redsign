@@ -978,16 +978,26 @@ export const ServicesPage: React.FC = () => {
             </div>
 
             {/* Quick Consultation CTA with Dedicated High-Impact Button */}
-            <div className="mt-16 sm:mt-20 text-center relative z-10">
+            <div className="mt-14 sm:mt-18 text-center relative z-10 flex flex-wrap items-center justify-center gap-4">
               <Link
                 to={`/contact?service=${detailedData.slug}`}
-                className="relative group overflow-hidden inline-flex items-center gap-3 px-10 py-4.5 bg-gradient-to-r from-[#087FE5] via-[#0284C7] to-[#08B9E8] text-white font-semibold rounded-2xl text-sm sm:text-base shadow-2xl shadow-sky-500/25 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-sky-400/40 cursor-pointer"
+                className="relative group overflow-hidden inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#087FE5] via-[#0664B5] to-[#043E7A] hover:from-[#0091ff] hover:via-[#087FE5] hover:to-[#0664B5] text-white font-bold rounded-xl text-sm sm:text-base border border-white/20 shadow-xl shadow-blue-950/60 hover:shadow-2xl hover:shadow-[#087FE5]/40 transition-all duration-300 transform hover:-translate-y-1 active:translate-y-0 cursor-pointer"
               >
-                {/* Sheen sweep */}
-                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none z-10" />
+                {/* 3D Diagonal Light Sheen Sweep */}
+                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/25 to-transparent pointer-events-none" />
                 <span>Request Solution Blueprint for {detailedData.title}</span>
-                <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1.5 transition-transform" />
+                <div className="w-6 h-6 rounded-lg bg-white/20 group-hover:bg-white text-white group-hover:text-[#063B83] flex items-center justify-center transition-all duration-300 flex-shrink-0">
+                  <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-0.5 transition-transform" />
+                </div>
               </Link>
+
+              <a
+                href={`tel:${COMPANY_INFO.primaryPhone}`}
+                className="inline-flex items-center gap-2 px-6 py-4 bg-white/10 hover:bg-white/15 text-white font-medium rounded-xl text-sm border border-white/15 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5"
+              >
+                <PhoneCall className="w-4 h-4 text-[#08B9E8]" />
+                <span>Talk to SAP Architect</span>
+              </a>
             </div>
           </div>
         </section>
