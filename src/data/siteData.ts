@@ -229,7 +229,7 @@ export const SERVICES: ServiceItem[] = [
     title: 'SAP Rollout',
     slug: 'sap-rollout',
     url: '/services1/SAP Services/1',
-    image: '/sap_service_card_rollout_fullhd.jpg',
+    image: '/saprollout.webp',
     shortDesc: 'Scale your standardized corporate SAP blueprint to new business units, international subsidiaries, and facilities with disciplined cutover governance.',
     fullDesc: [
       'ZisanTech Solutions delivers enterprise SAP Rollout capabilities engineered to scale standardized ERP blueprints across multi-location business entities, regional branches, and operating plants.',
@@ -261,7 +261,7 @@ export const SERVICES: ServiceItem[] = [
     title: 'SAP AMS (Application Management Services)',
     slug: 'sap-ams',
     url: '/services1/SAP Services/2',
-    image: '/sap_service_card_support_fullhd.jpg',
+    image: '/sap ams2.jpg',
     shortDesc: 'Dependable L1-L3 SLA-governed support, 24/7 proactive monitoring, incident management, and continuous ERP performance tuning.',
     fullDesc: [
       'Ensure maximum business continuity with ZisanTech’s 24/7 proactive SAP Application Management Services (AMS). We protect your critical transactional ecosystem against unexpected downtime and bottlenecks.',
@@ -293,7 +293,7 @@ export const SERVICES: ServiceItem[] = [
     title: 'Rise with SAP',
     slug: 'rise-with-sap',
     url: '/services1/SAP Services/3',
-    image: '/hero_sap_enterprise_luxury.jpg',
+    image: '/saprise.jpg',
     shortDesc: 'Comprehensive business transformation as a service guiding your journey to SAP S/4HANA Cloud with minimal risk and guaranteed ROI.',
     fullDesc: [
       'Accelerate your cloud transformation with RISE with SAP delivered by ZisanTech Solutions. We bundle cloud ERP, business process intelligence, cloud infrastructure, and outcome-driven services into one unified contract.',
@@ -325,7 +325,7 @@ export const SERVICES: ServiceItem[] = [
     title: 'SAP Migration',
     slug: 'sap-migration',
     url: '/services1/SAP Services/4',
-    image: '/hero_sap_cinema2.jpg',
+    image: '/sap migration.jpg',
     shortDesc: 'Safe, predictable migration from SAP ECC to S/4HANA via Brownfield, Greenfield, or Selective Data Transition pathways.',
     fullDesc: [
       'Modernize legacy SAP platforms to the power of in-memory computing. ZisanTech provides structured, risk-free SAP S/4HANA migration services leveraging proven automated toolsets.',
@@ -357,7 +357,7 @@ export const SERVICES: ServiceItem[] = [
     title: 'SAP Integration & BTP',
     slug: 'sap-integration-btp',
     url: '/services1/SAP Services/5',
-    image: '/sap_service_card_integration_fullhd.jpg',
+    image: '/sap btm.webp',
     shortDesc: 'Seamlessly bridge SAP with third-party software, cloud platforms, e-commerce stores, logistics APIs, and SAP BTP extensions.',
     fullDesc: [
       'Break operational data silos and build side-by-side cloud extensions without altering your SAP core. ZisanTech leverages SAP Business Technology Platform (BTP) and Integration Suite.',
@@ -389,7 +389,7 @@ export const SERVICES: ServiceItem[] = [
     title: 'SAP Analytics',
     slug: 'sap-analytics',
     url: '/services1/SAP Services/6',
-    image: '/sap_hero_slide3_analytics.jpg',
+    image: '/sap anyatics.jpg',
     shortDesc: 'Real-time corporate dashboards, predictive financial modeling, and unified data intelligence with SAP Analytics Cloud (SAC) and Datasphere.',
     fullDesc: [
       'Transform complex transactional records into actionable boardroom intelligence. ZisanTech deploys SAP Analytics Cloud (SAC), SAP Datasphere, and embedded S/4HANA analytics.',
@@ -421,7 +421,7 @@ export const SERVICES: ServiceItem[] = [
     title: 'SAP AI & Automation',
     slug: 'sap-ai-automation',
     url: '/services1/SAP Services/7',
-    image: '/hero_sap_consulting_3.jpg',
+    image: '/automation.jpg',
     shortDesc: 'Infuse artificial intelligence, machine learning, and automated statutory compliance into core enterprise ERP workflows.',
     fullDesc: [
       'Harness modern artificial intelligence directly alongside your transactional data. ZisanTech helps forward-thinking enterprises deploy machine learning, SAP Joule capabilities, and robotic process automation.',

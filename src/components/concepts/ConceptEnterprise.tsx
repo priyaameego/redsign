@@ -451,19 +451,34 @@ export const ConceptEnterprise: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.45, delay: 0.2 }}
               whileHover={{ scale: 1.03, y: -2 }}
-              className="relative sm:absolute sm:-bottom-5 sm:left-6 z-20 bg-white/95 backdrop-blur-md rounded-2xl p-3 sm:p-4 shadow-xl border border-blue-100/80 flex items-center gap-3 mt-3 sm:mt-0 max-w-[230px] sm:max-w-xs transition-all duration-300 hover:shadow-2xl hover:shadow-[#087FE5]/15 cursor-default"
+              className="relative sm:absolute sm:-bottom-5 sm:left-6 z-20 bg-white/95 backdrop-blur-xl rounded-2xl p-3 sm:p-3.5 shadow-[0_16px_36px_rgba(6,59,131,0.12),0_4px_12px_rgba(8,127,229,0.08)] border border-blue-100/80 ring-1 ring-[#087FE5]/15 flex items-center gap-3 mt-3 sm:mt-0 max-w-fit transition-all duration-300 hover:shadow-2xl hover:shadow-[#087FE5]/20 cursor-default group/badge overflow-hidden"
             >
-              <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#063B83] to-[#087FE5] text-white flex items-center justify-center font-medium shadow-md shadow-[#087FE5]/25 flex-shrink-0">
-                <Users className="w-5 h-5" />
+              {/* Subtle Ambient Top Rim Glow */}
+              <div className="absolute inset-x-3 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#087FE5]/60 to-transparent pointer-events-none" />
+
+              {/* Glass Sheen Sweep on Hover */}
+              <div className="absolute inset-0 -translate-x-full group-hover/badge:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/40 to-transparent pointer-events-none" />
+
+              {/* Gradient Sapphire Icon with Status Pip */}
+              <div className="relative w-11 h-11 rounded-xl bg-gradient-to-br from-[#063B83] via-[#087FE5] to-[#08B9E8] text-white flex items-center justify-center font-medium shadow-md shadow-[#087FE5]/30 flex-shrink-0 border border-white/20">
+                <Users className="w-5 h-5 drop-shadow-sm" />
+                {/* Active Enterprise Indicator */}
+                <span className="absolute -top-1 -right-1 flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500 border-2 border-white"></span>
+                </span>
               </div>
+
               <div>
-                <div className="flex items-baseline gap-1">
-                  <span className="text-xl sm:text-2xl font-bold text-[#063B83] font-outfit">
+                <div className="flex items-center gap-1.5">
+                  <span className="text-xl sm:text-2xl font-bold text-[#063B83] font-outfit tracking-tight">
                     360+
                   </span>
-                  <span className="text-[11px] font-semibold text-[#087FE5]">Global</span>
+                  <span className="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-[#087FE5]/10 text-[#087FE5] border border-[#087FE5]/20 tracking-wide uppercase">
+                    Global
+                  </span>
                 </div>
-                <p className="text-[11px] sm:text-xs font-medium text-slate-600 mt-0.5">
+                <p className="text-[11px] sm:text-xs font-semibold text-slate-600 mt-0.5 tracking-tight flex items-center gap-1">
                   Satisfied Enterprise Clients
                 </p>
               </div>
@@ -880,49 +895,49 @@ export const ConceptEnterprise: React.FC = () => {
                   id: 'sap-rollout',
                   title: 'SAP Rollout',
                   desc: 'Scale your standardized corporate SAP blueprint to new business units, international subsidiaries, and operating facilities with disciplined cutover governance.',
-                  image: '/skyscraper_hd.jpg',
+                  image: '/saprollout.webp',
                   badge: 'SAP SERVICES'
                 },
                 {
                   id: 'sap-ams',
                   title: 'SAP AMS (Application Management Services)',
                   desc: 'Dependable L1-L3 SLA-governed support, 24/7 proactive monitoring, incident management, and continuous ERP performance tuning.',
-                  image: '/exact_women.jpg',
+                  image: '/sap ams2.jpg',
                   badge: 'SAP SERVICES'
                 },
                 {
                   id: 'rise-with-sap',
                   title: 'Rise with SAP',
                   desc: 'Comprehensive business transformation as a service guiding your journey to SAP S/4HANA Cloud with minimal risk and guaranteed ROI.',
-                  image: '/zisantech_collaborative_consulting.jpg',
+                  image: '/saprise.jpg',
                   badge: 'SAP SERVICES'
                 },
                 {
                   id: 'sap-migration',
                   title: 'SAP Migration',
                   desc: 'Safe, predictable migration from SAP ECC to S/4HANA via Brownfield, Greenfield, or Selective Data Transition pathways.',
-                  image: '/hero_sap_consulting_1.jpg',
+                  image: '/sap migration.jpg',
                   badge: 'SAP SERVICES'
                 },
                 {
                   id: 'sap-integration-btp',
                   title: 'SAP Integration & BTP',
                   desc: 'Seamlessly bridge SAP with third-party software, cloud platforms, e-commerce stores, logistics APIs, and SAP BTP extensions.',
-                  image: '/sap_service_card_integration_fullhd.jpg',
+                  image: '/sap btm.webp',
                   badge: 'SAP SERVICES'
                 },
                 {
                   id: 'sap-analytics',
                   title: 'SAP Analytics',
                   desc: 'Real-time corporate dashboards, predictive financial modeling, and unified data intelligence with SAP Analytics Cloud (SAC) and Datasphere.',
-                  image: '/photo-1542744173-8e7e53415bb0.jpg',
+                  image: '/sap anyatics.jpg',
                   badge: 'SAP SERVICES'
                 },
                 {
                   id: 'sap-ai-automation',
                   title: 'SAP AI & Automation',
                   desc: 'Infuse artificial intelligence, machine learning, and automated statutory compliance into core enterprise ERP workflows.',
-                  image: '/modern_dev_team_hd.jpg',
+                  image: '/automation.jpg',
                   badge: 'SAP SERVICES'
                 }
               ].map((svc, idx) => (
