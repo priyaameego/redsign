@@ -229,7 +229,7 @@ export const SERVICES: ServiceItem[] = [
     title: 'SAP Rollout',
     slug: 'sap-rollout',
     url: '/services1/SAP Services/1',
-    image: '/sap_service_card_rollout_fullhd.jpg',
+    image: '/skyscraper_hd.jpg',
     shortDesc: 'Scale your standardized corporate SAP blueprint to new business units, international subsidiaries, and facilities with disciplined cutover governance.',
     fullDesc: [
       'ZisanTech Solutions delivers enterprise SAP Rollout capabilities engineered to scale standardized ERP blueprints across multi-location business entities, regional branches, and operating plants.',
@@ -261,7 +261,7 @@ export const SERVICES: ServiceItem[] = [
     title: 'SAP AMS (Application Management Services)',
     slug: 'sap-ams',
     url: '/services1/SAP Services/2',
-    image: '/sap_service_card_support_fullhd.jpg',
+    image: '/exact_women.jpg',
     shortDesc: 'Dependable L1-L3 SLA-governed support, 24/7 proactive monitoring, incident management, and continuous ERP performance tuning.',
     fullDesc: [
       'Ensure maximum business continuity with ZisanTech’s 24/7 proactive SAP Application Management Services (AMS). We protect your critical transactional ecosystem against unexpected downtime and bottlenecks.',
@@ -357,7 +357,7 @@ export const SERVICES: ServiceItem[] = [
     title: 'SAP Integration & BTP',
     slug: 'sap-integration-btp',
     url: '/services1/SAP Services/5',
-    image: '/sap_service_card_integration_fullhd.jpg',
+    image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80',
     shortDesc: 'Seamlessly bridge SAP with third-party software, cloud platforms, e-commerce stores, logistics APIs, and SAP BTP extensions.',
     fullDesc: [
       'Break operational data silos and build side-by-side cloud extensions without altering your SAP core. ZisanTech leverages SAP Business Technology Platform (BTP) and Integration Suite.',
@@ -522,7 +522,7 @@ export const SERVICES: ServiceItem[] = [
     shortDesc: 'Direct, real-time GST IRP and NIC portal integration natively embedded in SAP for instantaneous IRN, QR code, and E-Way bill generation.',
     fullDesc: [
       'Achieve zero-error statutory compliance with ZisanTech’s automated SAP E-Invoice and E-Way Bill integration solution.',
-      'Our native, certified SAP connector communicates directly with the government Invoice Registration Portal (IRP) and National Informatics Centre (NIC) via secure APIs—generating digitally signed IRN numbers, dynamic QR codes, and E-Way bill documents in real-time during standard billing runs.'
+      'Our native, enterprise SAP connector communicates directly with the government Invoice Registration Portal (IRP) and National Informatics Centre (NIC) via secure APIs—generating digitally signed IRN numbers, dynamic QR codes, and E-Way bill documents in real-time during standard billing runs.'
     ],
     keyFeatures: [
       'Real-time direct API handshake with GST IRP and NIC government gateways',
@@ -588,7 +588,7 @@ export const SERVICES: ServiceItem[] = [
     shortDesc: 'Comprehensive cloud and on-premise ERP platforms uniting procurement, inventory, production, accounting, and sales operations.',
     fullDesc: [
       'Build a rock-solid operational foundation for growth. ZisanTech delivers agile, robust ERP solutions designed to streamline inventory, procurement, manufacturing, and financial reconciliations.',
-      'Whether deploying modular enterprise ERP or modernizing departmental workflows, our certified architects ensure end-to-end statutory compliance and operational excellence.'
+      'Whether deploying modular enterprise ERP or modernizing departmental workflows, our enterprise architects ensure end-to-end statutory compliance and operational excellence.'
     ],
     keyFeatures: [
       'Integrated general ledger, accounts payable, and accounts receivable',
@@ -1191,7 +1191,7 @@ export const TRAINING_MODULES: TrainingItem[] = [
     code: 'SAP-CPI',
     slug: 'sap-cpi-training',
     url: '/trainingprogrammes/Technical Module/4',
-    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
     shortDesc: 'Master SAP Integration Suite, iFlow design, cloud adapters, Groovy scripting, OAuth security, and hybrid cloud bridges.',
     duration: '8 - 10 Weeks',
     format: 'Live Interactive Online + SAP BTP Sandbox',
@@ -1407,7 +1407,7 @@ export const BLOGS: BlogItem[] = [
     readTime: '8 min read',
     date: 'November 10, 2026',
     author: 'ZisanTech Enterprise Architecture Board',
-    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80',
     excerpt: 'How modern enterprises maintain agile, upgradeable ERP cores using SAP BTP side-by-side extensions, RESTful Application Programming (RAP), and automated statutory governance.',
     content: [
       'As organizations accelerate their migration journeys to SAP S/4HANA, the historical temptation to heavily modify the ERP core with thousands of unmanaged custom Z-tables and modifications poses a severe risk to future innovation and cloud upgrades.',

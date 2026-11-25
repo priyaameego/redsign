@@ -532,7 +532,7 @@ export const Navbar: React.FC = () => {
                     </div>
                     <div>
                       <p className="text-xs font-bold text-slate-800 group-hover:text-[#063B83]">Why Choose Us</p>
-                      <p className="text-[11px] text-slate-500">Certified consultants & 24/7 delivery</p>
+                      <p className="text-[11px] text-slate-500">Expert consultants & 24/7 delivery</p>
                     </div>
                   </button>
                 </div>

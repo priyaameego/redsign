@@ -880,14 +880,14 @@ export const ConceptEnterprise: React.FC = () => {
                   id: 'sap-rollout',
                   title: 'SAP Rollout',
                   desc: 'Scale your standardized corporate SAP blueprint to new business units, international subsidiaries, and operating facilities with disciplined cutover governance.',
-                  image: '/sap_service_card_rollout_fullhd.jpg',
+                  image: '/skyscraper_hd.jpg',
                   badge: 'SAP SERVICES'
                 },
                 {
                   id: 'sap-ams',
                   title: 'SAP AMS (Application Management Services)',
                   desc: 'Dependable L1-L3 SLA-governed support, 24/7 proactive monitoring, incident management, and continuous ERP performance tuning.',
-                  image: '/sap_service_card_support_fullhd.jpg',
+                  image: '/exact_women.jpg',
                   badge: 'SAP SERVICES'
                 },
                 {
@@ -908,7 +908,7 @@ export const ConceptEnterprise: React.FC = () => {
                   id: 'sap-integration-btp',
                   title: 'SAP Integration & BTP',
                   desc: 'Seamlessly bridge SAP with third-party software, cloud platforms, e-commerce stores, logistics APIs, and SAP BTP extensions.',
-                  image: '/sap_service_card_integration_fullhd.jpg',
+                  image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80',
                   badge: 'SAP SERVICES'
                 },
                 {

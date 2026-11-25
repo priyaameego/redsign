@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import {
   Phone,
   Mail,
@@ -13,15 +14,24 @@ import {
 import { COMPANY_INFO, SERVICES, TRAINING_MODULES } from '../data/siteData';
 
 export const ContactPage: React.FC = () => {
+  const [searchParams] = useSearchParams();
+  const serviceParam = searchParams.get('service');
+
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     fullName: '',
     workEmail: '',
     phoneNumber: '',
     companyName: '',
-    interestType: 'sap-consulting',
+    interestType: serviceParam || 'sap-rollout',
     message: ''
   });
+
+  useEffect(() => {
+    if (serviceParam) {
+      setFormData(prev => ({ ...prev, interestType: serviceParam }));
+    }
+  }, [serviceParam]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -200,19 +210,31 @@ export const ContactPage: React.FC = () => {
 
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                      Area of Interest
+                      Service / Solution Area of Interest *
                     </label>
                     <select
                       value={formData.interestType}
                       onChange={(e) => setFormData({ ...formData, interestType: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-600 focus:ring-1 focus:ring-blue-600 outline-none text-sm bg-white"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-600 focus:ring-1 focus:ring-blue-600 outline-none text-sm bg-white font-medium text-slate-800"
                     >
-                      <option value="sap-rollout">SAP Rollout & Clean Core Implementation</option>
-                      <option value="sap-support">SAP 24/7 SLA Support & Optimization</option>
-                      <option value="sap-integration">SAP CPI / Integration & E-Invoice Bridge</option>
-                      <option value="sap-training">Corporate / Individual SAP Training Program</option>
-                      <option value="custom-erp">Custom CRM / ERP & App Development</option>
-                      <option value="other">General Advisory & Partnership</option>
+                      <optgroup label="SAP Enterprise Services (All Modules)">
+                        {SERVICES.filter((s) => s.category === 'SAP Services').map((service) => (
+                          <option key={service.slug} value={service.slug}>
+                            {service.title}
+                          </option>
+                        ))}
+                      </optgroup>
+                      <optgroup label="Enterprise & Cloud Solutions">
+                        {SERVICES.filter((s) => s.category !== 'SAP Services').map((service) => (
+                          <option key={service.slug} value={service.slug}>
+                            {service.title}
+                          </option>
+                        ))}
+                      </optgroup>
+                      <optgroup label="Workforce Training & Strategic Advisory">
+                        <option value="sap-training">Corporate / Individual SAP Training Program</option>
+                        <option value="general-advisory">General Advisory & Strategic Partnership</option>
+                      </optgroup>
                     </select>
                   </div>
 

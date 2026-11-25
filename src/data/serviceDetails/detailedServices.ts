@@ -62,14 +62,14 @@ export const DETAILED_SERVICES_MAP: Record<string, DetailedService> = {
     heroHeadline: 'Multi-Location Enterprise Expansion',
     heroHighlight: 'Through Disciplined SAP Rollout',
     heroTagline: 'Scale verified corporate templates to international subsidiaries, newly acquired operating entities, and multi-plant hubs with zero operational disruption.',
-    heroImage: '/sap_service_card_rollout_fullhd.jpg',
+    heroImage: '/skyscraper_hd.jpg',
     secondaryImage: '/hero_sap_consulting_1.jpg',
     montageImage: '/zisantech_collaborative_consulting.jpg',
     sliderSlides: [
       {
         title: 'Global Core Template Harmonization',
         subtitle: 'Standardize Corporate Master Governance Across Multi-Entity Facilities',
-        image: '/sap_service_card_rollout_fullhd.jpg',
+        image: '/skyscraper_hd.jpg',
         badge: 'Template Governance',
         metric: '100%',
         metricLabel: 'Chart of Accounts Alignment',
@@ -223,13 +223,13 @@ export const DETAILED_SERVICES_MAP: Record<string, DetailedService> = {
     heroHeadline: '24/7 SLA-Governed Operational Continuity',
     heroHighlight: 'Through Expert SAP AMS Support',
     heroTagline: 'Protect your mission-critical ERP environment with proactive health monitoring, rapid ticket resolution, and continuous performance tuning.',
-    heroImage: '/sap_service_card_support_fullhd.jpg',
+    heroImage: '/exact_women.jpg',
     secondaryImage: '/sap_service_support_hd.jpg',
     sliderSlides: [
       {
         title: 'L1–L3 SLA-Governed Support Matrix',
         subtitle: 'Round-the-Clock Functional & Technical Incident Resolution',
-        image: '/sap_service_card_support_fullhd.jpg',
+        image: '/exact_women.jpg',
         badge: 'Incident Management',
         metric: '99.9%',
         metricLabel: 'SLA Adherence Rate',
@@ -271,7 +271,7 @@ export const DETAILED_SERVICES_MAP: Record<string, DetailedService> = {
     overviewLead: 'Enterprise ERP landscapes cannot afford transactional bottlenecks, background job failures, or delayed period-end financial closings.',
     overviewBody: [
       'ZisanTech Solutions delivers enterprise-grade SAP Application Management Services (AMS) designed to protect operational stability, elevate user productivity, and optimize system total cost of ownership.',
-      'Our certified functional and technical consultants provide round-the-clock support across all core modules—including FICO, MM, SD, PP, PM, and QM—operating under strict, transparent Service Level Agreements.',
+      'Our expert functional and technical consultants provide round-the-clock support across all core modules—including FICO, MM, SD, PP, PM, and QM—operating under strict, transparent Service Level Agreements.',
       'Beyond routine ticket clearing, we focus on continuous preventive maintenance: analyzing recurring incident dumps, fine-tuning background processing, and implementing minor functional enhancements that drive ongoing business efficiency.'
     ],
     pillarsHeading: 'Core Pillars of Enterprise SAP AMS',
@@ -395,7 +395,7 @@ export const DETAILED_SERVICES_MAP: Record<string, DetailedService> = {
         metricLabel: 'Faster Order-to-Cash Velocity',
         points: [
           'Real-time process mining directly on historical transactional data',
-          'Benchmark company processes against certified SAP Best Practices',
+          'Benchmark company processes against proven SAP Best Practices',
           'Targeted recommendations for operational simplification before migration'
         ]
       },
@@ -431,7 +431,7 @@ export const DETAILED_SERVICES_MAP: Record<string, DetailedService> = {
     overviewLead: 'RISE with SAP is not just a technical hosting migration; it is a holistic business reimagination that replaces legacy customization burdens with continuous innovation.',
     overviewBody: [
       'ZisanTech Solutions serves as your trusted advisory and implementation partner on the journey to SAP S/4HANA Cloud via RISE with SAP. We structure, de-risk, and execute your transition from on-premise ECC or legacy ERP systems.',
-      'Our certified cloud architects leverage SAP Signavio for process mining and gap analysis, identifying real operational bottlenecks before code is ever touched. We guide organizations toward a sustainable "clean-core" strategy, decoupling custom extensions onto the SAP Business Technology Platform.',
+      'Our senior cloud architects leverage SAP Signavio for process mining and gap analysis, identifying real operational bottlenecks before code is ever touched. We guide organizations toward a sustainable "clean-core" strategy, decoupling custom extensions onto the SAP Business Technology Platform.',
       'With unified contract governance covering cloud software, underlying infrastructure (AWS, Azure, GCP), and technical managed services, we guarantee faster time-to-value and predictable total cost of ownership.'
     ],
     pillarsHeading: 'The Strategic Tenets of RISE with SAP',
@@ -525,7 +525,7 @@ export const DETAILED_SERVICES_MAP: Record<string, DetailedService> = {
       }
     ],
     whyPartnerTitle: 'Why Partner with ZisanTech for RISE with SAP?',
-    whyPartnerSubtitle: 'Strategic vision backed by certified engineering across enterprise cloud migrations.',
+    whyPartnerSubtitle: 'Strategic vision backed by enterprise engineering across enterprise cloud migrations.',
     whyCards: [
       { title: 'Clean-Core Delivery Methodology', desc: 'Protect future flexibility by strictly preventing technical debt from infiltrating your new cloud ERP.' },
       { title: 'Proven Process Mining Expertise', desc: 'Direct experience translating SAP Signavio insights into tangible reduction in order-to-cash cycle times.' },
@@ -703,13 +703,13 @@ export const DETAILED_SERVICES_MAP: Record<string, DetailedService> = {
     heroHeadline: 'Connected Enterprise Architecture',
     heroHighlight: 'Through SAP Integration Suite & BTP',
     heroTagline: 'Seamlessly bridge your SAP core with third-party cloud platforms, SaaS solutions, logistics APIs, and bespoke side-by-side extensions.',
-    heroImage: '/sap_service_card_integration_fullhd.jpg',
-    secondaryImage: '/zisantech_cloud_integration_modern.jpg',
+    heroImage: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80',
+    secondaryImage: '/photo-1504384308090-c894fdcc538d.jpg',
     sliderSlides: [
       {
         title: 'SAP Integration Suite (CPI) Flows',
         subtitle: 'Enterprise Orchestration Across Cloud SaaS and On-Premise Endpoints',
-        image: '/sap_service_card_integration_fullhd.jpg',
+        image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80',
         badge: 'Integration Suite',
         metric: '100M+',
         metricLabel: 'Monthly API Calls Processed',
@@ -722,7 +722,7 @@ export const DETAILED_SERVICES_MAP: Record<string, DetailedService> = {
       {
         title: 'Decoupled Side-by-Side Cloud Apps',
         subtitle: 'Build Custom Applications on SAP BTP Preserving Standard ERP Code',
-        image: '/zisantech_cloud_integration_modern.jpg',
+        image: '/photo-1504384308090-c894fdcc538d.jpg',
         badge: 'BTP Extensibility',
         metric: 'Zero Core Mods',
         metricLabel: 'Permanent Upgrade Readiness',
@@ -735,7 +735,7 @@ export const DETAILED_SERVICES_MAP: Record<string, DetailedService> = {
       {
         title: 'Direct Banking & Statutory Connectors',
         subtitle: 'Host-to-Host Bank Rails, Real-Time Payouts & Automated Tax Portals',
-        image: '/cloud_integration_3d_hub.jpg',
+        image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80',
         badge: 'Banking & Statutory',
         metric: 'Real-Time',
         metricLabel: 'Bank Ledger Reconciliation',
@@ -751,7 +751,7 @@ export const DETAILED_SERVICES_MAP: Record<string, DetailedService> = {
     overviewLead: 'Modern enterprises depend on dozens of specialized platforms. Operating in data silos slows operations and introduces costly manual errors.',
     overviewBody: [
       'ZisanTech Solutions architect enterprise connectivity pipelines utilizing the SAP Business Technology Platform (BTP) and SAP Integration Suite. We eliminate operational data silos and build resilient real-time interfaces without modifying standard SAP code.',
-      'Our certified integration engineers build high-throughput connections across cloud and on-premise endpoints—including Salesforce, HubSpot, Shopify, banking payment rails, logistics providers, and statutory compliance portals.',
+      'Our expert integration engineers build high-throughput connections across cloud and on-premise endpoints—including Salesforce, HubSpot, Shopify, banking payment rails, logistics providers, and statutory compliance portals.',
       'Leveraging SAP Cloud Integration (CPI), Event Mesh, API Management, and the Cloud Application Programming (CAP) model, we keep your enterprise core clean and future-ready.'
     ],
     pillarsHeading: 'Pillars of Enterprise Integration & BTP',
@@ -849,7 +849,7 @@ export const DETAILED_SERVICES_MAP: Record<string, DetailedService> = {
     whyCards: [
       { title: 'Clean-Core Preservation', desc: 'Keep standard ERP code completely pristine by building custom capabilities exclusively on SAP BTP.' },
       { title: 'Zero Message Loss Architecture', desc: 'Resilient event-driven queues ensure transactional records are never dropped, even during partner outages.' },
-      { title: 'Deep Multi-Platform Proficiency', desc: 'Certified integration experts connecting SAP smoothly with Salesforce, Shopify, AWS, and enterprise banking.' },
+      { title: 'Deep Multi-Platform Proficiency', desc: 'Expert integration specialists connecting SAP smoothly with Salesforce, Shopify, AWS, and enterprise banking.' },
       { title: 'Rapid Pre-Packaged Connectors', desc: 'Accelerate deployment schedules using our verified integration accelerators for statutory and bank feeds.' }
     ]
   },
@@ -1024,7 +1024,7 @@ export const DETAILED_SERVICES_MAP: Record<string, DetailedService> = {
     heroHighlight: 'Powered by SAP Joule & Intelligent AI',
     heroTagline: 'Infuse artificial intelligence, machine learning, and robotic process automation into core ERP transactions to eliminate repetitive human overhead.',
     heroImage: '/sap_service_card_einvoice_fullhd.jpg',
-    secondaryImage: '/cloud_integration_3d_hub.jpg',
+    secondaryImage: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80',
     sliderSlides: [
       {
         title: 'Intelligent Document Processing (IDP)',
@@ -1042,7 +1042,7 @@ export const DETAILED_SERVICES_MAP: Record<string, DetailedService> = {
       {
         title: 'Automated GST & E-Way Bill Compliance',
         subtitle: 'Instantaneous Government Portal Handshake for Every Outbound Shipment',
-        image: '/cloud_integration_3d_hub.jpg',
+        image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80',
         badge: 'Statutory Auto',
         metric: 'Instant',
         metricLabel: 'IRN & QR Code Generation',
@@ -1055,7 +1055,7 @@ export const DETAILED_SERVICES_MAP: Record<string, DetailedService> = {
       {
         title: 'SAP Joule Generative AI Assistant',
         subtitle: 'Context-Aware AI Copilot Built Directly into Core Enterprise Workflows',
-        image: '/zisantech_target_earth_front.jpg',
+        image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80',
         badge: 'Joule Copilot',
         metric: '24/7',
         metricLabel: 'Autonomous Business Insights',
@@ -1503,13 +1503,13 @@ export const DETAILED_SERVICES_MAP: Record<string, DetailedService> = {
     heroHeadline: 'High-Conversion Digital Commerce',
     heroHighlight: 'Through Enterprise E-Commerce Solutions',
     heroTagline: 'Build scalable B2B distributor portals and modern B2C digital storefronts tightly integrated with back-end ERP inventory and automated logistics booking.',
-    heroImage: '/cloud_integration_3d_hub.jpg',
+    heroImage: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80',
     secondaryImage: '/cand_workspace.jpg',
     sliderSlides: [
       {
         title: 'B2B Distributor Wholesale Portals',
         subtitle: 'Tiered Contract Pricing, Credit Limits & Self-Service Order Matrices',
-        image: '/cloud_integration_3d_hub.jpg',
+        image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80',
         badge: 'B2B Commerce',
         metric: '24/7',
         metricLabel: 'Dealer Self-Service Ordering',
@@ -2535,7 +2535,7 @@ export const DETAILED_SERVICES_MAP: Record<string, DetailedService> = {
     overviewLead: 'Manual data entry into tax portals creates bottlenecks, introduces human error, and exposes enterprises to heavy non-compliance penalties.',
     overviewBody: [
       'Regulatory authorities mandate strict compliance standards for high-turnover enterprises, requiring real-time registration of B2B transactions with official government gateways.',
-      'ZisanTech Solutions delivers a robust, certified SAP integration solution that embeds statutory compliance directly into your daily transactional workflow. Our connector operates seamlessly inside SAP ECC 6.0 and S/4HANA, executing instantaneous API exchanges with the GST Invoice Registration Portal (IRP) and NIC without altering standard sales billing processes.'
+      'ZisanTech Solutions delivers a robust, enterprise SAP integration solution that embeds statutory compliance directly into your daily transactional workflow. Our connector operates seamlessly inside SAP ECC 6.0 and S/4HANA, executing instantaneous API exchanges with the GST Invoice Registration Portal (IRP) and NIC without altering standard sales billing processes.'
     ],
     pillarsHeading: 'Pillars of Automated Statutory Tax Compliance',
     pillars: [

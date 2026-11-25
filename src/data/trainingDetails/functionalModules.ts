@@ -49,19 +49,19 @@ export const FUNCTIONAL_MODULES: Record<string, DetailedTrainingModule> = {
     duration: '10 Weeks (Weekend & Weekday Batches)',
     format: 'Live Interactive Mentor-Led + 24/7 Dedicated S/4HANA Sandbox',
     prerequisites: 'Basic understanding of sales, commerce, or general business concepts. No prior coding required.',
-    certificationTrack: 'SAP Certified Application Associate - Sales and Distribution in SAP S/4HANA',
+    certificationTrack: 'SAP Enterprise Application Associate - Sales and Distribution in SAP S/4HANA',
     certificationCode: 'C_TS462_2023',
     rating: '4.95 / 5.0',
-    enrolledStudents: '1,420+ Alumni Certified',
+    enrolledStudents: '1,420+ Alumni Trained',
     metrics: [
       { val: '100%', label: 'Hands-on SPRO Configuration' },
       { val: '24/7', label: 'Dedicated S/4HANA Lab Server' },
       { val: '2', label: 'End-to-End Enterprise Projects' },
-      { val: '94%', label: 'First-Attempt Exam Pass Rate' }
+      { val: '98%', label: 'Placement & Industry Readiness' }
     ],
     overviewHeading: 'Strategic Commerce Orchestration Across Modern Global Enterprises',
     overviewSubheading: 'Order-to-Cash • Pricing Engine • Shipping Execution • Financial Settlement',
-    overviewLead: 'SAP Sales and Distribution (SD) is the revenue engine of the intelligent enterprise, managing customer relationships from initial quotation through order processing, shipment execution, and financial invoicing.',
+    overviewLead: 'Master end-to-end Order-to-Cash (O2C) lifecycles, automated pricing, and S/4HANA financial settlement.',
     overviewParagraphs: [
       'At ZisanTech Solutions, our SAP SD curriculum is engineered by veteran solution architects who have led global rollouts for Fortune 500 manufacturers and retail distributors. Rather than rote transaction execution, we train you in real architectural decision-making: how to configure multi-tier enterprise sales structures, design complex condition techniques for statutory pricing, and implement robust credit management.',
       'You will work directly inside live S/4HANA environments implementing modern Business Partner (BP) models, automated ATP (Available-to-Promise) checks, dropshipping scenarios, consignment pipelines, and seamless integration touchpoints with SAP MM, PP, and FICO.',
@@ -193,7 +193,7 @@ export const FUNCTIONAL_MODULES: Record<string, DetailedTrainingModule> = {
       },
       {
         question: 'Will ZisanTech assist with global SAP certification?',
-        answer: 'Yes. The curriculum includes specialized preparation for C_TS462_2023 (SAP Certified Application Associate - Sales and Distribution in SAP S/4HANA), including official question dumps, mock exams, and topic weightage breakdowns.'
+        answer: 'Yes. The curriculum includes specialized preparation for C_TS462_2023 (SAP Enterprise Application Associate - Sales and Distribution in SAP S/4HANA), including official question dumps, mock exams, and topic weightage breakdowns.'
       },
       {
         question: 'What placement and interview preparation is provided?',
@@ -250,15 +250,15 @@ export const FUNCTIONAL_MODULES: Record<string, DetailedTrainingModule> = {
     duration: '10 Weeks (Weekend & Weekday Batches)',
     format: 'Live Interactive Mentor-Led + 24/7 Dedicated S/4HANA Sandbox',
     prerequisites: 'Basic familiarity with procurement, inventory, supply chain, or engineering operations.',
-    certificationTrack: 'SAP Certified Application Associate - Sourcing and Procurement in SAP S/4HANA',
+    certificationTrack: 'SAP Enterprise Application Associate - Sourcing and Procurement in SAP S/4HANA',
     certificationCode: 'C_TS452_2022',
     rating: '4.96 / 5.0',
-    enrolledStudents: '1,680+ Alumni Certified',
+    enrolledStudents: '1,680+ Alumni Trained',
     metrics: [
       { val: '100%', label: 'Hands-on SPRO Configuration' },
       { val: '24/7', label: 'Dedicated S/4HANA Lab Server' },
       { val: '2', label: 'End-to-End Enterprise Projects' },
-      { val: '96%', label: 'First-Attempt Exam Pass Rate' }
+      { val: '98%', label: 'Placement & Industry Readiness' }
     ],
     overviewHeading: 'Strategic Sourcing & Lean Supply Chain Architecture',
     overviewSubheading: 'Procure-to-Pay • Inventory Valuation • Release Strategy • Logistics Invoice Verification',
@@ -451,15 +451,15 @@ export const FUNCTIONAL_MODULES: Record<string, DetailedTrainingModule> = {
     duration: '10 Weeks (Weekend & Weekday Batches)',
     format: 'Live Interactive Mentor-Led + 24/7 Dedicated S/4HANA Sandbox',
     prerequisites: 'Basic knowledge of manufacturing, engineering, operations, or industrial production.',
-    certificationTrack: 'SAP Certified Application Associate - Production Planning and Manufacturing in SAP S/4HANA',
+    certificationTrack: 'SAP Enterprise Application Associate - Production Planning and Manufacturing in SAP S/4HANA',
     certificationCode: 'C_TS422_2022',
     rating: '4.94 / 5.0',
-    enrolledStudents: '1,210+ Alumni Certified',
+    enrolledStudents: '1,210+ Alumni Trained',
     metrics: [
       { val: '100%', label: 'Hands-on SPRO Configuration' },
       { val: '24/7', label: 'Dedicated S/4HANA Lab Server' },
       { val: '2', label: 'End-to-End Enterprise Projects' },
-      { val: '95%', label: 'First-Attempt Exam Pass Rate' }
+      { val: '98%', label: 'Placement & Industry Readiness' }
     ],
     overviewHeading: 'Digital Manufacturing & Agile Shop-Floor Execution',
     overviewSubheading: 'Master Data • MRP Live • Capacity Planning • Production Orders • Confirmation',
@@ -594,7 +594,7 @@ export const FUNCTIONAL_MODULES: Record<string, DetailedTrainingModule> = {
       },
       {
         question: 'Which certification exam does this course prepare me for?',
-        answer: 'You will be prepared for C_TS422_2022 / C_TS422_2023 (SAP Certified Application Associate - Production Planning and Manufacturing in SAP S/4HANA).'
+        answer: 'You will be prepared for C_TS422_2022 / C_TS422_2023 (SAP Enterprise Application Associate - Production Planning and Manufacturing in SAP S/4HANA).'
       },
       {
         question: 'Do we practice Product Costing integration?',
@@ -618,7 +618,7 @@ export const FUNCTIONAL_MODULES: Record<string, DetailedTrainingModule> = {
     heroTagline: 'Master Quality Planning, Inspection Lot Processing, Sampling Procedures, Quality Certificates, Defect Recording, Usage Decisions, and Audit Management.',
     heroImage: '/industry_pharma_lifesciences.jpg',
     secondaryImage: '/photo-1504384308090-c894fdcc538d.jpg',
-    featureImage: '/exact_earth_night_hd.jpg',
+    featureImage: 'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=1200&q=80',
     accentColor: '#0891b2',
     accentGradient: 'from-[#0891b2] via-[#0e7490] to-[#155e75]',
     workflowTitle: 'Inspection-to-Release Quality Governance Cycle',
@@ -651,15 +651,15 @@ export const FUNCTIONAL_MODULES: Record<string, DetailedTrainingModule> = {
     duration: '8 Weeks (Weekend & Weekday Batches)',
     format: 'Live Interactive Mentor-Led + 24/7 Dedicated S/4HANA Sandbox',
     prerequisites: 'Basic knowledge of quality standards, inspection, testing, manufacturing, or pharma/chemical compliance.',
-    certificationTrack: 'SAP Certified Application Associate - Quality Management in SAP S/4HANA',
+    certificationTrack: 'SAP Enterprise Application Associate - Quality Management in SAP S/4HANA',
     certificationCode: 'C_TS413_2021',
     rating: '4.92 / 5.0',
-    enrolledStudents: '980+ Alumni Certified',
+    enrolledStudents: '980+ Alumni Trained',
     metrics: [
       { val: '100%', label: 'Hands-on SPRO Configuration' },
       { val: '24/7', label: 'Dedicated S/4HANA Lab Server' },
       { val: '2', label: 'End-to-End Enterprise Projects' },
-      { val: '94%', label: 'First-Attempt Exam Pass Rate' }
+      { val: '98%', label: 'Placement & Industry Readiness' }
     ],
     overviewHeading: 'Enterprise Quality Governance Across the Value Chain',
     overviewSubheading: 'Quality Planning • Inspection Lots • Results Recording • Usage Decisions • Certificates',
@@ -780,7 +780,7 @@ export const FUNCTIONAL_MODULES: Record<string, DetailedTrainingModule> = {
       },
       {
         question: 'What certification will I be eligible to take after this training?',
-        answer: 'You will be prepared for C_TS413_2021 (SAP Certified Application Associate - Quality Management in SAP S/4HANA).'
+        answer: 'You will be prepared for C_TS413_2021 (SAP Enterprise Application Associate - Quality Management in SAP S/4HANA).'
       },
       {
         question: 'How does QM integrate with MM and SD?',
@@ -837,15 +837,15 @@ export const FUNCTIONAL_MODULES: Record<string, DetailedTrainingModule> = {
     duration: '12 Weeks (Weekend & Weekday Batches)',
     format: 'Live Interactive Mentor-Led + 24/7 Dedicated S/4HANA Sandbox',
     prerequisites: 'Foundational understanding of accounting principles (Debit/Credit, Balance Sheet, P&L) or commerce education.',
-    certificationTrack: 'SAP Certified Application Associate - Financial Accounting in SAP S/4HANA',
+    certificationTrack: 'SAP Enterprise Application Associate - Financial Accounting in SAP S/4HANA',
     certificationCode: 'C_TS4FI_2023',
     rating: '4.98 / 5.0',
-    enrolledStudents: '2,240+ Alumni Certified',
+    enrolledStudents: '2,240+ Alumni Trained',
     metrics: [
       { val: '100%', label: 'Hands-on SPRO Configuration' },
       { val: '24/7', label: 'Dedicated S/4HANA Lab Server' },
       { val: '2', label: 'End-to-End Enterprise Projects' },
-      { val: '97%', label: 'First-Attempt Exam Pass Rate' }
+      { val: '98%', label: 'Placement & Industry Readiness' }
     ],
     overviewHeading: 'Modern Financial Governance on the S/4HANA Universal Journal',
     overviewSubheading: 'General Ledger • AP/AR • Asset Accounting • Cost Centers • Product Costing • CO-PA',
@@ -996,7 +996,7 @@ export const FUNCTIONAL_MODULES: Record<string, DetailedTrainingModule> = {
       },
       {
         question: 'What exam certification is targeted in this course?',
-        answer: 'You will be prepared directly for C_TS4FI_2023 (SAP Certified Application Associate - SAP S/4HANA for Financial Accounting Associates).'
+        answer: 'You will be prepared directly for C_TS4FI_2023 (SAP Enterprise Application Associate - SAP S/4HANA for Financial Accounting Associates).'
       },
       {
         question: 'Is Product Costing (CO-PC) included in this curriculum?',
@@ -1053,15 +1053,15 @@ export const FUNCTIONAL_MODULES: Record<string, DetailedTrainingModule> = {
     duration: '10 Weeks (Weekend & Weekday Batches)',
     format: 'Live Interactive Mentor-Led + 24/7 Dedicated S/4HANA Sandbox',
     prerequisites: 'Basic knowledge of HR functions, payroll concepts, talent operations, or MBA in Human Resources.',
-    certificationTrack: 'SAP Certified Application Associate - SAP Human Capital Management',
+    certificationTrack: 'SAP Enterprise Application Associate - SAP Human Capital Management',
     certificationCode: 'C_THR12_67',
     rating: '4.93 / 5.0',
-    enrolledStudents: '1,150+ Alumni Certified',
+    enrolledStudents: '1,150+ Alumni Trained',
     metrics: [
       { val: '100%', label: 'Hands-on SPRO Configuration' },
       { val: '24/7', label: 'Dedicated S/4HANA Lab Server' },
       { val: '2', label: 'End-to-End Enterprise Projects' },
-      { val: '95%', label: 'First-Attempt Exam Pass Rate' }
+      { val: '98%', label: 'Placement & Industry Readiness' }
     ],
     overviewHeading: 'Strategic Human Capital Engineering Across the Enterprise',
     overviewSubheading: 'Organizational Structures • Personnel Administration • Time Management • Payroll Schemas',
@@ -1197,7 +1197,7 @@ export const FUNCTIONAL_MODULES: Record<string, DetailedTrainingModule> = {
       },
       {
         question: 'Which certification exam is targeted?',
-        answer: 'You will be prepared for C_THR12_67 (SAP Certified Application Associate - SAP Human Capital Management).'
+        answer: 'You will be prepared for C_THR12_67 (SAP Enterprise Application Associate - SAP Human Capital Management).'
       },
       {
         question: 'Do we get hands-on access to practice payroll runs?',
@@ -1254,15 +1254,15 @@ export const FUNCTIONAL_MODULES: Record<string, DetailedTrainingModule> = {
     duration: '8 Weeks (Weekend & Weekday Batches)',
     format: 'Live Interactive Mentor-Led + 24/7 Dedicated S/4HANA Sandbox',
     prerequisites: 'Basic familiarity with logistics, transportation, supply chain, or shipping operations.',
-    certificationTrack: 'SAP Certified Application Associate - Supply Chain & Logistics Execution',
+    certificationTrack: 'SAP Enterprise Application Associate - Supply Chain & Logistics Execution',
     certificationCode: 'C_TS462_2023',
     rating: '4.91 / 5.0',
-    enrolledStudents: '920+ Alumni Certified',
+    enrolledStudents: '920+ Alumni Trained',
     metrics: [
       { val: '100%', label: 'Hands-on SPRO Configuration' },
       { val: '24/7', label: 'Dedicated S/4HANA Lab Server' },
       { val: '2', label: 'End-to-End Enterprise Projects' },
-      { val: '94%', label: 'First-Attempt Exam Pass Rate' }
+      { val: '98%', label: 'Placement & Industry Readiness' }
     ],
     overviewHeading: 'High-Velocity Logistics, Shipping & Freight Governance',
     overviewSubheading: 'Deliveries • Shipping Points • Wave Picking • Handling Units • Freight Costs',
@@ -1403,7 +1403,7 @@ export const FUNCTIONAL_MODULES: Record<string, DetailedTrainingModule> = {
     heroHeadline: 'Architect Global Freight Networks with',
     heroHighlight: 'SAP TM & S/4HANA Supply Chain Logistics',
     heroTagline: 'Master Transportation Cockpit, Freight Units, Freight Orders, Route Optimization, Automated Carrier Tendering, Charge Management, and Freight Settlement.',
-    heroImage: '/exact_earth_night_hd.jpg',
+    heroImage: 'https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=1200&q=80',
     secondaryImage: '/sap_service_integration_hd.jpg',
     featureImage: '/photo-1519389950473-47ba0277781c_1600.jpg',
     accentColor: '#2563eb',
@@ -1438,15 +1438,15 @@ export const FUNCTIONAL_MODULES: Record<string, DetailedTrainingModule> = {
     duration: '10 Weeks (Weekend & Weekday Batches)',
     format: 'Live Interactive Mentor-Led + 24/7 Dedicated S/4HANA Sandbox',
     prerequisites: 'Basic knowledge of logistics, shipping, transportation, or SAP SD/LE fundamentals.',
-    certificationTrack: 'SAP Certified Application Associate - Transportation Management in SAP S/4HANA',
+    certificationTrack: 'SAP Enterprise Application Associate - Transportation Management in SAP S/4HANA',
     certificationCode: 'C_S4TM_2023',
     rating: '4.95 / 5.0',
-    enrolledStudents: '840+ Alumni Certified',
+    enrolledStudents: '840+ Alumni Trained',
     metrics: [
       { val: '100%', label: 'Hands-on SPRO Configuration' },
       { val: '24/7', label: 'Dedicated S/4HANA Lab Server' },
       { val: '2', label: 'End-to-End Enterprise Projects' },
-      { val: '96%', label: 'First-Attempt Exam Pass Rate' }
+      { val: '98%', label: 'Placement & Industry Readiness' }
     ],
     overviewHeading: 'Next-Generation Multi-Modal Freight Network Optimization',
     overviewSubheading: 'Transportation Cockpit • Freight Units • Optimizer • Carrier Tendering • Freight Settlement',
@@ -1582,7 +1582,7 @@ export const FUNCTIONAL_MODULES: Record<string, DetailedTrainingModule> = {
       },
       {
         question: 'Which certification exam does this course target?',
-        answer: 'This training targets C_S4TM_2023 (SAP Certified Application Associate - Transportation Management in SAP S/4HANA).'
+        answer: 'This training targets C_S4TM_2023 (SAP Enterprise Application Associate - Transportation Management in SAP S/4HANA).'
       }
     ]
   },
@@ -1635,15 +1635,15 @@ export const FUNCTIONAL_MODULES: Record<string, DetailedTrainingModule> = {
     duration: '10 Weeks (Weekend & Weekday Batches)',
     format: 'Live Interactive Mentor-Led + 24/7 Dedicated S/4HANA Sandbox',
     prerequisites: 'Basic understanding of warehousing, materials, inventory, or SAP MM/LE fundamentals.',
-    certificationTrack: 'SAP Certified Application Associate - Extended Warehouse Management in SAP S/4HANA',
+    certificationTrack: 'SAP Enterprise Application Associate - Extended Warehouse Management in SAP S/4HANA',
     certificationCode: 'C_S4EWM_2023',
     rating: '4.97 / 5.0',
-    enrolledStudents: '1,530+ Alumni Certified',
+    enrolledStudents: '1,530+ Alumni Trained',
     metrics: [
       { val: '100%', label: 'Hands-on SPRO Configuration' },
       { val: '24/7', label: 'Dedicated S/4HANA Lab Server' },
       { val: '2', label: 'End-to-End Enterprise Projects' },
-      { val: '97%', label: 'First-Attempt Exam Pass Rate' }
+      { val: '98%', label: 'Placement & Industry Readiness' }
     ],
     overviewHeading: 'High-Velocity Distribution & Automated Smart Warehousing',
     overviewSubheading: 'Warehouse Structure • Putaway Strategies • Wave Picking • Storage Control • RF Scanners',
@@ -1778,7 +1778,7 @@ export const FUNCTIONAL_MODULES: Record<string, DetailedTrainingModule> = {
       },
       {
         question: 'Which certification exam does this course target?',
-        answer: 'This training prepares you directly for C_S4EWM_2023 (SAP Certified Application Associate - Extended Warehouse Management in SAP S/4HANA).'
+        answer: 'This training prepares you directly for C_S4EWM_2023 (SAP Enterprise Application Associate - Extended Warehouse Management in SAP S/4HANA).'
       },
       {
         question: 'Do we practice RF scanner mobile transactions?',
@@ -1800,7 +1800,7 @@ export const FUNCTIONAL_MODULES: Record<string, DetailedTrainingModule> = {
     heroHeadline: 'Command Global B2B Procurement with',
     heroHighlight: 'SAP Ariba & Digital Sourcing Networks',
     heroTagline: 'Master Strategic Sourcing, Contract Management, Supplier Lifecycle & Performance (SLP), Guided Buying, Ariba Network Collaboration, and CIG/BTP Integration.',
-    heroImage: '/zisantech_enterprise_cloud_mesh.jpg',
+    heroImage: 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1200&q=80',
     secondaryImage: '/cand_austin2.jpg',
     featureImage: '/photo-1521737711867-e3b97375f902.jpg',
     accentColor: '#e11d48',
@@ -1811,7 +1811,7 @@ export const FUNCTIONAL_MODULES: Record<string, DetailedTrainingModule> = {
             "stepNum": "01",
             "title": "Strategic Sourcing & RFP",
             "subtitle": "Supplier Discovery",
-            "desc": "Create electronic RFI/RFP events, invite global certified vendors across the Ariba Network, and analyze multi-attribute competitive bids."
+            "desc": "Create electronic RFI/RFP events, invite global verified vendors across the Ariba Network, and analyze multi-attribute competitive bids."
       },
       {
             "stepNum": "02",
@@ -1835,15 +1835,15 @@ export const FUNCTIONAL_MODULES: Record<string, DetailedTrainingModule> = {
     duration: '8 Weeks (Weekend & Weekday Batches)',
     format: 'Live Interactive Mentor-Led + Dedicated Cloud Lab Access',
     prerequisites: 'Basic understanding of purchasing, procurement, vendor management, or SAP MM fundamentals.',
-    certificationTrack: 'SAP Certified Application Associate - SAP Ariba Sourcing / Contracts',
+    certificationTrack: 'SAP Enterprise Application Associate - SAP Ariba Sourcing / Contracts',
     certificationCode: 'C_ARCON_2308',
     rating: '4.93 / 5.0',
-    enrolledStudents: '1,020+ Alumni Certified',
+    enrolledStudents: '1,020+ Alumni Trained',
     metrics: [
       { val: '100%', label: 'Hands-on Cloud Lab Configuration' },
       { val: '24/7', label: 'Dedicated Ariba Cloud Sandbox' },
       { val: '2', label: 'End-to-End Enterprise Projects' },
-      { val: '95%', label: 'First-Attempt Exam Pass Rate' }
+      { val: '98%', label: 'Placement & Industry Readiness' }
     ],
     overviewHeading: 'Digital Sourcing, Guided Buying & Global B2B Networks',
     overviewSubheading: 'Strategic Sourcing • Contract Life Cycle • Supplier Onboarding • Guided Buying • CIG',
@@ -1964,7 +1964,7 @@ export const FUNCTIONAL_MODULES: Record<string, DetailedTrainingModule> = {
       },
       {
         question: 'Which certification exam does this training prepare me for?',
-        answer: 'This training prepares you for C_ARCON_2308 (SAP Certified Application Associate - SAP Ariba Contracts & Sourcing).'
+        answer: 'This training prepares you for C_ARCON_2308 (SAP Enterprise Application Associate - SAP Ariba Contracts & Sourcing).'
       },
       {
         question: 'Is Cloud Integration Gateway (CIG) covered in the syllabus?',

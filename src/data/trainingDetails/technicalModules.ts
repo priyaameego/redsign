@@ -49,15 +49,15 @@ export const TECHNICAL_MODULES: Record<string, DetailedTrainingModule> = {
     duration: '10 Weeks (Weekend & Weekday Batches)',
     format: 'Live Interactive Mentor-Led + 24/7 Dedicated S/4HANA Sandbox',
     prerequisites: 'Basic understanding of programming logic (C, Java, Python, or SQL). Prior ABAP knowledge is not required.',
-    certificationTrack: 'SAP Certified Development Associate - ABAP with SAP NetWeaver 7.50 / S/4HANA',
+    certificationTrack: 'SAP Enterprise Development Associate - ABAP with SAP NetWeaver 7.50 / S/4HANA',
     certificationCode: 'C_TAW12_750',
     rating: '4.98 / 5.0',
-    enrolledStudents: '1,890+ Alumni Certified',
+    enrolledStudents: '1,890+ Alumni Trained',
     metrics: [
       { val: '100%', label: 'Hands-on Code & Eclipse ADT' },
       { val: '24/7', label: 'Dedicated S/4HANA Lab Server' },
       { val: '2', label: 'End-to-End Enterprise Projects' },
-      { val: '98%', label: 'First-Attempt Exam Pass Rate' }
+      { val: '98%', label: 'Placement & Industry Readiness' }
     ],
     overviewHeading: 'Modern Cloud-Ready Software Engineering on SAP HANA',
     overviewSubheading: 'Modern Syntax • Core Data Services • RAP Model • OData V4 • AMDP • Clean Core',
@@ -192,7 +192,7 @@ export const TECHNICAL_MODULES: Record<string, DetailedTrainingModule> = {
       },
       {
         question: 'What certification will I be prepared for?',
-        answer: 'You will be prepared for C_TAW12_750 (SAP Certified Development Associate - ABAP with SAP NetWeaver 7.50 / SAP BTP ABAP Environment).'
+        answer: 'You will be prepared for C_TAW12_750 (SAP Enterprise Development Associate - ABAP with SAP NetWeaver 7.50 / SAP BTP ABAP Environment).'
       },
       {
         question: 'Will I learn the ABAP RESTful Application Programming Model (RAP)?',
@@ -249,15 +249,15 @@ export const TECHNICAL_MODULES: Record<string, DetailedTrainingModule> = {
     duration: '10 Weeks (Weekend & Weekday Batches)',
     format: 'Live Interactive Mentor-Led + 24/7 Dedicated Server Root Access',
     prerequisites: 'Basic knowledge of operating systems (Linux/Windows), computer networks, databases, or IT infrastructure.',
-    certificationTrack: 'SAP Certified Technology Consultant - SAP S/4HANA System Administration',
+    certificationTrack: 'SAP Enterprise Technology Consultant - SAP S/4HANA System Administration',
     certificationCode: 'C_TADM_23',
     rating: '4.96 / 5.0',
-    enrolledStudents: '1,320+ Alumni Certified',
+    enrolledStudents: '1,320+ Alumni Trained',
     metrics: [
       { val: '100%', label: 'Hands-on Server Administration' },
       { val: '24/7', label: 'Dedicated S/4HANA Linux Sandbox' },
       { val: '2', label: 'End-to-End Enterprise Projects' },
-      { val: '97%', label: 'First-Attempt Exam Pass Rate' }
+      { val: '98%', label: 'Placement & Industry Readiness' }
     ],
     overviewHeading: 'Enterprise System Architecture, High Availability & Database Operations',
     overviewSubheading: 'NetWeaver • HANA DB Cockpit • TMS & ChaRM • User Authorizations • Performance Tuning',
@@ -392,7 +392,7 @@ export const TECHNICAL_MODULES: Record<string, DetailedTrainingModule> = {
       },
       {
         question: 'What certification will I be eligible to take?',
-        answer: 'You will be prepared directly for C_TADM_23 (SAP Certified Technology Consultant - SAP S/4HANA System Administration).'
+        answer: 'You will be prepared directly for C_TADM_23 (SAP Enterprise Technology Consultant - SAP S/4HANA System Administration).'
       },
       {
         question: 'Is SAP HANA database administration included in the training?',
@@ -414,8 +414,8 @@ export const TECHNICAL_MODULES: Record<string, DetailedTrainingModule> = {
     heroHeadline: 'Connect Disparate Enterprise Landscapes with',
     heroHighlight: 'SAP PI/PO & Process Orchestration Architecture',
     heroTagline: 'Master Enterprise Services Repository (ESR), Integration Directory (ID), Adapter Framework (IDoc, RFC, REST, SOAP, JDBC), Graphical/Java Mappings, and BPM/BRM.',
-    heroImage: '/cloud_integration_3d_hub.jpg',
-    secondaryImage: '/zisantech_cloud_integration_modern.jpg',
+    heroImage: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80',
+    secondaryImage: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80',
     featureImage: '/photo-1522202176988-66273c2fd55f_1600.jpg',
     accentColor: '#7c3aed',
     accentGradient: 'from-[#7c3aed] via-[#5b21b6] to-[#3b0764]',
@@ -449,15 +449,15 @@ export const TECHNICAL_MODULES: Record<string, DetailedTrainingModule> = {
     duration: '8 Weeks (Weekend & Weekday Batches)',
     format: 'Live Interactive Mentor-Led + 24/7 Dedicated Server Access',
     prerequisites: 'Basic knowledge of XML, Web Services, HTTP, or general software integration concepts.',
-    certificationTrack: 'SAP Certified Technology Associate - SAP Process Orchestration 7.50',
+    certificationTrack: 'SAP Enterprise Technology Associate - SAP Process Orchestration 7.50',
     certificationCode: 'C_PO_7517',
     rating: '4.91 / 5.0',
-    enrolledStudents: '890+ Alumni Certified',
+    enrolledStudents: '890+ Alumni Trained',
     metrics: [
       { val: '100%', label: 'Hands-on Integration Scenarios' },
       { val: '24/7', label: 'Dedicated PI/PO 7.5 Java Server' },
       { val: '2', label: 'End-to-End Enterprise Projects' },
-      { val: '95%', label: 'First-Attempt Exam Pass Rate' }
+      { val: '98%', label: 'Placement & Industry Readiness' }
     ],
     overviewHeading: 'Enterprise SOA Middleware & Heterogeneous System Connectivity',
     overviewSubheading: 'ESR Repository • Integration Directory • Adapter Engine • Java Mapping • BPM/BRM',
@@ -575,7 +575,7 @@ export const TECHNICAL_MODULES: Record<string, DetailedTrainingModule> = {
       },
       {
         question: 'Which certification exam does this training prepare me for?',
-        answer: 'This training prepares you for C_PO_7517 (SAP Certified Technology Associate - SAP Process Orchestration 7.50).'
+        answer: 'This training prepares you for C_PO_7517 (SAP Enterprise Technology Associate - SAP Process Orchestration 7.50).'
       },
       {
         question: 'Do we practice IDoc and REST integrations?',
@@ -597,9 +597,9 @@ export const TECHNICAL_MODULES: Record<string, DetailedTrainingModule> = {
     heroHeadline: 'Connect Cloud & On-Premise Enterprise Ecosystems with',
     heroHighlight: 'SAP CPI & BTP Integration Suite',
     heroTagline: 'Master Integration Flows (iFlows), Groovy Scripting, REST/OData/AMQP Adapters, Content Enricher, Splitter/Gather, API Management, and Open Connectors.',
-    heroImage: '/zisantech_cloud_integration_modern.jpg',
-    secondaryImage: '/cloud_integration_3d_hub.jpg',
-    featureImage: '/exact_earth_night_hd.jpg',
+    heroImage: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80',
+    secondaryImage: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d.jpg',
+    featureImage: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80',
     accentColor: '#087FE5',
     accentGradient: 'from-[#087FE5] via-[#0284c7] to-[#0369a1]',
     workflowTitle: 'SAP BTP Cloud Integration (iFlow) Lifecycle',
@@ -632,15 +632,15 @@ export const TECHNICAL_MODULES: Record<string, DetailedTrainingModule> = {
     duration: '10 Weeks (Weekend & Weekday Batches)',
     format: 'Live Interactive Mentor-Led + 24/7 Dedicated BTP Cloud Tenant',
     prerequisites: 'Basic understanding of APIs (REST/JSON, SOAP/XML), HTTP methods, or programming fundamentals.',
-    certificationTrack: 'SAP Certified Development Associate - SAP BTP Integration Suite',
+    certificationTrack: 'SAP Enterprise Development Associate - SAP BTP Integration Suite',
     certificationCode: 'C_CPE_15',
     rating: '4.99 / 5.0',
-    enrolledStudents: '2,100+ Alumni Certified',
+    enrolledStudents: '2,100+ Alumni Trained',
     metrics: [
       { val: '100%', label: 'Hands-on BTP Cloud Tenant' },
       { val: '24/7', label: 'Dedicated Integration Suite Lab' },
       { val: '2', label: 'End-to-End Enterprise Projects' },
-      { val: '98%', label: 'First-Attempt Exam Pass Rate' }
+      { val: '98%', label: 'Placement & Industry Readiness' }
     ],
     overviewHeading: 'Cloud-Native Enterprise Integration on SAP BTP',
     overviewSubheading: 'iFlows • Groovy Scripting • Content Modifiers • API Management • Open Connectors',
@@ -764,7 +764,7 @@ export const TECHNICAL_MODULES: Record<string, DetailedTrainingModule> = {
     faqs: [
       {
         question: 'Why is SAP CPI currently in such high demand?',
-        answer: 'As thousands of enterprises adopt cloud applications (S/4HANA Cloud, Ariba, SuccessFactors, Salesforce), SAP CPI on BTP is the mandatory integration backbone, creating unprecedented demand for certified consultants.'
+        answer: 'As thousands of enterprises adopt cloud applications (S/4HANA Cloud, Ariba, SuccessFactors, Salesforce), SAP CPI on BTP is the mandatory integration backbone, creating unprecedented demand for professional consultants.'
       },
       {
         question: 'Do I get hands-on access to a real SAP BTP tenant?',
@@ -772,7 +772,7 @@ export const TECHNICAL_MODULES: Record<string, DetailedTrainingModule> = {
       },
       {
         question: 'What certification exam does this training prepare me for?',
-        answer: 'This training prepares you directly for C_CPE_15 (SAP Certified Development Associate - SAP BTP Integration Suite).'
+        answer: 'This training prepares you directly for C_CPE_15 (SAP Enterprise Development Associate - SAP BTP Integration Suite).'
       },
       {
         question: 'Is Groovy scripting required for SAP CPI?',
@@ -795,7 +795,7 @@ export const TECHNICAL_MODULES: Record<string, DetailedTrainingModule> = {
     heroHighlight: 'SAP CIDS & IBP Supply Chain Analytics',
     heroTagline: 'Master Data Provisioning Agent (DP Agent), Datastores, Tasks, Processes, Data Flow Transformations, Batch Loading into SAP IBP, and Hybrid Enterprise Scheduling.',
     heroImage: '/sap_hero_slide3_analytics.jpg',
-    secondaryImage: '/zisantech_isometric_sap_map.png',
+    secondaryImage: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=1200&q=80',
     featureImage: '/photo-1531403009284-440f080d1e12.jpg',
     accentColor: '#059669',
     accentGradient: 'from-[#059669] via-[#0d9488] to-[#115e59]',
@@ -829,15 +829,15 @@ export const TECHNICAL_MODULES: Record<string, DetailedTrainingModule> = {
     duration: '8 Weeks (Weekend & Weekday Batches)',
     format: 'Live Interactive Mentor-Led + 24/7 Dedicated Server Access',
     prerequisites: 'Basic understanding of databases, SQL queries, ETL concepts, or data warehousing.',
-    certificationTrack: 'SAP Certified Application Associate - SAP IBP & Cloud Data Integration',
+    certificationTrack: 'SAP Enterprise Application Associate - SAP IBP & Cloud Data Integration',
     certificationCode: 'C_IBP_2311',
     rating: '4.92 / 5.0',
-    enrolledStudents: '780+ Alumni Certified',
+    enrolledStudents: '780+ Alumni Trained',
     metrics: [
       { val: '100%', label: 'Hands-on ETL Pipeline Builds' },
       { val: '24/7', label: 'Dedicated CIDS Sandbox Access' },
       { val: '2', label: 'End-to-End Enterprise Projects' },
-      { val: '96%', label: 'First-Attempt Exam Pass Rate' }
+      { val: '98%', label: 'Placement & Industry Readiness' }
     ],
     overviewHeading: 'High-Throughput Enterprise ETL & Data Extraction Pipelines',
     overviewSubheading: 'DP Agent • Datastores • Data Flows • Transformations • IBP Data Loading • Job Scheduling',
@@ -956,7 +956,7 @@ export const TECHNICAL_MODULES: Record<string, DetailedTrainingModule> = {
       },
       {
         question: 'Which certification exam does this training align with?',
-        answer: 'This training aligns with C_IBP_2311 (SAP Certified Application Associate - SAP IBP & Cloud Data Integration).'
+        answer: 'This training aligns with C_IBP_2311 (SAP Enterprise Application Associate - SAP IBP & Cloud Data Integration).'
       },
       {
         question: 'Do we practice live data loading into SAP IBP?',

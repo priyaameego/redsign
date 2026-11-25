@@ -69,7 +69,7 @@ export const CareerPage: React.FC = () => {
               Build Your Career with Enterprise Leaders
             </h1>
             <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-              Join a high-performance team of certified SAP consultants, solution architects, and engineering mentors delivering mission-critical transformations.
+              Join a high-performance team of expert SAP consultants, solution architects, and engineering mentors delivering mission-critical transformations.
             </p>
           </div>
         </div>

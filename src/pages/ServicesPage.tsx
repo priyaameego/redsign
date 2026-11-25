@@ -249,7 +249,7 @@ export const ServicesPage: React.FC = () => {
                   className="pt-2 flex flex-wrap items-center gap-4"
                 >
                   <Link
-                    to="/contact"
+                    to={`/contact?service=${detailedData.slug}`}
                     className="relative group overflow-hidden inline-flex items-center gap-2.5 px-8 py-4 bg-gradient-to-r from-[#087FE5] via-[#0664B5] to-[#043E7A] text-white font-bold rounded-xl text-sm shadow-xl shadow-blue-950/60 transition-all duration-300 hover:shadow-2xl hover:shadow-[#087FE5]/40 transform hover:-translate-y-1 active:translate-y-0 cursor-pointer"
                   >
                     {/* 3D Diagonal Light Sheen Sweep on Hover */}
@@ -289,13 +289,7 @@ export const ServicesPage: React.FC = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#020b1e]/90 via-[#020b1e]/25 to-transparent pointer-events-none" />
 
-                  {/* Top Floating SAP Logo */}
-                  {isSap && (
-                    <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-xl shadow-lg border border-white/30 flex items-center gap-2 z-20">
-                      <img src="/SAPlogo.webp" alt="SAP Logo" className="h-4 w-auto object-contain" />
-                      <span className="text-[11px] font-bold text-[#063B83] tracking-wider uppercase">SAP Certified</span>
-                    </div>
-                  )}
+
 
                   {/* Floating Glassmorphic SLA Badge */}
                   <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-[#03142e]/90 backdrop-blur-md border border-white/20 text-white flex items-center justify-between shadow-2xl transition-all duration-300 hover:border-[#08B9E8]/70 z-20">
@@ -309,7 +303,7 @@ export const ServicesPage: React.FC = () => {
                       </div>
                     </div>
                     <span className="text-xs font-mono font-bold text-[#08B9E8] bg-white/10 px-2.5 py-1 rounded">
-                      100% Certified
+                      100% SLA-Governed
                     </span>
                   </div>
                 </div>
@@ -397,7 +391,7 @@ export const ServicesPage: React.FC = () => {
                 <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-[#08B9E8]/35 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10" />
               </motion.div>
 
-              {/* Floating Counter Badge: 100% Certified Implementation */}
+              {/* Floating Counter Badge: 100% SLA-Governed Implementation */}
               <div className="absolute -bottom-4 left-6 z-20 bg-white/95 backdrop-blur-md py-3 px-5 rounded-2xl shadow-xl border border-slate-200/80 flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl bg-[#087FE5]/10 text-[#087FE5] flex items-center justify-center font-bold">
                   <ShieldCheck className="w-5 h-5" />
@@ -436,7 +430,7 @@ export const ServicesPage: React.FC = () => {
 
               <div className="pt-2">
                 <Link
-                  to="/contact"
+                  to={`/contact?service=${detailedData.slug}`}
                   className="inline-flex items-center gap-2 font-bold text-sm text-[#087FE5] hover:text-[#063B83] group transition-colors"
                 >
                   <span>Request an Architectural Evaluation</span>
@@ -986,7 +980,7 @@ export const ServicesPage: React.FC = () => {
             {/* Quick Consultation CTA with Dedicated High-Impact Button */}
             <div className="mt-16 sm:mt-20 text-center relative z-10">
               <Link
-                to="/contact"
+                to={`/contact?service=${detailedData.slug}`}
                 className="relative group overflow-hidden inline-flex items-center gap-3 px-10 py-4.5 bg-gradient-to-r from-[#087FE5] via-[#0284C7] to-[#08B9E8] text-white font-semibold rounded-2xl text-sm sm:text-base shadow-2xl shadow-sky-500/25 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-sky-400/40 cursor-pointer"
               >
                 {/* Sheen sweep */}

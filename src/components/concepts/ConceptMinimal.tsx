@@ -51,7 +51,7 @@ export const ConceptMinimal: React.FC = () => {
           </div>
           <div>
             <p className="text-3xl sm:text-4xl font-light text-slate-900 font-mono">{COMPANY_INFO.studentsTrained}</p>
-            <p className="text-xs uppercase tracking-wider text-slate-500 mt-1 font-mono">Certified Alumni</p>
+            <p className="text-xs uppercase tracking-wider text-slate-500 mt-1 font-mono">Alumni Trained</p>
           </div>
           <div>
             <p className="text-3xl sm:text-4xl font-light text-slate-900 font-mono">99.98%</p>
