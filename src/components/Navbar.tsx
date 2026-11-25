@@ -259,7 +259,7 @@ export const Navbar: React.FC = () => {
 
             {activeDropdown === 'services' && (
               <div
-                className="absolute left-0 top-full pt-2 z-50 animate-fade-in"
+                className="absolute left-0 top-full pt-2 z-50 animate-fade-in whitespace-normal"
                 onMouseEnter={() => handleMouseEnter('services')}
                 onMouseLeave={handleMouseLeave}
               >
@@ -340,12 +340,12 @@ export const Navbar: React.FC = () => {
 
             {activeDropdown === 'training' && (
               <div
-                className="absolute left-1/2 -translate-x-1/2 top-full pt-2 z-50 animate-fade-in"
+                className="absolute left-1/2 -translate-x-[48%] top-full pt-2 z-50 animate-fade-in whitespace-normal"
                 onMouseEnter={() => handleMouseEnter('training')}
                 onMouseLeave={handleMouseLeave}
               >
-                <div className="w-[700px] max-w-[calc(100vw-2rem)] bg-white border border-slate-200 rounded-xl shadow-2xl p-6 grid grid-cols-2 gap-6">
-                  <div>
+                <div className="w-[680px] max-w-[calc(100vw-2rem)] bg-white border border-slate-200 rounded-xl shadow-2xl p-6 grid grid-cols-2 gap-6 overflow-hidden">
+                  <div className="min-w-0">
                     <div className="flex items-center gap-2 mb-3 pb-2 border-b border-slate-100">
                       <GraduationCap className="w-4 h-4 text-[#063B83]" />
                       <h4 className="text-xs font-bold uppercase tracking-wider text-[#063B83]">Functional Modules Preview</h4>
@@ -362,7 +362,7 @@ export const Navbar: React.FC = () => {
                               setActiveDropdown(null);
                               navigate(path);
                             }}
-                            className="w-full text-left p-1.5 rounded hover:bg-[#f5f8fc] text-xs group block cursor-pointer"
+                            className="w-full text-left p-1.5 rounded hover:bg-[#f5f8fc] text-xs group block cursor-pointer min-w-0"
                           >
                             <span className="font-bold text-[#087FE5] block text-[10px]">{code}</span>
                             <span className="text-slate-700 group-hover:text-[#063B83] font-medium truncate block">{title.split(' (')[0]}</span>
@@ -372,7 +372,7 @@ export const Navbar: React.FC = () => {
                     </div>
                   </div>
 
-                  <div>
+                  <div className="min-w-0">
                     <div className="flex items-center gap-2 mb-3 pb-2 border-b border-slate-100">
                       <Cpu className="w-4 h-4 text-[#087FE5]" />
                       <h4 className="text-xs font-bold uppercase tracking-wider text-[#087FE5]">Technical Modules Preview</h4>
@@ -387,10 +387,10 @@ export const Navbar: React.FC = () => {
                                 setActiveDropdown(null);
                                 navigate(path);
                               }}
-                              className="w-full text-left block p-1.5 rounded hover:bg-[#f5f8fc] text-xs group cursor-pointer"
+                              className="w-full text-left flex items-center gap-1.5 p-1.5 rounded hover:bg-[#f5f8fc] text-xs group cursor-pointer min-w-0"
                             >
-                              <span className="font-bold text-[#063B83] mr-1.5 text-[10px]">{t.code}</span>
-                              <span className="text-slate-700 group-hover:text-[#087FE5] font-medium">{t.title}</span>
+                              <span className="font-bold text-[#063B83] text-[10px] flex-shrink-0">{t.code}</span>
+                              <span className="text-slate-700 group-hover:text-[#087FE5] font-medium truncate block flex-1" title={t.title}>{t.title}</span>
                             </button>
                           </li>
                         );
@@ -426,11 +426,11 @@ export const Navbar: React.FC = () => {
 
             {activeDropdown === 'industries' && (
               <div
-                className="absolute left-1/2 -translate-x-1/2 top-full pt-2 z-50 animate-fade-in"
+                className="absolute left-1/2 -translate-x-[62%] top-full pt-2 z-50 animate-fade-in whitespace-normal"
                 onMouseEnter={() => handleMouseEnter('industries')}
                 onMouseLeave={handleMouseLeave}
               >
-                <div className="w-[620px] max-w-[calc(100vw-2rem)] bg-white border border-slate-200 rounded-xl shadow-2xl p-6">
+                <div className="w-[600px] max-w-[calc(100vw-2rem)] bg-white border border-slate-200 rounded-xl shadow-2xl p-6 overflow-hidden">
                   <div className="flex items-center justify-between pb-3 mb-4 border-b border-slate-100">
                     <h4 className="text-xs font-bold uppercase tracking-wider text-[#063B83]">
                       We Serve Industries
@@ -448,16 +448,16 @@ export const Navbar: React.FC = () => {
                       <button
                         key={ind.id}
                         onClick={() => scrollToSection('industries')}
-                        className="w-full text-left flex items-start gap-3 p-2.5 rounded-lg hover:bg-[#f5f8fc] border border-transparent hover:border-slate-200 transition-all group cursor-pointer"
+                        className="w-full text-left flex items-start gap-3 p-2.5 rounded-lg hover:bg-[#f5f8fc] border border-transparent hover:border-slate-200 transition-all group cursor-pointer min-w-0"
                       >
                         <div className="p-2 rounded-md bg-slate-100 group-hover:bg-[#063B83] group-hover:text-white transition-colors flex-shrink-0">
                           {industryIcons[ind.id] || <Sparkles className="w-4 h-4 text-[#063B83]" />}
                         </div>
-                        <div>
-                          <p className="text-xs font-bold text-slate-800 group-hover:text-[#063B83] transition-colors">
+                        <div className="min-w-0 flex-1">
+                          <p className="text-xs font-bold text-slate-800 group-hover:text-[#063B83] transition-colors truncate">
                             {ind.name}
                           </p>
-                          <p className="text-[11px] text-slate-500 line-clamp-1 mt-0.5">
+                          <p className="text-[11px] text-slate-500 truncate mt-0.5" title={ind.tagline}>
                             {ind.tagline}
                           </p>
                         </div>
@@ -489,7 +489,7 @@ export const Navbar: React.FC = () => {
 
             {activeDropdown === 'company' && (
               <div
-                className="absolute right-0 top-full pt-2 z-50 animate-fade-in"
+                className="absolute right-0 top-full pt-2 z-50 animate-fade-in whitespace-normal"
                 onMouseEnter={() => handleMouseEnter('company')}
                 onMouseLeave={handleMouseLeave}
               >
