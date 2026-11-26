@@ -206,13 +206,13 @@ export const Navbar: React.FC = () => {
               navigate('/');
             }
           }}
-          className="flex items-center gap-2 group flex-shrink-0 cursor-pointer text-left"
+          className="flex items-center gap-2 flex-shrink-0 cursor-pointer text-left navbar-logo-btn !transform-none !shadow-none"
           aria-label="ZisanTech Home"
         >
           <img
             src="/zisantech_official_logo.png"
             alt="ZisanTech - INNOVATE • DEVELOP • GROW"
-            className="h-10 sm:h-12 w-auto object-contain transition-transform group-hover:scale-105"
+            className="h-10 sm:h-12 w-auto object-contain"
             onError={(e) => {
               const target = e.target as HTMLImageElement;
               target.src = '/zisantech_logo_transparent.png';
@@ -230,11 +230,10 @@ export const Navbar: React.FC = () => {
                 navigate('/');
               }
             }}
-            className={`px-3.5 py-2 text-sm tracking-wide whitespace-nowrap flex-shrink-0 transition-colors cursor-pointer ${
-              isHomeActive
-                ? 'font-bold text-[#063B83] border-b-2 border-[#063B83]'
-                : 'font-semibold text-slate-700 hover:text-[#063B83] border-b-2 border-transparent'
-            }`}
+            className={`px-3.5 py-2 text-sm tracking-wide whitespace-nowrap flex-shrink-0 transition-colors cursor-pointer ${isHomeActive
+              ? 'font-bold text-[#063B83] border-b-2 border-[#063B83]'
+              : 'font-semibold text-slate-700 hover:text-[#063B83] border-b-2 border-transparent'
+              }`}
           >
             Home
           </button>
@@ -247,11 +246,10 @@ export const Navbar: React.FC = () => {
           >
             <button
               onClick={() => handleDropdownClick('services', 'services')}
-              className={`px-3.5 py-2 text-sm tracking-wide whitespace-nowrap flex-shrink-0 flex items-center gap-1 transition-colors cursor-pointer ${
-                isServicesActive
-                  ? 'font-bold text-[#063B83] border-b-2 border-[#063B83]'
-                  : 'font-semibold text-slate-700 hover:text-[#063B83] border-b-2 border-transparent'
-              }`}
+              className={`px-3.5 py-2 text-sm tracking-wide whitespace-nowrap flex-shrink-0 flex items-center gap-1 transition-colors cursor-pointer ${isServicesActive
+                ? 'font-bold text-[#063B83] border-b-2 border-[#063B83]'
+                : 'font-semibold text-slate-700 hover:text-[#063B83] border-b-2 border-transparent'
+                }`}
             >
               Services
               <ChevronDown className={`w-3.5 h-3.5 flex-shrink-0 transition-transform duration-200 ${activeDropdown === 'services' ? 'rotate-180' : ''}`} />
@@ -328,11 +326,10 @@ export const Navbar: React.FC = () => {
           >
             <button
               onClick={() => handleDropdownClick('training', 'training')}
-              className={`px-3.5 py-2 text-sm tracking-wide whitespace-nowrap flex-shrink-0 flex items-center gap-1 transition-colors cursor-pointer ${
-                isTrainingActive
-                  ? 'font-bold text-[#063B83] border-b-2 border-[#063B83]'
-                  : 'font-semibold text-slate-700 hover:text-[#063B83] border-b-2 border-transparent'
-              }`}
+              className={`px-3.5 py-2 text-sm tracking-wide whitespace-nowrap flex-shrink-0 flex items-center gap-1 transition-colors cursor-pointer ${isTrainingActive
+                ? 'font-bold text-[#063B83] border-b-2 border-[#063B83]'
+                : 'font-semibold text-slate-700 hover:text-[#063B83] border-b-2 border-transparent'
+                }`}
             >
               SAP Training
               <ChevronDown className={`w-3.5 h-3.5 flex-shrink-0 transition-transform duration-200 ${activeDropdown === 'training' ? 'rotate-180' : ''}`} />
@@ -414,11 +411,10 @@ export const Navbar: React.FC = () => {
           >
             <button
               onClick={() => handleDropdownClick('industries', 'industries')}
-              className={`px-3.5 py-2 text-sm tracking-wide whitespace-nowrap flex-shrink-0 flex items-center gap-1 transition-colors cursor-pointer ${
-                isIndustriesActive
-                  ? 'font-bold text-[#063B83] border-b-2 border-[#063B83]'
-                  : 'font-semibold text-slate-700 hover:text-[#063B83] border-b-2 border-transparent'
-              }`}
+              className={`px-3.5 py-2 text-sm tracking-wide whitespace-nowrap flex-shrink-0 flex items-center gap-1 transition-colors cursor-pointer ${isIndustriesActive
+                ? 'font-bold text-[#063B83] border-b-2 border-[#063B83]'
+                : 'font-semibold text-slate-700 hover:text-[#063B83] border-b-2 border-transparent'
+                }`}
             >
               Industries
               <ChevronDown className={`w-3.5 h-3.5 flex-shrink-0 transition-transform duration-200 ${activeDropdown === 'industries' ? 'rotate-180' : ''}`} />
@@ -477,11 +473,10 @@ export const Navbar: React.FC = () => {
           >
             <button
               onClick={() => handleDropdownClick('company', 'about')}
-              className={`px-3.5 py-2 text-sm tracking-wide whitespace-nowrap flex-shrink-0 flex items-center gap-1 transition-colors cursor-pointer ${
-                isCompanyActive
-                  ? 'font-bold text-[#063B83] border-b-2 border-[#063B83]'
-                  : 'font-semibold text-slate-700 hover:text-[#063B83] border-b-2 border-transparent'
-              }`}
+              className={`px-3.5 py-2 text-sm tracking-wide whitespace-nowrap flex-shrink-0 flex items-center gap-1 transition-colors cursor-pointer ${isCompanyActive
+                ? 'font-bold text-[#063B83] border-b-2 border-[#063B83]'
+                : 'font-semibold text-slate-700 hover:text-[#063B83] border-b-2 border-transparent'
+                }`}
             >
               Company
               <ChevronDown className={`w-3.5 h-3.5 flex-shrink-0 transition-transform duration-200 ${activeDropdown === 'company' ? 'rotate-180' : ''}`} />
@@ -548,11 +543,10 @@ export const Navbar: React.FC = () => {
                 navigate('/contact');
               }
             }}
-            className={`px-3.5 py-2 text-sm tracking-wide whitespace-nowrap flex-shrink-0 transition-colors cursor-pointer ${
-              isContactActive
-                ? 'font-bold text-[#063B83] border-b-2 border-[#063B83]'
-                : 'font-semibold text-slate-700 hover:text-[#063B83] border-b-2 border-transparent'
-            }`}
+            className={`px-3.5 py-2 text-sm tracking-wide whitespace-nowrap flex-shrink-0 transition-colors cursor-pointer ${isContactActive
+              ? 'font-bold text-[#063B83] border-b-2 border-[#063B83]'
+              : 'font-semibold text-slate-700 hover:text-[#063B83] border-b-2 border-transparent'
+              }`}
           >
             Contact
           </button>
@@ -596,11 +590,10 @@ export const Navbar: React.FC = () => {
                   setMobileMenuOpen(false);
                 }
               }}
-              className={`w-full text-left block px-3 py-2 text-sm rounded ${
-                isHomeActive
-                  ? 'font-bold text-[#063B83] bg-[#f5f8fc]'
-                  : 'font-semibold text-slate-700 hover:bg-[#f5f8fc]'
-              }`}
+              className={`w-full text-left block px-3 py-2 text-sm rounded ${isHomeActive
+                ? 'font-bold text-[#063B83] bg-[#f5f8fc]'
+                : 'font-semibold text-slate-700 hover:bg-[#f5f8fc]'
+                }`}
             >
               Home
             </button>
@@ -613,11 +606,10 @@ export const Navbar: React.FC = () => {
                     navigate('/services');
                     setMobileMenuOpen(false);
                   }}
-                  className={`flex-1 text-left ${
-                    isServicesActive
-                      ? 'text-[#063B83] font-bold'
-                      : 'text-slate-800 font-semibold'
-                  }`}
+                  className={`flex-1 text-left ${isServicesActive
+                    ? 'text-[#063B83] font-bold'
+                    : 'text-slate-800 font-semibold'
+                    }`}
                 >
                   Services
                 </button>
@@ -630,9 +622,8 @@ export const Navbar: React.FC = () => {
                   aria-label="Toggle Services Submenu"
                 >
                   <ChevronDown
-                    className={`w-4 h-4 transition-transform duration-200 ${
-                      mobileServicesOpen ? 'rotate-180 text-[#087FE5]' : ''
-                    }`}
+                    className={`w-4 h-4 transition-transform duration-200 ${mobileServicesOpen ? 'rotate-180 text-[#087FE5]' : ''
+                      }`}
                   />
                 </button>
               </div>
@@ -689,18 +680,16 @@ export const Navbar: React.FC = () => {
                 className="flex items-center justify-between w-full px-3 py-2.5 text-sm rounded hover:bg-[#f5f8fc] transition-colors"
               >
                 <span
-                  className={`text-left ${
-                    isTrainingActive
-                      ? 'text-[#063B83] font-bold'
-                      : 'text-slate-800 font-semibold'
-                  }`}
+                  className={`text-left ${isTrainingActive
+                    ? 'text-[#063B83] font-bold'
+                    : 'text-slate-800 font-semibold'
+                    }`}
                 >
                   SAP Training
                 </span>
                 <ChevronDown
-                  className={`w-4 h-4 transition-transform duration-200 ${
-                    mobileTrainingOpen ? 'rotate-180 text-[#087FE5]' : 'text-slate-500'
-                  }`}
+                  className={`w-4 h-4 transition-transform duration-200 ${mobileTrainingOpen ? 'rotate-180 text-[#087FE5]' : 'text-slate-500'
+                    }`}
                 />
               </button>
 

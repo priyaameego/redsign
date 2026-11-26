@@ -126,28 +126,28 @@ export const ConceptEnterprise: React.FC = () => {
 
   const slides = [
     {
-      badge: 'INTELLIGENT ENTERPRISE SOLUTIONS',
-      line1: 'Empowering Global Enterprise',
-      highlight: 'Through Precision SAP Innovation',
-      line2: '',
-      description: 'Business-focused SAP S/4HANA implementations, cloud migration roadmaps, and continuous technical advisory tailored to dynamic enterprise workflows.',
-      bgImage: '/hero_sap_enterprise_luxury.jpg',
-      btnText: 'EXPLORE SERVICES',
-      btnLink: '#services',
-      secondaryBtnText: 'REQUEST CONSULTATION',
-      secondaryBtnLink: '#contact-cta'
-    },
-    {
       badge: 'CONNECTED CLOUD ARCHITECTURE',
       line1: 'Architecting Clean Core',
       highlight: 'With Seamless S/4HANA Cloud',
       line2: '',
       description: 'Synchronize disparate operations, streamline supplier collaboration, and connect third-party platforms with clean-core SAP integration and tailored engineering.',
-      bgImage: '/hero_sap_boardroom_luxury.jpg',
+      bgImage: '/hero.webp',
       btnText: 'VIEW SOLUTIONS',
       btnLink: '#services',
       secondaryBtnText: 'EXPLORE MODULES',
       secondaryBtnLink: '#training'
+    },
+    {
+      badge: 'INTELLIGENT ENTERPRISE SOLUTIONS',
+      line1: 'Empowering Global Enterprise',
+      highlight: 'Through Precision SAP Innovation',
+      line2: '',
+      description: 'Business-focused SAP S/4HANA implementations, cloud migration roadmaps, and continuous technical advisory tailored to dynamic enterprise workflows.',
+      bgImage: '/hero2.jpg',
+      btnText: 'EXPLORE SERVICES',
+      btnLink: '#services',
+      secondaryBtnText: 'REQUEST CONSULTATION',
+      secondaryBtnLink: '#contact-cta'
     },
     {
       badge: 'ENTERPRISE DATA & TALENT ENABLEMENT',
@@ -155,7 +155,7 @@ export const ConceptEnterprise: React.FC = () => {
       highlight: 'With Actionable SAP Intelligence',
       line2: '',
       description: 'Equipping global organizations and technology teams with real-time decision visibility, clean data pipelines, and industry-proven SAP expertise.',
-      bgImage: '/sap_hero_slide1_enterprise.jpg',
+      bgImage: '/hero3.jpg',
       btnText: 'OUR EXPERTISE',
       btnLink: '#about',
       secondaryBtnText: 'TALK TO AN ARCHITECT',
@@ -298,7 +298,7 @@ export const ConceptEnterprise: React.FC = () => {
         {/* Carousel Arrow Controls */}
         <button
           onClick={() => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)}
-          className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-black/60 hover:bg-[#087FE5] text-white flex items-center justify-center backdrop-blur-md border border-white/20 transition-all hover:scale-110 active:scale-90 cursor-pointer"
+          className="slider-arrow-btn !absolute left-2 sm:left-4 md:left-6 lg:left-8 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-black/60 hover:bg-[#087FE5] text-white flex items-center justify-center backdrop-blur-md border border-white/20 transition-all hover:scale-110 active:scale-90 cursor-pointer shadow-lg shadow-black/40"
           aria-label="Previous Slide"
         >
           <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -306,7 +306,7 @@ export const ConceptEnterprise: React.FC = () => {
 
         <button
           onClick={() => setCurrentSlide((prev) => (prev + 1) % slides.length)}
-          className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-black/60 hover:bg-[#087FE5] text-white flex items-center justify-center backdrop-blur-md border border-white/20 transition-all hover:scale-110 active:scale-90 cursor-pointer"
+          className="slider-arrow-btn !absolute right-2 sm:right-4 md:right-6 lg:right-8 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-black/60 hover:bg-[#087FE5] text-white flex items-center justify-center backdrop-blur-md border border-white/20 transition-all hover:scale-110 active:scale-90 cursor-pointer shadow-lg shadow-black/40"
           aria-label="Next Slide"
         >
           <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -658,9 +658,13 @@ export const ConceptEnterprise: React.FC = () => {
                 <div className="absolute -top-12 -right-12 w-48 h-48 bg-[#087FE5]/30 rounded-full blur-2xl pointer-events-none z-10" />
 
                 <img
-                  src="/hero_sap_boardroom_luxury.jpg"
-                  alt="ZisanTech SAP Enterprise Architecture & Digital Practice"
-                  className="w-full h-[370px] sm:h-[430px] object-cover object-center transition-all duration-700 ease-out group-hover:scale-105 group-hover:contrast-[1.03]"
+                  src="/rise-with-sap2.jpg"
+                  alt="Specialized Enterprise SAP Advisory & Digital Cloud Engineering - RISE with SAP"
+                  className="w-full h-[360px] sm:h-[420px] object-cover object-center transition-all duration-700 ease-out group-hover:scale-105 group-hover:contrast-[1.03]"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = '/hero_sap_boardroom_luxury.jpg';
+                  }}
                 />
 
                 {/* Elegant enterprise gradient overlay for depth */}
@@ -1178,7 +1182,7 @@ export const ConceptEnterprise: React.FC = () => {
               title: 'Manufacturing',
               tagline: 'END-TO-END SHOP FLOOR TO TOP FLOOR ORCHESTRATION',
               desc: 'Enabling discrete and continuous process facilities with lean manufacturing cycles, integrated production planning, machine telemetrics, and predictive maintenance.',
-              image: '/industry_steel_metallurgy.jpg',
+              image: '/manufacturing.jpg',
               titleColor: 'text-white',
               linkColor: 'text-[#38BDF8]'
             },
@@ -1187,7 +1191,7 @@ export const ConceptEnterprise: React.FC = () => {
               title: 'Retail & Textile',
               tagline: 'AGILE OMNICHANNEL FULFILLMENT & YARN-TO-GARMENT LIFECYCLE',
               desc: 'Orchestrating multi-tier textile inventories, shade-wise dye lot segregation, warehouse dispatch pipelines, and synchronized point-of-sale commerce platforms.',
-              image: '/hero_sap_slide2.jpg',
+              image: '/retail.jpg',
               titleColor: 'text-white',
               linkColor: 'text-[#38BDF8]'
             },
@@ -1196,7 +1200,7 @@ export const ConceptEnterprise: React.FC = () => {
               title: 'Oil & Gas',
               tagline: 'RESILIENT DOWNSTREAM & UPSTREAM ASSET GOVERNANCE',
               desc: 'Enforcing regulatory traceability, preventive capital plant asset maintenance, joint-venture accounting structures, and multi-entity governance protocols.',
-              image: '/skyscraper_hd.jpg',
+              image: '/gas and oil.png',
               titleColor: 'text-white',
               linkColor: 'text-[#38BDF8]'
             },
@@ -1205,7 +1209,7 @@ export const ConceptEnterprise: React.FC = () => {
               title: 'Agro Chemical',
               tagline: 'STRINGENT FORMULATION GOVERNANCE & DISTRIBUTED DEALER NETWORKS',
               desc: 'Managing active ingredient recipe formulation, hazardous raw material documentation, seasonal distribution pricing, and statutory batch genealogy.',
-              image: '/exact_earth_night_hd.jpg',
+              image: '/Agro Chemical.jpg',
               titleColor: 'text-white',
               linkColor: 'text-[#38BDF8]'
             },
@@ -1214,7 +1218,7 @@ export const ConceptEnterprise: React.FC = () => {
               title: 'Steel & Metallurgy',
               tagline: 'HIGH-VOLUME MILL LOGISTICS, HEAT TRACKING & METAL YIELDS',
               desc: 'Streamlining furnace-to-finishing logistics, heat-wise metallurgical chemistry tracking, automated weighbridge integration, and heavy plant uptime.',
-              image: '/industry_steel_metallurgy.jpg',
+              image: '/Steel & Metallurgy.webp',
               titleColor: 'text-[#38BDF8]',
               linkColor: 'text-white'
             },
@@ -1223,7 +1227,7 @@ export const ConceptEnterprise: React.FC = () => {
               title: 'Pharma & Life Sciences',
               tagline: 'GXP VALIDATED FORMULATIONS, SERIALIZATION & COLD CHAIN INTEGRITY',
               desc: 'Delivering GxP-compliant validation frameworks, automated batch release controls, clinical-grade serialization tracking, and electronic audit logs.',
-              image: '/industry_pharma_lifesciences.jpg',
+              image: '/Pharma & Life Sciences.jpg',
               titleColor: 'text-white',
               linkColor: 'text-[#38BDF8]'
             }

@@ -143,10 +143,10 @@ input[type="submit"],
 }
 
 /* 2. All CTA and Action Buttons (Buttons and styled anchor links) */
-button:not([disabled]):not(nav button):not([class*="w-full text-left"]):not([class*="w-2"]):not([class*="h-2"]):not([class*="w-3"]):not([class*="h-3"]),
-a[class*="px-"][class*="py-"]:not(nav a),
-a[class*="rounded-xl"]:not(nav a),
-a[class*="rounded-lg"]:not(nav a),
+button:not([disabled]):not(nav button):not([class*="navbar-logo"]):not([aria-label="ZisanTech Home"]):not([class*="w-full text-left"]):not([class*="w-2"]):not([class*="h-2"]):not([class*="w-3"]):not([class*="h-3"]):not([class*="absolute"]):not(.slider-arrow-btn),
+a[class*="px-"][class*="py-"]:not(nav a):not([class*="footer-logo"]):not([class*="navbar-logo"]),
+a[class*="rounded-xl"]:not(nav a):not([class*="footer-logo"]):not([class*="navbar-logo"]),
+a[class*="rounded-lg"]:not(nav a):not([class*="footer-logo"]):not([class*="navbar-logo"]),
 a[class*="rounded-full"][class*="px-"]:not(nav a),
 input[type="submit"],
 input[type="button"],
@@ -158,10 +158,10 @@ input[type="button"],
 }
 
 /* High-Impact Hover Animation: Elevation + Radiant Colored Glow */
-button:not([disabled]):not(nav button):not([class*="w-full text-left"]):not([class*="w-2"]):not([class*="h-2"]):not([class*="w-3"]):not([class*="h-3"]):hover,
-a[class*="px-"][class*="py-"]:not(nav a):hover,
-a[class*="rounded-xl"]:not(nav a):hover,
-a[class*="rounded-lg"]:not(nav a):hover,
+button:not([disabled]):not(nav button):not([class*="navbar-logo"]):not([aria-label="ZisanTech Home"]):not([class*="w-full text-left"]):not([class*="w-2"]):not([class*="h-2"]):not([class*="w-3"]):not([class*="h-3"]):not([class*="absolute"]):not(.slider-arrow-btn):hover,
+a[class*="px-"][class*="py-"]:not(nav a):not([class*="footer-logo"]):not([class*="navbar-logo"]):hover,
+a[class*="rounded-xl"]:not(nav a):not([class*="footer-logo"]):not([class*="navbar-logo"]):hover,
+a[class*="rounded-lg"]:not(nav a):not([class*="footer-logo"]):not([class*="navbar-logo"]):hover,
 a[class*="rounded-full"][class*="px-"]:not(nav a):hover,
 input[type="submit"]:hover,
 input[type="button"]:hover,
@@ -173,7 +173,7 @@ input[type="button"]:hover,
 }
 
 /* Tactile Click Response */
-button:not([disabled]):not(nav button):not([class*="w-full text-left"]):active,
+button:not([disabled]):not(nav button):not([class*="w-full text-left"]):not([class*="absolute"]):not(.slider-arrow-btn):active,
 a[class*="px-"][class*="py-"]:not(nav a):active,
 input[type="submit"]:active {
   transform: translateY(0px) scale(0.975) !important;
@@ -182,7 +182,7 @@ input[type="submit"]:active {
 }
 
 /* Dynamic Glass-Sheen Light Reflection Sweep on Hover */
-button:not([disabled]):not(nav button):not([class*="w-full text-left"]):not([class*="w-2"]):not([class*="h-2"]):not([class*="w-3"]):not([class*="h-3"])::after,
+button:not([disabled]):not(nav button):not([class*="w-full text-left"]):not([class*="w-2"]):not([class*="h-2"]):not([class*="w-3"]):not([class*="h-3"]):not([class*="absolute"]):not(.slider-arrow-btn)::after,
 a[class*="px-"][class*="py-"]:not(nav a)::after,
 a[class*="rounded-xl"]:not(nav a)::after,
 a[class*="rounded-lg"]:not(nav a)::after,
@@ -236,11 +236,16 @@ a svg:last-child {
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* 4. Safe Boundaries: Ensure navbar tabs, dropdowns, and tiny slider indicators stay stable */
+/* 4. Safe Boundaries: Ensure navbar tabs, dropdowns, logos, and tiny slider indicators stay stable */
 nav > button,
 nav > div > button,
 nav .absolute button,
 nav a,
+button[aria-label="ZisanTech Home"],
+.navbar-logo-btn,
+.footer-logo-btn,
+a[class*="footer-logo"],
+a[class*="navbar-logo"],
 button[class*="w-full text-left"],
 button[class*="w-full"][class*="text-left"],
 button[class*="w-2"],
@@ -250,12 +255,42 @@ button[class*="h-2"],
 button[class*="h-3"] {
   transform: none !important;
   box-shadow: none !important;
+  filter: none !important;
+}
+
+/* Dedicated Carousel Arrow Controls: Pin to absolute edges & center vertically */
+.slider-arrow-btn {
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  will-change: transform, background-color, box-shadow;
+}
+
+.slider-arrow-btn:hover {
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) scale(1.1) !important;
+  background-color: #087FE5 !important;
+  box-shadow: 0 0 20px rgba(8, 185, 232, 0.45) !important;
+}
+
+.slider-arrow-btn:active {
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) scale(0.92) !important;
 }
 
 nav .absolute button::after,
+button[aria-label="ZisanTech Home"]::after,
+.navbar-logo-btn::after,
+.footer-logo-btn::after,
+.slider-arrow-btn::after,
+a[class*="footer-logo"]::after,
+a[class*="navbar-logo"]::after,
 button[class*="w-full text-left"]::after,
 button[class*="w-2"]::after,
 button[class*="h-2"]::after {
   display: none !important;
+  animation: none !important;
 }
 

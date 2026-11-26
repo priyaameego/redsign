@@ -227,7 +227,7 @@ export const Footer: React.FC = () => {
                   e.preventDefault();
                   scrollTo('top');
                 }}
-                className="inline-block bg-white px-3.5 py-2 rounded-lg shadow-sm hover:opacity-95 transition-all cursor-pointer"
+                className="inline-block bg-white px-3.5 py-2 rounded-lg shadow-sm hover:opacity-95 transition-all cursor-pointer footer-logo-btn !transform-none !shadow-none"
               >
                 <img
                   src="/zisantech_official_logo.png"

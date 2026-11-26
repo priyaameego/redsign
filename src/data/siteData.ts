@@ -66,7 +66,7 @@ export const INDUSTRIES: IndustryItem[] = [
     id: 'manufacturing',
     name: 'Manufacturing',
     tagline: 'End-to-End Shop Floor to Top Floor Orchestration',
-    image: '/industry_steel_metallurgy.jpg',
+    image: '/manufacturing.jpg',
     summary: 'Empowering discrete and process manufacturers with lean production workflows, integrated supply chains, synchronized shop floor planning, and smart predictive maintenance.',
     challenges: [
       'Inventory bottlenecks & raw material lead time unpredictability',
@@ -92,7 +92,7 @@ export const INDUSTRIES: IndustryItem[] = [
     id: 'retail-textile',
     name: 'Retail & Textile',
     tagline: 'Agile Omnichannel Fulfillment & Yarn-to-Garment Lifecycle',
-    image: '/hero_sap_slide2.jpg',
+    image: '/retail.jpg',
     summary: 'Delivering unified retail ERP, multi-channel commerce sync, inventory visibility, and structured textile batch/dye-lot tracking from spinning to garment export.',
     challenges: [
       'Rapid demand fluctuations across seasonal fashion collections',
@@ -118,7 +118,7 @@ export const INDUSTRIES: IndustryItem[] = [
     id: 'oil-gas',
     name: 'Oil & Gas',
     tagline: 'Resilient Downstream & Upstream Asset Governance',
-    image: '/skyscraper_hd.jpg',
+    image: '/gas and oil.png',
     summary: 'Ensuring strict compliance, capital asset lifecycle integrity, vendor audit trails, and multi-currency fiscal consolidation for petroleum and natural gas operators.',
     challenges: [
       'Rigorous environmental, safety (EHS), and statutory tax mandates',
@@ -144,7 +144,7 @@ export const INDUSTRIES: IndustryItem[] = [
     id: 'agro-chemical',
     name: 'Agro Chemical',
     tagline: 'Stringent Formulation Governance & Distributed Dealer Networks',
-    image: '/exact_earth_night_hd.jpg',
+    image: '/Agro Chemical.jpg',
     summary: 'Accelerating formula versioning, hazardous material governance, seasonal distributor credit control, and batch-wise regulatory traceability.',
     challenges: [
       'Mandatory chemical registry compliances and hazard tracking',
@@ -170,7 +170,7 @@ export const INDUSTRIES: IndustryItem[] = [
     id: 'steel',
     name: 'Steel & Metallurgy',
     tagline: 'High-Volume Mill Logistics, Heat Tracking & Metal Yields',
-    image: '/industry_steel_metallurgy.jpg',
+    image: '/Steel & Metallurgy.webp',
     summary: 'Optimizing melt-shop to rolling-mill yields, heat-wise traceability, weighbridge integrations, and bulk commodity transit logistics.',
     challenges: [
       'Tracking heat numbers, chemical composition, and mechanical properties per slab/coil',
@@ -196,7 +196,7 @@ export const INDUSTRIES: IndustryItem[] = [
     id: 'pharma',
     name: 'Pharma & Life Sciences',
     tagline: 'GxP Validated Formulations, Serialization & Cold Chain Integrity',
-    image: '/industry_pharma_lifesciences.jpg',
+    image: '/Pharma & Life Sciences.jpg',
     summary: 'Enabling FDA 21 CFR Part 11 electronic records, batch release automation, clinical inventory monitoring, and audited track-and-trace pipelines.',
     challenges: [
       'Zero-tolerance compliance standards (GxP, 21 CFR Part 11, audit trails)',
