@@ -9,6 +9,12 @@ import { HomePage } from './pages/HomePage';
 import { AboutPage } from './pages/AboutPage';
 import { ServicesPage } from './pages/ServicesPage';
 import { IndustriesPage } from './pages/IndustriesPage';
+import { ManufacturingPage } from './pages/industries/ManufacturingPage';
+import { RetailTextilePage } from './pages/industries/RetailTextilePage';
+import { OilGasPage } from './pages/industries/OilGasPage';
+import { AgroChemicalPage } from './pages/industries/AgroChemicalPage';
+import { SteelMetallurgyPage } from './pages/industries/SteelMetallurgyPage';
+import { PharmaLifeSciencesPage } from './pages/industries/PharmaLifeSciencesPage';
 import { TrainingPage } from './pages/TrainingPage';
 import { TrainingDetailPage } from './pages/TrainingDetailPage';
 import { BlogPage } from './pages/BlogPage';
@@ -16,6 +22,7 @@ import { ContactPage } from './pages/ContactPage';
 import { CareerPage } from './pages/CareerPage';
 import { PaymentPage } from './pages/PaymentPage';
 import { GalleryPage } from './pages/GalleryPage';
+import { WhyChooseUsPage } from './pages/WhyChooseUsPage';
 
 // Admin Modules
 import { AdminLoginPage } from './pages/admin/AdminLoginPage';
@@ -48,6 +55,8 @@ const AppLayout: React.FC = () => {
 
           {/* Core Information Pages */}
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/why-choose-us" element={<WhyChooseUsPage />} />
+          <Route path="/why-choose-zisantech" element={<WhyChooseUsPage />} />
           <Route path="/career" element={<CareerPage />} />
           <Route path="/contact" element={<ContactPage />} />
 
@@ -58,6 +67,16 @@ const AppLayout: React.FC = () => {
 
           {/* Industries: "We Serve Industries" Landing & 6 Dedicated Sub-Pages */}
           <Route path="/industries" element={<IndustriesPage />} />
+          <Route path="/industries/manufacturing" element={<ManufacturingPage />} />
+          <Route path="/industries/retail-textile" element={<RetailTextilePage />} />
+          <Route path="/industries/retail" element={<RetailTextilePage />} />
+          <Route path="/industries/oil-gas" element={<OilGasPage />} />
+          <Route path="/industries/oil-and-gas" element={<OilGasPage />} />
+          <Route path="/industries/agro-chemical" element={<AgroChemicalPage />} />
+          <Route path="/industries/steel" element={<SteelMetallurgyPage />} />
+          <Route path="/industries/steel-metallurgy" element={<SteelMetallurgyPage />} />
+          <Route path="/industries/pharma" element={<PharmaLifeSciencesPage />} />
+          <Route path="/industries/pharma-life-sciences" element={<PharmaLifeSciencesPage />} />
           <Route path="/industries/:industryId" element={<IndustriesPage />} />
 
           {/* Training: 10 Functional + 5 Technical Modules */}
@@ -67,6 +86,7 @@ const AppLayout: React.FC = () => {
 
           {/* Blogs: Listing & Individual Detail Pages */}
           <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blogs" element={<BlogPage />} />
           <Route path="/blog/:id" element={<BlogPage />} />
 
           {/* Public Custom Gallery Showcase */}

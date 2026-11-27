@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import {
   GraduationCap,
   Clock,
@@ -11,8 +11,7 @@ import {
   ChevronRight,
   BookOpen,
   Award,
-  Users2,
-  Sparkles
+  Users2
 } from 'lucide-react';
 import { TRAINING_MODULES, COMPANY_INFO } from '../data/siteData';
 
@@ -38,6 +37,39 @@ const codeToSlug: Record<string, string> = {
 export const TrainingPage: React.FC = () => {
   const { category, id } = useParams<{ category?: string; id?: string }>();
   const [activeTab, setActiveTab] = useState<'all' | 'functional' | 'technical'>('all');
+  const [jumbleKey, setJumbleKey] = useState(0);
+
+  // Periodic subtle re-jumble animation for the hero banner heading
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setJumbleKey((prev) => prev + 1);
+    }, 8000);
+    return () => clearInterval(timer);
+  }, []);
+
+  // Staggered Jumble / Jump spring animation for characters
+  const letterVariants: Variants = {
+    hidden: (i: number) => ({
+      opacity: 0,
+      y: (i % 2 === 0 ? 1 : -1) * (18 + (i % 3) * 6),
+      rotate: (i % 2 === 0 ? 1 : -1) * (8 + (i % 4) * 3),
+      scale: 0.65,
+      filter: 'blur(5px)',
+    }),
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      rotate: 0,
+      scale: 1,
+      filter: 'blur(0px)',
+      transition: {
+        type: 'spring' as const,
+        damping: 11,
+        stiffness: 190,
+        delay: 0.38 + i * 0.032,
+      },
+    }),
+  };
 
   const selectedModule = id
     ? TRAINING_MODULES.find(
@@ -82,16 +114,8 @@ export const TrainingPage: React.FC = () => {
 
               <div className="flex flex-wrap items-center gap-6 pt-2 text-xs text-slate-300">
                 <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-teal-400" />
-                  <span>Duration: <strong className="text-white">{selectedModule.duration}</strong></span>
-                </div>
-                <div className="flex items-center gap-2">
                   <Laptop className="w-4 h-4 text-teal-400" />
                   <span>Format: <strong className="text-white">{selectedModule.format}</strong></span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Award className="w-4 h-4 text-teal-400" />
-                  <span>100% Placement & Sandbox Lab Support</span>
                 </div>
               </div>
             </div>
@@ -206,46 +230,169 @@ export const TrainingPage: React.FC = () => {
 
   return (
     <div className="space-y-20 pb-20">
-      <section className="bg-navy-950 text-white py-12 sm:py-16 md:py-20 border-b border-white/10 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl space-y-4">
-            <span className="text-xs font-bold uppercase tracking-wider text-teal-400 bg-teal-500/10 px-3 py-1 rounded-full border border-teal-500/30">
-              Workforce Development Practice
-            </span>
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-white font-display">
-              Enterprise SAP Training Programs
-            </h1>
-            <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-              Master end-to-end business cycles across 10 functional modules and 5 technical specializations, taught through live real-time scenario simulation and dedicated lab servers.
-            </p>
+      {/* =========================================================================
+          HERO BANNER: CINEMATIC KEN BURNS MOTION BACKGROUND & LAYER-UP TEXT ANIMATION
+         ========================================================================= */}
+      <section className="relative min-h-[500px] lg:min-h-[540px] bg-[#020b1e] text-white overflow-hidden flex items-center border-b border-white/10">
+        {/* Background Visual with Cinematic Ken Burns Slow Pan/Zoom */}
+        <motion.img
+          src="/hero_sap_boardroom_luxury.jpg"
+          alt="Enterprise SAP Training Programs"
+          animate={{
+            scale: [1.02, 1.12],
+            x: [0, -12],
+            y: [0, -6]
+          }}
+          transition={{
+            duration: 16,
+            repeat: Infinity,
+            repeatType: 'reverse',
+            ease: [0.25, 0.1, 0.25, 1]
+          }}
+          className="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.70] contrast-[1.15]"
+          onError={(e) => {
+            (e.currentTarget as HTMLImageElement).src = '/cand_workspace.jpg';
+          }}
+        />
 
-            {/* Filter Tabs */}
-            <div className="flex flex-wrap items-center gap-2 pt-4">
+        {/* Digital Transformation Multi-Layer Lighting Overlays */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#020b1e]/98 via-[#031535]/85 to-[#020b1e]/60 pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,rgba(8,127,229,0.30)_0%,transparent_65%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_75%,rgba(8,185,232,0.20)_0%,transparent_50%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#020b1e] via-transparent to-[#020b1e]/40 pointer-events-none" />
+
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20 w-full">
+          <div className="max-w-3xl lg:max-w-4xl space-y-5">
+            {/* Breadcrumb Navigation with Fade In */}
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: 'easeOut' }}
+              className="flex items-center gap-2 text-xs text-slate-300 font-medium"
+            >
+              <Link to="/" className="hover:text-white transition-colors">Home</Link>
+              <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+              <span className="text-[#08B9E8] font-bold">SAP Training</span>
+            </motion.div>
+
+            {/* Animated Pill Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.05, ease: 'easeOut' }}
+              className="flex items-center gap-3"
+            >
+              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 shadow-md">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#08B9E8] shadow-[0_0_8px_#08B9E8]" />
+                <span className="text-[11px] sm:text-xs font-bold tracking-widest text-slate-100 uppercase font-mono">
+                  Workforce Development Practice
+                </span>
+              </div>
+            </motion.div>
+
+            {/* Main Headline with Sequential Layer-Up & Jumble Animation */}
+            <div 
+              className="cursor-pointer select-none"
+              onClick={() => setJumbleKey(prev => prev + 1)}
+              title="Click to replay motion animation"
+            >
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] font-extrabold text-white leading-[1.15] tracking-tight font-outfit">
+                <motion.span
+                  initial={{ opacity: 0, y: 25, filter: 'blur(8px)' }}
+                  animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                  transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                  className="inline-block text-white mr-3 drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)]"
+                >
+                  Enterprise
+                </motion.span>
+                <span key={jumbleKey} className="inline-flex flex-wrap items-baseline">
+                  {/* "SAP Training" Jumble Characters */}
+                  <span className="inline-flex whitespace-nowrap bg-gradient-to-r from-[#38bdf8] via-[#08B9E8] to-[#60a5fa] bg-clip-text text-transparent drop-shadow-[0_2px_18px_rgba(8,185,232,0.35)]">
+                    {"SAP Training".split("").map((char, index) => (
+                      <motion.span
+                        key={`trn-${jumbleKey}-${index}`}
+                        custom={index}
+                        initial="hidden"
+                        animate="visible"
+                        variants={letterVariants}
+                        className="inline-block"
+                      >
+                        {char === " " ? "\u00A0" : char}
+                      </motion.span>
+                    ))}
+                  </span>
+
+                  <span className="mx-2.5" />
+
+                  {/* "Programs" Jumble Characters */}
+                  <span className="inline-flex whitespace-nowrap bg-gradient-to-r from-[#60a5fa] via-[#087FE5] to-[#38bdf8] bg-clip-text text-transparent drop-shadow-[0_2px_18px_rgba(8,127,229,0.35)]">
+                    {"Programs".split("").map((char, index) => (
+                      <motion.span
+                        key={`prg-${jumbleKey}-${index}`}
+                        custom={index + 12}
+                        initial="hidden"
+                        animate="visible"
+                        variants={letterVariants}
+                        className="inline-block"
+                      >
+                        {char}
+                      </motion.span>
+                    ))}
+                  </span>
+                </span>
+              </h1>
+            </div>
+
+            {/* Subtitle with Animated Reveal */}
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55, delay: 0.85 }}
+              className="text-slate-200 text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl font-normal drop-shadow-sm"
+            >
+              Master end-to-end business cycles across 10 functional modules and 5 technical specializations, taught through live real-time scenario simulation and dedicated lab servers.
+            </motion.p>
+
+            {/* Filter Tabs with Motion */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.95 }}
+              className="flex flex-wrap items-center gap-2.5 pt-2"
+            >
               <button
                 onClick={() => setActiveTab('all')}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
-                  activeTab === 'all' ? 'bg-emerald-600 text-white shadow-md' : 'bg-white/10 text-slate-300 hover:bg-white/20'
+                className={`px-4 py-2 rounded-xl text-xs font-bold transition-colors flex items-center gap-2 cursor-pointer ${
+                  activeTab === 'all'
+                    ? 'bg-[#087FE5] text-white shadow-sm'
+                    : 'bg-white/10 text-slate-200 hover:bg-white/20'
                 }`}
               >
-                All Modules (15)
+                <span>All Modules (15)</span>
               </button>
               <button
                 onClick={() => setActiveTab('functional')}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
-                  activeTab === 'functional' ? 'bg-emerald-600 text-white shadow-md' : 'bg-white/10 text-slate-300 hover:bg-white/20'
+                className={`px-4 py-2 rounded-xl text-xs font-bold transition-colors flex items-center gap-2 cursor-pointer ${
+                  activeTab === 'functional'
+                    ? 'bg-[#087FE5] text-white shadow-sm'
+                    : 'bg-white/10 text-slate-200 hover:bg-white/20'
                 }`}
               >
-                Functional Modules (10)
+                <GraduationCap className="w-3.5 h-3.5" />
+                <span>Functional Modules (10)</span>
               </button>
               <button
                 onClick={() => setActiveTab('technical')}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
-                  activeTab === 'technical' ? 'bg-emerald-600 text-white shadow-md' : 'bg-white/10 text-slate-300 hover:bg-white/20'
+                className={`px-4 py-2 rounded-xl text-xs font-bold transition-colors flex items-center gap-2 cursor-pointer ${
+                  activeTab === 'technical'
+                    ? 'bg-[#087FE5] text-white shadow-sm'
+                    : 'bg-white/10 text-slate-200 hover:bg-white/20'
                 }`}
               >
-                Technical Modules (5)
+                <Laptop className="w-3.5 h-3.5" />
+                <span>Technical Modules (5)</span>
               </button>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -276,7 +423,7 @@ export const TrainingPage: React.FC = () => {
               <div className="relative z-10">
                 <div className="flex items-center justify-between mb-4">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold font-mono uppercase bg-white/95 text-[#063B83] border border-[#087FE5]/40 shadow-sm">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#087FE5] animate-pulse" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#087FE5]" />
                     <span>{mod.code}</span>
                   </span>
                   <span className="text-xs text-slate-500 font-semibold">{mod.duration}</span>

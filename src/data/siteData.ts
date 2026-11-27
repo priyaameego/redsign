@@ -858,32 +858,32 @@ export const TRAINING_MODULES: TrainingItem[] = [
     id: 7,
     category: 'Functional Modules',
     type: 'functional',
-    title: 'SAP CCM (Create Contact Management)',
+    title: 'SAP CCM (Condition Contract Management)',
     code: 'SAP-CCM',
     slug: 'sap-ccm-training',
     url: '/trainingprogrammes/Functional Modules/7',
     image: '/sap_hero_slide2_architecture.jpg',
-    shortDesc: 'Master inbound/outbound shipments, delivery documentation, picking strategies, packing units, and carrier freight calculation.',
+    shortDesc: 'Master condition contract lifecycles, settlement management, rebate agreements, incentive structures, and operational workflow reconciliation.',
     duration: '6 - 8 Weeks',
     format: 'Live Interactive Online + Lab Sandbox Access',
     overview: [
-      'Bridge the gap between sales orders and physical shipping. Master the logistics pipeline including outbound delivery creation, wave picking, handling unit management, and transport documents.',
-      'Essential for organizations operating complex multi-modal transit and distribution networks.'
+      'Master SAP Condition Contract Management (CCM) and Settlement Management in SAP S/4HANA. Learn end-to-end rebate management, vendor and customer condition contracts, business volume determination, and settlement processing.',
+      'Essential for organizations managing high-volume rebates, commissions, royalties, and complex commercial incentive agreements.'
     ],
     targetAudience: [
-      'Logistics coordinators, shipping managers, and warehouse supervisors',
-      'SAP SD and MM consultants expanding into logistics execution'
+      'Pricing specialists, commercial contract managers, and rebate analysts',
+      'SAP SD, MM, and FICO consultants expanding into S/4HANA Settlement Management'
     ],
     coreTopics: [
-      'Outbound and Inbound Delivery Document Configuration',
-      'Picking, Packing, and Handling Unit Management (HUM)',
-      'Shipment Documents and Transportation Planning Points',
-      'Freight Cost Calculation and Settlement with Vendors',
-      'Integration between LE, SD, MM, and FI'
+      'Condition Contract Types and Settlement Document Configuration',
+      'Business Volume Determination and Eligible Criteria Setup',
+      'Customer and Vendor Rebate Agreements & Incentive Calculations',
+      'Delta Accruals and Settlement Run Execution in S/4HANA',
+      'Integration between CCM, SD, MM, and Financial Accounting (FI)'
     ],
     careerOutcomes: [
-      'SAP Logistics Execution Consultant',
-      'Freight & Shipment Systems Specialist'
+      'SAP Condition Contract Management (CCM) Consultant',
+      'SAP S/4HANA Settlement Management Specialist'
     ]
   },
   {

@@ -159,10 +159,10 @@ export const DETAILED_SERVICES_MAP: Record<string, DetailedService> = {
       { name: 'Post Go-Live Hyper-Care & Knowledge Transfer Workshops', highlight: 'Day-1 Stability' }
     ],
     deliverables: [
-      'Site-Specific Fit-Gap Analysis & Localization Blueprint',
-      'Data Cleansing & Transformation Verification Log',
-      'User Acceptance Testing (UAT) Sign-Off Protocols',
-      'Rehearsed Cutover Blackout Schedule & Stabilization Runbook'
+      'Multi-Country Localization & Statutory Tax Integration Matrix',
+      'Automated Master Data Cleansing & Financial Balance Ledger',
+      'End-to-End Cross-Functional UAT Sign-Off & SoD Audit Protocols',
+      'Rehearsed Cutover Blackout Runbook & 24/7 Hypercare Warranty'
     ],
     methodologyHeading: 'SAP Rollout Delivery Methodology',
     methodologySubheading: 'A disciplined 6-stage lifecycle engineered for zero production downtime across multi-plant deployments.',

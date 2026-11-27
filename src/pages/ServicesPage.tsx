@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
 import {
   Layers,
   Cpu,
@@ -11,7 +11,6 @@ import {
   ChevronLeft,
   FileCheck,
   Workflow,
-  Sparkles,
   PhoneCall,
   Rocket,
   TrendingUp,
@@ -104,11 +103,482 @@ const FIVE_D_FRAMEWORK = [
   },
 ];
 
+interface DeliverableMeta {
+  phase: string;
+  description: string;
+  standard: string;
+  metric: string;
+  format: string;
+}
+
+const DELIVERABLE_EXTENDED_MAP: Record<string, DeliverableMeta[]> = {
+  'sap-rollout': [
+    {
+      phase: 'PHASE 01 • ARCHITECTURAL HARMONIZATION',
+      description: 'Site-specific delta configuration matrix harmonizing Indian GST e-invoicing, statutory TDS/TCS rules, localized chart of accounts, and multi-plant business units.',
+      standard: 'SAP Activate & Statutory Matrix',
+      metric: '340+ Scope Gates Passed',
+      format: 'Executive Sign-Off Dossier'
+    },
+    {
+      phase: 'PHASE 02 • FORENSIC DATA RECONCILIATION',
+      description: 'Automated data cleansing scripts, legacy GL trial balance migration logs, and cryptographically verified opening balance reconciliation ledgers.',
+      standard: 'Checksum-Verified Ledger',
+      metric: '100% Balance Parity',
+      format: 'Forensic Audit Report'
+    },
+    {
+      phase: 'PHASE 03 • ASSURANCE & COMPLIANCE GATE',
+      description: 'Cross-functional UAT test scenario logs, Segregation of Duties (SoD) risk validation, and strict role-based authorization matrices approved by internal audit.',
+      standard: 'SOX & ISO 27001 Compliant',
+      metric: '0 High-Risk Exceptions',
+      format: 'Signed Acceptance Record'
+    },
+    {
+      phase: 'PHASE 04 • CUTOVER & HYPERCARE WARRANTY',
+      description: 'Minute-by-minute weekend cutover blackout sequence, automated rollback contingency plans, and dedicated 24/7 hypercare support warranty.',
+      standard: 'Zero Unplanned Downtime',
+      metric: '24/7 Dedicated Warranty',
+      format: 'Production Runbook & SLA'
+    }
+  ],
+  'sap-ams': [
+    {
+      phase: 'PHASE 01 • SERVICE LEVEL ARCHITECTURE',
+      description: 'Tailored enterprise SLA contract specifying 15-minute P1 emergency response, root-cause resolution covenants, and multi-tier escalation hierarchy.',
+      standard: 'ITIL v4 & ISO 20000',
+      metric: '99.9% Uptime Commitment',
+      format: 'Signed SLA Agreement'
+    },
+    {
+      phase: 'PHASE 02 • OBSERVABILITY & MONITORING',
+      description: 'Real-time incident cockpit deployment with automated system heartbeat telemetry, ABAP dump monitors, and early warning threshold alerts.',
+      standard: '24/7 Live Telemetry',
+      metric: '<15 Min Critical Response',
+      format: 'Live Portal Credentials'
+    },
+    {
+      phase: 'PHASE 03 • CONTINUOUS IMPROVEMENT',
+      description: 'Monthly executive governance reviews detailing incident trends, recurring problem ticket root cause analyses, and proactive performance tuning.',
+      standard: 'Monthly Executive Audit',
+      metric: 'Zero Repeated Incidents',
+      format: 'Boardroom Review Dossier'
+    },
+    {
+      phase: 'PHASE 04 • PREVENTIVE STABILITY',
+      description: 'Comprehensive scheduled database archiving runbook, transport management protocols, and quarterly disaster recovery simulation logs.',
+      standard: 'Proactive Health Warranty',
+      metric: '100% Backup Compliance',
+      format: 'Annual Maintenance Matrix'
+    }
+  ],
+  'rise-with-sap': [
+    {
+      phase: 'PHASE 01 • VALUE DISCOVERY & ROADMAP',
+      description: 'Boardroom-level RISE transformation business case, total cost of ownership (TCO) benchmarks, and cloud sovereign architecture roadmap.',
+      standard: 'SAP Clean Core Framework',
+      metric: '30%+ TCO Reduction Target',
+      format: 'Executive Business Case'
+    },
+    {
+      phase: 'PHASE 02 • PROCESS INTELLIGENCE BLUEPRINT',
+      description: 'SAP Signavio process mining discovery report identifying cross-departmental bottlenecks, automation candidates, and industry-standard workflows.',
+      standard: 'Signavio Process Standard',
+      metric: '45+ Process Optimizations',
+      format: 'Process Mining Dossier'
+    },
+    {
+      phase: 'PHASE 03 • CLEAN-CORE CODE REMEDIATION',
+      description: 'Custom ABAP code simplification matrix decoupling legacy Z-modifications and migrating custom business logic to SAP BTP cloud extensions.',
+      standard: 'Zero Core Modifications',
+      metric: '100% ABAP Cloud Cleanliness',
+      format: 'Clean-Core Code Registry'
+    },
+    {
+      phase: 'PHASE 04 • CLOUD CUTOVER & CERTIFICATION',
+      description: 'Near-zero downtime hyperscaler cloud migration runbook with comprehensive hypercare governance and enterprise cloud SLA certification.',
+      standard: 'Hyperscaler High Availability',
+      metric: 'Zero Business Disruption',
+      format: 'Cloud Handover Certificate'
+    }
+  ],
+  'sap-migration': [
+    {
+      phase: 'PHASE 01 • S/4HANA READINESS BLUEPRINT',
+      description: 'Full-scope system conversion assessment covering Simplification Item Catalog, sizing verification, and business partner customer-vendor integration.',
+      standard: 'SAP S/4HANA Certified',
+      metric: '100% Readiness Clearance',
+      format: 'Architecture Assessment'
+    },
+    {
+      phase: 'PHASE 02 • CODE ADAPTATION INVENTORY',
+      description: 'Algorithmic ABAP code remediation catalog eliminating obsolete database calls, adapting CDS views, and modernizing custom transaction flows.',
+      standard: 'HANA DB Optimized',
+      metric: '0 Obsolete Queries',
+      format: 'Code Remediation Log'
+    },
+    {
+      phase: 'PHASE 03 • CUTOVER DRY-RUN BENCHMARK',
+      description: 'Rehearsed production mock cutover timetables verifying data transfer throughput, downtime blackout minutes, and disaster recovery failover.',
+      standard: 'Tested Fallback Protocol',
+      metric: 'Sub-48h Cutover Window',
+      format: 'Mock Cutover Certification'
+    },
+    {
+      phase: 'PHASE 04 • FINANCIAL RECONCILIATION',
+      description: 'Forensic Universal Journal (ACDOCA) reconciliation records certifying 100% ledger balance accuracy, asset balances, and operational sign-off.',
+      standard: 'Statutory Ledger Sign-Off',
+      metric: '100% Financial Parity',
+      format: 'Signed General Ledger Audit'
+    }
+  ],
+  'sap-integration-btp': [
+    {
+      phase: 'PHASE 01 • INTEGRATION BLUEPRINT',
+      description: 'End-to-end cloud enterprise interface catalog detailing API contracts, event brokers, RFC connections, and cloud-to-ground security proxies.',
+      standard: 'SAP Integration Suite Standard',
+      metric: 'REST / OData / RFC Harmonized',
+      format: 'API Catalog & Contract Specs'
+    },
+    {
+      phase: 'PHASE 02 • RESILIENT ERROR HANDLING',
+      description: 'Automated exception handling framework with guaranteed message delivery queues, retry policies, and real-time dead-letter alerting.',
+      standard: 'Zero Message Loss SLA',
+      metric: '99.99% Message Delivery',
+      format: 'Exception Routing Runbook'
+    },
+    {
+      phase: 'PHASE 03 • ZERO-TRUST SECURITY GATEWAY',
+      description: 'Enterprise API gateway hardening with mTLS cryptographic handshakes, OAuth2 token validation, and IP whitelisting compliance audit.',
+      standard: 'ISO 27001 & mTLS Hardened',
+      metric: 'Enterprise Cryptography',
+      format: 'Security Penetration Report'
+    },
+    {
+      phase: 'PHASE 04 • PERFORMANCE & STRESS AUDIT',
+      description: 'High-concurrency stress testing certification demonstrating sub-200ms latency under peak enterprise transaction volume spikes.',
+      standard: 'Enterprise Load SLA',
+      metric: '5,000+ Req/Sec Validated',
+      format: 'Stress Test Certification'
+    }
+  ],
+  'sap-analytics': [
+    {
+      phase: 'PHASE 01 • EXECUTIVE METRIC ARCHITECTURE',
+      description: 'Tailored C-suite KPI data dictionary establishing single source of truth across finance, supply chain, and operational revenue pipelines.',
+      standard: 'Enterprise Semantic Model',
+      metric: '50+ Verified Executive KPIs',
+      format: 'KPI Governance Blueprint'
+    },
+    {
+      phase: 'PHASE 02 • REAL-TIME DATA PIPELINES',
+      description: 'Optimized SAP Datasphere and SAC calculation models delivering sub-second real-time queries over billions of transaction records.',
+      standard: 'Real-Time In-Memory Engine',
+      metric: '<1s Dashboard Latency',
+      format: 'Calculation View Registry'
+    },
+    {
+      phase: 'PHASE 03 • AUTOMATED INTELLIGENCE SUITE',
+      description: 'Scheduled automated board report distribution matrices, proactive threshold notification triggers, and mobile executive viewports.',
+      standard: 'Automated Executive Alerting',
+      metric: 'Daily Automated Delivery',
+      format: 'Executive Broadcast Schedule'
+    },
+    {
+      phase: 'PHASE 04 • ANALYST TRAINING & PLAYBOOKS',
+      description: 'Comprehensive self-service business analyst querying manuals, data lineage documentation, and long-term model governance handbooks.',
+      standard: 'Client Capability Transfer',
+      metric: '100% Internal Adoption',
+      format: 'Analyst Enablement Pack'
+    }
+  ],
+  'sap-ai-automation': [
+    {
+      phase: 'PHASE 01 • INTELLIGENT PIPELINE BLUEPRINT',
+      description: 'Architectural blueprint integrating Generative AI & machine learning models with SAP BTP AI Core and enterprise ERP workflows.',
+      standard: 'SAP Responsible AI Protocol',
+      metric: 'Clean-Core AI Architecture',
+      format: 'AI Governance Blueprint'
+    },
+    {
+      phase: 'PHASE 02 • HUMAN-IN-THE-LOOP COCKPIT',
+      description: 'Exception review interface ensuring financial approval audits, confidence score gating, and seamless human override for edge cases.',
+      standard: 'Zero Unmonitored Output',
+      metric: '99.4% Automated Accuracy',
+      format: 'Operational Cockpit Guide'
+    },
+    {
+      phase: 'PHASE 03 • STATUTORY COMPLIANCE CONNECTOR',
+      description: 'Automated invoice OCR, e-way bill verification, and statutory GST auto-reconciliation connectors with zero manual data entry.',
+      standard: '100% Tax Statute Compliant',
+      metric: '85% Processing Speedup',
+      format: 'API Connector Spec'
+    },
+    {
+      phase: 'PHASE 04 • MODEL ACCURACY SLA & BENCHMARKS',
+      description: 'Continuous model drift monitoring logs, periodic re-training workflows, and dedicated operational accuracy SLA maintenance agreements.',
+      standard: 'Sustained Model Accuracy SLA',
+      metric: '99%+ Enterprise Precision',
+      format: 'SLA Maintenance Protocol'
+    }
+  ],
+  'crm-solutions': [
+    {
+      phase: 'PHASE 01 • SALES PIPELINE ARCHITECTURE',
+      description: 'Omnichannel CRM architecture mapping lead-to-opportunity stages, custom entity schemas, and executive sales territory assignments.',
+      standard: 'Enterprise CRM Standard',
+      metric: '100% Funnel Visibility',
+      format: 'CRM Data Dictionary'
+    },
+    {
+      phase: 'PHASE 02 • DATA CLEANSING & MIGRATION',
+      description: 'Algorithmic customer master deduplication scripts, contact hierarchy consolidation, and legacy account migration balance registers.',
+      standard: 'Zero Duplicate Guarantee',
+      metric: '100% Verified Records',
+      format: 'Migration Verification Log'
+    },
+    {
+      phase: 'PHASE 03 • REVENUE FORECASTING SUITE',
+      description: 'Executive pipeline forecasting dashboards, automated lead routing workflows, and real-time quota attainment tracking telemetry.',
+      standard: 'Forecasting Accuracy SLA',
+      metric: 'Real-Time Quota Tracking',
+      format: 'Dashboard Configuration Spec'
+    },
+    {
+      phase: 'PHASE 04 • SALES TEAM ENABLEMENT',
+      description: 'Role-specific sales rep playbooks, administrator configuration manuals, and automated email/calendar synchronization runbooks.',
+      standard: 'User Adoption Standard',
+      metric: '100% Field Force Trained',
+      format: 'Sales Enablement Guide'
+    }
+  ],
+  'erp-solutions': [
+    {
+      phase: 'PHASE 01 • BUSINESS PROCESS BLUEPRINT',
+      description: 'Holistic ERP architecture blueprint unifying procurement, inventory, sales, production planning, and financial general ledger modules.',
+      standard: 'Enterprise Architecture Spec',
+      metric: 'End-to-End Workflow Sync',
+      format: 'Comprehensive Blueprint'
+    },
+    {
+      phase: 'PHASE 02 • MASTER DATA & OPENING LEDGERS',
+      description: 'Forensic master data extraction, transformation, item master valuation, and certified trial balance opening balance sign-off.',
+      standard: 'Statutory Accounting Standard',
+      metric: '100% Balance Parity',
+      format: 'Audited Opening Ledger'
+    },
+    {
+      phase: 'PHASE 03 • STATUTORY TEMPLATE SUITE',
+      description: 'Fully compliant tax invoice formats, automated e-way bill generation, delivery challans, and audited purchase requisition templates.',
+      standard: '100% GST / Fiscal Compliance',
+      metric: 'Print & Digital Sign Ready',
+      format: 'Statutory Template Pack'
+    },
+    {
+      phase: 'PHASE 04 • OPERATIONAL TRAINING PLAYBOOKS',
+      description: 'Departmental role playbooks, warehouse terminal operation guides, and comprehensive system administration handover documentation.',
+      standard: 'Zero Production Lag',
+      metric: 'Complete Staff Enablement',
+      format: 'System Handover Dossier'
+    }
+  ],
+  'e-commerce-development': [
+    {
+      phase: 'PHASE 01 • CLOUD STOREFRONT ARCHITECTURE',
+      description: 'Headless, multi-tenant digital commerce architecture with Next.js/React storefront, serverless microservices, and CDN edge caching.',
+      standard: 'PCI-DSS & SOC2 Certified',
+      metric: '99.99% Availability Target',
+      format: 'Architecture Specification'
+    },
+    {
+      phase: 'PHASE 02 • CUSTOM ADMIN COCKPIT',
+      description: 'High-efficiency catalog and order management dashboard featuring bulk price revisions, inventory tracking, and refund workflows.',
+      standard: 'Role-Based Access Control',
+      metric: 'Instant Order Management',
+      format: 'Admin User Guide'
+    },
+    {
+      phase: 'PHASE 03 • ERP & PAYMENT CONNECTORS',
+      description: 'Two-way synchronized inventory connectors, automated order push to ERP, and resilient multi-gateway checkout with fallback routing.',
+      standard: 'Zero Order Drop SLA',
+      metric: '<1s Payment Handshake',
+      format: 'Integration Connector Code'
+    },
+    {
+      phase: 'PHASE 04 • PERFORMANCE & SECURITY AUDIT',
+      description: 'Production performance certification achieving 95+ Google Core Web Vitals on mobile, SSL hardening, and automated penetration testing sign-off.',
+      standard: 'Top-Tier Core Web Vitals',
+      metric: '95+ Lighthouse Score',
+      format: 'Security & Speed Audit'
+    }
+  ],
+  'hrms-solution': [
+    {
+      phase: 'PHASE 01 • HR POLICY & GRADE MATRIX',
+      description: 'Enterprise organizational hierarchy blueprint defining salary bands, department cost centers, leave encashment rules, and promotion tracks.',
+      standard: 'Statutory Labor Law Matrix',
+      metric: '100% Policy Alignment',
+      format: 'HR Architecture Blueprint'
+    },
+    {
+      phase: 'PHASE 02 • HISTORICAL DATA MIGRATION',
+      description: 'Cleansed employee master data migration registers with complete historical attendance logs, leave balances, and tax declaration records.',
+      standard: 'Data Privacy & GDPR Compliant',
+      metric: 'Zero Record Discrepancy',
+      format: 'Migration Audit Record'
+    },
+    {
+      phase: 'PHASE 03 • AUTOMATED STATUTORY PAYROLL',
+      description: 'Automated bank salary disbursement NACHA/NEFT file generators, automated PF/ESIC computation schedules, and digital Form-16 issuance.',
+      standard: '100% On-Time Payroll SLA',
+      metric: 'Zero Payroll Calculation Lag',
+      format: 'Bank Integration Registry'
+    },
+    {
+      phase: 'PHASE 04 • EMPLOYEE SELF-SERVICE PACK',
+      description: 'Mobile-responsive employee self-service onboarding guides, manager approval workflow playbooks, and HR administration manuals.',
+      standard: 'Self-Service Adoption Standard',
+      metric: '100% Digital Onboarding',
+      format: 'HR Admin & ESS Playbook'
+    }
+  ],
+  'digital-marketing': [
+    {
+      phase: 'PHASE 01 • TECHNICAL AUDIT & COMPETITIVE MATRIX',
+      description: 'Forensic technical SEO audit resolving crawl budget leaks, page speed bottlenecks, and comprehensive competitor keyword share-of-voice analysis.',
+      standard: 'Google Webmaster Best Practices',
+      metric: '100% Crawl Optimization',
+      format: 'Technical Audit Dossier'
+    },
+    {
+      phase: 'PHASE 02 • ACCOUNT-BASED MARKETING SUITE',
+      description: 'Curated Target Account Lists (TAL), decision-maker persona profiles, and tailored LinkedIn/programmatic account-targeted ad campaign architectures.',
+      standard: 'B2B High-Intent Audience Target',
+      metric: '3x Pipeline Engagement',
+      format: 'ABM Campaign Blueprint'
+    },
+    {
+      phase: 'PHASE 03 • CONVERSION LANDING PAGES',
+      description: 'High-converting enterprise landing page templates with multi-step lead capture funnels, UTM tracking telemetry, and CRM auto-sync.',
+      standard: 'Conversion Rate Optimization',
+      metric: 'Tested Ad & Copy Variants',
+      format: 'Landing Page & Copy Assets'
+    },
+    {
+      phase: 'PHASE 04 • BI-WEEKLY ROI ATTRIBUTION',
+      description: 'Executive boardroom performance dashboards tracking Cost-Per-Qualified-Lead (CPQL), multi-touch attribution, and pipeline contribution metrics.',
+      standard: 'Full Multi-Touch Attribution',
+      metric: 'Bi-Weekly Executive Review',
+      format: 'ROI Attribution Reports'
+    }
+  ],
+  'app-web-development': [
+    {
+      phase: 'PHASE 01 • CLEAN-CODE REPOSITORY (GIT)',
+      description: 'Production-ready, version-controlled git codebase with strict ESLint/Prettier standards, structured atomic modular architecture, and CI/CD pipelines.',
+      standard: 'Enterprise Clean-Code Standard',
+      metric: '100% Documented Codebase',
+      format: 'Full Source Code & Git Repo'
+    },
+    {
+      phase: 'PHASE 02 • AUTOMATED TEST SUITE & QA',
+      description: 'Comprehensive automated test coverage including unit tests, API integration tests, and Cypress/Playwright end-to-end regression test harnesses.',
+      standard: 'Zero-Defect Release Gate',
+      metric: '85%+ Code Test Coverage',
+      format: 'Automated QA Test Reports'
+    },
+    {
+      phase: 'PHASE 03 • INFRASTRUCTURE-AS-CODE (IaC)',
+      description: 'Containerized Docker configurations, Kubernetes Helm charts, or Terraform cloud blueprints enabling reproducible zero-downtime deployments.',
+      standard: 'Cloud-Native & Twelve-Factor',
+      metric: '1-Click Cloud Deployment',
+      format: 'Terraform & Docker Configs'
+    },
+    {
+      phase: 'PHASE 04 • API SPECS & OPERATIONAL HANDOVER',
+      description: 'Interactive OpenAPI / Swagger documentation, developer onboarding guides, and operational production maintenance and monitoring runbooks.',
+      standard: '100% IP Transfer Guarantee',
+      metric: 'Full Technical Ownership',
+      format: 'API Specs & Ops Runbooks'
+    }
+  ]
+};
+
+const getDeliverableMeta = (serviceSlug: string | undefined, index: number): DeliverableMeta => {
+  if (serviceSlug && DELIVERABLE_EXTENDED_MAP[serviceSlug] && DELIVERABLE_EXTENDED_MAP[serviceSlug][index]) {
+    return DELIVERABLE_EXTENDED_MAP[serviceSlug][index];
+  }
+  const defaultPhases: DeliverableMeta[] = [
+    {
+      phase: 'PHASE 01 • ARCHITECTURAL BASELINE',
+      description: 'Comprehensive architectural blueprint, functional specifications, and institutional requirements matrix signed off prior to execution.',
+      standard: 'Enterprise Standard & ISO 27001',
+      metric: '100% Scope Sign-Off',
+      format: 'Executive Architecture Dossier'
+    },
+    {
+      phase: 'PHASE 02 • TRANSFORMATION & DATA INTEGRITY',
+      description: 'Forensic data extraction, validation, and transformation logs certifying zero data loss and automated checksum reconciliation.',
+      standard: 'Checksum Data Integrity',
+      metric: 'Zero Data Loss Guarantee',
+      format: 'Data Reconciliation Register'
+    },
+    {
+      phase: 'PHASE 03 • QUALITY ASSURANCE & AUDIT GATE',
+      description: 'Rigorous end-to-end functional test execution, security vulnerability penetration testing, and regulatory compliance clearance.',
+      standard: 'SOX & Internal Audit Ready',
+      metric: '0 High-Severity Issues',
+      format: 'UAT Acceptance Sign-Off'
+    },
+    {
+      phase: 'PHASE 04 • PRODUCTION CUTOVER & WARRANTY',
+      description: 'Detailed cutover blackout execution runbook, rollback contingency protocols, and dedicated post-launch hypercare SLA support.',
+      standard: 'Zero Unplanned Downtime SLA',
+      metric: '24/7 Hypercare Warranty',
+      format: 'Operational Production Runbook'
+    }
+  ];
+  return defaultPhases[index % defaultPhases.length];
+};
+
 export const ServicesPage: React.FC = () => {
   const { slug, category, id } = useParams<{ slug?: string; category?: string; id?: string }>();
   const [activeTab, setActiveTab] = useState<'all' | 'sap' | 'enterprise'>('all');
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [jumbleKey, setJumbleKey] = useState(0);
+
+  // Periodic subtle re-jumble animation for the hero banner heading
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setJumbleKey((prev) => prev + 1);
+    }, 8000);
+    return () => clearInterval(timer);
+  }, []);
+
+  // Staggered Jumble / Jump spring animation for characters
+  const letterVariants: Variants = {
+    hidden: (i: number) => ({
+      opacity: 0,
+      y: (i % 2 === 0 ? 1 : -1) * (18 + (i % 3) * 6),
+      rotate: (i % 2 === 0 ? 1 : -1) * (8 + (i % 4) * 3),
+      scale: 0.65,
+      filter: 'blur(5px)',
+    }),
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      rotate: 0,
+      scale: 1,
+      filter: 'blur(0px)',
+      transition: {
+        type: 'spring' as const,
+        damping: 11,
+        stiffness: 190,
+        delay: 0.38 + i * 0.032,
+      },
+    }),
+  };
 
   // Match service by slug OR by id + category
   const baseService = slug
@@ -218,24 +688,31 @@ export const ServicesPage: React.FC = () => {
                   </div>
                 </motion.div>
 
-                {/* Animated Headline with Blur-to-Focus */}
-                <motion.h1
-                  initial={{ opacity: 0, y: 35, filter: 'blur(8px)' }}
-                  animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                  transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-                  className="text-2xl sm:text-4xl md:text-5xl lg:text-[50px] font-normal sm:font-medium text-white leading-[1.2] tracking-[-0.02em] font-outfit"
-                >
-                  {detailedData.heroHeadline} <br />
-                  <span className="font-semibold text-[#08B9E8] drop-shadow-[0_2px_18px_rgba(8,185,232,0.35)]">
+                {/* Layer-Up Headline: One after another text reveal */}
+                <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-[50px] font-normal sm:font-medium text-white leading-[1.2] tracking-[-0.02em] font-outfit space-y-2">
+                  <motion.span
+                    initial={{ opacity: 0, y: 30, filter: 'blur(8px)' }}
+                    animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                    transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+                    className="block text-white"
+                  >
+                    {detailedData.heroHeadline}
+                  </motion.span>
+                  <motion.span
+                    initial={{ opacity: 0, y: 30, filter: 'blur(8px)' }}
+                    animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                    transition={{ duration: 0.75, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                    className="block font-semibold bg-gradient-to-r from-[#38bdf8] via-[#08B9E8] to-[#60a5fa] bg-clip-text text-transparent drop-shadow-[0_2px_18px_rgba(8,185,232,0.35)]"
+                  >
                     {detailedData.heroHighlight}
-                  </span>
-                </motion.h1>
+                  </motion.span>
+                </h1>
 
                 {/* Animated Description Paragraph */}
                 <motion.p
                   initial={{ opacity: 0, y: 25 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.7, delay: 0.3, ease: 'easeOut' }}
+                  transition={{ duration: 0.7, delay: 0.7, ease: 'easeOut' }}
                   className="text-slate-200 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl font-light"
                 >
                   {detailedData.heroTagline}
@@ -458,7 +935,7 @@ export const ServicesPage: React.FC = () => {
               <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
                 <div>
                   <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-white/10 text-[#08B9E8] border border-white/20 mb-3">
-                    <Sparkles className="w-3.5 h-3.5" />
+                    <Workflow className="w-3.5 h-3.5" />
                     <span>Interactive Workflow Showcase</span>
                   </div>
                   <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight">
@@ -649,78 +1126,108 @@ export const ServicesPage: React.FC = () => {
                 <div>
                   <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-400/15 border border-sky-400/30 text-sky-300 text-xs font-semibold tracking-wider uppercase mb-3">
                     <ShieldCheck className="w-4 h-4 text-sky-400" />
-                    <span>Enterprise Project Assurance & Governance</span>
+                    <span>Institutional Assurance & Executive Governance</span>
                   </div>
 
-                  <h3 className="text-2xl sm:text-3xl font-semibold text-white tracking-tight leading-snug font-outfit">
-                    Verified Enterprise Deliverables & Executive Sign-Off
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-snug font-outfit">
+                    Verified Enterprise Deliverables & Executive Sign-Off Dossier
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-300 mt-2 max-w-2xl font-light">
-                    Every deployment milestone concludes with institutional-grade artifacts, rigorous validation gates, and complete intellectual property transfer.
+                  <p className="text-xs sm:text-sm text-slate-300 mt-2 max-w-2xl font-light leading-relaxed">
+                    Every deployment milestone culminates in audited technical blueprints, forensic data reconciliation ledgers, and zero-defect handover certificates validated by institutional governance gates.
                   </p>
                 </div>
 
                 {/* SLA Seal Badge */}
-                <div className="flex items-center gap-3 bg-white/10 border border-white/20 backdrop-blur-md px-5 py-3 rounded-2xl shadow-xl flex-shrink-0">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#087FE5] to-[#38BDF8] flex items-center justify-center text-white font-bold shadow-md">
+                <div className="flex items-center gap-3.5 bg-white/10 border border-white/20 backdrop-blur-md px-5 py-3.5 rounded-2xl shadow-xl flex-shrink-0">
+                  <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#087FE5] via-[#0284c7] to-[#38BDF8] flex items-center justify-center text-white font-bold shadow-md">
                     <Award className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <div className="text-xs font-bold text-white uppercase tracking-wider font-outfit">100% Audit-Ready</div>
-                    <div className="text-[11px] text-sky-300 font-medium">Guaranteed Milestone Handover</div>
+                    <div className="text-xs font-extrabold text-white uppercase tracking-wider font-outfit flex items-center gap-1.5">
+                      <span>100% Audit-Ready</span>
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    </div>
+                    <div className="text-[11px] text-sky-200 font-medium">Guaranteed Boardroom Handover</div>
                   </div>
                 </div>
               </div>
 
               {/* Deliverables Grid with Staggered Interactive Cards */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 relative z-10">
-                {detailedData.deliverables.map((d, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 15 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: i * 0.1 }}
-                    className="group relative p-5 sm:p-6 rounded-2xl bg-white/[0.07] hover:bg-white/[0.14] border border-white/15 hover:border-sky-400/60 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-sky-500/20 flex flex-col justify-between overflow-hidden cursor-default"
-                  >
-                    {/* 3D Diagonal Light Sheen Sweep on Hover */}
-                    <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none z-10" />
+                {detailedData.deliverables.map((d, i) => {
+                  const meta = getDeliverableMeta(detailedData.slug, i);
+                  return (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, y: 15 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: i * 0.1 }}
+                      className="group relative p-6 sm:p-7 rounded-2xl bg-white/[0.07] hover:bg-white/[0.13] border border-white/15 hover:border-sky-400/50 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-sky-500/20 flex flex-col justify-between overflow-hidden cursor-default"
+                    >
+                      {/* 3D Diagonal Light Sheen Sweep on Hover */}
+                      <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/15 to-transparent pointer-events-none z-10" />
 
-                    <div>
-                      {/* Top Row: Artifact Code & Verification Pill */}
-                      <div className="flex items-center justify-between mb-3">
-                        <span className="text-[11px] font-mono font-bold tracking-wider text-sky-300 uppercase">
-                          ARTIFACT 0{i + 1}
-                        </span>
-                        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-semibold border border-emerald-500/30">
-                          <CheckCircle2 className="w-3 h-3 text-emerald-400" />
-                          <span>Milestone Verified</span>
-                        </span>
+                      <div>
+                        {/* Top Row: Phase / Artifact Code & Verification Pill */}
+                        <div className="flex items-center justify-between gap-2 mb-3.5 flex-wrap">
+                          <span className="text-[10.5px] font-mono font-bold tracking-wider text-sky-300 uppercase bg-sky-400/15 px-2.5 py-1 rounded-md border border-sky-400/25">
+                            {meta.phase}
+                          </span>
+                          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10.5px] font-semibold border border-emerald-500/30">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                            <span>Executive Sign-Off</span>
+                          </span>
+                        </div>
+
+                        {/* Deliverable Title */}
+                        <h4 className="text-base sm:text-lg font-bold text-white group-hover:text-sky-200 transition-colors leading-snug font-outfit mb-2.5">
+                          {d}
+                        </h4>
+
+                        {/* In-depth Scope Description */}
+                        <p className="text-xs sm:text-[13px] text-slate-300/90 leading-relaxed font-light mb-4">
+                          {meta.description}
+                        </p>
+
+                        {/* Quality & Audit Badges */}
+                        <div className="flex flex-wrap items-center gap-2 mb-4">
+                          <span className="inline-flex items-center gap-1.5 text-[10.5px] font-medium text-sky-200 bg-white/10 px-2.5 py-1 rounded-md border border-white/10">
+                            <ShieldCheck className="w-3 h-3 text-sky-400 flex-shrink-0" />
+                            <span>{meta.standard}</span>
+                          </span>
+                          <span className="inline-flex items-center gap-1.5 text-[10.5px] font-medium text-emerald-200 bg-emerald-500/15 px-2.5 py-1 rounded-md border border-emerald-500/25">
+                            <Award className="w-3 h-3 text-emerald-400 flex-shrink-0" />
+                            <span>{meta.metric}</span>
+                          </span>
+                        </div>
                       </div>
 
-                      {/* Deliverable Title */}
-                      <p className="text-sm sm:text-base font-medium text-white group-hover:text-sky-200 transition-colors leading-relaxed font-outfit">
-                        {d}
-                      </p>
-                    </div>
-
-                    {/* Bottom Metadata */}
-                    <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-slate-300">
-                      <span>Institutional Governance Standard</span>
-                      <span className="text-sky-300 font-mono font-medium">SLA-Locked</span>
-                    </div>
-                  </motion.div>
-                ))}
+                      {/* Bottom Metadata & Format */}
+                      <div className="mt-2 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-slate-300 flex-wrap gap-2">
+                        <span className="text-slate-300/80 font-mono text-[10.5px] flex items-center gap-1.5">
+                          <FileCheck className="w-3 h-3 text-sky-400" />
+                          <span>{meta.format}</span>
+                        </span>
+                        <span className="text-sky-300 font-mono font-medium text-[10.5px] bg-sky-950/60 px-2 py-0.5 rounded border border-sky-400/30">
+                          SLA-Locked • 100% IP Handover
+                        </span>
+                      </div>
+                    </motion.div>
+                  );
+                })}
               </div>
 
               {/* Bottom Reassurance Banner */}
               <div className="mt-8 pt-6 border-t border-white/15 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs text-slate-300 relative z-10">
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2.5">
                   <CheckCircle2 className="w-4 h-4 text-sky-400 flex-shrink-0" />
-                  <span>Full intellectual property transfer, versioned runbooks & configuration codebases.</span>
+                  <span>
+                    Full intellectual property transfer: version-controlled codebases, forensic audit runbooks & certified configuration matrices transfer 100% to client ownership upon milestone sign-off.
+                  </span>
                 </div>
-                <div className="text-[11px] font-mono text-sky-300 uppercase tracking-wider font-semibold">
-                  Zero Technical Debt Guarantee
+                <div className="text-[11px] font-mono text-sky-300 uppercase tracking-wider font-semibold whitespace-nowrap bg-white/10 px-3 py-1 rounded-full border border-sky-400/30">
+                  Zero Technical Debt SLA Guarantee
                 </div>
               </div>
             </motion.div>
@@ -915,8 +1422,8 @@ export const ServicesPage: React.FC = () => {
             {/* Header with Premium Pill & Balanced Typography */}
             <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-400/10 border border-sky-400/30 text-sky-300 text-xs font-semibold tracking-wider uppercase mb-4 shadow-sm backdrop-blur-md">
-                <Sparkles className="w-3.5 h-3.5 text-sky-400" />
-                <span>Institutional Advantage & Proven Leadership</span>
+                <ShieldCheck className="w-3.5 h-3.5 text-sky-400" />
+                <span>Institutional Advantage &amp; Proven Leadership</span>
               </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight font-outfit text-white leading-tight">
                 {detailedData.whyPartnerTitle}
@@ -1181,53 +1688,177 @@ export const ServicesPage: React.FC = () => {
 
   return (
     <div className="space-y-16 pb-20 bg-[#F3F7FC]">
-      <section className="bg-gradient-to-r from-[#03091e] via-[#041333] to-[#020b1e] text-white py-20 border-b border-white/10 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {/* Breadcrumb Navigation */}
-          <div className="flex items-center gap-2 text-xs text-slate-300 mb-6 font-medium">
-            <Link to="/" className="hover:text-white transition-colors">Home</Link>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <span className="text-[#08B9E8] font-bold">Services & Solutions</span>
-          </div>
+      {/* =========================================================================
+          HERO BANNER: CINEMATIC KEN BURNS MOTION BACKGROUND & JUMBLE TEXT ANIMATION
+         ========================================================================= */}
+      <section className="relative min-h-[500px] lg:min-h-[540px] bg-[#020b1e] text-white overflow-hidden flex items-center border-b border-white/10">
+        {/* Background Visual with Cinematic Ken Burns Slow Pan/Zoom */}
+        <motion.img
+          src="/hero_sap_consulting_1.jpg"
+          alt="Enterprise Services & Solutions"
+          animate={{
+            scale: [1.02, 1.12],
+            x: [0, -12],
+            y: [0, -6]
+          }}
+          transition={{
+            duration: 16,
+            repeat: Infinity,
+            repeatType: 'reverse',
+            ease: [0.25, 0.1, 0.25, 1]
+          }}
+          className="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.70] contrast-[1.15]"
+          onError={(e) => {
+            (e.currentTarget as HTMLImageElement).src = '/hero1.jpg';
+          }}
+        />
 
-          <div className="max-w-3xl space-y-4">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#08B9E8] bg-white/10 px-3.5 py-1.5 rounded-full border border-white/20">
-              Enterprise Technology Practice
-            </span>
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-white">
-              Enterprise Services & Solutions
-            </h1>
-            <p className="text-slate-200 text-base sm:text-lg leading-relaxed">
+        {/* Digital Transformation Multi-Layer Lighting Overlays */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#020b1e]/98 via-[#031535]/85 to-[#020b1e]/60 pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,rgba(8,127,229,0.30)_0%,transparent_65%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_75%,rgba(8,185,232,0.20)_0%,transparent_50%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#020b1e] via-transparent to-[#020b1e]/40 pointer-events-none" />
+
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20 w-full">
+          <div className="max-w-3xl lg:max-w-4xl space-y-5">
+            {/* Breadcrumb Navigation with Fade In */}
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: 'easeOut' }}
+              className="flex items-center gap-2 text-xs text-slate-300 font-medium"
+            >
+              <Link to="/" className="hover:text-white transition-colors">Home</Link>
+              <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+              <span className="text-[#08B9E8] font-bold">Services & Solutions</span>
+            </motion.div>
+
+            {/* Animated Pill Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.05, ease: 'easeOut' }}
+              className="flex items-center gap-3"
+            >
+              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 shadow-md">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#08B9E8] shadow-[0_0_8px_#08B9E8]" />
+                <span className="text-[11px] sm:text-xs font-bold tracking-widest text-slate-100 uppercase font-mono">
+                  Enterprise Technology Practice
+                </span>
+              </div>
+            </motion.div>
+
+            {/* Main Headline with Sequential Jumble / Jump Animation */}
+            <div 
+              className="cursor-pointer select-none"
+              onClick={() => setJumbleKey(prev => prev + 1)}
+              title="Click to replay motion animation"
+            >
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] font-extrabold text-white leading-[1.15] tracking-tight font-outfit">
+                <motion.span
+                  initial={{ opacity: 0, y: 25, filter: 'blur(8px)' }}
+                  animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                  transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                  className="inline-block text-white mr-3 drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)]"
+                >
+                  Enterprise
+                </motion.span>
+                <span key={jumbleKey} className="inline-flex flex-wrap items-baseline">
+                  {/* "Services" Jumble Characters */}
+                  <span className="inline-flex whitespace-nowrap bg-gradient-to-r from-[#38bdf8] via-[#08B9E8] to-[#60a5fa] bg-clip-text text-transparent drop-shadow-[0_2px_18px_rgba(8,185,232,0.35)]">
+                    {"Services".split("").map((char, index) => (
+                      <motion.span
+                        key={`srv-${jumbleKey}-${index}`}
+                        custom={index}
+                        initial="hidden"
+                        animate="visible"
+                        variants={letterVariants}
+                        className="inline-block"
+                      >
+                        {char}
+                      </motion.span>
+                    ))}
+                  </span>
+
+                  {/* Ampersand */}
+                  <motion.span
+                    initial={{ opacity: 0, scale: 0.5, rotate: -15 }}
+                    animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                    transition={{ type: 'spring', damping: 12, stiffness: 220, delay: 0.38 + 8 * 0.032 }}
+                    className="inline-block text-slate-300 mx-2.5 font-light"
+                  >
+                    &
+                  </motion.span>
+
+                  {/* "Solutions" Jumble Characters */}
+                  <span className="inline-flex whitespace-nowrap bg-gradient-to-r from-[#60a5fa] via-[#087FE5] to-[#38bdf8] bg-clip-text text-transparent drop-shadow-[0_2px_18px_rgba(8,127,229,0.35)]">
+                    {"Solutions".split("").map((char, index) => (
+                      <motion.span
+                        key={`sol-${jumbleKey}-${index}`}
+                        custom={index + 9}
+                        initial="hidden"
+                        animate="visible"
+                        variants={letterVariants}
+                        className="inline-block"
+                      >
+                        {char}
+                      </motion.span>
+                    ))}
+                  </span>
+                </span>
+              </h1>
+            </div>
+
+            {/* Subtitle with Animated Reveal */}
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55, delay: 0.85 }}
+              className="text-slate-200 text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl font-normal drop-shadow-sm"
+            >
               Explore our full catalog of 13 verified SAP and Enterprise & Cloud Solutions, delivered with SLA accountability and clean-core engineering.
-            </p>
+            </motion.p>
 
-            {/* Filter Tabs */}
-            <div className="flex flex-wrap items-center gap-2 pt-4">
+            {/* Filter Tabs with Motion */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.95 }}
+              className="flex flex-wrap items-center gap-2.5 pt-2"
+            >
               <button
                 onClick={() => setActiveTab('all')}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
-                  activeTab === 'all' ? 'bg-[#087FE5] text-white shadow-md' : 'bg-white/10 text-slate-200 hover:bg-white/20'
+                className={`px-4 py-2 rounded-xl text-xs font-bold transition-colors flex items-center gap-2 cursor-pointer ${
+                  activeTab === 'all'
+                    ? 'bg-[#087FE5] text-white shadow-sm'
+                    : 'bg-white/10 text-slate-200 hover:bg-white/20'
                 }`}
               >
-                All Services (13)
+                <span>All Services (13)</span>
               </button>
               <button
                 onClick={() => setActiveTab('sap')}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
-                  activeTab === 'sap' ? 'bg-[#087FE5] text-white shadow-md' : 'bg-white/10 text-slate-200 hover:bg-white/20'
+                className={`px-4 py-2 rounded-xl text-xs font-bold transition-colors flex items-center gap-2 cursor-pointer ${
+                  activeTab === 'sap'
+                    ? 'bg-[#087FE5] text-white shadow-sm'
+                    : 'bg-white/10 text-slate-200 hover:bg-white/20'
                 }`}
               >
-                SAP Services (7)
+                <Cpu className="w-3.5 h-3.5" />
+                <span>SAP Services (7)</span>
               </button>
               <button
                 onClick={() => setActiveTab('enterprise')}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
-                  activeTab === 'enterprise' ? 'bg-[#087FE5] text-white shadow-md' : 'bg-white/10 text-slate-200 hover:bg-white/20'
+                className={`px-4 py-2 rounded-xl text-xs font-bold transition-colors flex items-center gap-2 cursor-pointer ${
+                  activeTab === 'enterprise'
+                    ? 'bg-[#087FE5] text-white shadow-sm'
+                    : 'bg-white/10 text-slate-200 hover:bg-white/20'
                 }`}
               >
-                Enterprise & Cloud Solutions (6)
+                <Layers className="w-3.5 h-3.5" />
+                <span>Enterprise & Cloud Solutions (6)</span>
               </button>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>

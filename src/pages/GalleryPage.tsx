@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import {
   Images,
   ChevronRight,
-  Sparkles,
   Calendar,
   X,
   ChevronLeft,

@@ -7,7 +7,7 @@ import {
   Phone,
   Mail,
   ChevronUp,
-  Sparkles
+  Calendar
 } from 'lucide-react';
 import { COMPANY_INFO } from '../data/siteData';
 
@@ -285,12 +285,8 @@ export const Footer: React.FC = () => {
             </div>
 
             {/* Blogs & Insights Pill Button */}
-            <a
-              href="#blogs"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollTo('blogs');
-              }}
+            <Link
+              to="/blog"
               className="inline-flex items-center justify-between w-full px-2.5 py-1.5 rounded-lg bg-[#087FE5]/15 border border-[#087FE5]/30 text-[#08B9E8] hover:bg-[#087FE5] hover:text-white transition-all text-xs font-semibold group cursor-pointer"
             >
               <span className="flex items-center gap-1.5 truncate">
@@ -300,29 +296,26 @@ export const Footer: React.FC = () => {
               <span className="text-[9px] uppercase px-1.5 py-0.5 rounded bg-[#087FE5]/30 text-white font-bold ml-1">
                 Blogs
               </span>
-            </a>
+            </Link>
 
             <ul className="space-y-2 text-xs sm:text-sm text-[#9ca3af] pt-1 font-normal">
               {[
-                { title: 'About ZisanTech', id: 'about' },
-                { title: 'SAP Services', id: 'services' },
-                { title: 'SAP Training', id: 'training' },
-                { title: 'Industries We Serve', id: 'industries' },
-                { title: 'Why Choose Us', id: 'why-choose-zisantech' },
-                { title: 'Contact Support', id: 'contact' }
+                { title: 'About ZisanTech', path: '/about' },
+                { title: 'SAP Services', path: '/services' },
+                { title: 'SAP Training', path: '/training' },
+                { title: 'Industries We Serve', path: '/industries' },
+                { title: 'Why Choose Us', path: '/why-choose-us' },
+                { title: 'Blogs & Insights', path: '/blog' },
+                { title: 'Contact Support', path: '/contact' }
               ].map((item) => (
                 <li key={item.title}>
-                  <a
-                    href={`#${item.id}`}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollTo(item.id);
-                    }}
+                  <Link
+                    to={item.path}
                     className="hover:text-white hover:translate-x-1 inline-flex items-center gap-1 transition-all duration-150 cursor-pointer"
                   >
                     <span className="text-[#087FE5] text-[10px]">›</span>
                     <span>{item.title}</span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -376,17 +369,13 @@ export const Footer: React.FC = () => {
 
             {/* Minimal Schedule Consultation CTA */}
             <div className="pt-2">
-              <a
-                href="#contact"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollTo('contact');
-                }}
-                className="inline-flex items-center justify-center gap-2 w-full py-2 px-3 bg-gradient-to-r from-[#087FE5] to-[#08B9E8] hover:from-[#063B83] hover:to-[#087FE5] text-white font-bold text-xs rounded-lg shadow-md hover:shadow-lg transition-all cursor-pointer uppercase tracking-wider"
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-3 bg-gradient-to-r from-[#087FE5] to-[#063B83] hover:from-[#063B83] hover:to-[#087FE5] text-white font-bold text-xs rounded-lg shadow-md hover:shadow-lg transition-all cursor-pointer uppercase tracking-wider"
               >
-                <Sparkles className="w-3.5 h-3.5" />
+                <Calendar className="w-3.5 h-3.5" />
                 <span>Schedule Consultation</span>
-              </a>
+              </Link>
             </div>
           </motion.div>
 

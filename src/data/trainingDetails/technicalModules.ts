@@ -150,7 +150,7 @@ export const TECHNICAL_MODULES: Record<string, DetailedTrainingModule> = {
           'AMDP Functions and CDS Table Functions',
           'Performance Tools: ABAP Test Cockpit (ATC), SQL Trace (ST05), and Runtime Analysis (SAT)',
           'S/4HANA Clean-Core Strategy: Key-User Extensibility, Developer Extensibility, and Side-by-Side BTP Extensions',
-          'Mock Exam Reviews & Full Preparation for SAP ABAP Certification (C_TAW12_750)'
+          'Mock Exam Reviews & Full Preparation for SAP ABAP Global Certification'
         ],
         handsOnLab: 'Lab: Capstone Project: End-to-end development of an enterprise inventory forecasting application using CDS, AMDP, and RAP.'
       }
@@ -192,7 +192,7 @@ export const TECHNICAL_MODULES: Record<string, DetailedTrainingModule> = {
       },
       {
         question: 'What certification will I be prepared for?',
-        answer: 'You will be prepared for C_TAW12_750 (SAP Enterprise Development Associate - ABAP with SAP NetWeaver 7.50 / SAP BTP ABAP Environment).'
+        answer: 'You will be prepared for the official SAP Enterprise Development Associate - ABAP with SAP NetWeaver & BTP ABAP Environment Certification.'
       },
       {
         question: 'Will I learn the ABAP RESTful Application Programming Model (RAP)?',
@@ -344,13 +344,13 @@ export const TECHNICAL_MODULES: Record<string, DetailedTrainingModule> = {
         phaseNum: 'Phase 05',
         duration: 'Weeks 9 - 10',
         title: 'Spool, Background Jobs, System Maintenance & Certification Prep',
-        description: 'Manage printing, batch jobs, kernel upgrades, support packages (SUM), and prepare for the C_TADM_23 certification.',
+        description: 'Manage printing, batch jobs, kernel upgrades, support packages (SUM), and prepare for global system administration certification.',
         topics: [
           'Spool Administration (SPAD): Output Devices, Access Methods, and Spool Requests (SP01/SP02)',
           'Background Job Scheduling (SM36) and Monitoring (SM37): Job Steps, Start Conditions, and Failure Diagnosis',
           'System Monitoring & Performance Tuning: Work Process Overview (SM50/SM66), Workload Analysis (ST03N), and Lock Entries (SM12)',
           'Software Update Manager (SUM): Applying Support Packages and Kernel Upgrades',
-          'SAP S/4HANA System Administration Certification Exam Prep (C_TADM_23)'
+          'SAP S/4HANA System Administration Certification Exam Prep & Mock Reviews'
         ],
         handsOnLab: 'Lab: Capstone Project: End-to-end setup of a virtual landscape: client creation, STMS configuration, user roles, and kernel patch upgrade.'
       }
@@ -392,7 +392,7 @@ export const TECHNICAL_MODULES: Record<string, DetailedTrainingModule> = {
       },
       {
         question: 'What certification will I be eligible to take?',
-        answer: 'You will be prepared directly for C_TADM_23 (SAP Enterprise Technology Consultant - SAP S/4HANA System Administration).'
+        answer: 'You will be prepared directly for the official SAP Enterprise Technology Consultant - SAP S/4HANA System Administration Certification.'
       },
       {
         question: 'Is SAP HANA database administration included in the training?',
@@ -533,7 +533,7 @@ export const TECHNICAL_MODULES: Record<string, DetailedTrainingModule> = {
           'Message Monitoring (PIMON): Message Search, Payload Inspection, and Error Log Diagnosis',
           'Alert Configuration and Automated Notification Triggers for Integration Failures',
           'Modernization Pathway: Migrating SAP PI/PO Scenarios to SAP Cloud Platform Integration (CPI)',
-          'Preparation for SAP Process Orchestration Certification (C_PO_7517)'
+          'Preparation for SAP Process Orchestration Global Certification'
         ],
         handsOnLab: 'Lab: Capstone Project: End-to-end design, mapping, adapter configuration, and testing of a multi-endpoint banking integration.'
       }
@@ -575,7 +575,7 @@ export const TECHNICAL_MODULES: Record<string, DetailedTrainingModule> = {
       },
       {
         question: 'Which certification exam does this training prepare me for?',
-        answer: 'This training prepares you for C_PO_7517 (SAP Enterprise Technology Associate - SAP Process Orchestration 7.50).'
+        answer: 'This training prepares you for the official SAP Enterprise Technology Associate - SAP Process Orchestration Certification.'
       },
       {
         question: 'Do we practice IDoc and REST integrations?',
@@ -730,7 +730,7 @@ export const TECHNICAL_MODULES: Record<string, DetailedTrainingModule> = {
           'Designing API Proxies: Security Policies (Verify API Key, OAuth, Spike Arrest, Rate Limiting)',
           'SAP Open Connectors: Pre-built Connectors for Salesforce, ServiceNow, HubSpot, and Google Drive',
           'Monitoring & Operational Governance: Message Monitoring, Trace Levels, and Log Inspection',
-          'Preparation for SAP BTP Integration Suite Certification (C_CPE_15)'
+          'Preparation for SAP BTP Integration Suite Global Certification'
         ],
         handsOnLab: 'Lab: Capstone Project: End-to-end B2B integration: Salesforce Lead -> CPI iFlow -> Open Connectors -> S/4HANA Business Partner.'
       }
@@ -772,7 +772,7 @@ export const TECHNICAL_MODULES: Record<string, DetailedTrainingModule> = {
       },
       {
         question: 'What certification exam does this training prepare me for?',
-        answer: 'This training prepares you directly for C_CPE_15 (SAP Enterprise Development Associate - SAP BTP Integration Suite).'
+        answer: 'This training prepares you directly for the official SAP Enterprise Development Associate - SAP BTP Integration Suite Certification.'
       },
       {
         question: 'Is Groovy scripting required for SAP CPI?',
@@ -956,7 +956,7 @@ export const TECHNICAL_MODULES: Record<string, DetailedTrainingModule> = {
       },
       {
         question: 'Which certification exam does this training align with?',
-        answer: 'This training aligns with C_IBP_2311 (SAP Enterprise Application Associate - SAP IBP & Cloud Data Integration).'
+        answer: 'This training aligns with the official SAP Enterprise Application Associate - SAP IBP & Cloud Data Integration Certification.'
       },
       {
         question: 'Do we practice live data loading into SAP IBP?',

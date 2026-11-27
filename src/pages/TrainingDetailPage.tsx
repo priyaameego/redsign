@@ -4,7 +4,6 @@ import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import {
   GraduationCap,
   Clock,
-  Laptop,
   CheckCircle2,
   ArrowRight,
   ShieldCheck,
@@ -12,9 +11,7 @@ import {
   Award,
   BookOpen,
   Calendar,
-  Sparkles,
   PhoneCall,
-  Download,
   Terminal,
   Server,
   Layers,
@@ -25,8 +22,6 @@ import {
   Network,
   Zap,
   HelpCircle,
-  Briefcase,
-  TrendingUp,
   Users2,
   Check,
   Send,
@@ -91,7 +86,6 @@ export const TrainingDetailPage: React.FC = () => {
   const [openPhases, setOpenPhases] = useState<number[]>([0]);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [syllabusDownloaded, setSyllabusDownloaded] = useState(false);
 
   const togglePhase = (idx: number) => {
     setOpenPhases(prev =>
@@ -133,7 +127,6 @@ export const TrainingDetailPage: React.FC = () => {
     setOpenPhases([0]);
     setOpenFaqIndex(0);
     setFormSubmitted(false);
-    setSyllabusDownloaded(false);
   }, [slug, id]);
 
   // If module not found, render elegant fallback
@@ -179,91 +172,6 @@ export const TrainingDetailPage: React.FC = () => {
     setTimeout(() => {
       setIsModalOpen(false);
     }, 2800);
-  };
-
-  const handleDownloadSyllabus = () => {
-    setSyllabusDownloaded(true);
-    const syllabusText = `======================================================
-ZISANTECH SOLUTIONS - ENTERPRISE SAP TRAINING PRACTICE
-Program: ${moduleData.fullName} (${moduleData.code})
-Certification Target: ${moduleData.certificationTrack}
-Duration: ${moduleData.duration}
-Format: ${moduleData.format}
-Official Rating: ${moduleData.rating} | Alumni Trained: ${moduleData.enrolledStudents}
-======================================================
-
-EXECUTIVE OVERVIEW:
-${moduleData.overviewHeading}
-${moduleData.overviewSubheading}
-
-${moduleData.overviewLead}
-
-${moduleData.overviewParagraphs.join('\n\n')}
-
-BUSINESS PROCESS LIFECYCLE:
-${moduleData.workflowTitle || 'End-to-End Enterprise Lifecycle'}
-${(moduleData.workflowSteps || [])
-  .map((s) => `[Step ${s.stepNum}: ${s.title} (${s.subtitle})]\n${s.desc}\n`)
-  .join('\n')}
-
-HANDS-ON LEARNING ROADMAP (PHASES):
-${moduleData.curriculum
-  .map(
-    (p) => `
-------------------------------------------------------
-Phase ${p.phaseNum}: ${p.title} (${p.duration})
-------------------------------------------------------
-Description: ${p.description}
-
-Topics Covered:
-${p.topics.map((t) => `  * ${t}`).join('\n')}
-
-Dedicated S/4HANA Lab Challenge:
-  >> ${p.handsOnLab}
-`
-  )
-  .join('\n')}
-
-ENTERPRISE CAPSTONE PROJECTS:
-${moduleData.realWorldProjects
-  .map(
-    (proj, i) => `
-[Capstone Project 0${i + 1}: ${proj.title}]
-Industry Domain: ${proj.industry}
-Business Challenge: ${proj.challenge}
-Solution Architecture: ${proj.solution}
-Key Client Deliverables:
-${proj.deliverables.map((d) => `  * ${d}`).join('\n')}
-`
-  )
-  .join('\n')}
-
-CAREER PROGRESSION & CTC SALARY BENCHMARKS:
-${moduleData.careerOutcomes.map((co) => `* ${co.role} (${co.experience}) -> CTC Benchmark: ${co.salary}`).join('\n')}
-
-TARGET AUDIENCE:
-${moduleData.targetAudience.map((ta) => `* ${ta}`).join('\n')}
-
-FREQUENTLY ASKED QUESTIONS:
-${moduleData.faqs.map((f) => `Q: ${f.question}\nA: ${f.answer}\n`).join('\n')}
-
-======================================================
-For batch schedules, server access credentials, and enrollment discounts:
-Visit: https://www.zisantech.com/training
-Email: ${COMPANY_INFO.primaryEmail}
-Phone: ${COMPANY_INFO.primaryPhone}
-Address: ${COMPANY_INFO.address}
-======================================================`;
-
-    const blob = new Blob([syllabusText], { type: 'text/plain;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = `ZisanTech-${moduleData.code}-Comprehensive-Curriculum.txt`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
   };
 
   return (
@@ -343,90 +251,51 @@ Address: ${COMPANY_INFO.address}
                 
               </motion.div>
 
-              {/* Main Headline with Blur-to-Focus Animation */}
-              <motion.h1
-                initial={{ opacity: 0, y: 25, filter: 'blur(6px)' }}
-                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                transition={{ duration: 0.75, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] font-extrabold text-white leading-[1.14] tracking-tight font-heading"
-              >
-                {moduleData.heroHeadline} <br />
-                <span className="text-[#08B9E8] drop-shadow-[0_2px_18px_rgba(8,185,232,0.45)]">
+              {/* Layer-Up Headline: One after another text reveal */}
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] font-extrabold text-white leading-[1.14] tracking-tight font-heading space-y-2">
+                <motion.span
+                  initial={{ opacity: 0, y: 30, filter: 'blur(8px)' }}
+                  animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                  transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+                  className="block text-white"
+                >
+                  {moduleData.heroHeadline}
+                </motion.span>
+                <motion.span
+                  initial={{ opacity: 0, y: 30, filter: 'blur(8px)' }}
+                  animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                  transition={{ duration: 0.75, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                  className="block bg-gradient-to-r from-[#38bdf8] via-[#08B9E8] to-[#60a5fa] bg-clip-text text-transparent drop-shadow-[0_2px_18px_rgba(8,185,232,0.35)] font-semibold"
+                >
                   {moduleData.heroHighlight}
-                </span>
-              </motion.h1>
+                </motion.span>
+              </h1>
 
               {/* Tagline */}
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.25, ease: 'easeOut' }}
+                transition={{ duration: 0.6, delay: 0.7, ease: 'easeOut' }}
                 className="text-slate-200 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl font-light"
               >
                 {moduleData.heroTagline}
               </motion.p>
 
-              {/* Key Quick Specs Bar */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.35, ease: 'easeOut' }}
-                className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2"
-              >
-                <div className="p-3.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/15 hover:border-white/30 transition-all duration-300">
-                  <div className="flex items-center gap-1.5 text-xs text-[#08B9E8] font-bold uppercase tracking-wider">
-                    <Clock className="w-3.5 h-3.5" />
-                    <span>Duration</span>
-                  </div>
-                  <div className="text-white text-xs sm:text-sm font-semibold mt-1">
-                    {moduleData.duration.split(' (')[0]}
-                  </div>
-                </div>
-
-                <div className="p-3.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/15 hover:border-white/30 transition-all duration-300">
-                  <div className="flex items-center gap-1.5 text-xs text-[#08B9E8] font-bold uppercase tracking-wider">
-                    <Laptop className="w-3.5 h-3.5" />
-                    <span>Lab Access</span>
-                  </div>
-                  <div className="text-white text-xs sm:text-sm font-semibold mt-1">
-                    24/7 S/4HANA Server
-                  </div>
-                </div>
-
-                <div className="p-3.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/15 hover:border-white/30 transition-all duration-300 col-span-2 sm:col-span-1">
-                  <div className="flex items-center gap-1.5 text-xs text-[#08B9E8] font-bold uppercase tracking-wider">
-                    <Award className="w-3.5 h-3.5" />
-                    <span>Placement</span>
-                  </div>
-                  <div className="text-white text-xs sm:text-sm font-semibold mt-1">
-                    100% Mock & Interview
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* CTA Buttons with 3D Light Sheen */}
+              {/* CTA Button with 3D Light Sheen */}
               <motion.div
                 initial={{ opacity: 0, y: 20, scale: 0.96 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.45, ease: 'easeOut' }}
-                className="pt-4 flex flex-wrap items-center gap-4"
+                transition={{ duration: 0.6, delay: 0.35, ease: 'easeOut' }}
+                className="pt-6 flex flex-wrap items-center gap-4"
               >
                 <button
                   onClick={() => setIsModalOpen(true)}
                   className="relative group overflow-hidden inline-flex items-center gap-2.5 px-8 py-4 bg-gradient-to-r from-[#087FE5] via-[#0664B5] to-[#043E7A] text-white font-bold rounded-xl text-sm shadow-xl shadow-blue-950/60 transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] active:scale-100 cursor-pointer"
                 >
                   <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/25 to-transparent pointer-events-none" />
-                  <Sparkles className="w-4 h-4 text-white" />
-                  <span>Request Batch Schedule & Fees</span>
+                  <Calendar className="w-4 h-4 text-white" />
+                  <span>Request Batch Schedule &amp; Fees</span>
                   <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
-                </button>
-
-                <button
-                  onClick={handleDownloadSyllabus}
-                  className="inline-flex items-center gap-2 px-6 py-4 bg-white/10 hover:bg-white/20 text-white font-medium rounded-xl text-sm border border-white/20 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
-                >
-                  <Download className="w-4 h-4 text-[#08B9E8]" />
-                  <span>{syllabusDownloaded ? 'Syllabus Downloaded ✓' : 'Download Complete Syllabus'}</span>
                 </button>
               </motion.div>
             </div>
@@ -752,7 +621,7 @@ Address: ${COMPANY_INFO.address}
                 className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50/90 border border-[#087FE5]/30 text-xs font-bold text-[#063B83] uppercase tracking-wider font-sans shadow-xs"
               >
                 <Layers className="w-3.5 h-3.5 text-[#087FE5]" />
-                <span>10-Week Architectural Mastery Roadmap</span>
+                <span>Enterprise Architectural Mastery Roadmap</span>
               </motion.div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#071B49] font-sans tracking-tight leading-tight">
                 Complete Hands-on Learning Roadmap
@@ -777,14 +646,6 @@ Address: ${COMPANY_INFO.address}
                     ? 'Collapse All Sprints'
                     : 'Expand All Sprints'}
                 </span>
-              </button>
-
-              <button
-                onClick={handleDownloadSyllabus}
-                className="inline-flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-gradient-to-r from-[#071B49] to-[#087FE5] hover:from-[#063B83] hover:to-[#08B9E8] text-white font-bold text-xs tracking-wide shadow-[0_4px_16px_rgba(8,127,229,0.25)] hover:shadow-[0_8px_24px_rgba(8,127,229,0.35)] transition-all duration-300 cursor-pointer group font-sans"
-              >
-                <Download className="w-4 h-4 text-white group-hover:-translate-y-0.5 transition-transform" />
-                <span>Download Syllabus</span>
               </button>
             </div>
           </div>
@@ -811,10 +672,7 @@ Address: ${COMPANY_INFO.address}
                         : 'bg-slate-100/80 hover:bg-slate-200/80 text-slate-600 hover:text-slate-900'
                     }`}
                   >
-                    <span className="font-mono text-[11px]">{phase.phaseNum}</span>
-                    <span className="text-[11px] font-medium opacity-85 hidden md:inline">
-                      • {phase.duration}
-                    </span>
+                    <span className="font-mono text-[11px] font-bold">{phase.phaseNum}</span>
                   </button>
                 );
               })}
@@ -841,7 +699,7 @@ Address: ${COMPANY_INFO.address}
                     onClick={() => togglePhase(idx)}
                     className={`absolute left-0 top-5 w-10 h-10 sm:w-12 sm:h-12 rounded-2xl flex items-center justify-center font-bold font-mono text-xs sm:text-sm transition-all duration-300 z-10 cursor-pointer shadow-md ${
                       isOpen
-                        ? 'bg-gradient-to-br from-[#071B49] to-[#087FE5] text-white shadow-blue-500/30 ring-4 ring-blue-100 scale-105'
+                        ? 'bg-gradient-to-br from-[#071B49] to-[#087FE5] text-white shadow-lg shadow-blue-500/40 ring-4 ring-blue-100 scale-110'
                         : 'bg-white text-slate-700 border-2 border-slate-300 hover:border-[#087FE5] hover:text-[#087FE5]'
                     }`}
                     aria-label={`Toggle ${phase.phaseNum}`}
@@ -851,10 +709,10 @@ Address: ${COMPANY_INFO.address}
 
                   {/* Main Phase Dossier Card */}
                   <div
-                    className={`rounded-3xl transition-all duration-400 overflow-hidden border ${
+                    className={`rounded-3xl transition-all duration-300 overflow-hidden relative ${
                       isOpen
-                        ? 'bg-white border-[#087FE5]/40 shadow-[0_12px_36px_-6px_rgba(8,127,229,0.14)] ring-1 ring-[#087FE5]/20'
-                        : 'bg-white/80 hover:bg-white border-slate-200/90 hover:border-[#087FE5]/40 shadow-xs hover:shadow-md'
+                        ? 'bg-gradient-to-br from-white via-[#fcfdff] to-[#f4f8fe] border-2 border-[#087FE5] shadow-[0_16px_40px_-6px_rgba(8,127,229,0.20)] ring-4 ring-[#087FE5]/10'
+                        : 'bg-white hover:bg-[#fafcff] border border-slate-200/90 hover:border-[#087FE5]/70 shadow-[0_4px_16px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_28px_rgba(8,127,229,0.12)]'
                     }`}
                   >
                     {/* Clickable Card Header */}
@@ -862,19 +720,15 @@ Address: ${COMPANY_INFO.address}
                       onClick={() => togglePhase(idx)}
                       className="w-full text-left p-5 sm:p-7 flex items-start justify-between gap-4 cursor-pointer group"
                     >
-                      <div className="space-y-2 flex-1 min-w-0">
+                      <div className="space-y-2.5 flex-1 min-w-0">
                         {/* Tags Row */}
                         <div className="flex flex-wrap items-center gap-2">
-                          <span className="text-[10px] sm:text-xs font-bold font-sans uppercase tracking-wider px-2.5 py-1 rounded-full bg-blue-50 text-[#087FE5] border border-blue-200/70">
+                          <span className="text-[10px] sm:text-xs font-extrabold font-sans uppercase tracking-wider px-3 py-1 rounded-full bg-gradient-to-r from-[#071B49] to-[#087FE5] text-white shadow-xs">
                             {phase.phaseNum}
                           </span>
-                          <span className="text-[11px] sm:text-xs font-medium text-slate-500 inline-flex items-center gap-1">
-                            <Clock className="w-3.5 h-3.5 text-slate-400" />
-                            {phase.duration}
-                          </span>
-                          <span className="text-[11px] sm:text-xs font-medium text-slate-500 inline-flex items-center gap-1">
-                            <Layers className="w-3.5 h-3.5 text-slate-400" />
-                            {phase.topics.length} SPRO Modules
+                          <span className="text-[11px] sm:text-xs font-semibold text-[#0369A1] bg-sky-50 border border-sky-200/80 px-2.5 py-0.5 rounded-full inline-flex items-center gap-1.5 shadow-2xs">
+                            <Layers className="w-3.5 h-3.5 text-[#087FE5]" />
+                            <span>{phase.topics.length} SPRO Modules</span>
                           </span>
                         </div>
 
@@ -895,7 +749,7 @@ Address: ${COMPANY_INFO.address}
                       <div
                         className={`w-9 h-9 sm:w-10 sm:h-10 rounded-2xl flex items-center justify-center transition-all duration-300 flex-shrink-0 mt-1 ${
                           isOpen
-                            ? 'bg-[#087FE5] text-white shadow-md'
+                            ? 'bg-[#087FE5] text-white shadow-md shadow-blue-500/30'
                             : 'bg-slate-100 text-slate-500 group-hover:bg-blue-50 group-hover:text-[#087FE5]'
                         }`}
                       >
@@ -930,14 +784,16 @@ Address: ${COMPANY_INFO.address}
                                 <span>Curriculum Modules & Architectural Focus</span>
                               </div>
 
-                              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                              <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
                                 {phase.topics.map((topic, tidx) => (
                                   <div
                                     key={tidx}
-                                    className="p-3.5 rounded-2xl bg-white border border-[#087FE5]/15 hover:border-[#087FE5]/50 shadow-2xs hover:shadow-xs flex items-start gap-3 transition-colors group/item"
+                                    className="p-4 rounded-2xl bg-white hover:bg-gradient-to-br hover:from-white hover:to-blue-50/40 border border-slate-200/90 hover:border-[#087FE5]/60 shadow-[0_2px_8px_rgba(8,127,229,0.04)] hover:shadow-[0_6px_20px_rgba(8,127,229,0.12)] flex items-start gap-3.5 transition-all duration-300 group/item hover:-translate-y-0.5 relative overflow-hidden"
                                   >
-                                    <CheckCircle2 className="w-4 h-4 text-[#087FE5] flex-shrink-0 mt-0.5 group-hover/item:scale-110 transition-transform" />
-                                    <span className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium font-sans">
+                                    <div className="w-6 h-6 rounded-lg bg-blue-50 text-[#087FE5] border border-blue-100 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover/item:bg-[#087FE5] group-hover/item:text-white transition-all duration-300">
+                                      <CheckCircle2 className="w-3.5 h-3.5" />
+                                    </div>
+                                    <span className="text-xs sm:text-sm text-slate-800 leading-relaxed font-semibold font-sans group-hover/item:text-[#063B83] transition-colors">
                                       {topic}
                                     </span>
                                   </div>
@@ -1125,200 +981,114 @@ Address: ${COMPANY_INFO.address}
       </section>
 
       {/* =========================================================================
-          SECTION 7: ENTERPRISE TALENT READINESS & EXECUTIVE CAREER ACCELERATION
-          (Ultra-Premium Redesign replacing old Exam & plain dark Compensation cards)
+          SECTION 7: ENTERPRISE TALENT READINESS & CANDIDATE PROFILES
          ========================================================================= */}
-      <section className="py-24 bg-gradient-to-b from-[#f9fbfe] via-white to-[#f4f8fe] relative overflow-hidden border-y border-slate-200/80">
+      <section className="py-20 bg-gradient-to-b from-[#f9fbfe] via-white to-[#f4f8fe] relative overflow-hidden border-y border-slate-200/80">
         {/* Soft Ambient Precision Lighting */}
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-[radial-gradient(circle_at_50%_0%,rgba(8,127,229,0.08),transparent_70%)] pointer-events-none" />
         <div className="absolute bottom-0 left-10 w-96 h-96 bg-[radial-gradient(circle_at_20%_100%,rgba(8,185,232,0.06),transparent_60%)] pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
-            
-            {/* =========================================================
-                LEFT COLUMN: ENTERPRISE CAREER READINESS & CANDIDATE PROFILES
-               ========================================================= */}
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center max-w-3xl mx-auto space-y-4"
+          >
+            {/* Top Badge */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50/90 border border-[#087FE5]/30 text-xs font-bold text-[#063B83] uppercase tracking-wider font-sans shadow-xs">
+              <Award className="w-3.5 h-3.5 text-[#087FE5]" />
+              <span>Enterprise Career Enablement</span>
+            </div>
+
+            {/* Main Headline */}
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#071B49] font-sans tracking-tight leading-tight">
+              Architected for High-Impact <span className="text-[#087FE5]">Corporate Consulting Roles</span>
+            </h2>
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-sans max-w-2xl mx-auto">
+              Equipping you with production-grade SPRO customizing, cross-module integration mastery, and the architectural confidence demanded by Fortune 500 enterprises.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            {/* Left: High-Impact Enterprise Placement Metrics Card */}
             <motion.div
-              initial={{ opacity: 0, x: -25 }}
+              initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="lg:col-span-6 space-y-7"
+              className="lg:col-span-5 p-6 sm:p-7 rounded-3xl bg-white border border-[#087FE5]/25 shadow-[0_10px_30px_-5px_rgba(8,127,229,0.10)] relative overflow-hidden space-y-5"
             >
-              {/* Top Badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50/90 border border-[#087FE5]/30 text-xs font-bold text-[#063B83] uppercase tracking-wider font-sans shadow-xs">
-                <Sparkles className="w-3.5 h-3.5 text-[#087FE5]" />
-                <span>Enterprise Career Enablement</span>
+              <div className="absolute top-0 right-0 w-44 h-44 rounded-bl-full pointer-events-none bg-[radial-gradient(circle_at_top_right,rgba(8,185,232,0.14),transparent_70%)]" />
+
+              <div className="flex items-center justify-between relative z-10">
+                <div className="flex items-center gap-2 text-xs font-bold font-sans uppercase tracking-wider text-[#063B83]">
+                  <ShieldCheck className="w-4 h-4 text-[#087FE5]" />
+                  <span>Corporate Deployment Standards</span>
+                </div>
+                <span className="text-[11px] font-bold font-sans px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
+                  Tier-1 Ready
+                </span>
               </div>
 
-              {/* Main Headline */}
-              <div className="space-y-3">
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#071B49] font-sans tracking-tight leading-tight">
-                  Architected for High-Impact <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#087FE5] via-[#08B9E8] to-[#063B83]">
-                    Corporate Consulting Roles
-                  </span>
-                </h2>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-sans">
-                  Equipping you with production-grade SPRO customizing, cross-module integration mastery, and the architectural confidence demanded by Fortune 500 enterprises.
-                </p>
-              </div>
-
-              {/* High-Impact Enterprise Placement Metrics Card */}
-              <div className="p-6 sm:p-7 rounded-3xl bg-white border border-[#087FE5]/25 shadow-[0_10px_30px_-5px_rgba(8,127,229,0.10)] relative overflow-hidden space-y-5">
-                <div className="absolute top-0 right-0 w-44 h-44 rounded-bl-full pointer-events-none bg-[radial-gradient(circle_at_top_right,rgba(8,185,232,0.14),transparent_70%)]" />
-
-                <div className="flex items-center justify-between relative z-10">
-                  <div className="flex items-center gap-2 text-xs font-bold font-sans uppercase tracking-wider text-[#063B83]">
-                    <ShieldCheck className="w-4 h-4 text-[#087FE5]" />
-                    <span>Corporate Deployment Standards</span>
-                  </div>
-                  <span className="text-[11px] font-bold font-sans px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
-                    Tier-1 Ready
-                  </span>
+              {/* 3 Metric Pills */}
+              <div className="grid grid-cols-3 gap-3 relative z-10 pt-1">
+                <div className="p-3 rounded-2xl bg-gradient-to-br from-[#f8faff] to-[#f0f6fd] border border-[#087FE5]/15 text-center space-y-1">
+                  <div className="text-lg sm:text-xl font-bold font-mono text-[#071B49]">100%</div>
+                  <div className="text-[10px] sm:text-[11px] font-medium text-slate-600 leading-tight">SPRO Hands-on</div>
                 </div>
-
-                {/* 3 Metric Pills */}
-                <div className="grid grid-cols-3 gap-3 relative z-10 pt-1">
-                  <div className="p-3 rounded-2xl bg-gradient-to-br from-[#f8faff] to-[#f0f6fd] border border-[#087FE5]/15 text-center space-y-1">
-                    <div className="text-lg sm:text-xl font-bold font-mono text-[#071B49]">100%</div>
-                    <div className="text-[10px] sm:text-[11px] font-medium text-slate-600 leading-tight">SPRO Hands-on</div>
-                  </div>
-                  <div className="p-3 rounded-2xl bg-gradient-to-br from-[#f8faff] to-[#f0f6fd] border border-[#087FE5]/15 text-center space-y-1">
-                    <div className="text-lg sm:text-xl font-bold font-mono text-[#087FE5]">1-on-1</div>
-                    <div className="text-[10px] sm:text-[11px] font-medium text-slate-600 leading-tight">Mock Interviews</div>
-                  </div>
-                  <div className="p-3 rounded-2xl bg-gradient-to-br from-[#f8faff] to-[#f0f6fd] border border-[#087FE5]/15 text-center space-y-1">
-                    <div className="text-lg sm:text-xl font-bold font-mono text-emerald-600">98%</div>
-                    <div className="text-[10px] sm:text-[11px] font-medium text-slate-600 leading-tight">Hiring Success</div>
-                  </div>
+                <div className="p-3 rounded-2xl bg-gradient-to-br from-[#f8faff] to-[#f0f6fd] border border-[#087FE5]/15 text-center space-y-1">
+                  <div className="text-lg sm:text-xl font-bold font-mono text-[#087FE5]">1-on-1</div>
+                  <div className="text-[10px] sm:text-[11px] font-medium text-slate-600 leading-tight">Mock Interviews</div>
                 </div>
-
-                {/* Smooth Gradient Visual Bar */}
-                <div className="space-y-2 relative z-10 pt-1">
-                  <div className="flex items-center justify-between text-xs font-semibold text-slate-600 font-sans">
-                    <span>Target Outcome: S/4HANA Implementation Consultant</span>
-                    <span className="text-[#087FE5] font-bold font-mono">98% Verified</span>
-                  </div>
-                  <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden p-0.5">
-                    <div className="bg-gradient-to-r from-[#071B49] via-[#087FE5] to-emerald-400 h-full w-[98%] rounded-full shadow-xs" />
-                  </div>
+                <div className="p-3 rounded-2xl bg-gradient-to-br from-[#f8faff] to-[#f0f6fd] border border-[#087FE5]/15 text-center space-y-1">
+                  <div className="text-lg sm:text-xl font-bold font-mono text-emerald-600">98%</div>
+                  <div className="text-[10px] sm:text-[11px] font-medium text-slate-600 leading-tight">Hiring Success</div>
                 </div>
               </div>
 
-              {/* Target Candidate Profiles (Replaces plain bullets) */}
-              <div className="space-y-3.5 pt-1">
-                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-700 font-sans">
-                  <Users2 className="w-4 h-4 text-[#087FE5]" />
-                  <span>Target Candidate Profiles for {moduleData.code}</span>
+              {/* Smooth Gradient Visual Bar */}
+              <div className="space-y-2 relative z-10 pt-1">
+                <div className="flex items-center justify-between text-xs font-semibold text-slate-600 font-sans">
+                  <span>Target Outcome: S/4HANA Implementation Consultant</span>
+                  <span className="text-[#087FE5] font-bold font-mono">98% Verified</span>
                 </div>
-
-                <div className="grid grid-cols-1 gap-2.5">
-                  {moduleData.targetAudience.map((aud, idx) => (
-                    <div
-                      key={idx}
-                      className="p-3.5 rounded-2xl bg-white/90 border border-slate-200/90 hover:border-[#087FE5]/50 shadow-2xs hover:shadow-xs flex items-center gap-3.5 transition-all duration-300 group"
-                    >
-                      <div className="w-8 h-8 rounded-xl bg-blue-50 text-[#087FE5] border border-blue-100 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:bg-[#087FE5] group-hover:text-white transition-all duration-300">
-                        <CheckCircle2 className="w-4 h-4" />
-                      </div>
-                      <p className="text-xs sm:text-sm text-slate-700 font-medium font-sans leading-relaxed flex-1">
-                        {aud}
-                      </p>
-                    </div>
-                  ))}
+                <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden p-0.5">
+                  <div className="bg-gradient-to-r from-[#071B49] via-[#087FE5] to-emerald-400 h-full w-[98%] rounded-full shadow-xs" />
                 </div>
               </div>
             </motion.div>
 
-            {/* =========================================================
-                RIGHT COLUMN: ULTRA-LUXURY CAREER TRAJECTORY & COMPENSATION MATRIX
-               ========================================================= */}
+            {/* Right: Target Candidate Profiles */}
             <motion.div
-              initial={{ opacity: 0, x: 25 }}
+              initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="lg:col-span-6"
+              className="lg:col-span-7 space-y-3.5"
             >
-              <div className="p-7 sm:p-9 rounded-3xl bg-gradient-to-br from-[#071B49] via-[#063B83] to-[#041d44] text-white border border-[#08B9E8]/35 shadow-[0_20px_50px_-10px_rgba(7,27,73,0.35)] relative overflow-hidden space-y-6">
-                {/* Multi-layered Ambient Light Flare */}
-                <div className="absolute top-0 right-0 w-80 h-80 bg-[radial-gradient(circle_at_top_right,rgba(8,185,232,0.22),transparent_70%)] pointer-events-none" />
-                <div className="absolute bottom-0 left-0 w-64 h-64 bg-[radial-gradient(circle_at_bottom_left,rgba(8,127,229,0.18),transparent_70%)] pointer-events-none" />
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-700 font-sans">
+                <Users2 className="w-4 h-4 text-[#087FE5]" />
+                <span>Target Candidate Profiles for {moduleData.code}</span>
+              </div>
 
-                {/* Card Header */}
-                <div className="flex items-center justify-between border-b border-white/15 pb-5 relative z-10">
-                  <div className="space-y-1">
-                    <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-white/10 border border-white/20 text-[10px] font-bold tracking-wider uppercase text-[#38bdf8] font-mono">
-                      <TrendingUp className="w-3 h-3 text-[#38bdf8]" />
-                      <span>Compensation Benchmarks</span>
+              <div className="grid grid-cols-1 gap-2.5">
+                {moduleData.targetAudience.map((aud, idx) => (
+                  <div
+                    key={idx}
+                    className="p-3.5 rounded-2xl bg-white/90 border border-slate-200/90 hover:border-[#087FE5]/50 shadow-2xs hover:shadow-xs flex items-center gap-3.5 transition-all duration-300 group"
+                  >
+                    <div className="w-8 h-8 rounded-xl bg-blue-50 text-[#087FE5] border border-blue-100 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:bg-[#087FE5] group-hover:text-white transition-all duration-300">
+                      <CheckCircle2 className="w-4 h-4" />
                     </div>
-                    <h3 className="text-xl sm:text-2xl font-bold font-sans text-white tracking-tight">
-                      Career Progression &amp; Salary Matrix
-                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-700 font-medium font-sans leading-relaxed flex-1">
+                      {aud}
+                    </p>
                   </div>
-                  <div className="w-10 h-10 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-[#38bdf8] flex-shrink-0">
-                    <Briefcase className="w-5 h-5" />
-                  </div>
-                </div>
-
-                {/* Stepped Career Tier Cards */}
-                <div className="space-y-3.5 relative z-10">
-                  {moduleData.careerOutcomes.map((co, idx) => {
-                    const stageLabels = ['STAGE 01 • FOUNDATION', 'STAGE 02 • HIGH DEMAND', 'STAGE 03 • LEADERSHIP'];
-                    const isHighlight = idx === 1;
-
-                    return (
-                      <motion.div
-                        key={idx}
-                        whileHover={shouldReduceMotion ? undefined : { x: 4, scale: 1.01 }}
-                        transition={{ duration: 0.2 }}
-                        className={`p-4 sm:p-5 rounded-2xl transition-all duration-300 relative overflow-hidden ${
-                          isHighlight
-                            ? 'bg-gradient-to-r from-white/20 to-white/10 border border-[#08B9E8]/60 shadow-[0_8px_20px_rgba(8,185,232,0.15)] ring-1 ring-[#08B9E8]/40'
-                            : 'bg-white/8 hover:bg-white/12 border border-white/12 hover:border-white/25'
-                        }`}
-                      >
-                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                          <div className="space-y-1">
-                            <span className="text-[10px] font-bold font-mono uppercase tracking-wider px-2 py-0.5 rounded-md bg-black/30 text-[#38bdf8] border border-white/10">
-                              {stageLabels[idx] || `TIER 0${idx + 1}`}
-                            </span>
-                            <div className="text-sm sm:text-base font-bold text-white font-sans">
-                              {co.role}
-                            </div>
-                            <div className="text-xs text-slate-300 font-medium font-sans">
-                              {co.experience}
-                            </div>
-                          </div>
-
-                          <div className="sm:text-right flex sm:flex-col items-baseline sm:items-end justify-between gap-1 border-t sm:border-t-0 border-white/10 pt-2 sm:pt-0">
-                            <div className="text-base sm:text-lg font-black font-mono tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] to-white">
-                              {co.salary}
-                            </div>
-                            <div className="text-[11px] font-medium text-slate-300 font-sans">
-                              Average CTC
-                            </div>
-                          </div>
-                        </div>
-                      </motion.div>
-                    );
-                  })}
-                </div>
-
-                {/* 100% Career Support Callout */}
-                <div className="pt-3 border-t border-white/15 flex items-start gap-3 relative z-10">
-                  <div className="w-7 h-7 rounded-lg bg-emerald-500/20 border border-emerald-400/40 text-emerald-400 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <ShieldCheck className="w-4 h-4" />
-                  </div>
-                  <p className="text-xs text-slate-200 leading-relaxed font-sans font-normal">
-                    <strong className="text-white font-semibold">Comprehensive Career Support:</strong> Corporate resume architecture, LinkedIn profile branding, and direct interview pipelines with senior SAP solution architects.
-                  </p>
-                </div>
+                ))}
               </div>
             </motion.div>
-
           </div>
         </div>
       </section>
@@ -1352,7 +1122,7 @@ Address: ${COMPANY_INFO.address}
           </p>
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-4">
           {moduleData.faqs.map((faq, idx) => {
             const isOpen = openFaqIndex === idx;
             return (
@@ -1361,25 +1131,30 @@ Address: ${COMPANY_INFO.address}
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: idx * 0.05 }}
+                transition={{ duration: 0.35, delay: idx * 0.05 }}
                 className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
                   isOpen
-                    ? 'border-[#087FE5] bg-gradient-to-br from-white via-[#fbfdff] to-[#f0f6fd] shadow-[0_8px_24px_-4px_rgba(8,127,229,0.14)]'
-                    : 'border-[#087FE5]/25 bg-gradient-to-br from-white to-[#f7faff] hover:border-[#087FE5]/60 shadow-sm hover:shadow-md'
+                    ? 'bg-white border-[#087FE5]/40 shadow-lg shadow-blue-500/5 ring-1 ring-[#087FE5]/10'
+                    : 'bg-white border-slate-200 hover:border-slate-300 shadow-xs'
                 }`}
               >
                 <button
+                  type="button"
                   onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
-                  className="w-full p-5 text-left flex items-center justify-between gap-4 cursor-pointer"
+                  className="w-full px-6 sm:px-7 py-5 text-left flex items-center justify-between gap-4 cursor-pointer transition-colors group select-none"
                 >
-                  <span className="text-sm sm:text-base font-bold text-slate-900">
+                  <span className={`text-sm sm:text-base font-bold tracking-tight transition-colors ${
+                    isOpen ? 'text-[#063B83]' : 'text-slate-900 group-hover:text-[#087FE5]'
+                  }`}>
                     {faq.question}
                   </span>
-                  <ChevronDown
-                    className={`w-5 h-5 text-slate-500 flex-shrink-0 transition-transform duration-300 ${
-                      isOpen ? 'rotate-180 text-[#087FE5]' : ''
-                    }`}
-                  />
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${
+                    isOpen
+                      ? 'bg-[#087FE5] text-white rotate-180 shadow-xs'
+                      : 'bg-slate-100 text-slate-500 group-hover:bg-blue-50 group-hover:text-[#087FE5]'
+                  }`}>
+                    <ChevronDown className="w-4 h-4 transition-transform duration-200" />
+                  </div>
                 </button>
                 <AnimatePresence initial={false}>
                   {isOpen && (
@@ -1387,11 +1162,19 @@ Address: ${COMPANY_INFO.address}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
+                      transition={{ duration: 0.28, ease: 'easeInOut' }}
                       className="overflow-hidden"
                     >
-                      <div className="px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
-                        {faq.answer}
+                      <div className="px-6 sm:px-7 pb-6 pt-1">
+                        <div className="p-4 sm:p-5 rounded-xl bg-slate-50/90 border border-slate-100 text-xs sm:text-sm text-slate-600 leading-relaxed space-y-1.5">
+                          <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-[#087FE5]">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#087FE5]" />
+                            Curriculum & Enrollment Advisory
+                          </div>
+                          <p className="text-slate-600 font-normal leading-relaxed">
+                            {faq.answer}
+                          </p>
+                        </div>
                       </div>
                     </motion.div>
                   )}

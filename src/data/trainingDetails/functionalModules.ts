@@ -193,7 +193,7 @@ export const FUNCTIONAL_MODULES: Record<string, DetailedTrainingModule> = {
       },
       {
         question: 'Will ZisanTech assist with global SAP certification?',
-        answer: 'Yes. The curriculum includes specialized preparation for C_TS462_2023 (SAP Enterprise Application Associate - Sales and Distribution in SAP S/4HANA), including official question dumps, mock exams, and topic weightage breakdowns.'
+        answer: 'Yes. The curriculum includes specialized preparation for global SAP S/4HANA Sales and Distribution certification, including official question dumps, mock exams, and topic weightage breakdowns.'
       },
       {
         question: 'What placement and interview preparation is provided?',
@@ -394,7 +394,7 @@ export const FUNCTIONAL_MODULES: Record<string, DetailedTrainingModule> = {
       },
       {
         question: 'What exam certification is targeted in this course?',
-        answer: 'This training prepares you directly for the official SAP S/4HANA Sourcing and Procurement Associate Certification (C_TS452_2022 / C_TS452_2023).'
+        answer: 'This training prepares you directly for the official SAP S/4HANA Sourcing and Procurement Associate Certification.'
       },
       {
         question: 'Do you provide real project experience?',
@@ -594,7 +594,7 @@ export const FUNCTIONAL_MODULES: Record<string, DetailedTrainingModule> = {
       },
       {
         question: 'Which certification exam does this course prepare me for?',
-        answer: 'You will be prepared for C_TS422_2022 / C_TS422_2023 (SAP Enterprise Application Associate - Production Planning and Manufacturing in SAP S/4HANA).'
+        answer: 'You will be prepared for the official SAP Enterprise Application Associate - Production Planning and Manufacturing in SAP S/4HANA Certification.'
       },
       {
         question: 'Do we practice Product Costing integration?',
@@ -738,7 +738,7 @@ export const FUNCTIONAL_MODULES: Record<string, DetailedTrainingModule> = {
           'Calibration Inspection for Plant Maintenance Test Equipment (Origin 14)',
           'Integration of QM with SD: Certificate Dispatch with Customer Outbound Deliveries',
           'QM Master Data Migration using SAP S/4HANA Migration Cockpit (LTMC)',
-          'Preparation for SAP QM Global Certification Exam (C_TS413_2021)'
+          'Preparation for SAP QM Global Certification Exam & Mock Tests'
         ],
         handsOnLab: 'Lab: Capstone Project: End-to-end blueprinting and SPRO configuration for a medical device manufacturer with full CAPA workflow.'
       }
@@ -780,7 +780,7 @@ export const FUNCTIONAL_MODULES: Record<string, DetailedTrainingModule> = {
       },
       {
         question: 'What certification will I be eligible to take after this training?',
-        answer: 'You will be prepared for C_TS413_2021 (SAP Enterprise Application Associate - Quality Management in SAP S/4HANA).'
+        answer: 'You will be prepared for the official SAP Enterprise Application Associate - Quality Management in SAP S/4HANA Certification.'
       },
       {
         question: 'How does QM integrate with MM and SD?',
@@ -954,7 +954,7 @@ export const FUNCTIONAL_MODULES: Record<string, DetailedTrainingModule> = {
           'Derivation Rules (KEDR) and Flow of Actual Values from SD Invoices (VKEK)',
           'Profitability Reporting and Executive Fiori Margin Analytics',
           'Month-End & Year-End Closing Workflows: Financial Closing Cockpit, Foreign Currency Valuation (FAGL_FCV)',
-          'Financial Data Migration using S/4HANA Migration Cockpit (LTMC) & C_TS4FI_2023 Certification Exam Prep'
+          'Financial Data Migration using S/4HANA Migration Cockpit (LTMC) & Global Certification Exam Prep'
         ],
         handsOnLab: 'Lab: Capstone Project: End-to-end financial setup for a global enterprise, including AP/AR, Assets, CO allocations, and closing.'
       }
@@ -996,7 +996,7 @@ export const FUNCTIONAL_MODULES: Record<string, DetailedTrainingModule> = {
       },
       {
         question: 'What exam certification is targeted in this course?',
-        answer: 'You will be prepared directly for C_TS4FI_2023 (SAP Enterprise Application Associate - SAP S/4HANA for Financial Accounting Associates).'
+        answer: 'You will be prepared directly for the official SAP Enterprise Application Associate - Financial Accounting in SAP S/4HANA Certification.'
       },
       {
         question: 'Is Product Costing (CO-PC) included in this curriculum?',
@@ -1105,10 +1105,10 @@ export const FUNCTIONAL_MODULES: Record<string, DetailedTrainingModule> = {
         title: 'Personnel Administration (PA) & Master Data Configuration',
         description: 'Configure employee records, custom Infotypes, Personnel Actions (Hiring, Promotion), and automated dynamic actions.',
         topics: [
-          'Personnel Administration Master Data: Structure of Infotypes (IT0000, IT0001, IT0002, IT0006, IT0007, IT0008)',
+          'Personnel Administration Master Data: Structure of Core Enterprise Infotypes & Records',
           'Configuring Custom Infotype Menus and Header Definitions',
           'Designing Personnel Actions (Hiring, Transfer, Termination) using InfoGroups and Action Types',
-          'Configuring Dynamic Actions (Table T588Z): Automated Infotype Creation based on Event Triggers',
+          'Configuring Dynamic Actions: Automated Infotype Creation based on Event Triggers',
           'Number Range Intervals: Internal vs External for Personnel Numbers',
           'Fast Entry of Master Data and Personnel Data Audits'
         ],
@@ -1122,10 +1122,10 @@ export const FUNCTIONAL_MODULES: Record<string, DetailedTrainingModule> = {
         topics: [
           'Time Management Philosophies: Negative Time Recording vs Positive Time Clock In/Out',
           'Public Holiday Calendars and Factory Calendars',
-          'Work Schedules: Daily Work Schedules, Period Work Schedules, and Work Schedule Rules (T508A)',
+          'Work Schedules: Daily Work Schedules, Period Work Schedules, and Work Schedule Rules',
           'Absence and Attendance Types: Casual Leave, Sick Leave, Earned Leave, and Paid Time Off',
-          'Absence Quota Generation Rules (RPTQTA00) and Deduction Rules',
-          'Time Evaluation Driver (RPTIME00): Time Types, Pairs, Balances, and Overtime Calculation'
+          'Absence Quota Generation Rules and Deduction Rules',
+          'Time Evaluation Driver: Time Types, Pairs, Balances, and Overtime Calculation'
         ],
         handsOnLab: 'Lab: Implement 3-shift rotational work schedule with automatic overtime calculation and dynamic annual leave accruals.'
       },
@@ -1155,7 +1155,7 @@ export const FUNCTIONAL_MODULES: Record<string, DetailedTrainingModule> = {
           'Employee Self-Service (ESS) and Manager Self-Service (MSS) Portals',
           'SuccessFactors Hybrid Architecture: Employee Central (EC) to SAP HCM Core Data Replication',
           'Data Migration using SAP Migration Cockpit and Cutover Master Data Verification',
-          'Preparation for SAP HCM Global Certification (C_THR12_67)'
+          'Preparation for SAP HCM Global Certification & Mock Exams'
         ],
         handsOnLab: 'Lab: Capstone Project: End-to-end blueprinting, OM hierarchy, PA actions, Time quotas, and simulated payroll run with FI posting.'
       }
@@ -1197,7 +1197,7 @@ export const FUNCTIONAL_MODULES: Record<string, DetailedTrainingModule> = {
       },
       {
         question: 'Which certification exam is targeted?',
-        answer: 'You will be prepared for C_THR12_67 (SAP Enterprise Application Associate - SAP Human Capital Management).'
+        answer: 'You will be prepared for the official SAP Enterprise Application Associate - Human Capital Management Certification.'
       },
       {
         question: 'Do we get hands-on access to practice payroll runs?',
@@ -1385,7 +1385,7 @@ export const FUNCTIONAL_MODULES: Record<string, DetailedTrainingModule> = {
       },
       {
         question: 'What certification does this training align with?',
-        answer: 'This training aligns with the Logistics and Supply Chain Execution competencies evaluated under C_TS462_2023.'
+        answer: 'This training aligns with global Logistics and Supply Chain Execution competencies.'
       }
     ]
   },
@@ -1536,7 +1536,7 @@ export const FUNCTIONAL_MODULES: Record<string, DetailedTrainingModule> = {
           'Integration between SAP TM and SAP EWM (Advanced Shipping and Receiving - ASR)',
           'Carrier Collaboration Portal Overview and Mobile Driver Confirmation touchpoints',
           'Master Data Migration using Migration Cockpit for Transportation Networks',
-          'Mock Exam Reviews & Preparation for SAP TM Certification (C_S4TM_2023)'
+          'Mock Exam Reviews & Preparation for SAP TM Global Certification'
         ],
         handsOnLab: 'Lab: Capstone Project: End-to-end design and execution of an enterprise freight network with multi-carrier tendering and settlement.'
       }
@@ -1582,7 +1582,7 @@ export const FUNCTIONAL_MODULES: Record<string, DetailedTrainingModule> = {
       },
       {
         question: 'Which certification exam does this course target?',
-        answer: 'This training targets C_S4TM_2023 (SAP Enterprise Application Associate - Transportation Management in SAP S/4HANA).'
+        answer: 'This training targets the official SAP Enterprise Application Associate - Transportation Management in SAP S/4HANA Certification.'
       }
     ]
   },
@@ -1736,7 +1736,7 @@ export const FUNCTIONAL_MODULES: Record<string, DetailedTrainingModule> = {
           'Slotting and Rearrangement: Dynamic Bin Allocation based on Velocity and Turn Rates',
           'Cross-Docking: Opportunistic Cross-Docking (Direct Inbound to Outbound Staging)',
           'Master Data Migration using Migration Cockpit (/SCWM/MIG_BIN)',
-          'Mock Exam Reviews & Full Preparation for SAP EWM Certification (C_S4EWM_2023)'
+          'Mock Exam Reviews & Full Preparation for SAP EWM Global Certification'
         ],
         handsOnLab: 'Lab: Capstone Project: End-to-end design, SPRO configuration, master data load, and full inbound/outbound execution of a retail DC.'
       }
@@ -1778,7 +1778,7 @@ export const FUNCTIONAL_MODULES: Record<string, DetailedTrainingModule> = {
       },
       {
         question: 'Which certification exam does this course target?',
-        answer: 'This training prepares you directly for C_S4EWM_2023 (SAP Enterprise Application Associate - Extended Warehouse Management in SAP S/4HANA).'
+        answer: 'This training prepares you directly for the official SAP Enterprise Application Associate - Extended Warehouse Management in SAP S/4HANA Certification.'
       },
       {
         question: 'Do we practice RF scanner mobile transactions?',
@@ -1922,7 +1922,7 @@ export const FUNCTIONAL_MODULES: Record<string, DetailedTrainingModule> = {
           'Approval Workflow Engine: Approval Rules, Conditions, and Exception Approvals',
           'Cloud Integration Gateway (CIG / BTP): Integration Framework, Setup, and Add-On Installation in S/4HANA',
           'Replicating Master Data (Suppliers, Materials, GL Accounts) and Transactional Documents (PR, PO, Invoices)',
-          'Preparation for SAP Ariba Certification (C_ARCON_2308)'
+          'Preparation for SAP Ariba Global Certification & Mock Exams'
         ],
         handsOnLab: 'Lab: Capstone Project: Configure Guided Buying storefront tile, execute requisition to PO, and synchronize to S/4HANA backend via CIG.'
       }
@@ -1964,7 +1964,7 @@ export const FUNCTIONAL_MODULES: Record<string, DetailedTrainingModule> = {
       },
       {
         question: 'Which certification exam does this training prepare me for?',
-        answer: 'This training prepares you for C_ARCON_2308 (SAP Enterprise Application Associate - SAP Ariba Contracts & Sourcing).'
+        answer: 'This training prepares you for the official SAP Enterprise Application Associate - SAP Ariba Contracts & Sourcing Certification.'
       },
       {
         question: 'Is Cloud Integration Gateway (CIG) covered in the syllabus?',

@@ -15,13 +15,13 @@ import {
   Workflow,
   FlaskConical,
   Award,
-  Sparkles,
   GraduationCap,
   Cpu,
   Layers,
   BookOpen,
   Briefcase,
-  Users
+  Users,
+  Building2
 } from 'lucide-react';
 import { SERVICES, TRAINING_MODULES, INDUSTRIES, COMPANY_INFO } from '../data/siteData';
 
@@ -40,6 +40,23 @@ export const Navbar: React.FC = () => {
   const isIndustriesActive = location.pathname.startsWith('/industries');
   const isCompanyActive = location.pathname === '/about' || location.pathname === '/career';
   const isContactActive = location.pathname === '/contact';
+
+  // Dedicated consultation navigation handler (responsive across desktop, tablet, and mobile)
+  const handleRequestConsultation = () => {
+    setActiveDropdown(null);
+    setMobileMenuOpen(false);
+    if (location.pathname === '/contact') {
+      const el = document.getElementById('inquiry-form-section');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    } else {
+      navigate('/contact');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
   // Smooth scroll handler to stay on the Homepage, or navigate to Homepage first if on another route
   const scrollToSection = (sectionId: string) => {
@@ -133,23 +150,24 @@ export const Navbar: React.FC = () => {
       {/* 1. TOP MICRO-BAR: Professional Top Bar with Direct Quick Links */}
       <div className="bg-[#f5f8fc] border-b border-slate-200 text-xs text-slate-600 py-2 hidden md:block">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-          <div className="flex items-center space-x-5">
+          <div className="flex items-center space-x-3 lg:space-x-5">
             <a
               href={`mailto:${COMPANY_INFO.primaryEmail}`}
               className="flex items-center gap-1.5 text-slate-700 hover:text-[#063B83] transition-colors font-medium"
             >
               <Mail className="w-3.5 h-3.5 text-[#087FE5]" />
-              <span>{COMPANY_INFO.primaryEmail}</span>
+              <span className="hidden xl:inline">{COMPANY_INFO.primaryEmail}</span>
+              <span className="xl:hidden">{COMPANY_INFO.primaryEmail.split('@')[0]}@...</span>
             </a>
             <span className="text-slate-300">|</span>
-            <div className="flex items-center gap-1.5 text-slate-600">
+            <div className="hidden lg:flex items-center gap-1.5 text-slate-600">
               <MapPin className="w-3.5 h-3.5 text-[#087FE5]" />
-              <span>{COMPANY_INFO.address}</span>
+              <span className="truncate max-w-[240px]">{COMPANY_INFO.address}</span>
             </div>
-            <span className="text-slate-300">|</span>
+            <span className="hidden lg:inline text-slate-300">|</span>
             <a
               href={`tel:${COMPANY_INFO.primaryPhone}`}
-              className="flex items-center gap-1.5 text-slate-700 hover:text-[#063B83] transition-colors font-medium"
+              className="flex items-center gap-1.5 text-slate-700 hover:text-[#063B83] transition-colors font-medium whitespace-nowrap"
             >
               <Phone className="w-3.5 h-3.5 text-[#087FE5]" />
               <span>{COMPANY_INFO.primaryPhone}</span>
@@ -157,24 +175,13 @@ export const Navbar: React.FC = () => {
           </div>
 
           {/* Quick links & Consultation button */}
-          <div className="flex items-center space-x-4">
-            <div className="flex items-center space-x-3 text-[11px] font-semibold text-slate-600">
-              <span className="text-slate-400 font-normal">Quick:</span>
-              <button
-                onClick={() => scrollToSection('blogs')}
-                className="hover:text-[#087FE5] transition-colors flex items-center gap-1 text-[#063B83] font-bold cursor-pointer"
-              >
-                <BookOpen className="w-3 h-3 text-[#087FE5]" />
-                <span>Blogs</span>
-              </button>
-              <span className="text-slate-300">·</span>
-              <button
-                onClick={() => scrollToSection('training')}
-                className="hover:text-[#087FE5] transition-colors cursor-pointer"
-              >
-                Careers
-              </button>
-            </div>
+          <div className="flex items-center space-x-3 sm:space-x-4">
+            <button
+              onClick={() => navigate('/career')}
+              className="hover:text-[#087FE5] text-[11px] font-semibold text-slate-600 transition-colors cursor-pointer"
+            >
+              Careers
+            </button>
             <span className="text-slate-300">|</span>
             <a
               href={COMPANY_INFO.social.linkedin}
@@ -186,8 +193,8 @@ export const Navbar: React.FC = () => {
               in
             </a>
             <button
-              onClick={() => scrollToSection('contact-cta')}
-              className="px-4 py-1.5 bg-[#063B83] hover:bg-[#087FE5] text-white text-xs font-bold rounded shadow-sm transition-all cursor-pointer"
+              onClick={handleRequestConsultation}
+              className="px-4 py-1.5 bg-[#063B83] hover:bg-[#087FE5] text-white text-xs font-bold rounded shadow-sm transition-colors cursor-pointer"
             >
               Request Consultation
             </button>
@@ -265,7 +272,7 @@ export const Navbar: React.FC = () => {
                   <div>
                     <div className="flex items-center gap-2 mb-3 pb-2 border-b border-slate-100">
                       <Cpu className="w-4 h-4 text-[#063B83]" />
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-[#063B83]">SAP Services</h4>
+                      <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#063B83]">SAP Services</h4>
                     </div>
                     <ul className="space-y-1">
                       {SERVICES.filter(s => s.category === 'SAP Services').map((s) => (
@@ -273,10 +280,10 @@ export const Navbar: React.FC = () => {
                           <Link
                             to={`/services/${s.slug}`}
                             onClick={() => setActiveDropdown(null)}
-                            className="w-full text-left p-2 rounded hover:bg-[#f5f8fc] text-xs text-slate-700 hover:text-[#063B83] transition-colors group cursor-pointer block"
+                            className="w-full text-left p-2 rounded hover:bg-[#f5f8fc] text-xs transition-colors group cursor-pointer block"
                           >
-                            <span className="font-semibold block">{s.title}</span>
-                            <span className="text-[11px] text-slate-500 line-clamp-1">{s.shortDesc}</span>
+                            <span className="font-bold text-slate-900 group-hover:text-[#063B83] block">{s.title}</span>
+                            <span className="text-[11px] font-semibold text-slate-600 line-clamp-1">{s.shortDesc}</span>
                           </Link>
                         </li>
                       ))}
@@ -286,7 +293,7 @@ export const Navbar: React.FC = () => {
                   <div>
                     <div className="flex items-center gap-2 mb-3 pb-2 border-b border-slate-100">
                       <Layers className="w-4 h-4 text-[#087FE5]" />
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-[#087FE5]">Enterprise & Cloud Solutions</h4>
+                      <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#087FE5]">Enterprise & Cloud Solutions</h4>
                     </div>
                     <ul className="space-y-1">
                       {SERVICES.filter(s => s.category === 'Enterprise & Cloud Solutions').map((s) => (
@@ -294,10 +301,10 @@ export const Navbar: React.FC = () => {
                           <Link
                             to={`/services/${s.slug}`}
                             onClick={() => setActiveDropdown(null)}
-                            className="w-full text-left p-2 rounded hover:bg-[#f5f8fc] text-xs text-slate-700 hover:text-[#087FE5] transition-colors group cursor-pointer block"
+                            className="w-full text-left p-2 rounded hover:bg-[#f5f8fc] text-xs transition-colors group cursor-pointer block"
                           >
-                            <span className="font-semibold block">{s.title}</span>
-                            <span className="text-[11px] text-slate-500 line-clamp-1">{s.shortDesc}</span>
+                            <span className="font-bold text-slate-900 group-hover:text-[#087FE5] block">{s.title}</span>
+                            <span className="text-[11px] font-semibold text-slate-600 line-clamp-1">{s.shortDesc}</span>
                           </Link>
                         </li>
                       ))}
@@ -307,7 +314,7 @@ export const Navbar: React.FC = () => {
                       <Link
                         to="/services"
                         onClick={() => setActiveDropdown(null)}
-                        className="text-xs font-bold text-[#063B83] hover:text-[#087FE5] flex items-center gap-1 cursor-pointer"
+                        className="text-xs font-extrabold text-[#063B83] hover:text-[#087FE5] flex items-center gap-1 cursor-pointer"
                       >
                         Explore All 13 Services <ArrowRight className="w-3 h-3" />
                       </Link>
@@ -345,7 +352,7 @@ export const Navbar: React.FC = () => {
                   <div className="min-w-0">
                     <div className="flex items-center gap-2 mb-3 pb-2 border-b border-slate-100">
                       <GraduationCap className="w-4 h-4 text-[#063B83]" />
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-[#063B83]">Functional Modules Preview</h4>
+                      <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#063B83]">Functional Modules Preview</h4>
                     </div>
                     <div className="grid grid-cols-2 gap-1 max-h-[280px] overflow-y-auto pr-1">
                       {TRAINING_MODULES.filter(t => t.type === 'functional').map((t) => {
@@ -361,8 +368,8 @@ export const Navbar: React.FC = () => {
                             }}
                             className="w-full text-left p-1.5 rounded hover:bg-[#f5f8fc] text-xs group block cursor-pointer min-w-0"
                           >
-                            <span className="font-bold text-[#087FE5] block text-[10px]">{code}</span>
-                            <span className="text-slate-700 group-hover:text-[#063B83] font-medium truncate block">{title.split(' (')[0]}</span>
+                            <span className="font-extrabold text-[#087FE5] block text-[10px]">{code}</span>
+                            <span className="text-slate-900 group-hover:text-[#063B83] font-bold truncate block">{title.split(' (')[0]}</span>
                           </button>
                         );
                       })}
@@ -372,7 +379,7 @@ export const Navbar: React.FC = () => {
                   <div className="min-w-0">
                     <div className="flex items-center gap-2 mb-3 pb-2 border-b border-slate-100">
                       <Cpu className="w-4 h-4 text-[#087FE5]" />
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-[#087FE5]">Technical Modules Preview</h4>
+                      <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#087FE5]">Technical Modules Preview</h4>
                     </div>
                     <ul className="space-y-1">
                       {TRAINING_MODULES.filter(t => t.type === 'technical').map((t) => {
@@ -386,16 +393,16 @@ export const Navbar: React.FC = () => {
                               }}
                               className="w-full text-left flex items-center gap-1.5 p-1.5 rounded hover:bg-[#f5f8fc] text-xs group cursor-pointer min-w-0"
                             >
-                              <span className="font-bold text-[#063B83] text-[10px] flex-shrink-0">{t.code}</span>
-                              <span className="text-slate-700 group-hover:text-[#087FE5] font-medium truncate block flex-1" title={t.title}>{t.title}</span>
+                              <span className="font-extrabold text-[#063B83] text-[10px] flex-shrink-0">{t.code}</span>
+                              <span className="text-slate-900 group-hover:text-[#087FE5] font-bold truncate block flex-1" title={t.title}>{t.title}</span>
                             </button>
                           </li>
                         );
                       })}
                     </ul>
                     <div className="mt-4 p-3 rounded-lg bg-[#f5f8fc] border border-slate-200">
-                      <p className="text-xs font-bold text-[#063B83]">100% Placement & Live Sandbox</p>
-                      <p className="text-[10px] text-slate-500 mt-0.5">Hands-on real enterprise scenarios</p>
+                      <p className="text-xs font-extrabold text-[#063B83]">100% Placement & Live Sandbox</p>
+                      <p className="text-[10px] font-bold text-slate-700 mt-0.5">Hands-on real enterprise scenarios</p>
                     </div>
                   </div>
                 </div>
@@ -428,12 +435,15 @@ export const Navbar: React.FC = () => {
               >
                 <div className="w-[600px] max-w-[calc(100vw-2rem)] bg-white border border-slate-200 rounded-xl shadow-2xl p-6 overflow-hidden">
                   <div className="flex items-center justify-between pb-3 mb-4 border-b border-slate-100">
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-[#063B83]">
+                    <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#063B83]">
                       We Serve Industries
                     </h4>
                     <button
-                      onClick={() => scrollToSection('industries')}
-                      className="text-xs text-[#087FE5] hover:underline font-semibold flex items-center gap-1 cursor-pointer"
+                      onClick={() => {
+                        setActiveDropdown(null);
+                        navigate('/industries');
+                      }}
+                      className="text-xs text-[#087FE5] hover:underline font-bold flex items-center gap-1 cursor-pointer"
                     >
                       View All 6 Industries <ArrowRight className="w-3 h-3" />
                     </button>
@@ -443,17 +453,20 @@ export const Navbar: React.FC = () => {
                     {INDUSTRIES.map((ind) => (
                       <button
                         key={ind.id}
-                        onClick={() => scrollToSection('industries')}
+                        onClick={() => {
+                          setActiveDropdown(null);
+                          navigate(`/industries/${ind.id}`);
+                        }}
                         className="w-full text-left flex items-start gap-3 p-2.5 rounded-lg hover:bg-[#f5f8fc] border border-transparent hover:border-slate-200 transition-all group cursor-pointer min-w-0"
                       >
                         <div className="p-2 rounded-md bg-slate-100 group-hover:bg-[#063B83] group-hover:text-white transition-colors flex-shrink-0">
-                          {industryIcons[ind.id] || <Sparkles className="w-4 h-4 text-[#063B83]" />}
+                          {industryIcons[ind.id] || <Building2 className="w-4 h-4 text-[#063B83]" />}
                         </div>
                         <div className="min-w-0 flex-1">
-                          <p className="text-xs font-bold text-slate-800 group-hover:text-[#063B83] transition-colors truncate">
+                          <p className="text-xs font-extrabold text-slate-900 group-hover:text-[#063B83] transition-colors truncate">
                             {ind.name}
                           </p>
-                          <p className="text-[11px] text-slate-500 truncate mt-0.5" title={ind.tagline}>
+                          <p className="text-[11px] font-semibold text-slate-600 truncate mt-0.5" title={ind.tagline}>
                             {ind.tagline}
                           </p>
                         </div>
@@ -490,20 +503,26 @@ export const Navbar: React.FC = () => {
               >
                 <div className="w-[380px] bg-white border border-slate-200 rounded-xl shadow-2xl p-4 space-y-2">
                   <button
-                    onClick={() => scrollToSection('about')}
+                    onClick={() => {
+                      setActiveDropdown(null);
+                      navigate('/about');
+                    }}
                     className="w-full text-left flex items-start gap-3 p-2.5 rounded-lg hover:bg-[#f5f8fc] transition-colors group cursor-pointer"
                   >
                     <div className="p-2 rounded bg-blue-50 text-[#063B83] group-hover:bg-[#063B83] group-hover:text-white transition-colors">
                       <Users className="w-4 h-4" />
                     </div>
                     <div>
-                      <p className="text-xs font-bold text-slate-800 group-hover:text-[#063B83]">About ZisanTech</p>
-                      <p className="text-[11px] text-slate-500">Global enterprise technology & SAP practice</p>
+                      <p className="text-xs font-extrabold text-slate-900 group-hover:text-[#063B83]">About ZisanTech</p>
+                      <p className="text-[11px] font-semibold text-slate-600">Global enterprise technology & SAP practice</p>
                     </div>
                   </button>
 
                   <button
-                    onClick={() => scrollToSection('blogs')}
+                    onClick={() => {
+                      setActiveDropdown(null);
+                      navigate('/blog');
+                    }}
                     className="w-full text-left flex items-start gap-3 p-2.5 rounded-lg hover:bg-[#f5f8fc] transition-colors group cursor-pointer"
                   >
                     <div className="p-2 rounded bg-sky-50 text-[#087FE5] group-hover:bg-[#087FE5] group-hover:text-white transition-colors">
@@ -511,23 +530,26 @@ export const Navbar: React.FC = () => {
                     </div>
                     <div>
                       <div className="flex items-center gap-2">
-                        <p className="text-xs font-bold text-slate-800 group-hover:text-[#087FE5]">Blogs & Insights</p>
-                        <span className="px-1.5 py-0.5 rounded bg-sky-100 text-[#087FE5] text-[9px] font-bold">New</span>
+                        <p className="text-xs font-extrabold text-slate-900 group-hover:text-[#087FE5]">Blogs & Insights</p>
+                        <span className="px-1.5 py-0.5 rounded bg-sky-100 text-[#087FE5] text-[9px] font-extrabold">New</span>
                       </div>
-                      <p className="text-[11px] text-slate-500">SAP S/4HANA migration & tech articles</p>
+                      <p className="text-[11px] font-semibold text-slate-600">SAP S/4HANA migration & tech articles</p>
                     </div>
                   </button>
 
                   <button
-                    onClick={() => scrollToSection('why-us')}
+                    onClick={() => {
+                      setActiveDropdown(null);
+                      navigate('/why-choose-us');
+                    }}
                     className="w-full text-left flex items-start gap-3 p-2.5 rounded-lg hover:bg-[#f5f8fc] transition-colors group cursor-pointer"
                   >
                     <div className="p-2 rounded bg-blue-50 text-[#063B83] group-hover:bg-[#063B83] group-hover:text-white transition-colors">
                       <Briefcase className="w-4 h-4" />
                     </div>
                     <div>
-                      <p className="text-xs font-bold text-slate-800 group-hover:text-[#063B83]">Why Choose Us</p>
-                      <p className="text-[11px] text-slate-500">Expert consultants & 24/7 delivery</p>
+                      <p className="text-xs font-extrabold text-slate-900 group-hover:text-[#063B83]">Why Choose Us</p>
+                      <p className="text-[11px] font-semibold text-slate-600">Expert consultants & 24/7 delivery</p>
                     </div>
                   </button>
                 </div>
@@ -537,11 +559,7 @@ export const Navbar: React.FC = () => {
 
           <button
             onClick={() => {
-              if (location.pathname === '/') {
-                scrollToSection('contact-cta');
-              } else {
-                navigate('/contact');
-              }
+              navigate('/contact');
             }}
             className={`px-3.5 py-2 text-sm tracking-wide whitespace-nowrap flex-shrink-0 transition-colors cursor-pointer ${isContactActive
               ? 'font-bold text-[#063B83] border-b-2 border-[#063B83]'
@@ -552,14 +570,22 @@ export const Navbar: React.FC = () => {
           </button>
         </nav>
 
-        {/* Mobile Hamburger Toggle */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="lg:hidden p-2 rounded text-slate-700 hover:text-[#063B83] hover:bg-slate-100"
-          aria-label="Toggle menu"
-        >
-          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+        {/* Mobile / Tablet: Active Request Consultation Button + Hamburger */}
+        <div className="flex items-center gap-2 lg:hidden">
+          <button
+            onClick={handleRequestConsultation}
+            className="px-3 py-1.5 bg-[#063B83] hover:bg-[#087FE5] text-white text-xs font-bold rounded shadow-sm transition-colors cursor-pointer"
+          >
+            <span>Request Consultation</span>
+          </button>
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="p-2 rounded text-slate-700 hover:text-[#063B83] hover:bg-slate-100"
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Drawer */}
@@ -570,13 +596,10 @@ export const Navbar: React.FC = () => {
               ZisanTech Solutions
             </span>
             <button
-              onClick={() => {
-                scrollToSection('contact-cta');
-                setMobileMenuOpen(false);
-              }}
-              className="px-3.5 py-1.5 bg-[#063B83] text-white text-xs font-bold rounded shadow-sm"
+              onClick={handleRequestConsultation}
+              className="px-3.5 py-1.5 bg-[#063B83] hover:bg-[#087FE5] text-white text-xs font-bold rounded shadow-sm transition-colors cursor-pointer"
             >
-              Consult Now
+              <span>Request Consultation</span>
             </button>
           </div>
 
@@ -642,7 +665,7 @@ export const Navbar: React.FC = () => {
                           key={s.id}
                           to={`/services/${s.slug}`}
                           onClick={() => setMobileMenuOpen(false)}
-                          className="w-full text-left py-1 text-slate-600 hover:text-[#063B83] block truncate font-medium"
+                          className="w-full text-left py-1 text-slate-900 hover:text-[#063B83] block truncate font-bold text-xs"
                         >
                           • {s.title}
                         </Link>
@@ -652,7 +675,7 @@ export const Navbar: React.FC = () => {
 
                   {/* Enterprise & Cloud Category */}
                   <div>
-                    <div className="flex items-center gap-1.5 font-bold uppercase tracking-wider text-[11px] text-[#087FE5] mb-1.5 pt-1 border-t border-slate-200/60">
+                    <div className="flex items-center gap-1.5 font-extrabold uppercase tracking-wider text-[11px] text-[#087FE5] mb-1.5 pt-1 border-t border-slate-200/60">
                       <Layers className="w-3.5 h-3.5" />
                       <span>Enterprise & Cloud</span>
                     </div>
@@ -662,7 +685,7 @@ export const Navbar: React.FC = () => {
                           key={s.id}
                           to={`/services/${s.slug}`}
                           onClick={() => setMobileMenuOpen(false)}
-                          className="w-full text-left py-1 text-slate-600 hover:text-[#087FE5] block truncate font-medium"
+                          className="w-full text-left py-1 text-slate-900 hover:text-[#087FE5] block truncate font-bold text-xs"
                         >
                           • {s.title}
                         </Link>
@@ -729,7 +752,7 @@ export const Navbar: React.FC = () => {
                             className="text-left p-1.5 rounded-lg bg-white border border-slate-200/80 hover:border-[#087FE5] hover:bg-[#edf5fd] transition-colors block shadow-xs"
                           >
                             <span className="font-extrabold text-[#087FE5] block text-[10px] leading-tight">{code}</span>
-                            <span className="text-slate-700 font-medium truncate block text-[11px] leading-snug">{title}</span>
+                            <span className="text-slate-900 font-bold truncate block text-[11px] leading-snug">{title}</span>
                           </button>
                         );
                       })}
@@ -738,7 +761,7 @@ export const Navbar: React.FC = () => {
 
                   {/* Technical Modules (5) */}
                   <div>
-                    <div className="flex items-center gap-1.5 font-bold uppercase tracking-wider text-[11px] text-[#087FE5] mb-1.5 pt-2 pb-1 border-b border-slate-200/60">
+                    <div className="flex items-center gap-1.5 font-extrabold uppercase tracking-wider text-[11px] text-[#087FE5] mb-1.5 pt-2 pb-1 border-b border-slate-200/60">
                       <Cpu className="w-3.5 h-3.5 text-[#087FE5]" />
                       <span>Technical Modules (5)</span>
                     </div>
@@ -756,7 +779,7 @@ export const Navbar: React.FC = () => {
                             className="text-left p-1.5 rounded-lg bg-white border border-slate-200/80 hover:border-[#087FE5] hover:bg-[#edf5fd] transition-colors block shadow-xs"
                           >
                             <span className="font-extrabold text-[#063B83] block text-[10px] leading-tight">{t.code}</span>
-                            <span className="text-slate-700 font-medium truncate block text-[11px] leading-snug">{t.title}</span>
+                            <span className="text-slate-900 font-bold truncate block text-[11px] leading-snug">{t.title}</span>
                           </button>
                         );
                       })}
@@ -781,29 +804,59 @@ export const Navbar: React.FC = () => {
               )}
             </div>
             <button
-              onClick={() => scrollToSection('industries')}
+              onClick={() => {
+                setMobileMenuOpen(false);
+                navigate('/industries');
+              }}
               className="w-full text-left block px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-[#f5f8fc] rounded"
             >
               Industries We Serve
             </button>
             <button
-              onClick={() => scrollToSection('about')}
+              onClick={() => {
+                setMobileMenuOpen(false);
+                navigate('/about');
+              }}
               className="w-full text-left block px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-[#f5f8fc] rounded"
             >
               About ZisanTech
             </button>
             <button
-              onClick={() => scrollToSection('blogs')}
+              onClick={() => {
+                setMobileMenuOpen(false);
+                navigate('/blog');
+              }}
               className="w-full text-left block px-3 py-2 text-sm font-semibold text-[#087FE5] hover:bg-[#f5f8fc] rounded font-bold"
             >
               Blogs & Insights
             </button>
             <button
-              onClick={() => scrollToSection('contact-cta')}
+              onClick={() => {
+                setMobileMenuOpen(false);
+                navigate('/why-choose-us');
+              }}
+              className="w-full text-left block px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-[#f5f8fc] rounded"
+            >
+              Why Choose Us
+            </button>
+            <button
+              onClick={() => {
+                navigate('/contact');
+                setMobileMenuOpen(false);
+              }}
               className="w-full text-left block px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-[#f5f8fc] rounded"
             >
               Contact Us
             </button>
+            <div className="pt-2">
+              <button
+                onClick={handleRequestConsultation}
+                className="w-full py-2.5 px-4 bg-gradient-to-r from-[#063B83] to-[#087FE5] hover:from-[#087FE5] hover:to-[#063B83] text-white text-xs font-bold rounded-lg shadow-sm flex items-center justify-center gap-2 active:scale-95 transition-all cursor-pointer"
+              >
+                <span>Request Enterprise Consultation</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
           </div>
         </div>
       )}
