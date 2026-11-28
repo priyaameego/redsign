@@ -117,7 +117,7 @@ export const AdminLoginPage: React.FC = () => {
                   type="text"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
-                  placeholder="e.g. priya or admin"
+                  placeholder="e.g. admin or info@zisantech.com"
                   autoComplete="username"
                   required
                   className="w-full pl-10 pr-4 py-3 rounded-xl bg-white/[0.07] border border-white/20 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-[#08B9E8] focus:ring-2 focus:ring-[#08B9E8]/20 transition-all"

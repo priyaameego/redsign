@@ -60,7 +60,7 @@ export const BlogManager: React.FC = () => {
   const [excerpt, setExcerpt] = useState('');
   const [content, setContent] = useState('');
   const [readTime, setReadTime] = useState('6 min read');
-  const [author, setAuthor] = useState('Priya');
+  const [author, setAuthor] = useState('ZisanTech Editorial Team');
   const [date, setDate] = useState(
     new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
   );
@@ -130,7 +130,7 @@ export const BlogManager: React.FC = () => {
     setExcerpt('');
     setContent('');
     setReadTime('6 min read');
-    setAuthor('Priya');
+    setAuthor('ZisanTech Editorial Team');
     setDate(new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }));
     setSeoTitle('');
     setSeoDescription('');
